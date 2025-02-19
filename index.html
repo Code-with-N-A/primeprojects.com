@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Prime Projects - Learn Programming, Build Projects, and Access Developer Tools</title>
+<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+  
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+  
+  <!-- Author -->
+  <meta name="author" content="Prime Projects">
+
+  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:url" content="https://primeprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/">
+
+  <!-- Schema Markup (Structured Data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prime Projects",
+    "url": "https://primeprojects.netlify.app/",
+    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+    "sameAs": [
+      "https://www.facebook.com/primeprojects",
+      "https://twitter.com/primeprojects",
+      "https://www.linkedin.com/company/primeprojects"
+    ],
+    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  }
+  </script>
+
+  <!-- Google Ads Conversion Tracking (Google Ads) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+  </script>
+
+  <!-- Google Analytics (Tracking Website Traffic) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+  </script>
+
+  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Free Programming Courses",
+    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Prime Projects",
+      "url": "https://primeprojects.netlify.app/"
+    }
+  }
+  </script>
+
+  <!--youtub icon start-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!--youtub icon start end-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            .language-marquee {
+            width: 100%;
+            overflow: hidden;
+            background-color: whitesmoke; /* Updated background color */
+            padding: 20px 0;
+            color: black;
+            }
+            
+            .marquee-container {
+            display: flex;
+            flex-direction: column;
+            }
+            
+            .marquee-content, .marquee-content-2 {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee-left 15s linear infinite;
+            }
+            
+            .marquee-content-2 {
+            animation: marquee-right 16s linear infinite;
+            }
+            
+            .marquee-content i, .marquee-content-2 i {
+            font-size: 40px; /* Updated icon size for both lines */
+            margin:  20px;
+            }
+            
+            /* Colors for each icon */
+            .fa-python { color: #306998; }
+            .fa-js-square { color: #f0db4f; }
+            .fa-java { color: #f89820; }
+            .fa-html5 { color: #e34c26; }
+            .fa-css3-alt { color: #264de4; }
+            .fa-php { color: #8993be; }
+            .fa-node { color: #68a063; }
+            .fa-react { color: #61dbfb; }
+            .fa-angular { color: #dd1b16; }
+            .fa-github { color: #4078c0; }
+            .fa-linux { color: #f7d038; }
+            .fa-docker { color: #2496ed; }
+            .fa-rust { color: #000000; }
+            .fa-go { color: #00ADD8; }
+            .fa-swift { color: #F05138; }
+            .fa-kotlin { color: #7F52FF; }
+            .fa-vuejs { color: #4FC08D; }
+            .fa-sass { color: #CC6699; }
+            .fa-typescript { color: #3178C6; }
+            .fa-laravel { color: #FF2D20; }
+            
+            /* Animation for left to right */
+            @keyframes marquee-left {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+            }
+            
+            /* Animation for right to left */
+            @keyframes marquee-right {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+            }
+            
+            
+            body {
+                background-color: #000000;
+                color: white;
+                font-size: 17px;
+                overflow-x: hidden;
+            
+               
+            }
+            @keyframes slideIn {
+            0% {
+            opacity: 0;
+            transform: translateX(-100%); /* Start from the left */
+            }
+            100% {
+            opacity: 1;
+            transform: translateX(0); /* End at normal position */
+            }
+            }
+            
+            
+            
+            /* Hero Section */
+            .hero {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                color: #66fcf1;
+               
+            
+            }
+            
+            .hero::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            
+            .hero h1 {
+                z-index: 1;
+                font-size: 4rem;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                animation: fadeInDown 1s ease forwards;
+            }
+            
+            .hero p {
+                z-index: 1;
+                font-size: 1.5rem;
+                margin-top: 20px;
+                animation: fadeInUp 1.2s ease forwards;
+            }
+            
+            /* Main Content Section */
+            .content {
+                padding: 100px 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+                background-color: whitesmoke;
+            }
+            
+            .content-box {
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                cursor: pointer;
+                color: black;
+            }
+            
+            .content-box:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+                
+            }
+            
+            .content-box h3 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .content-box p {
+                font-size: 1rem;
+                color: #0b0c10;
+            }
+            
+            /* Footer */
+            
+            
+            /* Animations */
+            @keyframes fadeInDown {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fadeInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            /* Toggle Menu */
+            
+            .image-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto; /* Center the container */
+            }
+            
+            .background-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+            
+            .overlay-text {
+            position: absolute;
+            top: 40%; /* Center vertically */
+            left: 30%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust positioning */
+            color: black;
+            text-align: center;
+            width: 90%; /* Make sure text doesn't overflow on small screens */
+            padding: 10px; /* Add some padding */
+            margin-top: 30px;
+            
+            }
+            
+            /* Responsive Text */
+            .overlay-text h1 {
+            font-size: 6vw; /* Font size relative to viewport width */
+            margin: 0;
+            }
+            
+            .overlay-text p {
+            font-size: 3vw; /* Font size relative to viewport width */
+            margin: 10px 0 0 0;
+            margin-bottom: 20px;
+            }
+            
+            /* Media Queries for Smaller Devices */
+            @media (max-width: 768px) {
+            .overlay-text h1 {
+            font-size: 10vw; /* Increase font size on smaller devices */
+            }
+            
+            .overlay-text p {
+            font-size: 6vw; /* Adjust paragraph text size */
+            }
+            }
+            
+            @media (max-width: 480px) {
+            .overlay-text h1 {
+            font-size: 8vw; /* Further increase font size for mobile */
+            }
+            
+            .overlay-text p {
+            font-size: 5vw;
+            }
+            }
+            
+            /* Button Styling */
+            /* Button Styling */
+            .toggle-btn {
+                display: none;
+                position: absolute;
+                top: 5px;
+                right: 0px;
+                width: 40px;
+                height: 30px;
+                cursor: pointer;
+                z-index: 1000;
+                transition: all 0.3s ease;
+              
+               
+               
+            }
+            
+            .toggle-btn div {
+                width: 70%;
+                height: 3px;
+                background-color: rgb(0, 0, 0);
+                margin: 6px 0;
+                transition: all 0.3s ease;
+            
+               
+            }
+            
+            /* Toggle Menu */
+            .toggle-menu {
+                position: fixed;
+                top: 85px;
+                right: -250px;
+                width: 100px;
+                height: 30%;
+                background-color: rgb(0, 0, 0);
+                transition: right 0.5s ease;
+                z-index: 1001;
+                display: flex;
+                flex-direction: column;
+                align-items:  center;
+               
+             
+               
+            }
+            
+            .toggle-menu.active {
+                left: 0;
+              
+            }
+            
+            .toggle-menu a {
+                color: white;
+                text-decoration: none;
+                font-size: 1.5rem;
+                margin: 10px 0;
+                animation: blink 1s infinite alternate;
+                transition: color 0.3s ease;
+                padding: 10px;
+                background-color: black;
+               
+               
+               
+            }
+            
+            .toggle-menu a:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            
+            .toggle-menu a:nth-child(2) {
+                animation-delay: 0.3s;
+            }
+            
+            .toggle-menu a:nth-child(3) {
+                animation-delay: 0.5s;
+            }
+            
+            .toggle-menu a:nth-child(4) {
+                animation-delay: 0.7s;
+            }
+            
+            /* Keyframes for the blinking effect */
+            @keyframes blink {
+                0% {
+                    color: #ffffff;
+                }
+                50% {
+                    color: #2fff00;
+                }
+                100% {
+                    color: #ff0000;
+                }
+            }
+            
+            /* Media Query for the Toggle Button */
+            @media (max-width: 768px) {
+                .toggle-btn {
+                    display: block;
+                }
+            
+                .toggle-menu {
+                    right: -280px;
+                    width: 250px;
+                }
+            
+                .toggle-menu.active {
+                    right: 0;
+                }
+            }
+            /* For Desktop/Laptop Screens */
+            @media (min-width: 769px) {
+                /* Display the menu horizontally for larger screens */
+                .toggle-menu {
+                    position: static;
+                    width: auto;
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    flex-direction: row;
+                    padding: 0;
+                    background-color: transparent;
+                   
+                   
+                }
+            
+                .toggle-btn {
+                    display: none;
+                }
+            
+                .toggle-menu a {
+                    margin: 0 20px;
+                    font-size: 1rem;
+                }
+            }
+            
+            
+            
+            /* Animation for Toggle Button when active */
+            .toggle-btn.active div:nth-child(1) {
+                transform: translateY(11px) rotate(45deg);
+            }
+            
+            .toggle-btn.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .toggle-btn.active div:nth-child(3) {
+                transform: translateY(-11px) rotate(-45deg);
+            }
+            .i img{
+              
+                width: 70px; /* Adjust the size of the logo */
+                height: auto;
+                border-radius: 50%; /* Make the logo circular */
+                border: 2px solid #fff; /* Add border to the logo */
+              
+            }
+            
+            .b button {
+            margin-top: 45%;
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            margin-left: 550px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 0, 0);
+            font-size: larger;
+            border: 2px solid lavender;
+            justify-content: center;
+            align-items: center;
+            }
+            @media (max-width: 1200px) {
+            .b button {
+            margin-top: 45%;
+            color: rgb(255, 255, 255);
+            margin-left: 170px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 0, 0);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            @media (max-width: 1024px) {
+            .b button {
+            margin-top: 45%;
+            color: rgb(255, 255, 255);
+            margin-left: 390px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 0, 0);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            @media (max-width: 768px) {
+            .b button {
+            margin-top: 45%;
+            color: rgb(255, 255, 255);
+            margin-left: 320px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 0, 0);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            
+            @media (max-width: 820px) {
+            .b button {
+            margin-top: 50%;
+            color: rgb(255, 255, 255);
+            margin-left: 330px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 0, 0);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            
+            @media (max-width: 540px) {
+            .b button {
+            margin-top: 40%;
+            color: rgb(255, 255, 255);
+            margin-left: 170px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 14, 29);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            @media (max-width: 1100px) and (max-width: 1280px) {
+            .b button {
+            margin-top: 50%;
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 14, 29);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            @media (max-width: 412px) {
+            .b button {
+            margin-top: 40%;
+            color: rgb(255, 255, 255);
+            margin-left: 170px;
+            border-radius: 20px;
+            border: 8px soli black;
+            background-color: rgb(0, 14, 29);
+            font-size: small;
+            border: 2px solid lavender;
+            }
+            }
+            @media (max-width: 360px) {
+            .b button {
+            margin-top: 40%;
+            color: rgb(255, 255, 255);
+            margin-left: 150px;
+            border-radius: 20px;
+            background-color: rgb(0, 14, 29);
+            font-size: 5.9px;
+            border: 2px solid lavender;
+            }
+            }
+            
+            
+            button:hover{
+            color: black;
+            background-color: #ffffff;
+            border: 2px solid black;
+            }
+            
+            img{
+                width: 100%;
+            }
+            .text{
+                background-color: whitesmoke;
+                color: black;
+                overflow: hidden;
+                padding-top: 40px;
+               
+            }
+            .text h2{
+                padding: 20px;
+            
+            }
+            .text p{
+                padding: 20px;
+                font-size: larger;
+            }
+            
+            .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background-color: lavender;
+            padding: 10px ;
+            
+            }
+            
+            .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 17s linear infinite;
+            }
+            
+            
+            
+            .marquee-content .marquee-item {
+            display: inline-block;
+            background-color: whitesmoke;
+            padding: 30px;
+            margin: 0 20px;
+            width: 150px;
+            text-align: center;
+            border-radius: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .marquee-content .marquee-item img {
+            width: 100%;
+            margin-bottom: 10px;
+            }
+            
+            .marquee-content .marquee-item h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+            }
+            
+            .marquee-content .marquee-item p {
+            font-size: 14px;
+            color: #666;
+            }
+            
+            @keyframes marquee {
+            0% {
+            transform: translateX(100%);
+            }
+            100% {
+            transform: translateX(-100%);
+            }
+            }
+            
+            
+            .fo {
+                width: 100%;
+                background-color: #000000;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            
+            }
+            
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .header h2 {
+                margin: 0;
+                color: white;
+            }
+            
+            
+            .stars {
+                text-align: center;
+                margin: 15px 0;
+            }
+            
+            .stars input[type="radio"] {
+                display: none;
+            }
+            
+            .stars label {
+                font-size: 35px;
+                color: #ccc;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            
+            .stars input[type="radio"]:checked ~ label {
+                color: gold;
+            }
+            
+            .stars input[type="radio"]:checked ~ label:hover {
+                color: darkorange;
+            }
+            
+            .description {
+                text-align: center;
+                margin: 10px 0;
+                font-size: 14px;
+                color: #fff6f6;
+            }
+            
+            .progress-bar-container {
+                margin: 20px 0;
+                width: 80%;
+            }
+            
+            .progress-bar1 {
+                width: 100%;
+                background-color: #000000;
+                overflow: hidden;
+            }
+            
+            .progress1 {
+                width: 0%;
+                height: 10px;
+                background-color: #ee0a3b;
+               
+                transition: width 0.5s ease;
+            }
+            
+            .indicator {
+                text-align: right;
+                font-size: 12px;
+                color: #ffffff;
+               
+            }
+            
+            .feedback-section {
+                margin: 20px 0;
+                text-align: center;
+               
+            }
+            
+            .feedback-section textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                resize: none;
+            }
+            
+            .button-container {
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .submit-btn {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            
+            .submit-btn:hover {
+                background-color: #0056b3;
+            }
+            
+            .reset-btn {
+                padding: 10px 20px;
+                background-color: #ff4d4d;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            
+            .reset-btn:hover {
+                background-color: #cc0000;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            form input, form textarea {
+                margin-bottom: 10px;
+                width: 95%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+            
+            form input[type="submit"] {
+                width: auto;
+                background-color: #ff9800;
+                color: white;
+                cursor: pointer;
+            }
+            
+            form input[type="submit"]:hover {
+                background-color: #ff9800;
+            }
+            
+            .badge-progress {
+                background-color: #e0e0e0;
+                overflow: hidden;
+                margin: 10px 0;
+            }
+            
+            .progress-bar {
+                width: 0;
+                height: 7px;
+                background-color: #4caaaf;
+                border-radius: 10px;
+                transition: width 0.5s ease;
+            }
+            .badge-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: black;
+            }
+            
+            .badge-stats {
+                font-size: 14px;
+                margin-bottom: 10px;
+                color: black;
+            }
+            
+            .badge-stats span {
+                font-weight: bold;
+                color: #007bff;
+            }
+            
+            
+            footer {
+                background-color: #000000;
+                color: #fff;
+                padding: 50px 0;
+                font-size: 16px;
+                font-family: Arial, sans-serif;
+            }
+            
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            
+            .footer-section {
+                width: 25%;
+                padding: 20px;
+            }
+            
+            .footer-section h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+                color: #ff9800;
+            }
+            
+            .footer-section p, .footer-section a {
+                color: #ffffff;
+                margin-bottom: 10px;
+                text-decoration: none;
+            }
+            
+            .footer-section a:hover {
+                color: #ff9800;
+            }
+            
+            .social-icons a {
+                color: #43d45e;
+                font-size: 28px;
+                margin: 0 10px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+               
+            }
+            
+            .social-icons a:hover {
+                color: #ff9800;
+            }
+            
+            .footer-menu ul {
+                list-style: none;
+            }
+            
+            .footer-menu ul li {
+                margin-bottom: 10px;
+            }
+            
+            .newsletter input[type="email"] {
+                padding: 10px;
+                border: none;
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter button {
+                padding: 10px 20px;
+                border: none;
+                background-color: #ff9800;
+                color: #fff;
+                cursor: pointer;
+            }
+            
+            .newsletter button:hover {
+                background-color: #e67e00;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #444;
+                color: #aaa;
+                font-size: 14px;
+            }
+            
+            @media(max-width: 768px) {
+                .footer-section {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+            
+             /* Modal styles */
+             .modal {
+                display: none; /* Hidden by default */
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+            }
+            
+            .modal-content {
+                background-color: white;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 500px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+                color: rgb(0, 0, 0);
+            }
+            
+            /* Close button */
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            
+            .close:hover,
+            .close:focus {
+                color: black;
+            }
+            
+            /* Blinking "NEW" message */
+            .blink {
+                font-weight: bold;
+                color: red;
+                animation: blink-animation 1s steps(5, start) infinite;
+            }
+            
+            @keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+            }
+            
+            /* Modal open button */
+            #openModalBtn {
+                display: none;
+            }
+            
+            /* may project h1 */
+            .pro{
+                background-color: whitesmoke; /* Updated background color */
+                padding: 20px;
+                color: black;
+            }
+            .pro h1{
+                text-align: center;
+                padding: 20px;
+            }
+            .pro p{
+                text-align: left;
+            }
+            
+            /*sliding img start*/
+            .slider-container {
+                position: relative;
+                width: 100%;
+                max-width: 1500px;
+                overflow: hidden;
+            }
+            
+            .slider {
+                display: flex;
+                transition: transform 1s ease;
+               
+               
+            }
+            
+            .slider-item {
+                flex: 0 0 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background:linear-gradient(45deg, #f0f8ff, #e0f7fa);
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.5s ease, opacity 0.5s ease;
+                color: black;
+                padding: 10px;
+            }
+            
+            .slider-item:hover {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            
+            .slider-item img {
+                max-width: 20%;
+                height: auto;
+                border-radius: 10px;
+                margin-right: 20px;
+                transition: width 0.5s ease, height 0.5s ease;
+            }
+            
+            .slider-item h3 {
+                margin-top: 15px;
+                font-size: 2rem; 
+            }
+            
+            .slider-item p {
+                font-size: 1.1rem;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+               
+            }
+            
+            .slider-item-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+            
+            .slider-item-text {
+                flex: 1;
+                padding: 10px;
+                max-width: 50%;
+            }
+            
+            /* Responsive styling */
+            @media (max-width: 768px) {
+                .slider-item h3 {
+                    font-size: 1.5rem;
+                }
+            
+                .slider-item p {
+                    font-size: 1rem;
+                }
+            
+                .slider-item img {
+                    max-width: 50%; /* Image takes up 50% of the width */
+                    margin-right: 10px;
+                }
+            
+                .slider-item-text {
+                    width: 50%; /* Text takes up 50% of the width */
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .slider-item h3 {
+                    font-size: 1.2rem;
+                }
+            
+                .slider-item p {
+                    font-size: 0.9rem;
+                }
+            
+                .slider-item img {
+                    max-width: 50%; /* Image takes up 50% of the width */
+                    margin-right: 10px;
+                }
+            
+                .slider-item-text {
+                    width: 50%; /* Text takes up 50% of the width */
+                }
+            }
+            
+            /* Dots for current slide indicator */
+            .dots-container {
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .dot {
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                margin: 0 5px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                transition: background-color 0.3s ease;
+                border: 2px solid black;
+            }
+            
+            .active-dot {
+                background-color: #00f2ff;
+               
+            }
+            
+            /*sliding img and*/
+            .sin button{
+            
+            padding: 10px;
+            background-color: #000000;
+            border-radius: 12px;
+            border: 2px solid rgb(7, 183, 237);
+            font-size: 1rcap;
+            color: lavender;
+            font-size: 0.9ric;
+            font-weight: bold;
+            }
+            .sin button:hover {
+            background-color: #68d1f4;
+            color: #000000;
+            
+            }
+            
+            </style>   
+</head>
+<body>
+    <!-- sarchbar -->
+    <link rel="stylesheet" href="srach.css">
+   
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css">
+  <script src="loder.js"></script>
+  <div id="load-screen">
+     <div class="circle-animation"></div>
+     <div class="loading-text">primeprojects...</div>
+   </div>
+ <!-- Loader Wrapper and -->
+
+ <script src="sarch.js"></script>
+ <script src="sin.js"></script>
+ 
+     <!-- Modal structure -->
+     <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Latest Updates</h2>
+            <div id="updatesContainer"></div>
+        </div>
+    </div>
+    <!--srch bar-->
+    <div class="container">
+        <div class="i">
+            <img src="img/logo2.png" alt="logo">
+    
+           </div>
+       
+        <div class="search-container" id="searchContainer">
+          <input type="text" class="search-bar" id="searchInput" placeholder="Search..." oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
+          <span class="search-icon" onclick="performSearch()">&#128269;</span>
+          <div class="suggestions" id="suggestions"></div>
+        </div>
+        <div class="sin">
+            <button onclick="sinUp()">SignUp</button>
+           </div>
+      </div>
+
+      <!--img sliding code  Start-->
+      <div class="slider-container">
+        <div class="toggle-btn" id="toggle-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <!-- Toggle Menu -->
+        <div class="toggle-menu" id="toggle-menu">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="servises.html">Services</a>
+            <a href="contect.html">Contact</a>
+        </div>
+       
+        <div class="slider">
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPecz7s4CAL29Q8XVWUvDsmst7QQzWUZJMKg&s" alt="Image 1">
+                    <div class="slider-item-text">
+                        <h3>DeepSeek AI V/S ChatGPT</h3>
+                        <p>
+                            <strong>DeepSeek AI</strong> is affordable, while <strong>ChatGPT</strong> offers advanced features.                        
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQHmt2HavWsIoQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1697380698315?e=2147483647&v=beta&t=eBTgOHI4XcavXC-3v_H83FU18rJtEzYm-q08a8eBHWY" alt="Image 2">
+                    <div class="slider-item-text">
+                        <h3>Generative AI</h3>
+                        <p>It is refers to models that can create new content such as images text and music based on learned patterns from existing data.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://datablaze.com/wp-content/uploads/2022/03/what-is-5G-1024x608.webp" alt="Image 3">
+                    <div class="slider-item-text">
+                        <h3>5G technology</h3>
+                        <p>5G technology provides faster speeds, lower latency, and enhanced connectivity for advanced applications.</p>
+                    </div> 
+                   </div>         
+            </div>
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://www.sysinfotools.com/asset/img/when-to-use/Pdf-to-Jpg.webp" alt="Image 3">
+                    <div class="slider-item-text">
+                        <h3>PDFshift</h3>
+                        <p>
+                            <strong>PDFshift</strong> converts PDFs to high-quality images with easy page selection and quick downloads.
+                        </p>
+                    </div>          
+            </div>
+        </div>
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://media.istockphoto.com/id/1401555201/photo/weak-password-words-on-the-screen-in-the-dark.jpg?s=612x612&w=0&k=20&c=zwD3wXz5fBNCXCULLMTfsYbi9vtoPnMrvCfHG1KuatE=" alt="Image 3">
+                    <div class="slider-item-text">
+                        <h3>Password Strength</h3>
+                        <p>Secure your digital world with a strong password because your online safety and privacy matter!</p>
+
+                    </div>          
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Dots indicator below slider -->
+    <div class="dots-container">
+        <span class="dot" id="dot1"></span>
+        <span class="dot" id="dot2"></span>
+        <span class="dot" id="dot3"></span>
+        <span class="dot" id="dot4"></span>
+        <span class="dot" id="dot5"></span>
+    </div>
+    <!--img sliding code AND-->
+      
+    
+  
+     <div class="image-container">
+       
+        <img class="background-image" src="img/prime1+1.png" alt="img">
+        <div class="overlay-text">
+           
+
+          
+            <div class="b">
+                <button onclick="explor()">Explore More</button>
+            </div>
+                
+           </div>
+    </div>
+   
+    <div class="text">
+        <h2>PrimeProjects</h2>
+        <p><strong style="color: red;">CodeWith_N.A </strong>is your one-stop destination for mastering programming. We provide comprehensive tutorials, real-world projects, and coding challenges designed for both <strong>beginners and experienced developers.</strong> Our platform covers a variety of programming languages, helping you enhance your skills and build practical solutions. With interactive tools and a supportive community, you'll have everything you need to excel in coding. Start your programming journey with us today and unlock your full potential as a coder!</p>
+    </div>
+   
+ <!--indicatar of may web start-->
+ <link rel="stylesheet" href="indicatar.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div id="dashboard">
+    <button id="darkModeToggle" class="togo">Theme</button>
+
+    <div class="stats">
+        <div class="stat">
+            <p>Total Users</p>
+            <p class="number" id="totalUsers"></p>
+        </div>
+        <div class="stat">
+            <p>New Users</p>
+            <p class="number" id="newUsers"></p>
+            <p id="growthRate">Growth Rate: %</p>
+        </div>
+        <div class="stat">
+            <p>Active Users</p>
+            <p class="number" id="activeUsers"></p>
+            <p id="averageSessionTime">Avg Session Time:  min</p>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <canvas id="userChart"></canvas>
+    <canvas id="userLocationChart"></canvas>
+    <canvas id="userTrendChart"></canvas>
+
+    <div class="spinner" id="loadingSpinner">
+        <img src="https://www.w3.org/2000/svg" alt="Loading..." />
+    </div>
+
+   
+</div>
+
+<!--indicatar of may web end-->
+
+<div class="language-marquee">
+    <div class="marquee-container">
+      <!-- First Line - Right to Left -->
+      <div class="marquee-content">
+        <i class="fab fa-python"></i>
+        <i class="fab fa-js-square"></i>
+        <i class="fab fa-java"></i>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-php"></i>
+        <i class="fab fa-node"></i>
+        <i class="fab fa-react"></i>
+        <i class="fab fa-angular"></i>
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linux"></i>
+      </div>
+  
+      <!-- Second Line - Left to Right -->
+      <div class="marquee-content-2">
+        <i class="fab fa-docker"></i>
+        <i class="fab fa-rust"></i>
+        <i class="fab fa-go"></i>
+        <i class="fab fa-swift"></i>
+        <i class="fab fa-kotlin"></i>
+        <i class="fab fa-vuejs"></i>
+        <i class="fab fa-angular"></i>
+        <i class="fab fa-sass"></i>
+        <i class="fab fa-typescript"></i>
+        <i class="fab fa-laravel"></i>
+        <i class="fab fa-bookmark"></i>
+      </div>
+    </div>
+  </div>
+  <video width="100%" controls autoplay loop>
+    <source src="img/Black and Blue Neon Technology Video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<div class="text">
+    <h2>Discover Projects to Boost Your Coding Expertise</h2>
+    <p>At <strong style="color: red;">CodeWitg_N.A</strong>, we offer a variety of coding projects to enhance your development skills.<strong>Explore our task manager, full_stack, bill generation system</strong>, and other feature-rich applications that cover front-end, back-end, and database integration. These projects will give you practical experience in building dynamic and scalable web applications. Whether you're a beginner or an advanced developer, our projects are designed to take your coding skills to the next level. Start your journey with our hands-on projects today!
+        </p>
+</div>
+<video width="100%" id="myVideo" controls autoplay loop>
+    <source src="img/may video.mp4" type="video/mp4">
+</video>
+
+
+    <section class="content">
+        <div class="content-box">
+            <img src="img/Untitled.jpg" alt="img">
+            <h3>Exclusive Design</h3>
+            <p>Our designs are carefully crafted to make an impact and leave a lasting impression.</p>
+        </div>
+        <div class="content-box">
+            <img src="img/istockphoto-1371339413-612x612.jpg" alt="img">
+            <h3>Premium Features</h3>
+            <p>Experience cutting-edge features that elevate your web presence to the next level.</p>
+        </div>
+        <div class="content-box">
+            <img src="img/web-development-coding-programming-internet-technology-business-concept-web-development-coding-programming-internet-technology-122084136.webp" alt="img">
+            <h3>Custom Solutions</h3>
+            <p>Tailor-made solutions that perfectly match your brand and business objectives.</p>
+        </div>
+        
+        </div>
+        </section>
+
+      
+        <div class="pro"><h1>My real life Projects</h1><br>
+            <ul>
+                <li><strong>Smart Task Manager</strong> - A productivity tool designed to help users efficiently organize and track their daily tasks with smart reminders and notifications.</li><br>
+                <li><strong>Online Learning Platform</strong> - A web-based platform to provide interactive courses with quizzes and video lectures to enhance learning experiences.</li><br>
+                <li><strong>Real-time Weather App</strong> - An application that provides accurate weather forecasts using live data feeds, helping users stay prepared for any weather condition.</li><br>
+                <li><strong>E-Commerce Solution</strong> - A complete online store system that integrates product management, payment gateway, and customer support features.</li><br>
+                <li><strong>Inventory Management System</strong> - A tool for businesses to streamline their inventory, track stock levels, and manage orders seamlessly.</li><br>
+                <li><strong>Healthcare Appointment Booking</strong> - A system that allows patients to book appointments with healthcare professionals easily, reducing wait times and improving scheduling efficiency.</li><br>
+                <li><strong>Personal Finance Tracker</strong> - An app designed to help individuals manage their finances by tracking expenses, setting budgets, and analyzing spending patterns.</li><br>
+                <li><strong>Social Media Dashboard</strong> - A tool for businesses to manage multiple social media accounts, track engagement, and analyze metrics from one platform.</li><br>
+            </ul>
+            
+        
+        </div>
+        <section class="content">
+        <div class="content-box" onclick="PaperLibrary(PaperLibrary)">
+            <img src="img/homeexam.jpg" alt="img">
+            <h3>PaperLibrary - Access Exam Papers Anytime</h3>
+            <p>  PaperLibrary offers a comprehensive collection of previous years' exam papers for various subjects. </p>
+        </div>
+   
+        <div class="content-box" onclick="imgspdf(imgspdf)">
+            <img src="img/img to  pdf 1.jpg" alt="img">
+            <h3>Images 5G pdf</h3>
+            <p>Images 5G PDF offers a fast and efficient way to convert multiple images into a single PDF document. Easily organize and merge your images into a professional PDF format with just a few clicks.</p>
+        </div>
+        <div class="content-box" onclick="CodingBlueprint('Roode_Map.html')">
+            <img src="img/rood_map.jpg" alt="img">
+            <h3>The Coding Blueprint</h3>
+            <p>I have created a comprehensive roadmap for all coding-related subjects that will simplify and enhance your learning journey.</p>
+        </div>
+        <div class="content-box" onclick="blogs('blog.html')">
+            <img src="img/blog.jpg" alt="img">
+            <h3>Latest Tech Insights</h3>
+            <p>Discover the most up-to-date and informative blogs on technology, coding, and industry trends. Our content is designed to keep you ahead in the world of innovation and development. Stay informed, stay inspired.</p>
+            </div>
+        <div class="content-box" onclick="password('password_chekar.html')">
+            <img src="https://cdn.sanity.io/images/3jwyzebk/production/9839060577d7181a25556c20cb1e8c376a8b4795-1510x904.png?auto=format&fit=max&w=1920&q=75" alt="img">
+            <h3>Password Strength</h3>
+            <p>Secure your digital world with a password that’s as strong as your protection needs – because your security matters!</p><br>
+            <!--video youtub start-->
+            </p><a href="https://youtu.be/9XmXfG9OJmQ?si=Hv4wkrAwcY1uYFrx"><div id="ico" class="fab fa-youtube"></div></a><br>
+
+                <!--video youtub end-->
+        </div>
+        <div class="content-box" onclick="PDFshift('pdf_to_img')">
+            <img src="https://www.sysinfotools.com/asset/img/when-to-use/Pdf-to-Jpg.webp" alt="img">
+            <h3>PDFshift</h3>
+            <p>
+                <strong>PDFshift</strong> is a tool for converting PDFs to high-quality images (PNG, JPG). It offers easy page selection, HD conversion, and quick downloads for a seamless user experience.
+              
+            </p><br>
+             <!--video youtub start-->
+            <a href="https://youtu.be/en0m6psidOM?si=1Y9o7_7Lr7Fs3Dep"><div id="ico" class="fab fa-youtube"></div></a><br>
+             <!--video youtub end-->
+            </div>
+
+        <div class="content-box" onclick="Invoicify('pdf_to_img')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
+            <h3>Accounts Management</h3>
+            <p>
+                <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
+            </p><br>
+            <!--video youtub start-->
+            <link rel="stylesheet" href="youtub_video.css">
+            </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu"><div id="ico" class="fab fa-youtube"></div></a><br>
+
+          <!--video youtub end-->
+             </div>
+    </section>
+    
+<div class="marquee-wrapper">
+    <div class="marquee-content">
+      <!-- First Div -->
+      <div class="marquee-item">
+       
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+            <div class="badge-title">Python</div>
+            <div class="badge-stats">Projects: <span>10</span></div>
+            <div class="badge-progress">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+       
+      </div>
+  
+      <!-- Second Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
+                <div class="badge-title">JavaScript</div>
+                <div class="badge-stats">Projects: <span>15</span></div>
+                <div class="badge-progress">
+                    <div class="progress-bar" style="width: 65%;"></div>
+                </div>
+      </div>
+  
+      <!-- Third Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
+                <div class="badge-title">HTML & CSS</div>
+                <div class="badge-stats">Projects: <span>20</span></div>
+                <div class="badge-progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+      </div>
+  
+      <!-- Fourth Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo">
+                <div class="badge-title">C++</div>
+                <div class="badge-stats">Projects: <span>8</span></div>
+                <div class="badge-progress">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                </div>
+      </div>
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby Logo">
+        <div class="badge-title">Ruby</div>
+                <div class="badge-stats">Projects: <span>8</span></div>
+                <div class="badge-progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+     
+      </div>
+    </div>
+    </div>
+
+
+  <div class="fo">
+    <div class="header">
+        <h2>Rate This Website</h2>
+    </div>
+
+    <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
+        <!-- Rating Stars -->
+        <div class="stars">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+        </div>
+
+        <!-- Description -->
+        <p class="description">Please give your valuable rating for this Website.</p>
+
+        <!-- Progress Bar (Indicator) -->
+        <div class="progress-bar-container">
+            <div class="progress-bar1">
+                <div class="progress1" id="progress"></div>
+            </div>
+            <div class="indicator" id="indicator">0% Rated</div>
+        </div>
+
+        <!-- Name and Email -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <!-- Feedback Section -->
+        <textarea name="feedback" rows="3" placeholder="Provide your feedback..."></textarea>
+        <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+        <!-- Submit Button -->
+        <input type="submit" value="Submit Rating">
+    </form>
+
+    <div class="button-container">
+        <button class="reset-btn" onclick="resetForm()">Reset</button>
+    </div>
+</div>
+  
+
+<footer>
+    <div class="footer-container">
+
+        <!-- About Section -->
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.</p>
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="https://t.me/CodwithNA" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-linkedin-in"></a>
+                <a href="https://github.com/" class="fab fa-github"></a>
+                <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69" class="fab fa-youtube"></a> 
+                <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a> 
+               
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:codewithna73@gmail.com">codewithna73@gmail.com</a></p>
+            <p>Phone: <a href="tel:+919303546247">9303546247</a></p>
+            <p>Address: mp balaghat katangi 481449</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section footer-menu">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="explor.html">Blogs</a></li>
+                <li><a href="contect.html">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-section newsletter">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter to get the latest updates directly to your inbox.</p>
+            <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
+                <input  type="email" placeholder="Enter your email">
+                <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const toggleMenu = document.getElementById('toggle-menu');
+
+        toggleBtn.addEventListener('click', function() {
+            toggleMenu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+        });
+
+        function explor (){
+            window.location.href="explor.html";
+        }
+
+
+         // Video ko observe karne ke liye Intersection Observer banaye
+         const video = document.getElementById('myVideo');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            video.play(); // Video visible hone par play kare
+        } else {
+            video.pause(); // Video hidden hone par pause kare
+        }
+    });
+});
+
+// Video element ko observe karein
+observer.observe(video);
+
+
+// indicetor 
+const stars = document.querySelectorAll('.stars input');
+        const progress = document.getElementById('progress');
+        const indicator = document.getElementById('indicator');
+        let ratingValue = 0;
+
+        stars.forEach((star) => {
+            star.addEventListener('change', () => {
+                ratingValue = star.value * 20; // Convert star rating to percentage
+                progress.style.width = ratingValue + '%';
+                indicator.innerText = ratingValue + '% Rated';
+            });
+        });
+
+        function resetForm() {
+            document.querySelector('form').reset(); // Reset the form
+            progress.style.width = '0%';
+            indicator.innerText = '0% Rated';
+        }
+
+
+         // Updates array containing messages and their corresponding URLs
+         const updates = [
+            { message: "New feature: Accounts Management", url: "worck.html" },
+            { message: "New feature: PDFshift", url: "pdf_to_img.html" },
+            { message: "New feature: Password Strength", url: "password_chekar.html" },
+            { message: "New feature: Latest Blogs", url: "blog.html" },
+            { message: "New feature: The Coding Blueprint ", url: "Roode_Map.html" },
+            
+        ];
+
+        // Function to display updates in the modal
+        function showUpdates() {
+            const updatesContainer = document.getElementById('updatesContainer');
+            updates.forEach(update => {
+                const updateElement = document.createElement('p');
+                updateElement.innerHTML = `${update.message} <a href="${update.url}" class="blink" target="_blank">NEW</a>`;
+                updatesContainer.appendChild(updateElement);
+            });
+
+            // Display the modal
+            document.getElementById('updateModal').style.display = 'block';
+        }
+
+        // Close the modal when user clicks the close button
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('updateModal').style.display = 'none';
+        };
+
+        // Close the modal if user clicks anywhere outside of the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('updateModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // Call the function when the page loads
+        window.onload = showUpdates;
+
+      
+    
+        // The Coding Blueprint
+        function PaperLibrary(PaperLibrary) {
+    window.location.href = "paper.html";
+}
+        // The Coding Blueprint
+        function imgspdf(Imagespdf) {
+    window.location.href = "img_to_pdf_5G.html";
+}
+
+    // The Coding Blueprint
+    function CodingBlueprint(Roode_Maphtml) {
+    window.location.href = "Roode_Map.html";
+}
+    //  blogs
+    function blogs(blog) {
+    window.location.href = "blog.html";
+}
+    //  password chakar
+    function password(password) {
+    window.location.href = "password_chekar.html";
+}
+    //  pdf_to_img.html
+    function PDFshift(PDFshift) {
+    window.location.href = "pdf_to_img.html";
+}
+    //  pdf_to_img.html
+    function Invoicify(Invoicify) {
+    window.location.href = "worck.html";
+}
+
+
+//sliding img strt
+
+        const slider = document.querySelector('.slider');
+        const dots = document.querySelectorAll('.dot'); // Dots for slide indicator
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.slider-item');
+        const totalItems = items.length;
+
+        // Clone the first item and append it to the end of the slider for infinite loop
+        const firstItem = items[0].cloneNode(true);
+        slider.appendChild(firstItem);
+
+        // Function to move the slider
+        function moveSlider() {
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+
+            // Update active dot
+            updateActiveDot();
+        }
+
+        // Function to update active dot
+        function updateActiveDot() {
+            // Remove active class from all dots
+            dots.forEach(dot => dot.classList.remove('active-dot'));
+
+            // Add active class to the current dot
+            dots[currentIndex].classList.add('active-dot');
+        }
+
+        // Handle touch or mouse swipe
+        let startX = 0;
+        let endX = 0;
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        slider.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX > endX) {
+                // Swipe left (next slide)
+                currentIndex = (currentIndex + 1) % (totalItems + 1);
+                moveSlider();
+            } else if (startX < endX) {
+                // Swipe right (previous slide)
+                currentIndex = (currentIndex - 1 + totalItems + 1) % (totalItems + 1);
+                moveSlider();
+            }
+        });
+
+        // Handle mouse drag (for desktop users)
+        let isDragging = false;
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                endX = e.clientX;
+            }
+        });
+
+        slider.addEventListener('mouseup', () => {
+            if (isDragging) {
+                if (startX > endX) {
+                    // Drag left (next slide)
+                    currentIndex = (currentIndex + 1) % (totalItems + 1);
+                    moveSlider();
+                } else if (startX < endX) {
+                    // Drag right (previous slide)
+                    currentIndex = (currentIndex - 1 + totalItems + 1) % (totalItems + 1);
+                    moveSlider();
+                }
+                isDragging = false;
+            }
+        });
+
+        // Automatic Slider without reversing
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % (totalItems + 1);
+            moveSlider();
+
+            if (currentIndex === totalItems) {
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    slider.style.transform = `translateX(0%)`;
+                    currentIndex = 0;
+                    setTimeout(() => {
+                        slider.style.transition = 'transform 1s ease';
+                    }, 50);
+                }, 1000);
+            }
+        }
+
+        // Set interval for automatic sliding
+        setInterval(autoSlide, 5000); // Slide every 3 seconds
+
+        // Initially update the active dot
+        updateActiveDot();
+
+
+
+        // indiketar start
+         // Dark Mode Persistence
+         if(localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        // Data Initialization
+        let totalUsers = 0, newUsers = 0, activeUsers = 0;
+        let previousNewUsers = newUsers;
+        let totalSessionTime = 0, userSessions = 0;
+        let monthsData = [];  // Stores active user data per month
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        // February (current month) and last 5 months
+        const monthsToTrack = [new Date().getMonth(), new Date().getMonth() - 1, new Date().getMonth() - 2, new Date().getMonth() - 3, new Date().getMonth() - 4, new Date().getMonth() - 5];
+        const wrappedMonths = monthsToTrack.map(month => month < 0 ? month + 12 : month);
+
+        // Set initial months data
+        wrappedMonths.forEach((month, index) => {
+            monthsData[index] = { month: months[month], users: Math.floor(Math.random() * 100) };
+        });
+
+        // Simulating random data for User Location distribution
+        function randomUserLocationData() {
+            return [
+                Math.floor(Math.random() * 100),
+                Math.floor(Math.random() * 100),
+                Math.floor(Math.random() * 100),
+                Math.floor(Math.random() * 100)
+            ];
+        }
+
+        // Fetching data at regular intervals
+        setInterval(() => {
+            totalUsers += Math.floor(Math.random() * 10);
+            newUsers += Math.floor(Math.random() * 5);
+            activeUsers += Math.floor(Math.random() * 5);
+
+            let growthRate = ((newUsers - previousNewUsers) / previousNewUsers) * 100;
+            previousNewUsers = newUsers;
+
+            let sessionTime = Math.floor(Math.random() * 60);
+            totalSessionTime += sessionTime;
+            userSessions++;
+            let averageSessionTime = totalSessionTime / userSessions;
+
+            // Update the stats in HTML
+            document.getElementById('totalUsers').textContent = totalUsers;
+            document.getElementById('newUsers').textContent = newUsers;
+            document.getElementById('activeUsers').textContent = activeUsers;
+            document.getElementById('growthRate').textContent = `Growth Rate: ${growthRate.toFixed(2)}%`;
+            document.getElementById('averageSessionTime').textContent = `Avg Session Time: ${averageSessionTime.toFixed(2)} min`;
+
+            // Update Monthly Data (simulating arrival of new active users each month)
+            const newMonthData = { month: months[wrappedMonths[0]], users: activeUsers };
+            monthsData.unshift(newMonthData);
+            if (monthsData.length > 6) {
+                monthsData.pop();
+            }
+
+            // Update Trend Chart with new user data for each month
+            userTrendChart.data.labels = monthsData.map(data => data.month);
+            userTrendChart.data.datasets[0].data = monthsData.map(data => data.users);
+            userTrendChart.update();
+
+            // Update Stats Bar Chart with new user data
+            userChart.data.datasets[0].data = [totalUsers, newUsers, activeUsers];
+            userChart.update();
+
+            // Update User Location Chart (Pie chart data update)
+            userLocationChart.data.datasets[0].data = randomUserLocationData();
+            userLocationChart.update();
+
+        }, 6000); // Every 3 seconds data updates
+
+        // Chart.js Configuration for User Stats (Bar Chart)
+        var userChart = new Chart(document.getElementById('userChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Total Users', 'New Users', 'Active Users'],
+                datasets: [{
+                    label: 'Users',
+                    data: [totalUsers, newUsers, activeUsers],
+                    backgroundColor: ['#FF5733', '#33FF57', '#5733FF'],
+                    borderColor: ['#FF5733', '#33FF57', '#5733FF'],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+
+        // User Location Chart (Pie Chart)
+        var userLocationChart = new Chart(document.getElementById('userLocationChart').getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: ['USA', 'India', 'Europe', 'Others'],
+                datasets: [{
+                    label: 'User Distribution',
+                    data: randomUserLocationData(), // Initial random data
+                    backgroundColor: ['#FF5733', '#33FF57', '#5733FF', '#FFBD33'],
+                }]
+            }
+        });
+
+        // User Trend Chart (Line Chart for Active Users)
+        var userTrendChart = new Chart(document.getElementById('userTrendChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: monthsData.map(data => data.month),
+                datasets: [{
+                    label: 'Active Users Over Time',
+                    data: monthsData.map(data => data.users),
+                    fill: false,
+                    borderColor: '#4CAF50',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // Export data to CSV
+        function exportToCSV() {
+            const data = `Total Users,New Users,Active Users\n${totalUsers},${newUsers},${activeUsers}\n`;
+            const blob = new Blob([data], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.setAttribute('href', URL.createObjectURL(blob));
+            link.setAttribute('download', 'user_data.csv');
+            link.click();
+        }
+
+
+        //indicator and
+
+       
+    </script>
+
+</body>
+</html>

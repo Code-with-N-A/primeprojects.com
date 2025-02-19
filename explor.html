@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>primeprojects Explore</title>
+<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+  
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+  
+  <!-- Author -->
+  <meta name="author" content="Prime Projects">
+
+  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:url" content="https://primeprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/">
+
+  <!-- Schema Markup (Structured Data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prime Projects",
+    "url": "https://primeprojects.netlify.app/",
+    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+    "sameAs": [
+      "https://www.facebook.com/primeprojects",
+      "https://twitter.com/primeprojects",
+      "https://www.linkedin.com/company/primeprojects"
+    ],
+    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  }
+  </script>
+
+  <!-- Google Ads Conversion Tracking (Google Ads) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+  </script>
+
+  <!-- Google Analytics (Tracking Website Traffic) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+  </script>
+
+  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Free Programming Courses",
+    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Prime Projects",
+      "url": "https://primeprojects.netlify.app/"
+    }
+  }
+  </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: black;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid #2f2f2f;
+            position: relative;
+            margin-bottom: 40px;
+            
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: black;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            padding: 10px 20px;
+            background-color: #f7b731;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            background-color: #ffcc33;
+        }
+
+        .icon-bar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-bar i {
+            font-size: 18px;
+            color: #f7b731;
+            cursor: pointer;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .icon-bar i:hover {
+            color: #ffcc33;
+            transform: scale(1.2);
+        }
+
+        #alertBox {
+            overflow: hidden;
+            
+            width: 90%;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333333;
+            color: #f7b731;
+            padding: 25px;
+            border-radius: 10px;
+            z-index: 1000;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8);
+            overflow: scroll;
+        }
+
+        #alertBox p {
+            font-size: 18px;
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #f7b731;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .close-btn:hover {
+            background-color: #ffcc33;
+        }
+        footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Responsive behavior ke liye */
+    justify-content: space-between; /* Space ko achhe se distribute karne ke liye */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Extra padding for responsiveness */
+    box-sizing: border-box;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+    min-width: 250px; /* Small screens ke liye minimum width */
+    box-sizing: border-box;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #f1c40f;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #bbb;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #f1c40f;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    gap: 15px; /* Space between icons */
+}
+
+.footer-section .social-icons a {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-section .social-icons a:hover {
+    color: #f1c40f;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Large Tablets and Smaller Desktops */
+@media (max-width: 1024px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+        max-width: 100%;
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .footer-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .footer-section {
+        min-width: 100%; /* Full width for small screens */
+        text-align: center; /* Center text on small screens */
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.9rem;
+    }
+
+    .footer-section .social-icons a {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 0;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+   <!-- Loader Wrapper strat -->
+ <link rel="stylesheet" href="loder.css">
+ <script src="loder.js"></script>
+ <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
+<!-- Loader Wrapper and -->
+  
+    <h1>Explore More Blogs</h1>
+
+    <div class="container">
+        <!-- Blog Post 1 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/images5.jpg" alt="Blog 1">
+            <div class="card-content">
+                <h2>Task Manager</h2>
+                <p>The Task Manager also includes additional functionalities like collaboration tools, task delegation, and custom labels. You can easily assign tasks to team members, track their work, and adjust priorities as needed.
+                </p><br>
+                <a href="task_menegar.html" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/images7.jpg" alt="Blog 2">
+            <div class="card-content">
+                <h2>bill generater</h2>
+                <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p><br>
+                <a href="biling.html" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/Untitled2.png" alt="Blog 3">
+            <div class="card-content">
+                <h2>Full Stack Development</h2>
+                <p>Full Stack Development is a highly sought-after skill in web development. A Full Stack Developer is someone who can work on both the front-end and back-end parts of an application.</p><br>
+                <a href="full_stack.html" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <!-- Blog Post 4 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/maxresdefault.jpg" alt="Blog 3">
+            <div class="card-content">
+                <h2>Birthday Countdown Timer</h2>
+                <p>Birthday Timer: The Birthday Timer is a convenient tool that helps you count down the time left until your birthday. show the precise number of days, hours, minutes, and seconds until your celebration begins.</p><br>
+               
+                <a href="birthdy.html" class="read-more">Read More</a>
+            </div>
+        </div>
+        <!-- Blog Post 4 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/QR.jpg" alt="Blog 3">
+            <div class="card-content">
+                <h2>QR Code Generator with Format Selection</h2>
+                <p>This QR code generator allows users to input any URL or text to create a QR code. It offers the option to download the QR code in either PDF or image format, with customizable titles and enhanced resolution.
+                    s.</p><br>
+               
+                <a href="QR.html" class="read-more">Read More</a>
+            </div>
+        </div>
+        <!-- Blog Post 5 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/paper1.jpg" alt="Blog 3">
+            <div class="card-content">
+                <h2>PaperLibrary</h2>
+                <p>PaperLibrary provides a comprehensive collection of exam papers for various subjects and courses.</p>
+                <p>Access study materials that enhance your preparation and help you succeed in your exams.</p><br>
+                               
+                <a href="paper.html" class="read-more">Read More</a>
+            </div>
+        </div>
+        <!-- Blog Post 5 -->
+        <div class="card">
+            <div class="icon-bar">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <img src="img/img to pdf 2.png" alt="Blog 3">
+            <div class="card-content">
+                <h2>Images 5G PDF</h2>
+                <p>Images 5G PDF quickly converts multiple images into a single PDF for easy management.</p>
+                <p>Create organized PDFs with just a few clicks for seamless sharing and storage.</p><br>
+
+                <a href="img_to_pdf_5G.html" class="read-more">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to our  website. We are dedicated to providing quality education and fostering a learning environment that helps students excel in their career.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="explor.html">Projects</a></li>
+                    <li><a href="contect.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://t.me/CodwithNA"><i class="fab fa-telegram"></i></a>
+                    <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                    <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeWith_N.A. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Alert Box -->
+    <div id="alertBox">
+        <p id="alertMessage">This is the alert message!</p>
+        <button class="close-btn" onclick="closeAlert()">Close</button>
+    </div>
+
+    <script>
+        function showAlert(message) {
+            document.getElementById('alertMessage').innerText = message;
+            document.getElementById('alertBox').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('alertBox').style.display = 'none';
+        }
+    </script>
+    <script src="gon_oder.js"></script>
+
+</body>
+</html>

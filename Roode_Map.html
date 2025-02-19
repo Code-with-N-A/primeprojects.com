@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>The Coding Blueprint - Learn Coding with Real Projects | PrimeProjects</title>
+<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+  
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+  
+  <!-- Author -->
+  <meta name="author" content="Prime Projects">
+
+  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:url" content="https://primeprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/">
+
+  <!-- Schema Markup (Structured Data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prime Projects",
+    "url": "https://primeprojects.netlify.app/",
+    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+    "sameAs": [
+      "https://www.facebook.com/primeprojects",
+      "https://twitter.com/primeprojects",
+      "https://www.linkedin.com/company/primeprojects"
+    ],
+    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  }
+  </script>
+
+  <!-- Google Ads Conversion Tracking (Google Ads) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+  </script>
+
+  <!-- Google Analytics (Tracking Website Traffic) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+  </script>
+
+  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Free Programming Courses",
+    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Prime Projects",
+      "url": "https://primeprojects.netlify.app/"
+    }
+  }
+  </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: lavender;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #282828;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 1s ease-in-out;
+        }
+        header img{
+            width: 94px;
+            height: auto;
+            border-radius: 100%;
+
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        header .logo {
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffcc00;
+            animation: logoFade 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes logoFade {
+            from {
+                opacity: 0.8;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        header .heading {
+            font-size: 26px;
+            font-weight: bold;
+            color:lavender;
+            text-align: center;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            background-color: #333;
+        }
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 10px;
+            color: #fff;
+            width: 200px;
+            transition: width 0.4s ease-in-out;
+        }
+        .search-bar input:focus {
+            width: 300px;
+        }
+        .search-bar button {
+            border: none;
+            background: transparent;
+            color: #ff6600;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            color: #ffcc00;
+        }
+        .results {
+            margin: 20px auto;
+            width: 80%;
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .result-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .result-item:hover {
+            background-color: #444;
+            transform: translateX(10px);
+        }
+        @media only screen and (max-width: 768px) {
+            .search-bar input {
+                width: 100px;
+            }
+            .search-bar input:focus {
+                width: 150px;
+            }
+            header .heading {
+                font-size: 20px;
+            }
+        }
+      
+
+        .attractive-roadmap {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  font-family: 'Arial', sans-serif;
+}
+
+.attractive-roadmap h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.attractive-roadmap p {
+  font-size: 1.2em;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+ 
+}
+
+.roadmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.roadmap-level {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+  color: rgb(9, 80, 15);
+}
+
+.milestone {
+  background-color: #3498db;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.milestone:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.curved-arrow svg {
+  width: 100px;
+  height: 100px;
+}
+
+.curved-arrow path {
+  stroke-dasharray: 5;
+}
+
+#level1 .milestone {
+  background-color: #ffab40;
+}
+
+#level2 .milestone {
+  background-color: #ff7043;
+}
+
+#level3 .milestone {
+  background-color: #ff5252;
+}
+
+#level4 .milestone {
+  background-color: #d32f2f;
+}
+
+
+
+.attractive-roadmap {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  font-family: 'Arial', sans-serif;
+}
+
+.attractive-roadmap h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.attractive-roadmap p {
+  font-size: 1.2em;
+  color: #17565b;
+  margin-bottom: 40px;
+}
+
+.roadmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.roadmap-level {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+  flex-wrap: wrap; /* Makes it responsive */
+}
+
+.milestone {
+  background-color: #3498db;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50%;
+  margin: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.milestone:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.curved-arrow svg {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.curved-arrow path {
+  stroke-dasharray: 5;
+}
+
+/* Custom color coding for AIML levels */
+#aiml-level1 .milestone {
+  background-color: #8e44ad;
+}
+
+#aiml-level2 .milestone {
+  background-color: #e67e22;
+}
+
+#aiml-level3 .milestone {
+  background-color: #2ecc71;
+}
+
+#aiml-level4 .milestone {
+  background-color: #e74c3c;
+}
+
+/* Making the roadmap responsive */
+@media (max-width: 768px) {
+  .roadmap-container {
+    padding: 0 20px;
+  }
+
+  .milestone {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+
+  .curved-arrow svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .attractive-roadmap h2 {
+    font-size: 2em;
+  }
+
+  .attractive-roadmap p {
+    font-size: 1em;
+  }
+}
+
+
+
+.full-stack-roadmap {
+  background: linear-gradient(135deg, #2980b9, #8e44ad);
+  color: #fff;
+  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.roadmap-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.roadmap-header h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.subheading {
+  font-size: 1.3rem;
+  color: #ecf0f1;
+}
+
+.roadmap-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ 
+}
+
+.step {
+  background-color: #ffffff;
+  padding: 30px;
+  width: 33%;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow-x: hidden; /* Horizontal scroll ko hide karein */
+  overflow-y: scroll; 
+height: 70vh;
+}
+
+.step h3 {
+  font-size: 1.8rem;
+  color: #2980b9;
+}
+
+.step p {
+  font-size: 1.1rem;
+  color: rgb(8, 108, 14);
+ 
+}
+
+.step ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.step ul li {
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+.resources {
+  background-color: #2c3e50;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.resources h3 {
+  font-size: 2rem;
+  color: #ecf0f1;
+}
+
+.resources a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: 10px;
+  display: inline-block;
+}
+
+.resources a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .roadmap-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadmap-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .step h3 {
+    font-size: 1.6rem;
+  }
+
+  .step ul li {
+    font-size: 0.9rem;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css">
+  <script src="loder.js"></script>
+  <div id="load-screen">
+     <div class="circle-animation"></div>
+     <div class="loading-text">primeprojects...</div>
+   </div>
+ <!-- Loader Wrapper and -->
+ 
+    <header>
+        <div class="logo"><img src="img/logo2.png" alt="LOGO"></div>
+        <div class="heading"> Courses Roadmap</div>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search courses...">
+            <button onclick="searchCourses()">🔍</button>
+        </div>
+    </header>
+    
+    <div class="results" id="results"></div>
+
+    <section class="attractive-roadmap" id="fullstack-level">
+        <h2>Full Stack Developer Roadmap</h2>
+        <p>Follow this roadmap to become a skilled Full Stack Developer, with knowledge of front-end, back-end, and database technologies.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <h3>Front-End Development</h3>
+            <div class="milestone">HTML</div>
+            <div class="milestone">CSS</div>
+            <div class="milestone">JavaScript</div>
+            <div class="milestone">Responsive Design</div>
+            <div class="milestone">Version Control (Git)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="fullstack-level2">
+            <h3>Front-End Frameworks</h3>
+            <div class="milestone">React.js</div>
+            <div class="milestone">Vue.js</div>
+            <div class="milestone">Angular</div>
+            <div class="milestone">State Management (Redux, Vuex)</div>
+            <div class="milestone">CSS Preprocessors (Sass, LESS)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="fullstack-level3">
+            <h3>Back-End Development</h3>
+            <div class="milestone">Node.js</div>
+            <div class="milestone">Express.js</div>
+            <div class="milestone">Python (Django/Flask)</div>
+            <div class="milestone">Ruby on Rails</div>
+            <div class="milestone">Java (Spring Boot)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="fullstack-level4">
+            <h3>Database Technologies</h3>
+            <div class="milestone">SQL (MySQL, PostgreSQL)</div>
+            <div class="milestone">NoSQL (MongoDB, Firebase)</div>
+            <div class="milestone">Database Design & Optimization</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="fullstack-level5">
+            <h3>Deployment & DevOps</h3>
+            <div class="milestone">Docker</div>
+            <div class="milestone">Kubernetes</div>
+            <div class="milestone">CI/CD (Jenkins, GitHub Actions)</div>
+            <div class="milestone">Cloud Platforms (AWS, Azure, Google Cloud)</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="full-stack-roadmap">
+        <div class="roadmap-header">
+          <h2>Full Stack Development Roadmap</h2>
+          <p class="subheading">Step-by-step guide to becoming a Full Stack Developer. This roadmap covers frontend, backend, and database technologies along with useful resources to get you started.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="frontend">
+            <h3>Frontend Development</h3>
+            <p>Frontend development is the visual part of the application that users interact with. It includes creating and styling the interface and making it interactive.</p>
+            <ul>
+              <li><b>HTML</b>: The foundation of web pages, learn how to structure content. <a href="https://studyvibe.netlify.app/" target="_blank">Learn HTML</a></li>
+              <li><b>CSS</b>: Styling the web page to make it visually appealing. <a href="https://studyvibe.netlify.app/" target="_blank">Learn CSS</a></li>
+              <li><b>JavaScript</b>: Adds interactivity to web pages. <a href="https://studyvibe.netlify.app/" target="_blank">Learn JavaScript</a></li>
+              <li><b>React.js / Vue.js</b>: Modern JavaScript frameworks for creating dynamic, single-page applications. <a href="https://studyvibe.netlify.app/" target="_blank">Learn React</a> | <a href="https://vuejs.org/v2/guide/" target="_blank">Learn Vue</a></li>
+              <li><b>Bootstrap</b>: A framework that helps you design responsive, mobile-first websites quickly. <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Learn Bootstrap</a></li>
+            </ul>
+            <h4>Software Setup for Frontend</h4>
+            <ul>
+              <li><b>Text Editor</b>: Install Visual Studio Code (VS Code) for writing code. <a href="https://code.visualstudio.com/" target="_blank">Download VS Code</a></li>
+              <li><b>Node.js</b>: Install Node.js, which includes npm (Node Package Manager). <a href="https://nodejs.org/en/" target="_blank">Download Node.js</a></li>
+              <li><b>Git</b>: Install Git for version control. <a href="https://git-scm.com/" target="_blank">Download Git</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="backend">
+            <h3>Backend Development</h3>
+            <p>The backend is the part of the application that users don't see, but it powers the functionality. It involves the server, databases, and APIs.</p>
+            <ul>
+              <li><b>Node.js</b>: JavaScript runtime to build server-side applications. <a href="https://nodejs.org/en/docs/" target="_blank">Learn Node.js</a></li>
+              <li><b>Express.js</b>: Web framework for Node.js that simplifies backend development. <a href="https://expressjs.com/en/starter/installing.html" target="_blank">Learn Express.js</a></li>
+              <li><b>Databases</b>: You’ll need to choose between SQL and NoSQL databases depending on your project.
+                <ul>
+                  <li><b>SQL</b> (PostgreSQL, MySQL): Relational databases where data is stored in tables. <a href="https://www.postgresql.org/docs/" target="_blank">Learn PostgreSQL</a> | <a href="https://dev.mysql.com/doc/" target="_blank">Learn MySQL</a></li>
+                  <li><b>NoSQL</b> (MongoDB): Non-relational databases where data is stored as JSON-like documents. <a href="https://www.mongodb.com/docs/" target="_blank">Learn MongoDB</a></li>
+                </ul>
+              </li>
+              <li><b>APIs</b>: Learn how to create RESTful APIs to manage communication between your frontend and backend. <a href="https://restfulapi.net/" target="_blank">Learn about REST APIs</a></li>
+              <li><b>Authentication</b>: Secure your app with authentication using JWT or OAuth. <a href="https://jwt.io/introduction/" target="_blank">Learn JWT</a> | <a href="https://www.digitalocean.com/community/tutorials/understanding-oauth-2-0" target="_blank">Learn OAuth</a></li>
+            </ul>
+            <h4>Software Setup for Backend</h4>
+            <ul>
+              <li><b>Text Editor</b>: Visual Studio Code (VS Code) works for both frontend and backend code.</li>
+              <li><b>MongoDB</b>: Install MongoDB for a NoSQL database. <a href="https://www.mongodb.com/try/download/community" target="_blank">Download MongoDB</a></li>
+              <li><b>MySQL/PostgreSQL</b>: For SQL database, choose either MySQL or PostgreSQL based on your needs. <a href="https://dev.mysql.com/downloads/" target="_blank">Download MySQL</a> | <a href="https://www.postgresql.org/download/" target="_blank">Download PostgreSQL</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="fullstack">
+            <h3>Full Stack Integration</h3>
+            <p>Integrate the frontend and backend to create a fully functional, full-stack web application.</p>
+            <ul>
+              <li><b>MERN Stack</b>: MongoDB, Express.js, React, and Node.js — a popular JavaScript stack for full-stack development. <a href="https://www.mongodb.com/mern-stack" target="_blank">Learn the MERN Stack</a></li>
+              <li><b>MEAN Stack</b>: MongoDB, Express.js, Angular, and Node.js. Another powerful stack for full-stack development. <a href="https://www.mern.io/" target="_blank">Learn MEAN Stack</a></li>
+              <li><b>Version Control</b>: Learn Git and GitHub to manage your code and collaborate with others. <a href="https://git-scm.com/book/en/v2" target="_blank">Learn Git</a> | <a href="https://docs.github.com/en/github" target="_blank">Learn GitHub</a></li>
+              <li><b>Docker</b>: Containerize your app to make it portable and easy to deploy. <a href="https://www.docker.com/what-docker" target="_blank">Learn Docker</a></li>
+              <li><b>Cloud Deployment</b>: Deploy your application on cloud platforms like Heroku, AWS, or Google Cloud. <a href="https://www.heroku.com/" target="_blank">Learn Heroku</a> | <a href="https://aws.amazon.com/getting-started/" target="_blank">Learn AWS</a></li>
+            </ul>
+            <h4>Software Setup for Full Stack</h4>
+            <ul>
+              <li><b>Git</b>: Make sure Git is installed for version control. <a href="https://git-scm.com/" target="_blank">Download Git</a></li>
+              <li><b>Docker</b>: Install Docker for containerization. <a href="https://www.docker.com/products/docker-desktop" target="_blank">Download Docker</a></li>
+              <li><b>Heroku CLI</b>: Install Heroku CLI for deployment. <a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank">Download Heroku CLI</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Start your learning journey with these platforms:</p>
+          <ul>
+            <li><a href="https://studyvibe.netlify.app/" target="_blank">FreeCodeCamp</a></li>
+            <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.youtube.com/c/TraversyMedia" target="_blank">Traversy Media (YouTube)</a></li>
+          </ul>
+        </div>
+      </section>
+      
+     
+      <!--2-->
+      
+      
+
+    <section class="attractive-roadmap" id="cyber-level">
+        <h2>Cyber Security Programming Language Roadmap</h2>
+        <p>Follow this roadmap to master the essential programming languages and tools for Cyber Security professionals.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <div class="milestone">Python</div>
+            <div class="milestone">C</div>
+            <div class="milestone">Linux (Basic)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="cyber-level2">
+            <div class="milestone">Networking Basics</div>
+            <div class="milestone">TCP/IP Stack</div>
+            <div class="milestone">Firewalls</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="cyber-level3">
+            <div class="milestone">Cryptography</div>
+            <div class="milestone">Penetration Testing</div>
+            <div class="milestone">Ethical Hacking</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="cyber-level4">
+            <div class="milestone">SIEM Tools</div>
+            <div class="milestone">Malware Analysis</div>
+            <div class="milestone">Incident Response</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="cyber-level5">
+            <div class="milestone">Cloud Security</div>
+            <div class="milestone">SOC Operations</div>
+            <div class="milestone">Red Teaming</div>
+          </div>
+        </div>
+      </section>
+      <section class="cyber-security-roadmap">
+        <div class="roadmap-header">
+          <h2>Cyber Security Roadmap</h2>
+          <p class="subheading">Step-by-step guide to becoming a Cyber Security Expert. This roadmap covers essential concepts, tools, and resources to help you secure applications, networks, and systems.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="fundamentals">
+            <h3>Cyber Security Fundamentals</h3>
+            <p>Before diving into specialized topics, you need a solid understanding of the basic principles of cyber security, networking, and systems.</p>
+            <ul>
+              <li><b>Networking Basics</b>: Learn about protocols, OSI model, TCP/IP, DNS, DHCP, and more. <a href="https://www.networklessons.com/" target="_blank">Learn Networking</a></li>
+              <li><b>Operating Systems</b>: Familiarize yourself with Linux, Windows, and macOS. Cyber security experts often use Linux for penetration testing and security tools. <a href="https://www.tutorialspoint.com/unix/index.htm" target="_blank">Learn Linux</a> | <a href="https://www.microsoft.com/en-us/learning/windows-server-training.aspx" target="_blank">Learn Windows</a></li>
+              <li><b>Cyber Security Basics</b>: Understand core concepts such as CIA triad (Confidentiality, Integrity, Availability), threats, vulnerabilities, and risk management. <a href="https://www.coursera.org/learn/intro-cyber-security" target="_blank">Learn Cyber Security Basics</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="network-security">
+            <h3>Network Security</h3>
+            <p>Network security focuses on protecting the integrity, confidentiality, and availability of data and resources as they are transmitted across or accessed through networks.</p>
+            <ul>
+              <li><b>Firewalls & VPNs</b>: Learn about firewalls, how they protect networks, and the role of Virtual Private Networks (VPNs) in ensuring secure communication. <a href="https://www.coursera.org/learn/network-security" target="_blank">Learn Network Security</a></li>
+              <li><b>IDS/IPS</b>: Learn about Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) to detect and prevent network-based threats. <a href="https://www.sans.org/cyber-security-courses/intrusion-detection-prevention-systems/" target="_blank">Learn IDS/IPS</a></li>
+              <li><b>Wi-Fi Security</b>: Understand common Wi-Fi vulnerabilities and how to secure wireless networks. <a href="https://www.udemy.com/course/wi-fi-network-security/" target="_blank">Learn Wi-Fi Security</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="web-application-security">
+            <h3>Web Application Security</h3>
+            <p>Web applications are one of the most common attack vectors. Securing them requires understanding the common vulnerabilities and how to mitigate them.</p>
+            <ul>
+              <li><b>OWASP Top 10</b>: Familiarize yourself with the OWASP Top 10, a list of the most critical web application security risks. <a href="https://owasp.org/www-project-top-ten/" target="_blank">Learn OWASP Top 10</a></li>
+              <li><b>Injection Attacks</b>: Learn about SQL injection, Command injection, and other types of attacks, and how to defend against them. <a href="https://www.acs.com.hk/en/products/49/SQL-injection-attack-Prevention" target="_blank">Learn Injection Attacks</a></li>
+              <li><b>Cross-Site Scripting (XSS)</b>: Learn how to prevent malicious scripts from executing in a user's browser. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-site_scripting" target="_blank">Learn XSS Prevention</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="penetration-testing">
+            <h3>Penetration Testing (Ethical Hacking)</h3>
+            <p>Penetration testing allows security professionals to simulate real-world cyberattacks to identify vulnerabilities in systems, networks, and applications.</p>
+            <ul>
+              <li><b>Tools</b>: Learn how to use popular penetration testing tools such as Metasploit, Burp Suite, and Nmap. <a href="https://www.udemy.com/course/penetration-testing-and-ethical-hacking/" target="_blank">Learn Pen Testing Tools</a></li>
+              <li><b>Methodology</b>: Understand the different phases of penetration testing, such as reconnaissance, scanning, exploitation, and reporting. <a href="https://www.cybrary.it/course/penetration-testing-and-ethical-hacking/" target="_blank">Learn Pen Testing Methodology</a></li>
+              <li><b>Vulnerability Assessment</b>: Learn how to perform vulnerability assessments to identify weaknesses in systems. <a href="https://www.udemy.com/course/ethical-hacking-penetration-testing/" target="_blank">Learn Vulnerability Assessment</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="incident-response">
+            <h3>Incident Response & Forensics</h3>
+            <p>Incident response is a key skill in cyber security, where professionals respond to and mitigate the damage caused by cyber incidents.</p>
+            <ul>
+              <li><b>Incident Response Planning</b>: Learn how to create an effective incident response plan to detect, respond, and recover from security breaches. <a href="https://www.sans.org/cyber-security-courses/incident-handling-and-response/" target="_blank">Learn Incident Response</a></li>
+              <li><b>Digital Forensics</b>: Understand the process of collecting and analyzing evidence to investigate security incidents. <a href="https://www.coursera.org/learn/digital-forensics" target="_blank">Learn Digital Forensics</a></li>
+              <li><b>Disaster Recovery</b>: Learn about strategies for business continuity and disaster recovery after a cyberattack. <a href="https://www.edx.org/course/business-continuity-and-disaster-recovery" target="_blank">Learn Disaster Recovery</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Start your learning journey with these platforms:</p>
+          <ul>
+            <li><a href="https://www.cybrary.it/" target="_blank">Cybrary</a></li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a></li>
+            <li><a href="https://www.sans.org/" target="_blank">SANS Institute</a></li>
+            <li><a href="https://www.hacker101.com/" target="_blank">Hacker101</a></li>
+          </ul>
+        </div>
+      </section>
+      
+
+
+
+      <!--3-->
+      
+      
+
+      <section class="attractive-roadmap" id="aiml-level">
+        <h2>AI/ML Students Programming Language Roadmap</h2>
+        <p>Follow this roadmap to learn AI and Machine Learning essential programming languages and tools.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <div class="milestone">Python</div>
+            <div class="milestone">R Programming</div>
+            <div class="milestone">SQL</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="aiml-level2">
+            <div class="milestone">TensorFlow</div>
+            <div class="milestone">Keras</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="aiml-level3">
+            <div class="milestone">PyTorch</div>
+            <div class="milestone">Scikit-Learn</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="aiml-level4">
+            <div class="milestone">NLP Libraries</div>
+            <div class="milestone">Computer Vision Libraries</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-ml-programming-roadmap">
+        <div class="roadmap-header">
+          <h2>AI/ML Students Programming Roadmap</h2>
+          <p class="subheading">A structured guide for AI/ML students to master programming skills essential for building intelligent systems, models, and algorithms. Follow this step-by-step roadmap to become proficient in AI and Machine Learning programming.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="programming-basics">
+            <h3>Programming Basics</h3>
+            <p>The foundation of AI/ML starts with strong programming skills. Start by learning core programming languages, tools, and basic algorithms.</p>
+            <ul>
+              <li><b>Python</b>: Python is the most widely used language in AI and ML due to its simplicity and rich libraries. Learn Python syntax, loops, functions, and data structures. <a href="https://www.learnpython.org/" target="_blank">Learn Python</a></li>
+              <li><b>Data Structures & Algorithms</b>: Learn essential data structures (arrays, lists, trees) and algorithms (sorting, searching) that form the backbone of AI/ML algorithms. <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank">Learn Data Structures</a></li>
+              <li><b>Mathematics for AI/ML</b>: A solid understanding of mathematics, especially linear algebra, calculus, and probability, is key. Focus on vectors, matrices, derivatives, and integrals. <a href="https://www.khanacademy.org/math" target="_blank">Learn Math for AI</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="data-science">
+            <h3>Data Science</h3>
+            <p>Data is at the heart of AI and ML. Start by learning how to collect, process, and analyze data effectively.</p>
+            <ul>
+              <li><b>Pandas & NumPy</b>: These libraries are crucial for data manipulation and analysis in Python. Learn how to use Pandas for data frames and NumPy for numerical computations. <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science" target="_blank">Learn Pandas & NumPy</a></li>
+              <li><b>Data Visualization</b>: Learn how to visualize data with libraries like Matplotlib and Seaborn to extract meaningful insights. <a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html" target="_blank">Learn Data Visualization</a></li>
+              <li><b>SQL</b>: Learn how to work with databases and query large datasets. SQL is important for extracting and manipulating data from relational databases. <a href="https://www.w3schools.com/sql/" target="_blank">Learn SQL</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="machine-learning">
+            <h3>Machine Learning (ML)</h3>
+            <p>Machine learning is the core of AI. Dive into supervised, unsupervised, and reinforcement learning algorithms to build intelligent models.</p>
+            <ul>
+              <li><b>Supervised Learning</b>: Learn how to build regression and classification models with algorithms like Linear Regression, Decision Trees, and k-Nearest Neighbors (k-NN). <a href="https://www.coursera.org/learn/machine-learning" target="_blank">Learn Supervised Learning</a></li>
+              <li><b>Unsupervised Learning</b>: Understand clustering algorithms like k-Means and hierarchical clustering, as well as dimensionality reduction techniques like PCA. <a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank">Learn Unsupervised Learning</a></li>
+              <li><b>Deep Learning</b>: Dive into neural networks and deep learning frameworks like TensorFlow and Keras to work with complex models like Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs). <a href="https://www.tensorflow.org/tutorials" target="_blank">Learn Deep Learning</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="model-deployment">
+            <h3>Model Deployment</h3>
+            <p>Once you've built machine learning models, the next step is to deploy them to make them accessible to end-users.</p>
+            <ul>
+              <li><b>Flask & Django</b>: Learn how to create web applications using Flask or Django to deploy ML models as APIs. <a href="https://flask.palletsprojects.com/en/2.0.x/tutorial/" target="_blank">Learn Flask</a> | <a href="https://www.djangoproject.com/start/" target="_blank">Learn Django</a></li>
+              <li><b>Model Serving & APIs</b>: Learn how to serve models using tools like FastAPI or Flask-RESTful. <a href="https://fastapi.tiangolo.com/tutorial/" target="_blank">Learn FastAPI</a></li>
+              <li><b>Cloud Platforms</b>: Familiarize yourself with cloud services like AWS, Google Cloud, and Azure for hosting and scaling ML models. <a href="https://aws.amazon.com/machine-learning/" target="_blank">Learn Cloud for AI</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="advanced-topics">
+            <h3>Advanced Topics in AI/ML</h3>
+            <p>To further enhance your skills, explore cutting-edge topics in AI and ML.</p>
+            <ul>
+              <li><b>Natural Language Processing (NLP)</b>: Learn techniques for working with text data, including sentiment analysis, named entity recognition (NER), and machine translation. <a href="https://www.coursera.org/specializations/natural-language-processing" target="_blank">Learn NLP</a></li>
+              <li><b>Computer Vision</b>: Work with image and video data using CNNs and other deep learning techniques for tasks like object detection and image segmentation. <a href="https://www.udacity.com/course/intro-to-computer-vision--ud810" target="_blank">Learn Computer Vision</a></li>
+              <li><b>Reinforcement Learning</b>: Dive into techniques where an agent learns by interacting with an environment, such as Q-learning and policy gradient methods. <a href="https://www.coursera.org/learn/reinforcement-learning" target="_blank">Learn Reinforcement Learning</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore the following platforms to deepen your knowledge:</p>
+          <ul>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.kaggle.com/learn" target="_blank">Kaggle</a></li>
+            <li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a></li>
+          </ul>
+        </div>
+      </section>
+      
+
+
+      <!--4-->
+
+
+      <section class="attractive-roadmap" id="mobile-level">
+        <h2>Android App Development Roadmap</h2>
+        <p>Follow this roadmap to learn Android App development technologies.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <div class="milestone milestone-java">Java</div>
+            <div class="milestone milestone-swift">Swift</div>
+            <div class="milestone milestone-dart">Dart</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#e74c3c" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="mobile-level2">
+            <div class="milestone milestone-flutter">Flutter</div>
+            <div class="milestone milestone-react">React Native</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#f39c12" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="mobile-level3">
+            <div class="milestone milestone-android">Android Studio</div>
+            <div class="milestone milestone-xcode">Xcode</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-app-development-roadmap">
+        <div class="roadmap-header">
+          <h2>Android App Development Roadmap</h2>
+          <p class="subheading">A step-by-step guide for aspiring mobile app developers to master the necessary skills and technologies required to build successful mobile applications. Follow this roadmap to learn the essentials of mobile app development, whether for Android, iOS, or cross-platform.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="programming-basics">
+            <h3>Programming Basics</h3>
+            <p>Before diving into mobile app development, it's essential to have a solid understanding of programming fundamentals.</p>
+            <ul>
+              <li><b>Programming Languages</b>: Learn programming languages such as Java, Kotlin (for Android), Swift (for iOS), and Dart (for cross-platform development). <a href="https://www.learnjavaonline.org/" target="_blank">Learn Java</a> | <a href="https://www.swift.org/" target="_blank">Learn Swift</a> | <a href="https://dart.dev/" target="_blank">Learn Dart</a></li>
+              <li><b>Object-Oriented Programming (OOP)</b>: Understand concepts like classes, objects, inheritance, polymorphism, and encapsulation to structure your app code effectively. <a href="https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/" target="_blank">Learn OOP</a></li>
+              <li><b>Version Control</b>: Learn how to use Git for version control to manage your code and collaborate with others. <a href="https://git-scm.com/book/en/v2" target="_blank">Learn Git</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="android-development">
+            <h3>Android Development</h3>
+            <p>Learn the essentials for building Android applications, which primarily use Java or Kotlin for development.</p>
+            <ul>
+              <li><b>Java or Kotlin</b>: Choose a language to start with, either Java or Kotlin. Kotlin is now the preferred language for Android development. <a href="https://developer.android.com/kotlin" target="_blank">Learn Kotlin</a> | <a href="https://www.learnjavaonline.org/" target="_blank">Learn Java</a></li>
+              <li><b>Android Studio</b>: Familiarize yourself with Android Studio, the official Integrated Development Environment (IDE) for Android app development. <a href="https://developer.android.com/studio" target="_blank">Learn Android Studio</a></li>
+              <li><b>Android SDK & UI Components</b>: Learn how to use Android SDK (Software Development Kit) and essential UI components like Activities, Fragments, RecyclerView, and Views. <a href="https://developer.android.com/guide" target="_blank">Learn Android SDK</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="ios-development">
+            <h3>iOS Development</h3>
+            <p>For iOS development, you will focus on using Swift and Apple's development tools to build apps for iPhone, iPad, and other Apple devices.</p>
+            <ul>
+              <li><b>Swift Programming Language</b>: Swift is the primary programming language for iOS app development. Learn its syntax and key features. <a href="https://www.swift.org/" target="_blank">Learn Swift</a></li>
+              <li><b>Xcode IDE</b>: Xcode is the official IDE for iOS app development. Learn how to navigate and use Xcode for building apps. <a href="https://developer.apple.com/xcode/" target="_blank">Learn Xcode</a></li>
+              <li><b>UIKit & SwiftUI</b>: Learn how to create user interfaces using UIKit (older) or SwiftUI (newer) for building iOS apps. <a href="https://developer.apple.com/documentation/swiftui/" target="_blank">Learn SwiftUI</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cross-platform-development">
+            <h3>Cross-Platform Development</h3>
+            <p>If you want to target both Android and iOS with a single codebase, you can learn cross-platform development tools like React Native or Flutter.</p>
+            <ul>
+              <li><b>Flutter</b>: Flutter allows you to build beautiful apps for both Android and iOS with a single codebase using the Dart programming language. <a href="https://flutter.dev/docs" target="_blank">Learn Flutter</a></li>
+              <li><b>React Native</b>: React Native allows you to use JavaScript and React to build cross-platform mobile applications. <a href="https://reactnative.dev/docs/getting-started" target="_blank">Learn React Native</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="mobile-app-design">
+            <h3>Mobile App Design</h3>
+            <p>Design is crucial for building user-friendly mobile apps. Learn how to create intuitive and engaging interfaces for your apps.</p>
+            <ul>
+              <li><b>UI/UX Design Principles</b>: Learn the basic principles of user interface and user experience design. Focus on usability, visual hierarchy, and responsiveness. <a href="https://www.smashingmagazine.com/category/ui-design/" target="_blank">Learn UI/UX Design</a></li>
+              <li><b>Design Tools</b>: Familiarize yourself with tools like Figma, Sketch, or Adobe XD for designing mobile app interfaces. <a href="https://www.figma.com/resources/learn-design/" target="_blank">Learn Figma</a></li>
+              <li><b>Responsive Design</b>: Understand how to build apps that work seamlessly on different screen sizes and resolutions. <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">Learn Responsive Design</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="app-testing">
+            <h3>Mobile App Testing</h3>
+            <p>Testing ensures that your app works smoothly and provides a bug-free experience for users.</p>
+            <ul>
+              <li><b>Unit Testing & UI Testing</b>: Learn how to write unit tests to test the individual components of your app and UI tests to ensure user interactions work as expected. <a href="https://developer.android.com/training/testing" target="_blank">Learn Android Testing</a> | <a href="https://developer.apple.com/documentation/xctest" target="_blank">Learn iOS Testing</a></li>
+              <li><b>Automated Testing</b>: Explore automated testing frameworks like Espresso (Android) and XCUITest (iOS) to test your app’s functionality automatically. <a href="https://developer.android.com/training/testing/espresso" target="_blank">Learn Espresso</a></li>
+              <li><b>Debugging</b>: Learn how to debug your app effectively using the built-in tools in Android Studio and Xcode. <a href="https://developer.android.com/studio/debug" target="_blank">Learn Android Debugging</a> | <a href="https://developer.apple.com/documentation/xcode/debugging" target="_blank">Learn Xcode Debugging</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="app-deployment">
+            <h3>App Deployment</h3>
+            <p>Once your app is built and tested, you need to deploy it to the App Store or Google Play Store for distribution.</p>
+            <ul>
+              <li><b>Google Play Store (Android)</b>: Learn how to publish your Android app to the Google Play Store. <a href="https://developer.android.com/studio/publish" target="_blank">Learn Play Store Publishing</a></li>
+              <li><b>App Store (iOS)</b>: Learn how to submit your iOS app to the App Store using Xcode and the App Store Connect platform. <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank">Learn App Store Publishing</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore the following platforms to deepen your knowledge in mobile app development:</p>
+          <ul>
+            <li><a href="https://developer.android.com/" target="_blank">Android Developer Documentation</a></li>
+            <li><a href="https://developer.apple.com/" target="_blank">Apple Developer Documentation</a></li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+          </ul>
+        </div>
+      </section>
+  
+      <!--5-->
+      <section class="attractive-roadmap" id="Game Development">
+        <h2>Game Development Roadmap</h2>
+        <p>Follow this visually stunning roadmap to master game development step by step.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <div class="milestone">C#</div>
+            <div class="milestone">C++</div>
+            <div class="milestone">Basic Math & Physics</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Unity3D</div>
+            <div class="milestone">Unreal Engine</div>
+            <div class="milestone">Game Design Principles</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">3D Modeling & Animation</div>
+            <div class="milestone">AI Programming</div>
+            <div class="milestone">Shaders & Graphics Programming</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Game Optimization</div>
+            <div class="milestone">Multiplayer Networking</div>
+            <div class="milestone">Publishing & Marketing</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-development-roadmap">
+        <div class="roadmap-header">
+          <h2>Game Development Roadmap</h2>
+          <p class="subheading">A step-by-step guide for aspiring game developers to master the skills and technologies required to create engaging and immersive games. Whether you're interested in mobile, desktop, or console games, this roadmap will help you get started and progress.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="programming-basics">
+            <h3>Programming Basics</h3>
+            <p>Before diving into game development, it's essential to have a solid foundation in programming concepts.</p>
+            <ul>
+              <li><b>Programming Languages</b>: Learn languages like C++, C#, or Python, which are commonly used in game development. <a href="https://www.learncpp.com/" target="_blank">Learn C++</a> | <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">Learn C#</a> | <a href="https://www.learnpython.org/" target="_blank">Learn Python</a></li>
+              <li><b>Object-Oriented Programming (OOP)</b>: Master the principles of OOP, which will help you in designing the structure of your game. <a href="https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/" target="_blank">Learn OOP</a></li>
+              <li><b>Version Control</b>: Learn to use Git for version control to manage your code and collaborate with others. <a href="https://git-scm.com/book/en/v2" target="_blank">Learn Git</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="game-engines">
+            <h3>Game Engines</h3>
+            <p>Game engines are software frameworks that help you build and develop games. Learn how to use them effectively.</p>
+            <ul>
+              <li><b>Unity</b>: Unity is one of the most popular game engines for both 2D and 3D games. Learn how to build games using C# in Unity. <a href="https://unity.com/learn" target="_blank">Learn Unity</a></li>
+              <li><b>Unreal Engine</b>: Unreal Engine is another powerful game engine used to create high-quality games with advanced graphics. <a href="https://www.unrealengine.com/learn" target="_blank">Learn Unreal Engine</a></li>
+              <li><b>Godot</b>: An open-source game engine that supports 2D and 3D game development. <a href="https://godotengine.org/learn" target="_blank">Learn Godot</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="game-design">
+            <h3>Game Design</h3>
+            <p>Designing your game is crucial for its success. Learn how to plan and structure your games, both visually and interactively.</p>
+            <ul>
+              <li><b>Game Mechanics</b>: Learn the basic rules, systems, and interactions in your game. <a href="https://www.gamasutra.com/blogs/JoeFielder/20150408/242527/Designing_Game_Mechanics.php" target="_blank">Learn Game Mechanics</a></li>
+              <li><b>Level Design</b>: Create engaging levels that challenge the player and provide a good balance between difficulty and fun. <a href="https://www.gamecareerguide.com/feature/1603/level_design_101_for_game_designers/" target="_blank">Learn Level Design</a></li>
+              <li><b>Storytelling in Games</b>: Learn how to build a compelling narrative and integrate it into your game design. <a href="https://www.gamasutra.com/blogs/ChrisCaldwell/20160921/284441/The_Art_of_Storytelling_in_Games.php" target="_blank">Learn Storytelling in Games</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="art-and-animation">
+            <h3>Art and Animation</h3>
+            <p>Graphics and animations are an essential part of any game. Learn how to create engaging visuals and animations for your game.</p>
+            <ul>
+              <li><b>2D Art and Sprites</b>: Learn how to create 2D assets like characters, backgrounds, and objects. <a href="https://www.udemy.com/course/2d-game-art/" target="_blank">Learn 2D Art</a></li>
+              <li><b>3D Modeling and Animation</b>: Learn how to create 3D models and animations for your game. <a href="https://www.blender.org/support/tutorials/" target="_blank">Learn Blender</a></li>
+              <li><b>UI Design</b>: Design user interfaces for your games, including menus, buttons, and HUD elements. <a href="https://www.smashingmagazine.com/category/ui-design/" target="_blank">Learn UI Design</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="game-testing">
+            <h3>Game Testing</h3>
+            <p>Testing is a crucial part of game development to ensure your game runs smoothly and provides a good player experience.</p>
+            <ul>
+              <li><b>Unit Testing & Debugging</b>: Learn how to debug your game and fix bugs. <a href="https://www.gamasutra.com/view/feature/130643/testing_game_design_keeping_it_fun.php" target="_blank">Learn Testing</a></li>
+              <li><b>Playtesting</b>: Conduct playtests to gather feedback on your game's mechanics and design. <a href="https://www.gamasutra.com/blogs/Leonard_Ripley/20180206/317991/The_Art_of_Playtesting.php" target="_blank">Learn Playtesting</a></li>
+              <li><b>Performance Testing</b>: Test your game’s performance to ensure it runs efficiently across different platforms. <a href="https://unity.com/learn/tutorials/topics/performance" target="_blank">Learn Performance Testing</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="game-publishing">
+            <h3>Game Publishing</h3>
+            <p>Once your game is ready, you can publish it on different platforms. Learn how to distribute your game to reach your audience.</p>
+            <ul>
+              <li><b>Steam</b>: Learn how to publish your game on Steam, one of the largest platforms for PC games. <a href="https://partner.steamgames.com/" target="_blank">Learn Steam Publishing</a></li>
+              <li><b>App Store & Google Play</b>: Learn how to publish your game on mobile platforms like the App Store and Google Play. <a href="https://developer.apple.com/app-store/" target="_blank">Learn App Store Publishing</a> | <a href="https://developer.android.com/studio/publish" target="_blank">Learn Google Play Publishing</a></li>
+              <li><b>Console Publishing</b>: Learn how to publish games for consoles like PlayStation, Xbox, and Nintendo. <a href="https://www.gamasutra.com/view/feature/130752/how_to_publish_on_game_consoles.php" target="_blank">Learn Console Publishing</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in game development:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.gamasutra.com/" target="_blank">Gamasutra</a></li>
+            <li><a href="https://www.gamecareerguide.com/" target="_blank">Game Career Guide</a></li>
+            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+          </ul>
+        </div>
+      </section>
+
+      
+      <!--6-->
+      <section class="attractive-roadmap" id="Cloud Computing">
+        <h2>Cloud Computing Roadmap</h2>
+        <p>Follow this visually stunning roadmap to master cloud computing step by step.</p>
+        <div class="roadmap-container">
+          <div class="roadmap-level">
+            <div class="milestone">Introduction to Cloud Computing</div>
+            <div class="milestone">Cloud Deployment Models</div>
+            <div class="milestone">Basic Networking Concepts</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Cloud Providers (AWS, Azure, GCP)</div>
+            <div class="milestone">Virtualization & Containers</div>
+            <div class="milestone">Cloud Services (IaaS, PaaS, SaaS)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">Cloud Security Fundamentals</div>
+            <div class="milestone">Automating Cloud Resources</div>
+            <div class="milestone">Serverless Architectures</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">DevOps and CI/CD in Cloud</div>
+            <div class="milestone">Cloud Monitoring & Analytics</div>
+            <div class="milestone">Advanced Cloud Services (AI, Big Data, IoT)</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cloud-computing-roadmap">
+        <div class="roadmap-header">
+          <h2>Cloud Computing Roadmap</h2>
+          <p class="subheading">This roadmap will guide you step-by-step through the essential skills and technologies required to become a cloud computing expert. Whether you're looking to work with cloud services like AWS, Azure, or Google Cloud, this guide has you covered.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="cloud-computing-basics">
+            <h3>Cloud Computing Basics</h3>
+            <p>Before diving into cloud platforms, it's important to understand the fundamentals of cloud computing.</p>
+            <ul>
+              <li><b>What is Cloud Computing?</b>: Learn the basics of cloud computing, its service models (IaaS, PaaS, SaaS), and deployment models (Public, Private, Hybrid). <a href="https://www.ibm.com/cloud/learn/cloud-computing" target="_blank">Learn Cloud Computing</a></li>
+              <li><b>Cloud Service Models</b>: Understand the differences between IaaS, PaaS, and SaaS and when to use each. <a href="https://www.cio.com/article/286179/iaas-paas-saas-explained-which-cloud-model-is-right-for-you.html" target="_blank">Learn about Cloud Service Models</a></li>
+              <li><b>Cloud Deployment Models</b>: Learn about public, private, and hybrid cloud deployment models. <a href="https://www.microsoft.com/en-us/azure/architecture/cloud-adoption-framework" target="_blank">Cloud Deployment Models</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-platforms">
+            <h3>Cloud Platforms</h3>
+            <p>Master the most popular cloud platforms used in the industry today, which will help you deploy scalable cloud-based applications.</p>
+            <ul>
+              <li><b>AWS (Amazon Web Services)</b>: Learn to work with AWS, one of the most widely used cloud platforms. <a href="https://aws.amazon.com/training/" target="_blank">Learn AWS</a></li>
+              <li><b>Azure</b>: Microsoft Azure is another powerful cloud computing platform with strong enterprise support. <a href="https://learn.microsoft.com/en-us/azure/" target="_blank">Learn Azure</a></li>
+              <li><b>Google Cloud</b>: Google Cloud offers a comprehensive suite of cloud services. <a href="https://cloud.google.com/training" target="_blank">Learn Google Cloud</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-architecture">
+            <h3>Cloud Architecture</h3>
+            <p>Designing scalable, fault-tolerant, and secure cloud applications is essential. Learn the best practices for cloud architecture.</p>
+            <ul>
+              <li><b>Scalable Architecture</b>: Learn how to design applications that can scale based on demand. <a href="https://www.digitalocean.com/community/tutorials/understanding-cloud-architecture-for-dummies" target="_blank">Learn Scalable Architecture</a></li>
+              <li><b>Fault Tolerance</b>: Learn how to design for fault tolerance to ensure high availability. <a href="https://www.linkedin.com/learning/cloud-computing-essentials" target="_blank">Fault Tolerance Techniques</a></li>
+              <li><b>Cloud Security</b>: Learn how to implement security measures such as data encryption, IAM (Identity and Access Management), and firewalls. <a href="https://www.cybrary.it/course/cloud-security/" target="_blank">Learn Cloud Security</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-services">
+            <h3>Cloud Services</h3>
+            <p>Familiarize yourself with key cloud services used to build and deploy cloud applications.</p>
+            <ul>
+              <li><b>Compute Services</b>: Learn how to use services like EC2 (AWS), Virtual Machines (Azure), and Compute Engine (Google Cloud). <a href="https://www.aws.amazon.com/ec2/" target="_blank">AWS EC2</a></li>
+              <li><b>Storage Services</b>: Learn about cloud storage solutions like S3 (AWS), Blob Storage (Azure), and Cloud Storage (Google). <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a></li>
+              <li><b>Database Services</b>: Learn about cloud databases like RDS (AWS), Cosmos DB (Azure), and Cloud SQL (Google). <a href="https://aws.amazon.com/rds/" target="_blank">AWS RDS</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-automation">
+            <h3>Cloud Automation</h3>
+            <p>Automation tools are essential for managing cloud resources efficiently. Learn how to automate cloud deployments and infrastructure management.</p>
+            <ul>
+              <li><b>Infrastructure as Code (IaC)</b>: Learn about tools like Terraform and AWS CloudFormation. <a href="https://www.terraform.io/learn" target="_blank">Learn Terraform</a></li>
+              <li><b>CI/CD in Cloud</b>: Learn about continuous integration and continuous deployment in the cloud using Jenkins, GitLab, and AWS CodePipeline. <a href="https://www.jenkins.io/doc/book/pipeline/" target="_blank">Learn Jenkins</a></li>
+              <li><b>Containerization</b>: Understand how to use Docker and Kubernetes for containerization in cloud environments. <a href="https://www.docker.com/resources/what-container" target="_blank">Learn Docker</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-monitoring">
+            <h3>Cloud Monitoring and Optimization</h3>
+            <p>Monitor and optimize your cloud infrastructure to improve performance and reduce costs.</p>
+            <ul>
+              <li><b>Monitoring</b>: Learn how to use monitoring tools like CloudWatch (AWS), Azure Monitor, and Stackdriver (Google Cloud). <a href="https://aws.amazon.com/cloudwatch/" target="_blank">Learn CloudWatch</a></li>
+              <li><b>Cost Management</b>: Learn how to manage and optimize cloud costs. <a href="https://aws.amazon.com/aws-cost-management/" target="_blank">AWS Cost Management</a></li>
+              <li><b>Performance Optimization</b>: Learn how to use Auto Scaling and Load Balancing to optimize performance. <a href="https://www.aws.amazon.com/autoscaling/" target="_blank">Learn Auto Scaling</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-certifications">
+            <h3>Cloud Certifications</h3>
+            <p>Certifications are a great way to validate your skills and improve your career prospects.</p>
+            <ul>
+              <li><b>AWS Certified Solutions Architect</b>: This certification demonstrates your ability to design and deploy scalable systems on AWS. <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank">Learn AWS Certification</a></li>
+              <li><b>Microsoft Certified: Azure Solutions Architect</b>: Validate your expertise in designing and implementing cloud solutions on Azure. <a href="https://learn.microsoft.com/en-us/certifications/azure-solutions-architect/" target="_blank">Learn Azure Certification</a></li>
+              <li><b>Google Cloud Professional Cloud Architect</b>: This certification demonstrates your expertise in designing and managing cloud architectures on Google Cloud. <a href="https://cloud.google.com/certification/cloud-architect" target="_blank">Learn Google Cloud Certification</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in cloud computing:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.aws.training/" target="_blank">AWS Training</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/training/" target="_blank">Microsoft Learn</a></li>
+            <li><a href="https://cloud.google.com/training" target="_blank">Google Cloud Training</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!--7-->
+      <section class="attractive-roadmap"  id="Blockchain Development">
+        <h2>Blockchain Development Roadmap</h2>
+        <p>Follow this visually engaging roadmap to master blockchain development step by step.</p>
+        <div class="roadmap-container">
+          <!-- Level 1 -->
+          <div class="roadmap-level">
+            <div class="milestone">Introduction to Blockchain</div>
+            <div class="milestone">Blockchain Basics (Decentralization, Cryptography, Hashing)</div>
+            <div class="milestone">Public vs Private Blockchains</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 2 -->
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Understanding Smart Contracts</div>
+            <div class="milestone">Blockchain Platforms (Ethereum, Hyperledger, Polkadot)</div>
+            <div class="milestone">Solidity Programming Language (For Ethereum)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 3 -->
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">Developing Decentralized Applications (dApps)</div>
+            <div class="milestone">Blockchain Consensus Algorithms (PoW, PoS, Delegated PoS)</div>
+            <div class="milestone">Interacting with Blockchain via APIs</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 4 -->
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Blockchain Security Best Practices</div>
+            <div class="milestone">Advanced Blockchain Development (Layer 2 Solutions, Sharding)</div>
+            <div class="milestone">Launching and Maintaining a Blockchain Network</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blockchain-development-roadmap">
+        <div class="roadmap-header">
+          <h2>Blockchain Development Roadmap</h2>
+          <p class="subheading">This roadmap will guide you step-by-step through the essential skills and technologies required to become a blockchain developer. Whether you're interested in building decentralized applications (DApps), smart contracts, or working with blockchain platforms, this guide has you covered.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="blockchain-basics">
+            <h3>Blockchain Basics</h3>
+            <p>Start by understanding the core concepts of blockchain technology before diving into development.</p>
+            <ul>
+              <li><b>What is Blockchain?</b>: Learn the fundamentals of blockchain, its structure, and how it works. <a href="https://www.ibm.com/topics/what-is-blockchain" target="_blank">Learn Blockchain Basics</a></li>
+              <li><b>Types of Blockchains</b>: Understand the differences between public, private, and consortium blockchains. <a href="https://www.turing.com/kb/types-of-blockchain" target="_blank">Learn Types of Blockchains</a></li>
+              <li><b>Consensus Mechanisms</b>: Learn about Proof of Work, Proof of Stake, and other consensus algorithms. <a href="https://blockgeeks.com/guides/consensus-mechanism/" target="_blank">Consensus Mechanisms Explained</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="blockchain-platforms">
+            <h3>Blockchain Platforms</h3>
+            <p>Familiarize yourself with the popular blockchain platforms for development.</p>
+            <ul>
+              <li><b>Ethereum</b>: Learn how Ethereum works and how to create smart contracts using Solidity. <a href="https://ethereum.org/en/developers/docs/" target="_blank">Learn Ethereum</a></li>
+              <li><b>Hyperledger</b>: Understand the use of Hyperledger for building enterprise-grade blockchain solutions. <a href="https://www.hyperledger.org/learn" target="_blank">Learn Hyperledger</a></li>
+              <li><b>Polkadot</b>: Explore Polkadot for multi-chain interoperability in blockchain networks. <a href="https://polkadot.network/learn/" target="_blank">Learn Polkadot</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="smart-contracts">
+            <h3>Smart Contracts</h3>
+            <p>Learn how to create and deploy smart contracts on blockchain platforms.</p>
+            <ul>
+              <li><b>Solidity</b>: Learn the basics of Solidity, the most used programming language for smart contracts. <a href="https://soliditylang.org/docs/" target="_blank">Learn Solidity</a></li>
+              <li><b>Web3.js</b>: Learn how to interact with blockchain from your web application. <a href="https://web3js.readthedocs.io/en/v1.2.11/" target="_blank">Learn Web3.js</a></li>
+              <li><b>Truffle Suite</b>: Use Truffle for smart contract development, testing, and deployment. <a href="https://www.trufflesuite.com/docs" target="_blank">Learn Truffle Suite</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="decentralized-applications">
+            <h3>Decentralized Applications (DApps)</h3>
+            <p>Learn to build decentralized applications that interact with blockchain networks.</p>
+            <ul>
+              <li><b>Building DApps</b>: Learn the basic structure of DApps, and how to connect them to blockchain using Web3. <a href="https://www.trufflesuite.com/learn" target="_blank">Building DApps</a></li>
+              <li><b>IPFS</b>: Learn how to use the InterPlanetary File System (IPFS) for decentralized storage in DApps. <a href="https://ipfs.io/#how-it-works" target="_blank">Learn IPFS</a></li>
+              <li><b>Frontend Development for DApps</b>: Learn how to build the frontend of DApps using JavaScript frameworks like React. <a href="https://reactjs.org/" target="_blank">Learn React</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="blockchain-security">
+            <h3>Blockchain Security</h3>
+            <p>Security is crucial in blockchain development. Learn the best practices to secure your applications.</p>
+            <ul>
+              <li><b>Smart Contract Auditing</b>: Learn how to audit smart contracts to ensure they are secure. <a href="https://soliditylang.org/docs/overview/security" target="_blank">Smart Contract Security</a></li>
+              <li><b>Blockchain Attacks</b>: Understand common attacks like 51% attacks, Sybil attacks, and how to prevent them. <a href="https://www.blockchain-council.org/blockchain/understanding-blockchain-attacks/" target="_blank">Blockchain Attacks and Protection</a></li>
+              <li><b>Cryptography in Blockchain</b>: Learn how cryptography ensures the security of blockchain networks. <a href="https://www.blockchain-council.org/blockchain/cryptography-in-blockchain/" target="_blank">Learn Cryptography in Blockchain</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="blockchain-tools">
+            <h3>Blockchain Development Tools</h3>
+            <p>Learn the tools used to develop, test, and deploy blockchain applications.</p>
+            <ul>
+              <li><b>Ganache</b>: Use Ganache to create a personal blockchain for testing smart contracts. <a href="https://www.trufflesuite.com/ganache" target="_blank">Learn Ganache</a></li>
+              <li><b>Remix IDE</b>: Use Remix for writing and testing Solidity smart contracts directly from your browser. <a href="https://remix.ethereum.org/" target="_blank">Learn Remix IDE</a></li>
+              <li><b>Metamask</b>: Use Metamask to interact with Ethereum-based DApps and manage your wallets. <a href="https://metamask.io/" target="_blank">Learn Metamask</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="blockchain-certifications">
+            <h3>Blockchain Certifications</h3>
+            <p>Certifications are a great way to validate your skills and improve your career prospects.</p>
+            <ul>
+              <li><b>Certified Blockchain Developer</b>: This certification demonstrates your expertise in blockchain development. <a href="https://www.blockchain-council.org/certifications/certified-blockchain-developer/" target="_blank">Learn Blockchain Developer Certification</a></li>
+              <li><b>Ethereum Developer Certification</b>: Validate your skills as a blockchain developer on Ethereum. <a href="https://www.blockchain-council.org/certifications/certified-ethereum-developer/" target="_blank">Learn Ethereum Certification</a></li>
+              <li><b>Certified Hyperledger Developer</b>: This certification demonstrates your ability to develop with Hyperledger. <a href="https://www.hyperledger.org/learn/certification" target="_blank">Learn Hyperledger Developer Certification</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in blockchain development:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.blockchain-council.org/" target="_blank">Blockchain Council</a></li>
+            <li><a href="https://www.trufflesuite.com/" target="_blank">Truffle Suite</a></li>
+            <li><a href="https://www.ethereum.org/" target="_blank">Ethereum</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!--8-->
+      <section class="attractive-roadmap"  id="Internet of Things">
+        <h2>Internet of Things (IoT) Development Roadmap</h2>
+        <p>Follow this visually engaging roadmap to master IoT development step by step.</p>
+        <div class="roadmap-container">
+          <!-- Level 1 -->
+          <div class="roadmap-level">
+            <div class="milestone">Introduction to IoT</div>
+            <div class="milestone">Understanding IoT Architecture</div>
+            <div class="milestone">IoT Communication Protocols (MQTT, CoAP)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 2 -->
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Sensor Technologies and Actuators</div>
+            <div class="milestone">Microcontrollers and Development Boards (Arduino, Raspberry Pi)</div>
+            <div class="milestone">IoT Security (Data Encryption, Secure Communication)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 3 -->
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">Cloud Integration for IoT</div>
+            <div class="milestone">IoT Data Management and Analytics</div>
+            <div class="milestone">IoT Platforms (ThingSpeak, AWS IoT, Google Cloud IoT)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 4 -->
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Edge Computing for IoT</div>
+            <div class="milestone">Advanced IoT Applications (Smart Cities, Industrial IoT)</div>
+            <div class="milestone">IoT Device Management and Deployment</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="iot-development-roadmap">
+        <div class="roadmap-header">
+          <h2>Internet of Things (IoT) Development Roadmap</h2>
+          <p class="subheading">This roadmap will guide you step-by-step through the essential skills and technologies required to become an IoT developer. Whether you're building connected devices, working with embedded systems, or creating IoT networks, this guide will help you get started.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="iot-basics">
+            <h3>IoT Basics</h3>
+            <p>Start by understanding the foundational concepts of IoT technology.</p>
+            <ul>
+              <li><b>What is IoT?</b>: Learn the fundamentals of IoT, its architecture, and how IoT systems work. <a href="https://www.ibm.com/topics/internet-of-things" target="_blank">Learn IoT Basics</a></li>
+              <li><b>Types of IoT Devices</b>: Understand the various types of IoT devices such as sensors, actuators, and embedded systems. <a href="https://www.iotforall.com/types-of-iot-devices/" target="_blank">Learn Types of IoT Devices</a></li>
+              <li><b>IoT Communication Protocols</b>: Learn about communication protocols like MQTT, HTTP, and CoAP. <a href="https://www.postscapes.com/internet-of-things-protocols/" target="_blank">IoT Protocols Explained</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-hardware">
+            <h3>IoT Hardware</h3>
+            <p>Learn about the hardware components essential for building IoT systems.</p>
+            <ul>
+              <li><b>Microcontrollers</b>: Understand the role of microcontrollers like Arduino and Raspberry Pi in IoT development. <a href="https://www.arduino.cc/" target="_blank">Learn Arduino</a></li>
+              <li><b>Sensors and Actuators</b>: Explore different types of sensors (temperature, humidity, motion) and actuators (motors, servos) used in IoT applications. <a href="https://learn.adafruit.com/" target="_blank">Explore Sensors and Actuators</a></li>
+              <li><b>Wireless Communication</b>: Learn how wireless technologies like Wi-Fi, Bluetooth, Zigbee, and LoRa are used for IoT communication. <a href="https://www.iotforall.com/iot-communication-protocols/" target="_blank">Learn Wireless IoT Communication</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-software">
+            <h3>IoT Software and Platforms</h3>
+            <p>Familiarize yourself with the software tools and platforms used in IoT development.</p>
+            <ul>
+              <li><b>IoT Operating Systems</b>: Learn about IoT-specific operating systems like RIOT and FreeRTOS. <a href="https://www.freertos.org/" target="_blank">Learn FreeRTOS</a></li>
+              <li><b>Cloud Platforms</b>: Learn how to use cloud platforms like AWS IoT, Google Cloud IoT, and Microsoft Azure IoT for device management and data storage. <a href="https://aws.amazon.com/iot/" target="_blank">Learn AWS IoT</a></li>
+              <li><b>IoT Data Analytics</b>: Learn about analyzing IoT data using big data technologies and real-time analytics tools. <a href="https://www.splunk.com/en_us/solutions/iot.html" target="_blank">Learn IoT Data Analytics</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-applications">
+            <h3>IoT Applications</h3>
+            <p>Understand the various industries and use cases for IoT technology.</p>
+            <ul>
+              <li><b>Smart Homes</b>: Learn how IoT powers home automation systems, including smart lighting, security, and appliances. <a href="https://www.smarthome.com/" target="_blank">Explore Smart Homes</a></li>
+              <li><b>Industrial IoT (IIoT)</b>: Understand how IoT is transforming industries through automation, predictive maintenance, and supply chain management. <a href="https://www.iotforall.com/industrial-iot/" target="_blank">Learn Industrial IoT</a></li>
+              <li><b>Wearables</b>: Explore how IoT is used in health monitoring and fitness tracking devices. <a href="https://www.wearable-technologies.com/" target="_blank">Learn Wearables</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-security">
+            <h3>IoT Security</h3>
+            <p>Security is critical in IoT development. Learn best practices to secure your IoT systems.</p>
+            <ul>
+              <li><b>Device Authentication</b>: Learn how to secure device-to-device communication using encryption and authentication. <a href="https://www.securityweek.com/secure-iot-device-authentication" target="_blank">Learn Device Authentication</a></li>
+              <li><b>IoT Network Security</b>: Understand how to secure the network infrastructure of IoT systems against attacks. <a href="https://www.csoonline.com/article/3272539/what-is-iot-security-and-how-to-secure-your-iot-devices.html" target="_blank">IoT Network Security</a></li>
+              <li><b>Data Privacy</b>: Learn about privacy laws and methods for ensuring data security in IoT applications. <a href="https://www.iotforall.com/privacy-and-security-iot/" target="_blank">IoT Data Privacy</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-tools">
+            <h3>IoT Development Tools</h3>
+            <p>Explore the tools you can use for IoT development, testing, and deployment.</p>
+            <ul>
+              <li><b>MQTT Broker</b>: Learn about MQTT, a lightweight protocol for device communication, and how to set up an MQTT broker. <a href="https://mqtt.org/" target="_blank">Learn MQTT</a></li>
+              <li><b>Node-RED</b>: Learn how to use Node-RED for wiring together IoT devices, APIs, and online services. <a href="https://nodered.org/" target="_blank">Learn Node-RED</a></li>
+              <li><b>Raspberry Pi</b>: Use Raspberry Pi as a low-cost platform to build and prototype IoT projects. <a href="https://www.raspberrypi.org/" target="_blank">Learn Raspberry Pi</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="iot-certifications">
+            <h3>IoT Certifications</h3>
+            <p>Certifications are a great way to validate your IoT skills and improve your career prospects.</p>
+            <ul>
+              <li><b>Certified IoT Professional</b>: This certification demonstrates your expertise in IoT development. <a href="https://www.iotsolutionexpert.com/" target="_blank">Learn IoT Certification</a></li>
+              <li><b>IoT Specialist Certification</b>: Validate your skills in building and managing IoT systems. <a href="https://www.iotacademy.org/" target="_blank">Learn IoT Specialist Certification</a></li>
+              <li><b>Certified Embedded Systems Engineer</b>: Learn how embedded systems play a critical role in IoT development. <a href="https://www.embedded.com/" target="_blank">Learn Embedded Systems Certification</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in IoT development:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.iotacademy.org/" target="_blank">IoT Academy</a></li>
+            <li><a href="https://www.raspberrypi.org/learn/" target="_blank">Raspberry Pi Learning</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!--9-->
+      <section class="attractive-roadmap" id="Software Testing">
+        <h2>Software Testing & QA Roadmap</h2>
+        <p>Follow this engaging roadmap to master Software Testing and QA step by step.</p>
+        <div class="roadmap-container">
+          <!-- Level 1 -->
+          <div class="roadmap-level">
+            <div class="milestone">Introduction to Software Testing</div>
+            <div class="milestone">Types of Testing (Manual vs Automated)</div>
+            <div class="milestone">Understanding Testing Life Cycle</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 2 -->
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Test Case Design and Execution</div>
+            <div class="milestone">Functional Testing (Unit Testing, Integration Testing)</div>
+            <div class="milestone">Non-Functional Testing (Performance, Security, Usability)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 3 -->
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">Automation Testing Tools (Selenium, JUnit, TestNG)</div>
+            <div class="milestone">CI/CD Integration in Testing</div>
+            <div class="milestone">Bug Tracking and Reporting Tools (JIRA, Bugzilla)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 4 -->
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Advanced Testing Techniques (Load Testing, Stress Testing)</div>
+            <div class="milestone">Agile and Scrum Methodologies in Testing</div>
+            <div class="milestone">Continuous Testing and Test Management</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="software-testing-qa-roadmap">
+        <div class="roadmap-header">
+          <h2>Software Testing & QA Development Roadmap</h2>
+          <p class="subheading">Follow this roadmap to master the key concepts and technologies in Software Testing & Quality Assurance (QA). Whether you’re just getting started or looking to deepen your expertise, this guide will help you step-by-step.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="qa-basics">
+            <h3>Software Testing Basics</h3>
+            <p>Start by learning the foundational concepts of software testing and quality assurance.</p>
+            <ul>
+              <li><b>Introduction to Software Testing</b>: Understand the need for software testing and its objectives. <a href="https://www.softwaretestinghelp.com/software-testing-tutorials/" target="_blank">Learn Software Testing Basics</a></li>
+              <li><b>Types of Testing</b>: Learn about different types of testing like manual testing, automation testing, unit testing, integration testing, etc. <a href="https://www.guru99.com/types-of-software-testing.html" target="_blank">Explore Testing Types</a></li>
+              <li><b>Testing Life Cycle</b>: Learn about the phases involved in the software testing life cycle. <a href="https://www.softwaretestinghelp.com/software-testing-life-cycle-stlc/" target="_blank">Learn Testing Life Cycle</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="manual-testing">
+            <h3>Manual Testing</h3>
+            <p>Learn the fundamental aspects of manual testing and how to test software without using automation tools.</p>
+            <ul>
+              <li><b>Test Case Creation</b>: Learn how to write and organize test cases for different scenarios. <a href="https://www.guru99.com/test-case-writing.html" target="_blank">Learn Test Case Writing</a></li>
+              <li><b>Bug Reporting</b>: Understand how to report defects and work with development teams. <a href="https://www.softwaretestinghelp.com/bug-reporting-in-software-testing/" target="_blank">Learn Bug Reporting</a></li>
+              <li><b>Manual Testing Tools</b>: Explore tools like JIRA, Bugzilla for manual testing. <a href="https://www.jira-software.com/" target="_blank">Learn JIRA</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="automation-testing">
+            <h3>Automation Testing</h3>
+            <p>Learn about automation tools and how to implement automated tests to speed up the testing process.</p>
+            <ul>
+              <li><b>Automation Frameworks</b>: Understand different automation frameworks like Selenium, Appium, TestNG. <a href="https://www.selenium.dev/" target="_blank">Learn Selenium</a></li>
+              <li><b>Automated Test Scripts</b>: Learn how to write and execute automated test scripts. <a href="https://www.softwaretestinghelp.com/selenium-tutorial-1/" target="_blank">Learn Selenium Scripts</a></li>
+              <li><b>Continuous Integration</b>: Explore CI tools like Jenkins for automating the testing process. <a href="https://www.jenkins.io/" target="_blank">Learn Jenkins</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="performance-testing">
+            <h3>Performance Testing</h3>
+            <p>Understand how to assess the performance of a software application under different load conditions.</p>
+            <ul>
+              <li><b>Load Testing</b>: Learn about load testing to ensure the software can handle high user traffic. <a href="https://www.guru99.com/performance-testing-tutorial.html" target="_blank">Learn Performance Testing</a></li>
+              <li><b>Tools for Performance Testing</b>: Explore tools like JMeter and LoadRunner for load testing. <a href="https://jmeter.apache.org/" target="_blank">Learn JMeter</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="security-testing">
+            <h3>Security Testing</h3>
+            <p>Learn how to secure software by identifying and addressing vulnerabilities.</p>
+            <ul>
+              <li><b>Vulnerability Assessment</b>: Understand the principles of security testing and vulnerability assessment. <a href="https://www.tutorialspoint.com/software_testing/software_testing_security_testing.htm" target="_blank">Learn Security Testing</a></li>
+              <li><b>Penetration Testing</b>: Explore penetration testing techniques to identify security weaknesses. <a href="https://www.offensive-security.com/pwk-oscp/" target="_blank">Learn Penetration Testing</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="qa-certifications">
+            <h3>QA Certifications</h3>
+            <p>Certifications can help validate your expertise and improve your career prospects in the field of software testing.</p>
+            <ul>
+              <li><b>ISTQB Certification</b>: The International Software Testing Qualifications Board (ISTQB) provides a recognized certification. <a href="https://www.istqb.org/" target="_blank">Learn ISTQB Certification</a></li>
+              <li><b>Certified Software Tester (CSTE)</b>: A certification for professionals looking to enhance their software testing knowledge. <a href="https://www.softwarecertifications.org/" target="_blank">Learn CSTE Certification</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in Software Testing and QA:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.guru99.com/" target="_blank">Guru99</a></li>
+            <li><a href="https://www.softwaretestinghelp.com/" target="_blank">Software Testing Help</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+          </ul>
+        </div>
+      </section>
+
+      
+      <!--11-->
+      <section class="attractive-roadmap" id="Augmented Reality Virtual Reality">
+        <h2>Augmented Reality (AR) / Virtual Reality (VR) Development Roadmap</h2>
+        <p>Follow this visually engaging roadmap to master AR/VR development step by step.</p>
+        <div class="roadmap-container">
+          <!-- Level 1 -->
+          <div class="roadmap-level">
+            <div class="milestone">Introduction to AR/VR</div>
+            <div class="milestone">Understanding AR/VR Technologies</div>
+            <div class="milestone">AR/VR Development Platforms (Unity, Unreal Engine)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 2 -->
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">3D Modeling and Animation for AR/VR</div>
+            <div class="milestone">AR/VR Interaction Design</div>
+            <div class="milestone">Understanding AR/VR Hardware (Oculus, HoloLens)</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 3 -->
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">AR/VR Development for Mobile</div>
+            <div class="milestone">Creating Immersive Experiences</div>
+            <div class="milestone">Understanding 3D Spatial Audio and Interaction</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 4 -->
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Advanced AR/VR Applications (Gaming, Training)</div>
+            <div class="milestone">AR/VR for Healthcare and Education</div>
+            <div class="milestone">Deploying AR/VR Applications to Platforms</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ar-vr-roadmap">
+        <div class="roadmap-header">
+          <h2>Augmented Reality (AR) / Virtual Reality (VR) Development Roadmap</h2>
+          <p class="subheading">Follow this roadmap to master the key concepts and technologies in AR/VR development. Whether you’re a beginner or an experienced developer, this guide will help you step-by-step.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="arvr-basics">
+            <h3>AR/VR Basics</h3>
+            <p>Start by learning the foundational concepts of augmented and virtual reality development.</p>
+            <ul>
+              <li><b>Introduction to AR/VR</b>: Understand the difference between AR and VR and their applications. <a href="https://www.vive.com/us/virtual-reality/" target="_blank">Learn AR/VR Basics</a></li>
+              <li><b>AR/VR Technologies</b>: Learn about technologies behind AR and VR, such as computer vision and 3D rendering. <a href="https://www.vrscout.com/" target="_blank">Explore AR/VR Technologies</a></li>
+              <li><b>AR/VR Use Cases</b>: Explore various industries where AR/VR is applied, such as gaming, healthcare, and education. <a href="https://www.hololens.com/" target="_blank">Learn AR/VR Use Cases</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="arvr-development">
+            <h3>AR/VR Development Platforms</h3>
+            <p>Learn about the popular platforms and tools used for developing AR/VR applications.</p>
+            <ul>
+              <li><b>Unity for AR/VR</b>: Learn how to use Unity to develop immersive AR/VR experiences. <a href="https://unity.com/solutions/augmented-reality" target="_blank">Learn Unity for AR/VR</a></li>
+              <li><b>Unreal Engine for AR/VR</b>: Discover Unreal Engine’s role in creating high-quality AR/VR applications. <a href="https://www.unrealengine.com/en-US/vr" target="_blank">Learn Unreal Engine</a></li>
+              <li><b>ARCore and ARKit</b>: Understand how to create AR apps for Android and iOS using ARCore and ARKit. <a href="https://developers.google.com/ar" target="_blank">Learn ARCore</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="3d-modeling">
+            <h3>3D Modeling and Animation</h3>
+            <p>Learn how to create 3D models and animations for AR/VR experiences.</p>
+            <ul>
+              <li><b>3D Modeling Tools</b>: Learn about tools like Blender, Maya, and 3ds Max to create 3D assets for AR/VR. <a href="https://www.blender.org/" target="_blank">Learn 3D Modeling</a></li>
+              <li><b>Animation for AR/VR</b>: Understand how to animate objects for interactive experiences. <a href="https://www.animationmentor.com/" target="_blank">Learn Animation</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="interaction-design">
+            <h3>AR/VR Interaction Design</h3>
+            <p>Learn the principles of interaction design to create intuitive and immersive AR/VR experiences.</p>
+            <ul>
+              <li><b>User Interface (UI) for AR/VR</b>: Understand how to design user interfaces for AR/VR applications. <a href="https://www.cnbc.com/2021/09/20/immersive-ui-and-ux-design-for-vr-ar.html" target="_blank">Learn UI Design</a></li>
+              <li><b>Interaction Patterns</b>: Learn how users interact with objects and environments in AR/VR. <a href="https://www.smashingmagazine.com/2019/03/interaction-design-virtual-reality/" target="_blank">Explore Interaction Patterns</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="arvr-applications">
+            <h3>Advanced AR/VR Applications</h3>
+            <p>Explore how to build more advanced AR/VR applications for various industries.</p>
+            <ul>
+              <li><b>Game Development</b>: Learn how to develop AR/VR games using Unity or Unreal Engine. <a href="https://www.gamasutra.com/" target="_blank">Learn Game Development</a></li>
+              <li><b>Healthcare and Education</b>: Explore AR/VR’s applications in healthcare for training, and in education for interactive learning. <a href="https://edtechmagazine.com/higher/article/2021/06/vr-ar-boost-education-experience-across-college-campuses" target="_blank">Explore AR/VR in Education</a></li>
+              <li><b>Smart Cities and Industry 4.0</b>: Learn how AR/VR is used in smart cities and industry for innovation and efficiency. <a href="https://www.ibm.com/blog/augmented-reality-smart-manufacturing/" target="_blank">Explore AR in Smart Cities</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="arvr-certifications">
+            <h3>AR/VR Certifications</h3>
+            <p>Certifications can validate your expertise and help advance your career in AR/VR development.</p>
+            <ul>
+              <li><b>Certified AR/VR Developer</b>: Become a certified AR/VR developer through various platforms. <a href="https://www.udemy.com/course/arvr-certification/" target="_blank">Learn AR/VR Certification</a></li>
+              <li><b>Unity Certification</b>: Get certified in Unity, one of the most popular AR/VR development platforms. <a href="https://learn.unity.com/certification" target="_blank">Learn Unity Certification</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in AR/VR development:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.pluralsight.com/" target="_blank">Pluralsight</a></li>
+            <li><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!--12-->
+      <section class="attractive-roadmap" id="DevOps Development">
+        <h2>DevOps Development Roadmap</h2>
+        <p>Follow this visually engaging roadmap to master DevOps development step by step.</p>
+        <div class="roadmap-container">
+          <!-- Level 1 -->
+          <div class="roadmap-level" id="level1">
+            <div class="milestone">Introduction to DevOps</div>
+            <div class="milestone">Understanding the DevOps Culture</div>
+            <div class="milestone">Version Control with Git and GitHub</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 2 -->
+          <div class="roadmap-level" id="level2">
+            <div class="milestone">Continuous Integration (CI) with Jenkins</div>
+            <div class="milestone">Containerization with Docker</div>
+            <div class="milestone">Orchestration with Kubernetes</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 3 -->
+          <div class="roadmap-level" id="level3">
+            <div class="milestone">Infrastructure as Code (IaC) with Terraform</div>
+            <div class="milestone">Monitoring and Logging with ELK Stack</div>
+            <div class="milestone">Configuration Management with Ansible</div>
+          </div>
+          <div class="curved-arrow">
+            <svg viewBox="0 0 100 100">
+              <path d="M10 90 Q50 10 90 90" stroke="#3498db" fill="transparent" stroke-width="3" />
+            </svg>
+          </div>
+      
+          <!-- Level 4 -->
+          <div class="roadmap-level" id="level4">
+            <div class="milestone">Continuous Delivery (CD) and Automation</div>
+            <div class="milestone">DevSecOps: Security Integration in DevOps</div>
+            <div class="milestone">Cloud Services (AWS, Azure, Google Cloud)</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="devops-roadmap">
+        <div class="roadmap-header">
+          <h2>DevOps Development Roadmap</h2>
+          <p class="subheading">Follow this roadmap to master the key concepts and technologies in DevOps development. Whether you’re a beginner or an experienced developer, this guide will help you step-by-step.</p>
+        </div>
+      
+        <div class="roadmap-content">
+          <div class="step" id="devops-basics">
+            <h3>DevOps Basics</h3>
+            <p>Start by learning the foundational concepts of DevOps and its practices.</p>
+            <ul>
+              <li><b>Introduction to DevOps</b>: Understand the DevOps culture, its principles, and benefits. <a href="https://www.atlassian.com/devops" target="_blank">Learn DevOps Basics</a></li>
+              <li><b>DevOps Practices</b>: Learn about continuous integration, continuous delivery, and automation. <a href="https://www.redhat.com/en/topics/devops" target="_blank">Explore DevOps Practices</a></li>
+              <li><b>Version Control Systems</b>: Learn Git for version control and its importance in DevOps workflows. <a href="https://git-scm.com/" target="_blank">Learn Git</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="ci-cd">
+            <h3>Continuous Integration / Continuous Delivery (CI/CD)</h3>
+            <p>Learn about CI/CD pipelines and tools used for automating builds, tests, and deployments.</p>
+            <ul>
+              <li><b>Jenkins for CI/CD</b>: Set up Jenkins for automating your development pipeline. <a href="https://www.jenkins.io/doc/book/installing/" target="_blank">Install Jenkins</a></li>
+              <li><b>GitLab CI</b>: Learn about GitLab's integrated CI/CD pipelines. <a href="https://docs.gitlab.com/ee/ci/quick_start/continuous_integration.html" target="_blank">Learn GitLab CI</a></li>
+              <li><b>CircleCI</b>: Explore CircleCI for automating your DevOps workflows. <a href="https://circleci.com/docs/2.0/getting-started/" target="_blank">Learn CircleCI</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="containerization">
+            <h3>Containerization with Docker</h3>
+            <p>Learn how to containerize applications using Docker for scalable deployments.</p>
+            <ul>
+              <li><b>Docker Basics</b>: Learn how Docker helps in creating, testing, and deploying containers. <a href="https://docs.docker.com/get-started/" target="_blank">Learn Docker</a></li>
+              <li><b>Docker Compose</b>: Learn how to define multi-container applications with Docker Compose. <a href="https://docs.docker.com/compose/" target="_blank">Learn Docker Compose</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="orchestration">
+            <h3>Orchestration with Kubernetes</h3>
+            <p>Learn how Kubernetes helps in automating the deployment, scaling, and management of containerized applications.</p>
+            <ul>
+              <li><b>Kubernetes Basics</b>: Learn how Kubernetes manages containerized applications. <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/" target="_blank">Learn Kubernetes</a></li>
+              <li><b>Helm for Kubernetes</b>: Learn how to manage Kubernetes applications using Helm. <a href="https://helm.sh/docs/" target="_blank">Learn Helm</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="infrastructure-as-code">
+            <h3>Infrastructure as Code (IaC)</h3>
+            <p>Learn about Infrastructure as Code and tools for automating the provisioning of infrastructure.</p>
+            <ul>
+              <li><b>Terraform</b>: Learn how to provision cloud infrastructure with Terraform. <a href="https://www.terraform.io/intro/index.html" target="_blank">Learn Terraform</a></li>
+              <li><b>CloudFormation (AWS)</b>: Learn how to automate AWS infrastructure using CloudFormation. <a href="https://docs.aws.amazon.com/cloudformation/index.html" target="_blank">Learn CloudFormation</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="monitoring-logging">
+            <h3>Monitoring and Logging</h3>
+            <p>Learn how to monitor and log applications and infrastructure in production.</p>
+            <ul>
+              <li><b>ELK Stack</b>: Learn how to use Elasticsearch, Logstash, and Kibana for logging. <a href="https://www.elastic.co/guide/en/elastic-stack-get-started/current/index.html" target="_blank">Learn ELK Stack</a></li>
+              <li><b>Prometheus & Grafana</b>: Learn how to monitor applications using Prometheus and visualize data with Grafana. <a href="https://prometheus.io/docs/introduction/overview/" target="_blank">Learn Prometheus</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="cloud-platforms">
+            <h3>Cloud Platforms</h3>
+            <p>Explore cloud platforms for managing and deploying applications and services.</p>
+            <ul>
+              <li><b>AWS</b>: Learn how to use AWS for building scalable applications. <a href="https://aws.amazon.com/getting-started/" target="_blank">Learn AWS</a></li>
+              <li><b>Azure</b>: Explore Microsoft Azure for DevOps solutions. <a href="https://learn.microsoft.com/en-us/azure/devops/?view=azure-devops" target="_blank">Learn Azure</a></li>
+              <li><b>Google Cloud</b>: Learn about Google Cloud and its services for DevOps. <a href="https://cloud.google.com/training" target="_blank">Learn Google Cloud</a></li>
+            </ul>
+          </div>
+      
+          <div class="step" id="devops-certifications">
+            <h3>DevOps Certifications</h3>
+            <p>Certifications can validate your expertise and help advance your career in DevOps development.</p>
+            <ul>
+              <li><b>Certified Kubernetes Administrator (CKA)</b>: Get certified in Kubernetes administration. <a href="https://www.cncf.io/certification/cka/" target="_blank">Learn CKA</a></li>
+              <li><b>DevOps Foundation Certification</b>: Learn the fundamental principles of DevOps. <a href="https://www.devopsinstitute.com/certifications/devops-foundation/" target="_blank">Learn DevOps Foundation</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="resources">
+          <h3>Where to Learn?</h3>
+          <p>Explore these platforms to deepen your knowledge in DevOps development:</p>
+          <ul>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.pluralsight.com/" target="_blank">Pluralsight</a></li>
+            <li><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+          </ul>
+        </div>
+      </section>
+      
+     
+      <script>
+        const courses = [
+    { id: 'fullstack-level', name: 'Fullstack Development Roadmap', elementId: 'fullstack-level' },
+    { id: 'cyber-level', name: 'Cybersecurity Roadmap', elementId: 'cyber-level' },
+    { id: 'aiml-level', name: 'AI & ML Roadmap', elementId: 'aiml-level' },
+    { id: 'mobile-level', name: 'Android App Development', elementId: 'mobile-level' },
+    { id: 'game-development', name: 'Game Development Roadmap', elementId: 'Game Development' },
+    { id: 'cloud-computing', name: 'Cloud Computing Roadmap', elementId: 'Cloud Computing' },
+    { id: 'blockchain-level', name: 'Blockchain Development Roadmap', elementId: 'Blockchain Development' },
+    { id: 'iot-level', name: 'Internet of Things Roadmap', elementId: 'Internet of Things' },
+    { id: 'software-testing', name: 'Software Testing Roadmap', elementId: 'Software Testing' },
+    { id: 'arvr-level', name: 'Augmented Reality/Virtual Reality Roadmap', elementId: 'Augmented Reality Virtual Reality' },
+    { id: 'devops-level', name: 'DevOps Development Roadmap', elementId: 'DevOps Development' }
+        ];
+
+        // Function to search and display suggestions
+        function searchCourses() {
+            let searchQuery = document.getElementById('search').value.toLowerCase();
+            let resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            // Filter courses based on search query
+            const filteredCourses = courses.filter(course => 
+                course.name.toLowerCase().includes(searchQuery)
+            );
+
+            // Display filtered suggestions
+            filteredCourses.forEach(course => {
+                let resultItem = document.createElement('div');
+                resultItem.classList.add('result-item');
+                resultItem.textContent = course.name;
+                resultItem.onclick = () => {
+                    scrollToContent(course.elementId); // Scroll to matched content
+                };
+                resultsDiv.appendChild(resultItem);
+            });
+
+            // If no results, show a message
+            if (filteredCourses.length === 0) {
+                let noResultItem = document.createElement('div');
+                noResultItem.classList.add('result-item');
+                noResultItem.textContent = 'No matching content found';
+                resultsDiv.appendChild(noResultItem);
+            }
+        }
+
+        // Function to scroll to the specific content on the same page
+        function scrollToContent(elementId) {
+            let contentElement = document.getElementById(elementId);
+            if (contentElement) {
+                contentElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Content not found on the page');
+            }
+        }
+
+        // Handle real-time input for suggestions
+        document.getElementById('search').oninput = () => {
+            searchCourses(); // Show suggestions in real-time
+        };
+
+        // Handle search on click or enter
+        function executeSearch() {
+            let searchQuery = document.getElementById('search').value.toLowerCase();
+            const matchedCourse = courses.find(course => course.name.toLowerCase().includes(searchQuery));
+
+            if (matchedCourse) {
+                scrollToContent(matchedCourse.elementId); // Scroll to the matched content
+            } else {
+                alert('No matching content found');
+            }
+        }
+
+        // Trigger search when search icon is clicked
+        document.querySelector('button').onclick = () => {
+            executeSearch(); // Perform search when search icon is clicked
+        };
+
+        // Trigger search on Enter key press
+        document.getElementById('search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                executeSearch(); // Perform search when Enter key is pressed
+            }
+        });
+    </script>
+  <script src="gon_oder.js"></script>
+    
+    
+</body>
+</html>

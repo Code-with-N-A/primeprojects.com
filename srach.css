@@ -1,0 +1,114 @@
+*{
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.container {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+   
+  }
+
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 15px 50px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    font-size: 18px;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    color: black;
+  }
+
+  .search-bar:focus {
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .search-icon:hover {
+    color: #000000;
+  }
+
+  .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: none;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    color: #000000;
+  }
+
+  .suggestion-item {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+  }
+
+  .suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .search-container.active .suggestions {
+    display: block;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .search-bar {
+      padding: 12px 40px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .search-bar {
+      padding: 10px 30px;
+      font-size: 15px;
+    }
+
+    .search-icon {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .search-bar {
+      padding: 10px 25px;
+      font-size: 14px;
+    }
+
+    .search-icon {
+      font-size: 16px;
+    }
+  }

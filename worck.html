@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill System</title>
+    <meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+  
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+  
+  <!-- Author -->
+  <meta name="author" content="Prime Projects">
+
+  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:url" content="https://primeprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/">
+
+  <!-- Schema Markup (Structured Data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prime Projects",
+    "url": "https://primeprojects.netlify.app/",
+    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+    "sameAs": [
+      "https://www.facebook.com/primeprojects",
+      "https://twitter.com/primeprojects",
+      "https://www.linkedin.com/company/primeprojects"
+    ],
+    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  }
+  </script>
+
+  <!-- Google Ads Conversion Tracking (Google Ads) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+  </script>
+
+  <!-- Google Analytics (Tracking Website Traffic) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+  </script>
+
+  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Free Programming Courses",
+    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Prime Projects",
+      "url": "https://primeprojects.netlify.app/"
+    }
+  }
+  </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 5px;
+            background-color: #f4f4f4;
+        }
+    
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    
+        button {
+            cursor: pointer;
+        }
+    
+        #entries {
+            margin-top: 20px;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+    
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    
+        .entry button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+    
+        #total {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    
+        #paidAmount {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    
+        #unpaidAmount {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    
+        #statusInfo {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: darkblue;
+        }
+    
+        .crossed {
+            text-decoration: line-through;
+            background-color: #d4edda;
+        }
+    
+        #userList {
+            margin-top: 20px;
+        }
+    
+        .userItem {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .userItem button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+
+        }
+    
+        #addUserForm {
+            margin-top: 20px;
+
+        }
+    
+        .deleteButton {
+            position: absolute;
+            right: 10px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+    
+        .entryActions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+    
+        /* New styles for scrollbars */
+        #entries {
+            max-height: 400px; /* You can adjust the height as per your needs */
+            overflow: auto;
+
+        }
+    
+        table {
+            width: 100%;
+            min-width: 600px; /* This ensures horizontal scrolling if the table is too wide */
+        }
+       
+        button{
+            background-color: rgb(0, 0, 0);
+            color: whitesmoke;
+        }
+        button:hover{
+            background-color: rgb(13, 226, 34);
+            color: rgb(0, 0, 0);
+        }
+    </style>
+    
+</head>
+<body>
+      <!-- Loader Wrapper strat -->
+ <link rel="stylesheet" href="loder.css">
+ <script src="loder.js"></script>
+ <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
+<!-- Loader Wrapper and -->
+    <!--sin in-->
+    <script src="gon_oder.js"></script>
+
+    <div class="container">
+        <h2>Bill System</h2>
+
+        <!-- Add New User Form -->
+        <div id="addUserForm">
+            <input type="text" id="newUserName" placeholder="Enter New User Name">
+            <button onclick="addNewUser()">Add New User</button>
+        </div>
+
+        <div id="userList">
+            <!-- List of Users will be populated here -->
+        </div>
+
+        <div id="userEntryForm" style="display: none;">
+            <h3 id="userNameHeader">Enter Details for User</h3>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount" required><br>
+            <button onclick="addEntryForUser()">Add Entry</button>
+            <button onclick="backToUserList()">Back to Users</button>
+        </div>
+
+        <div id="entries">
+            <h3>Entry List</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="entryTableBody">
+                    <!-- Entries will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="total">Total Amount: ₹0</div>
+        <div id="paidAmount">Paid Amount: ₹0</div>
+        <div id="unpaidAmount">Unpaid Amount: ₹0</div>
+        <div id="statusInfo">Total Attendance: 0 | Paid Entries: 0 | Unpaid Entries: 0</div>
+        <button id="downloadPdfBtn" onclick="downloadFullBill()">Download Full Bill</button>
+    </div>
+    <!-- man  librarish hey inhe kabhi nahi htana hey -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        // Load user list from localStorage
+        function loadUserList() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userListContainer = document.getElementById('userList');
+            userListContainer.innerHTML = '';
+
+            users.forEach((user, index) => {
+                const userItem = document.createElement('div');
+                userItem.className = 'userItem';
+                userItem.innerHTML = `${user.name} <button onclick="deleteUser(${index})" class="deleteButton">Delete</button>`;
+                userItem.onclick = () => loadEntriesForUser(index);
+                userListContainer.appendChild(userItem);
+            });
+        }
+
+       // Load entries for a user
+function loadEntriesForUser(userIndex) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users[userIndex];
+    document.getElementById('userNameHeader').innerText = `Entries for ${user.name}`;
+    document.getElementById('userList').style.display = 'none';
+    document.getElementById('userEntryForm').style.display = 'block';
+
+    const entries = user.entries || [];
+    let totalAmount = 0;
+    let paidAmount = 0;
+    let unpaidAmount = 0;
+    let totalHagris = entries.length;
+    let paidCount = 0;
+    let unpaidCount = 0;
+
+    const entriesContainer = document.getElementById('entryTableBody');
+    entriesContainer.innerHTML = '';
+
+    entries.forEach((entry, index) => {
+        if (entry.isPaid) {
+            paidCount++;
+            paidAmount += entry.amount;
+        } else {
+            unpaidCount++;
+            unpaidAmount += entry.amount;
+        }
+
+        const entryRow = document.createElement('tr');
+        entryRow.className = entry.isPaid ? 'crossed' : '';
+        entryRow.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${entry.date}</td>
+            <td>${entry.day}</td>
+            <td>${entry.amount}</td>
+            <td>${entry.isPaid ? 'Paid' : 'Unpaid'}</td>
+            <td class="entryActions">
+                <button onclick="deleteEntry(${userIndex}, ${index})">Delete</button>
+                <button onclick="markAsPaid(${userIndex}, ${index})" ${entry.isPaid ? 'disabled' : ''}>Mark as Paid</button>
+            </td>
+        `;
+        entriesContainer.appendChild(entryRow);
+    });
+
+    totalAmount = Math.max(0, paidAmount + unpaidAmount); // Ensure the total amount is never negative
+
+    document.getElementById('total').innerText = `Total Amount: ₹${totalAmount}`;
+    document.getElementById('paidAmount').innerText = `Paid Amount: ₹${paidAmount}`;
+    document.getElementById('unpaidAmount').innerText = `Unpaid Amount: ₹${unpaidAmount}`;
+    document.getElementById('statusInfo').innerText = `Total Attendance: ${totalHagris} | Paid Entries: ${paidCount} | Unpaid Entries: ${unpaidCount}`;
+}
+
+        // Add a new entry for a user
+        function addEntryForUser() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount.');
+                return;
+            }
+
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString();
+            const day = currentDate.toLocaleString('en-us', { weekday: 'long' });
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex(user => user.name === document.getElementById('userNameHeader').innerText.replace('Entries for ', ''));
+
+            if (userIndex !== -1) {
+                const user = users[userIndex];
+                if (!user.entries) {
+                    user.entries = [];
+                }
+
+                user.entries.push({ amount, date: formattedDate, day, isPaid: false });
+                localStorage.setItem('users', JSON.stringify(users));
+                loadEntriesForUser(userIndex);
+            }
+        }
+
+        // Delete an entry for a user
+        function deleteEntry(userIndex, entryIndex) {
+            const confirmation = confirm('Are you sure you want to delete this entry?');
+            if (confirmation) {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const user = users[userIndex];
+                if (user.entries) {
+                    user.entries.splice(entryIndex, 1);
+                    localStorage.setItem('users', JSON.stringify(users));
+                    loadEntriesForUser(userIndex);
+                }
+            }
+        }
+
+        // Mark an entry as paid
+        function markAsPaid(userIndex, entryIndex) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users[userIndex];
+            if (user.entries && user.entries[entryIndex]) {
+                user.entries[entryIndex].isPaid = true;
+                localStorage.setItem('users', JSON.stringify(users));
+                loadEntriesForUser(userIndex);
+            }
+        }
+
+        // Add a new user
+        function addNewUser() {
+            const userName = document.getElementById('newUserName').value;
+            if (!userName.trim()) {
+                alert('Please enter a user name.');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push({ name: userName, entries: [] });
+            localStorage.setItem('users', JSON.stringify(users));
+            document.getElementById('newUserName').value = '';
+            loadUserList();
+        }
+
+        // Delete a user
+        function deleteUser(userIndex) {
+            const confirmation = confirm('Are you sure you want to delete this user?');
+            if (confirmation) {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                users.splice(userIndex, 1);
+                localStorage.setItem('users', JSON.stringify(users));
+                loadUserList();
+            }
+        }
+
+        // Download full bill as PDF
+        function downloadFullBill() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.name === document.getElementById('userNameHeader').innerText.replace('Entries for ', ''));
+
+            const doc = new jsPDF();
+            const tableColumn = ['NO', 'Date', 'Day', 'Amount', 'Status'];
+            const tableRows = user.entries.map((entry, index) => [
+                index + 1,
+                entry.date,
+                entry.day,
+                entry.amount,
+                entry.isPaid ? 'Paid' : 'Unpaid',
+            ]);
+
+            // Add user name at the top
+            doc.text(`Bill for: ${user.name}`, 10, 10);
+            doc.autoTable({
+                head: [tableColumn],
+                body: tableRows,
+            });
+
+            // Additional info
+            doc.text(`Total Amount: ${user.entries.reduce((sum, entry) => sum + entry.amount, 0)}`, 10, doc.lastAutoTable.finalY + 10);
+            doc.text(`Paid Amount: ${user.entries.filter(entry => entry.isPaid).reduce((sum, entry) => sum + entry.amount, 0)}`, 10, doc.lastAutoTable.finalY + 20);
+            doc.text(`Unpaid Amount: ${user.entries.filter(entry => !entry.isPaid).reduce((sum, entry) => sum + entry.amount, 0)}`, 10, doc.lastAutoTable.finalY + 30);
+            doc.text(`Total Attendance: ${user.entries.length}`, 10, doc.lastAutoTable.finalY + 40);
+            doc.text(`Paid Entries: ${user.entries.filter(entry => entry.isPaid).length}`, 10, doc.lastAutoTable.finalY + 50);
+            doc.text(`Unpaid Entries: ${user.entries.filter(entry => !entry.isPaid).length}`, 10, doc.lastAutoTable.finalY + 60);
+
+            doc.save(`${user.name}_full_bill.pdf`);
+        }
+
+        // Back to user list
+        function backToUserList() {
+            document.getElementById('userEntryForm').style.display = 'none';
+            document.getElementById('userList').style.display = 'block';
+        }
+
+        // Initialize the app
+        loadUserList();
+    </script>
+</body>
+</html>
