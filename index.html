@@ -283,17 +283,46 @@
             
             /* Toggle Menu */
             
-            .image-container {
-            position: relative;
-            width: 100%;
-            margin: 0 auto; /* Center the container */
-            }
+          /*bagrun img start */
+          .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Ensure it doesn't exceed 100% of the container */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Hide overflow if image exceeds container */
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures the image covers the container proportionally */
+}
+
+/* For small devices like mobile phones */
+@media (max-width: 480px) {
+    .image-container {
+        max-width: 100%; /* Full width on mobile */
+       
+    }
+}
+
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .image-container {
+        max-width: 100%; /* Full width on tablets */
+    }
+}
+
+/* For laptops and larger devices */
+@media (min-width: 769px) {
+    .image-container {
+        max-width: 100%; /* Stays full width on larger screens */
+    }
+}
+
             
-            .background-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            }
+          /*bagrun img and */
             
             .overlay-text {
             position: absolute;
@@ -342,7 +371,6 @@
             }
             
             /* Button Styling */
-            /* Button Styling */
             .toggle-btn {
                 display: none;
                 position: absolute;
@@ -359,9 +387,9 @@
             }
             
             .toggle-btn div {
+                background-color: rgb(0, 0, 0);
                 width: 70%;
                 height: 3px;
-                background-color: rgb(0, 0, 0);
                 margin: 6px 0;
                 transition: all 0.3s ease;
             
@@ -399,7 +427,6 @@
                 animation: blink 1s infinite alternate;
                 transition: color 0.3s ease;
                 padding: 10px;
-                background-color: black;
                
                
                
@@ -506,7 +533,7 @@
             margin-left: 550px;
             border-radius: 20px;
             border: 8px soli black;
-            background-color: rgb(0, 0, 0);
+            background-color: transparent;
             font-size: larger;
             border: 2px solid lavender;
             justify-content: center;
@@ -1037,11 +1064,15 @@
                 width: 100%;
                 max-width: 1500px;
                 overflow: hidden;
+                background: linear-gradient(rgb(110, 218, 232),rgb(111, 151, 245));
+
+
             }
             
             .slider {
                 display: flex;
                 transition: transform 1s ease;
+
                
                
             }
@@ -1051,25 +1082,23 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background:linear-gradient(45deg, #f0f8ff, #e0f7fa);
                 text-align: center;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
                 transition: transform 0.5s ease, opacity 0.5s ease;
-                color: black;
-                padding: 10px;
+                color: rgb(255, 255, 255);
+                padding: 20px;
             }
             
             .slider-item:hover {
-                transform: scale(1.05);
+                transform: scale(1.02);
                 opacity: 1;
             }
             
             .slider-item img {
-                max-width: 20%;
+                max-width: 10%;
                 height: auto;
-                border-radius: 10px;
                 margin-right: 20px;
                 transition: width 0.5s ease, height 0.5s ease;
+                border-radius: 10px;
             }
             
             .slider-item h3 {
@@ -1092,7 +1121,7 @@
             
             .slider-item-text {
                 flex: 1;
-                padding: 10px;
+                padding: 5px;
                 max-width: 50%;
             }
             
@@ -1107,7 +1136,7 @@
                 }
             
                 .slider-item img {
-                    max-width: 50%; /* Image takes up 50% of the width */
+                    max-width: 20%; /* Image takes up 50% of the width */
                     margin-right: 10px;
                 }
             
@@ -1118,7 +1147,7 @@
             
             @media (max-width: 480px) {
                 .slider-item h3 {
-                    font-size: 1.2rem;
+                    font-size: .1rem;
                 }
             
                 .slider-item p {
@@ -1127,7 +1156,7 @@
             
                 .slider-item img {
                     max-width: 50%; /* Image takes up 50% of the width */
-                    margin-right: 10px;
+                    margin-right: 20px;
                 }
             
                 .slider-item-text {
@@ -1138,7 +1167,7 @@
             /* Dots for current slide indicator */
             .dots-container {
                 text-align: center;
-                margin-top: 20px;
+               
             }
             
             .dot {
@@ -1146,14 +1175,13 @@
                 height: 10px;
                 width: 10px;
                 margin: 0 5px;
-                background-color: #ffffff;
                 border-radius: 50%;
-                transition: background-color 0.3s ease;
-                border: 2px solid black;
+                border: 1px solid rgb(0, 0, 0);
+
             }
             
             .active-dot {
-                background-color: #00f2ff;
+                background-color: #000000;
                
             }
             
@@ -1205,7 +1233,13 @@
     <div class="container">
         <div class="i">
             <img src="img/logo2.png" alt="logo">
-    
+             <!-- Toggle Menu -->
+        <div class="toggle-menu" id="toggle-menu">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="servises.html">Services</a>
+            <a href="contect.html">Contact</a>
+        </div>
            </div>
        
         <div class="search-container" id="searchContainer">
@@ -1227,13 +1261,7 @@
             <div></div>
         </div>
     
-        <!-- Toggle Menu -->
-        <div class="toggle-menu" id="toggle-menu">
-            <a href="index.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="servises.html">Services</a>
-            <a href="contect.html">Contact</a>
-        </div>
+      
        
         <div class="slider">
             <div class="slider-item">
@@ -1287,7 +1315,7 @@
             </div>
         </div>
     </div>
-    </div>
+   
 
     <!-- Dots indicator below slider -->
     <div class="dots-container">
@@ -1297,17 +1325,14 @@
         <span class="dot" id="dot4"></span>
         <span class="dot" id="dot5"></span>
     </div>
+</div>
     <!--img sliding code AND-->
       
     
   
      <div class="image-container">
-       
-        <img class="background-image" src="img/prime1+1.png" alt="img">
+        <img class="background-image" src="img/bag.png" alt="img">
         <div class="overlay-text">
-           
-
-          
             <div class="b">
                 <button onclick="explor()">Explore More</button>
             </div>
