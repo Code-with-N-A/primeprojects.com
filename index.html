@@ -527,121 +527,68 @@
             }
             
             .b button {
-            margin-top: 45%;
-            color: rgb(255, 255, 255);
-            padding: 10px;
-            margin-left: 550px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: transparent;
-            font-size: larger;
-            border: 2px solid lavender;
-            justify-content: center;
-            align-items: center;
-            }
-            @media (max-width: 1200px) {
-            .b button {
-            margin-top: 45%;
-            color: rgb(255, 255, 255);
-            margin-left: 170px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 0, 0);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            @media (max-width: 1024px) {
-            .b button {
-            margin-top: 45%;
-            color: rgb(255, 255, 255);
-            margin-left: 390px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 0, 0);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            @media (max-width: 768px) {
-            .b button {
-            margin-top: 45%;
-            color: rgb(255, 255, 255);
-            margin-left: 320px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 0, 0);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            
-            @media (max-width: 820px) {
-            .b button {
-            margin-top: 50%;
-            color: rgb(255, 255, 255);
-            margin-left: 330px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 0, 0);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            
-            @media (max-width: 540px) {
-            .b button {
-            margin-top: 40%;
-            color: rgb(255, 255, 255);
-            margin-left: 170px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 14, 29);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            @media (max-width: 1100px) and (max-width: 1280px) {
-            .b button {
-            margin-top: 50%;
-            color: rgb(255, 255, 255);
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 14, 29);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            @media (max-width: 412px) {
-            .b button {
-            margin-top: 40%;
-            color: rgb(255, 255, 255);
-            margin-left: 170px;
-            border-radius: 20px;
-            border: 8px soli black;
-            background-color: rgb(0, 14, 29);
-            font-size: small;
-            border: 2px solid lavender;
-            }
-            }
-            @media (max-width: 360px) {
-            .b button {
-            margin-top: 40%;
-            color: rgb(255, 255, 255);
-            margin-left: 150px;
-            border-radius: 20px;
-            background-color: rgb(0, 14, 29);
-            font-size: 5.9px;
-            border: 2px solid lavender;
-            }
-            }
-            
-            
-            button:hover{
-            color: black;
-            background-color: #ffffff;
-            border: 2px solid black;
-            }
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4594a0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+
+    /* Center the button horizontally */
+    position: relative;
+    top: 190px; /* Adjusts how far down the button appears */
+}
+
+/* Hover effect */
+.b button:hover {
+    background-color: #455da0;
+}
+
+/* Responsive design for tablets */
+@media screen and (max-width: 1024px) {
+    .b-button {
+        font-size: 15px;
+        padding: 9px 18px;
+        top: 170px; /* Adjust top margin for tablets */
+        left: 8px; /* Adjust left margin for tablets */
+    }
+}
+
+/* Responsive design for iPads and larger mobile screens */
+@media screen and (max-width: 768px) {
+    .b button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 130px; /* Adjust top margin for iPads */
+        left: 5px;
+    }
+}
+
+/* Responsive design for smaller mobile devices */
+@media screen and (max-width: 480px) {
+    .b button {
+        font-size: 10px;
+        padding: 6px 10px;
+        top: 50px; /* Adjust top margin for small screens */
+    }
+}
+
+/* For very small screens like old phones */
+@media screen and (max-width: 320px) {
+    .b button {
+        font-size: 11px;
+        padding: 5px 10px;
+        top: 10px;
+        left: 2px;
+    }
+}
+
+
+
             
             img{
                 width: 100%;
@@ -1147,11 +1094,11 @@
             
             @media (max-width: 480px) {
                 .slider-item h3 {
-                    font-size: .1rem;
+                    font-size: 0.8rem;
                 }
             
                 .slider-item p {
-                    font-size: 0.9rem;
+                    font-size: 0.7rem;
                 }
             
                 .slider-item img {
@@ -1331,7 +1278,7 @@
     
   
      <div class="image-container">
-        <img class="background-image" src="img/bag.png" alt="img">
+        <img class="background-image" src="img/2.png" alt="img">
         <div class="overlay-text">
             <div class="b">
                 <button onclick="explor()">Explore More</button>
