@@ -31,6 +31,7 @@ const pages = [
     {name: " Password Cheker", url: "Password_chekar.html"},
     {name: "PDFshift", url: "pdf_to_img.html"},
     {name: "Accounts Management", url: "worck.html"},
+    {name: "Budget Tracker", url: "bjat-trecar.html"},
 
 
 
