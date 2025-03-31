@@ -34,6 +34,7 @@ const pages = [
     {name: "Budget Tracker", url: "bjat-trecar.html"},
     {name: "Product Listener", url: "product_list.html"},
     {name: "Pocket Expense", url: "Pocket_Expense.html"},
+    {name: "Unicode Character", url: "Unicode_Character.html"},
 
 
 

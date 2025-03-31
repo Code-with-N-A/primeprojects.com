@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode Character Finder</title>
+    <!-- Meta tag for defining the page description (helpful for SEO) -->
+    <meta name="description" content="Unicode Character Finder allows you to find Unicode values for characters and convert Unicode numbers to characters.">
+    
+    <!-- Meta tag for setting the page author (optional but useful for SEO) -->
+    <meta name="author" content="primeprojects">
+    
+    <!-- Meta tag to specify the theme color for mobile browsers -->
+    <meta name="theme-color" content="#4CAF50">
+
+    <!-- Meta tag for Open Graph to improve how it appears when shared on social media -->
+    <meta property="og:title" content="Unicode Character Finder">
+    <meta property="og:description" content="Find Unicode values for characters and convert Unicode numbers to characters.">
+    <meta property="og:image" content="your-image-url.jpg">
+    <meta property="og:url" content="your-page-url">
+
+    <!-- Meta tag for Twitter Card to improve the appearance on Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unicode Character Finder">
+    <meta name="twitter:description" content="Find Unicode values for characters and convert Unicode numbers to characters.">
+    
+    <meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+  
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+  
+  <!-- Author -->
+  <meta name="author" content="Prime Projects">
+
+  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:url" content="https://primeprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/">
+
+  <!-- Schema Markup (Structured Data for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prime Projects",
+    "url": "https://primeprojects.netlify.app/",
+    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+    "sameAs": [
+      "https://www.facebook.com/primeprojects",
+      "https://twitter.com/primeprojects",
+      "https://www.linkedin.com/company/primeprojects"
+    ],
+    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  }
+  </script>
+
+  <!-- Google Ads Conversion Tracking (Google Ads) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+  </script>
+
+  <!-- Google Analytics (Tracking Website Traffic) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+  </script>
+
+  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Free Programming Courses",
+    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Prime Projects",
+      "url": "https://primeprojects.netlify.app/"
+    }
+  }
+  </script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin: 10px 0;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Heading Style */
+        h2, h3 {
+            font-size: 24px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            input, button {
+                width: 90%;
+            }
+            table {
+                font-size: 14px;
+            }
+            h2, h3 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            input, button {
+                width: 100%;
+            }
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Loader Wrapper strat -->
+ <link rel="stylesheet" href="loder.css">
+ <script src="loder.js"></script>
+ <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
+<!-- Loader Wrapper and -->
+   <!--sin in-->
+<script src="gon_oder.js"></script>
+    <h2>Unicode Character Finder</h2>
+
+    <!-- Input for characters -->
+    <input type="text" id="inputText" placeholder="Type something..." oninput="showUnicode()">
+    <button onclick="clearInput()">Clear</button>
+    <button onclick="copyUnicode()">Copy Unicode to Clipboard</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Character</th>
+                <th>Unicode (charCodeAt)</th>
+            </tr>
+        </thead>
+        <tbody id="unicodeTable"></tbody>
+    </table>
+
+    <!-- Input for converting numbers to characters -->
+    <h3>Convert Unicode Numbers to Characters</h3>
+    <input type="text" id="unicodeInputNumbers" placeholder="Enter Unicode numbers (comma separated)" oninput="convertToCharacters()">
+    <div id="convertedText"></div>
+
+    <script>
+        // Function to display characters and their Unicode values
+        function showUnicode() {
+            let text = document.getElementById("inputText").value;
+            let tableBody = document.getElementById("unicodeTable");
+            tableBody.innerHTML = "";
+
+            if (text.trim() === "") {
+                tableBody.innerHTML = "<tr><td colspan='2'>Please enter some text.</td></tr>";
+                return;
+            }
+
+            for (let i = 0; i < text.length; i++) {
+                let row = `<tr><td>${text[i]}</td><td>${text.charCodeAt(i)}</td></tr>`;
+                tableBody.innerHTML += row;
+            }
+        }
+
+        // Function to clear the input and the table
+        function clearInput() {
+            document.getElementById("inputText").value = "";
+            document.getElementById("unicodeTable").innerHTML = "";
+            document.getElementById("unicodeInputNumbers").value = "";
+            document.getElementById("convertedText").innerHTML = "";
+        }
+
+        // Function to copy Unicode values to the clipboard
+        function copyUnicode() {
+            let text = document.getElementById("inputText").value;
+            if (text.trim() === "") {
+                alert("Please enter some text first.");
+                return;
+            }
+
+            let unicodeValues = [];
+            for (let i = 0; i < text.length; i++) {
+                unicodeValues.push(text.charCodeAt(i));
+            }
+
+            // Join the Unicode values into a single string, separated by commas
+            let unicodeString = unicodeValues.join(", ");
+
+            // Use the clipboard API with a fallback for mobile compatibility
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(unicodeString)
+                    .then(() => {
+                        alert("Unicode values copied to clipboard!");
+                    })
+                    .catch(err => {
+                        console.error("Error copying to clipboard", err);
+                        fallbackCopyTextToClipboard(unicodeString); // Use fallback if clipboard API fails
+                    });
+            } else {
+                fallbackCopyTextToClipboard(unicodeString); // Fallback function if clipboard API is not available
+            }
+        }
+
+        // Fallback function for copying text on mobile or unsupported browsers
+        function fallbackCopyTextToClipboard(text) {
+            let textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Unicode values copied to clipboard!");
+        }
+
+        // Function to convert Unicode numbers to characters
+        function convertToCharacters() {
+            let unicodeNumbers = document.getElementById("unicodeInputNumbers").value;
+            let convertedText = document.getElementById("convertedText");
+            let numbersArray = unicodeNumbers.split(',').map(num => num.trim());
+
+            let characters = numbersArray.map(num => String.fromCharCode(parseInt(num)));
+
+            convertedText.innerHTML =  characters.join("");
+        }
+    </script>
+</body>
+</html>
