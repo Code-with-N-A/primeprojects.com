@@ -169,7 +169,7 @@
         
         @media (max-width: 480px) {
             input, button {
-                width: 100%;
+                width: 90%;
             }
             table {
                 font-size: 12px;
@@ -192,7 +192,6 @@
 
     <!-- Input for characters -->
     <input type="text" id="inputText" placeholder="Type something..." oninput="showUnicode()">
-    <button onclick="clearInput()">Clear</button>
     <button onclick="copyUnicode()">Copy Unicode to Clipboard</button>
 
     <table>
@@ -209,6 +208,7 @@
     <h3>Convert Unicode Numbers to Characters</h3>
     <input type="text" id="unicodeInputNumbers" placeholder="Enter Unicode numbers (comma separated)" oninput="convertToCharacters()">
    <h3><div id="convertedText"></div></h3> 
+   <button onclick="clearInput()">Clear</button><br>
 
     <script>
         // Function to display characters and their Unicode values
