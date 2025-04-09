@@ -349,17 +349,16 @@
     </style>
 </head>
 <body>
-   
- 
-     <i class="fas fa-user profile-icon" id="profileIcon"></i>
 
+    <i class="fas fa-user profile-icon" id="profileIcon"></i>
+    
     <!-- Profile Popup -->
     <div class="profile-popup" id="profilePopup">
         <p id="storedEmail">Your email will appear here...</p>
         <button id="logoutBtn">Logout</button>
     </div>
+    
     <div class="form-wrapper">
-       
         <!-- Left Section (Logo & Intro) -->
         <div class="form-left">
             <img src="https://img.freepik.com/free-photo/view-3d-woman-using-laptop_23-2150710060.jpg?t=st=1738675400~exp=1738679000~hmac=2832a2a3492336b680dc672cca7caadead7ec1188bb478ef22ee8165595c85e1&w=740" alt="Logo">
@@ -368,92 +367,120 @@
                 <p>Fill in the details below to contact us.</p>
             </div>
         </div>
-
+    
         <!-- Right Section (Form) -->
         <div class="form-right">
-          
             <h3>Get in Touch</h3>
-           
-            <form id="contactForm" action="https://formsubmit.co/codewithna73@gmail.com" method="POST" onsubmit="submitRegistration()">
+    
+            <form id="contactForm" action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
                 <!-- Name Input -->
                 <div class="input-group">
                     <i class="fas fa-user"></i>
                     <input type="text" name="name" id="name" placeholder="Your Name" required>
                 </div>
-
+    
                 <!-- Email Input -->
                 <div class="input-group">
                     <i class="fas fa-envelope"></i>
                     <input type="email" name="email" id="email" placeholder="Your Email" required>
                 </div>
-
+    
                 <!-- Phone Input -->
                 <div class="input-group">
                     <i class="fas fa-phone"></i>
                     <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" pattern="^[0-9]{10}$" required>
                 </div>
-                     <!-- Hidden field to identify form -->
+    
+                <!-- Hidden field to identify form -->
                 <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+    
                 <!-- Submit Button -->
                 <button type="submit" class="submit-btn">Submit</button>
-                <button style="background-color: red;" type="submit" class="submit-btn" onclick="go()">✖</button>
-              
+                <button style="background-color: red;" type="button" class="submit-btn" onclick="go()">✖</button>
             </form>
-           
+    
             <!-- Footer -->
             <div class="form-footer">
                 <p>&copy; 2025 Company Name. CodeWth_N.A.</p>
             </div>
         </div>
     </div>
-
+    
     <script>
-        function submitRegistration() {
-            // Store the email in localStorage and set a cookie
-            const email = document.getElementById('email').value;
-            localStorage.setItem('email', email);
-            document.cookie = "email=" + email + ";path=/";
-
-            // Simulate successful registration after a slight delay
-            setTimeout(function () {
-                localStorage.setItem('isRegistered', 'true');
-                alert('Registration successful!');
-            }, 100);
-        }
-
+        document.getElementById("contactForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+    
+            const email = document.getElementById("email").value;
+            const form = this;
+    
+            const apiURL = `https://emailvalidation.abstractapi.com/v1/?api_key=04515190454e461087b994825902f8f0&email=${encodeURIComponent(email)}`;
+    
+            try {
+                const response = await fetch(apiURL, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+    
+                const data = await response.json();
+    
+                if (data.deliverability && data.deliverability === "DELIVERABLE") {
+                    // ✅ Store email
+                    localStorage.setItem('email', email);
+                    document.cookie = "email=" + email + ";path=/";
+                    localStorage.setItem('isRegistered', 'true');
+    
+                    alert('Registration successful!');
+                    form.submit(); // 🔥 Proceed with form submission
+                } else {
+                    alert("⚠️ Invalid email address. Please enter a valid one.");
+                }
+    
+            } catch (error) {
+                console.error("Validation error:", error);
+                alert("❌ Email validation service failed. Try again later.");
+            }
+        });
+    
         // Show stored email when the Profile icon is clicked
-        document.getElementById('profileIcon').addEventListener('click', function() {
+        document.getElementById('profileIcon').addEventListener('click', function () {
             const storedEmail = localStorage.getItem('email') || getCookie("email");
             if (storedEmail) {
                 document.getElementById('storedEmail').textContent = `Login as: ${storedEmail}`;
                 document.getElementById('profilePopup').style.display = 'block';
             }
         });
-
-        // Logout and clear email from localStorage and cookies
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            // Clear the localStorage
+    
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function () {
             localStorage.removeItem('email');
             localStorage.removeItem('isRegistered');
-
-            // Clear cookies
             document.cookie = "email=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
-
+    
             document.getElementById('storedEmail').textContent = '';
             document.getElementById('profilePopup').style.display = 'none';
             alert('Logged out successfully!');
         });
-
-        // Function to get the value of a cookie by its name
+    
+        // Get cookie by name
         function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if(parts.length === 2) return parts.pop().split(';').shift();
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring((name + '=').length);
+                }
+            }
+            return null;
         }
+    
+        // Redirect cancel button
         function go() {
-            window.location.href='index.html'
+            window.location.href = 'index.html';
         }
     </script>
-
-</body>
-</html>
+    
+    
+    </body>
+    
