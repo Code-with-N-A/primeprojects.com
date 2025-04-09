@@ -89,114 +89,269 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      overflow: hidden;
-      height: 100vh; width: 100vw;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .container {
-      display: flex; width: 90%; max-width: 1200px; height: 90vh;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-      transition: 1s ease;
-    }
-    .left, .right {
-      flex: 1;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      padding: 40px; color: white;
-      backdrop-filter: blur(15px);
-      transition: all 1s ease;
-    }
-    .left {
-      background: rgba(0, 174, 255, 0.1);
-      animation: fadeInLeft 1s ease;
-    }
-    .right {
-      background: rgba(255, 255, 255, 0.05);
-      animation: fadeInRight 1s ease;
-    }
-    .heading {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #00e0ff;
-      text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
-      animation: glow 2s infinite alternate;
-      margin-bottom: 20px;
-    }
-    .subtext {
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 400px;
-      line-height: 1.5;
-      color: #e0e0e0;
-    }
-    form {
-      width: 100%; max-width: 400px;
-      display: flex; flex-direction: column;
-      animation: fadeIn 1.5s ease;
-    }
-    input {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 12px 18px; margin: 10px 0;
-      border-radius: 12px;
-      font-size: 1rem; color: white;
-      outline: none; transition: 0.3s ease;
-    }
-    input:focus {
-      border-color: #00e0ff;
-      box-shadow: 0 0 10px #00e0ff;
-    }
-    button {
-      background: #00e0ff;
-      border: none;
-      padding: 12px; margin-top: 15px;
-      border-radius: 12px;
-      color: #000; font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    button:hover {
-      background: #00bcd4;
-      transform: scale(1.05);
-    }
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff; }
-      100% { text-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff; }
-    }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .switch .left { transform: translateX(100%); }
-    .switch .right { transform: translateX(-100%); }
-    @media (max-width: 768px) {
-      .container { flex-direction: column; }
-      .switch .left, .switch .right {
-        transform: translateY(-100%);
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
       }
+    
+      body {
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .container {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        height: 90vh;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        transition: 1s ease;
+      }
+    
+      .left,
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        color: white;
+        backdrop-filter: blur(15px);
+        transition: all 1s ease;
+      }
+    
+      .left {
+        background: rgba(0, 174, 255, 0.1);
+        animation: fadeInLeft 1s ease;
+      }
+    
+      .right {
+        background: rgba(255, 255, 255, 0.05);
+        animation: fadeInRight 1s ease;
+      }
+    
+      .heading {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #00e0ff;
+        text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+        animation: glow 2s infinite alternate;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    
+      .subtext {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 400px;
+        line-height: 1.5;
+        color: #e0e0e0;
+      }
+    
+      form {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        animation: fadeIn 1.5s ease;
+      }
+    
+      input {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 12px 18px;
+        margin: 10px 0;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: white;
+        outline: none;
+        transition: 0.3s ease;
+      }
+    
+      input:focus {
+        border-color: #00e0ff;
+        box-shadow: 0 0 10px #00e0ff;
+      }
+    
+      button {
+        background: #00e0ff;
+        border: none;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 12px;
+        color: #000;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+    
+      button:hover {
+        background: #00bcd4;
+        transform: scale(1.05);
+      }
+    
+      @keyframes glow {
+        0% {
+          text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+        }
+    
+        100% {
+          text-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff;
+        }
+      }
+    
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      .switch .left {
+        transform: translateX(100%);
+      }
+    
+      .switch .right {
+        transform: translateX(-100%);
+      }
+    
+      img {
+        width: 200px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    
+      /* ✅ Responsive Media Queries */
+    
+      /* Tablets and below */
+  @media (max-width: 1024px) {
+    body {
+      padding-top: 190px;
+      align-items: flex-start;
+      overflow-y: auto;
+      height: auto;
     }
-  </style>
+  
+    .container {
+      flex-direction: column;
+      height: auto;
+      margin: 20px 0;
+    }
+  
+    .left, .right {
+      width: 100%;
+      padding: 30px 20px;
+    }
+  
+    .heading {
+      font-size: 2.5rem;
+    }
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 60px;
+      align-items: flex-start;
+      overflow-y: auto;
+      height: auto;
+    }
+  
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .left, .right {
+      padding: 20px;
+    }
+  
+    .heading {
+      font-size: 2rem;
+    }
+  
+    .subtext {
+      font-size: 1rem;
+    }
+  
+    input, button {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Very small devices (phones) */
+  @media (max-width: 480px) {
+    body {
+      padding-top: 90px;
+    }
+  
+    .heading {
+      font-size: 1.8rem;
+    }
+  
+    .subtext {
+      font-size: 0.95rem;
+    }
+  
+    input, button {
+      font-size: 0.9rem;
+      padding: 10px 14px;
+    }
+  
+    img {
+      width: 150px;
+    }
+  }
+  
+    </style>
+  
 </head>
 <body>
 
   <div class="container" id="container">
     <div class="left">
+      <img src="img/contect.png" alt="img">
       <h1 class="heading">CodeWith_N.A</h1>
       <p class="subtext">Get in Touch with Prime Projects – We're Here to Connect with You ✨</p>
     </div>
@@ -205,7 +360,16 @@
       <form id="contactForm" method="POST">
         <input type="text" id="name" name="name" placeholder="Your Name" required />
         <input type="email" id="email" name="email" placeholder="Your Email" required />
-        <input type="tel" id="phone" name="phone" placeholder="Your Number" required />
+        <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Your Number (10 Digit)"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        minlength="10"
+        required
+        title="Please enter exactly 10 digits"/>
         <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
 
         <button type="submit">Submit</button>
