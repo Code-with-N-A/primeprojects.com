@@ -1,558 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>primeprojects Explore</title>
+  <meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
     
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>primeprojects Explore</title>
-<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+    
+    <!-- Author -->
+    <meta name="author" content="Prime Projects">
   
-  <!-- Keywords for SEO -->
-  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+    <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+    <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
+    <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+    <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+    <meta property="og:url" content="https://primeprojects.netlify.app/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
+    <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+    <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
   
-  <!-- Author -->
-  <meta name="author" content="Prime Projects">
-
-  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
-  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
-  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
-  <meta property="og:url" content="https://primeprojects.netlify.app/">
-  <meta property="og:type" content="website">
+    <!-- Favicon -->
+    <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://primeprojects.netlify.app/">
   
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
-  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://primeprojects.netlify.app/">
-
-  <!-- Schema Markup (Structured Data for SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Prime Projects",
-    "url": "https://primeprojects.netlify.app/",
-    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
-    "sameAs": [
-      "https://www.facebook.com/primeprojects",
-      "https://twitter.com/primeprojects",
-      "https://www.linkedin.com/company/primeprojects"
-    ],
-    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
-  }
-  </script>
-
-  <!-- Google Ads Conversion Tracking (Google Ads) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
-  </script>
-
-  <!-- Google Analytics (Tracking Website Traffic) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
-  </script>
-
-  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Free Programming Courses",
-    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
-    "provider": {
+    <!-- Schema Markup (Structured Data for SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Prime Projects",
-      "url": "https://primeprojects.netlify.app/"
+      "url": "https://primeprojects.netlify.app/",
+      "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
+      "sameAs": [
+        "https://www.facebook.com/primeprojects",
+        "https://twitter.com/primeprojects",
+        "https://www.linkedin.com/company/primeprojects"
+      ],
+      "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
     }
-  }
-  </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    </script>
+  
+    <!-- Google Ads Conversion Tracking (Google Ads) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
+    </script>
+  
+    <!-- Google Analytics (Tracking Website Traffic) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
+    </script>
+  
+    <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Free Programming Courses",
+      "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Prime Projects",
+        "url": "https://primeprojects.netlify.app/"
+      }
+    }
+    </script>
 
-        body {
-            background-color: whitesmoke;
-            font-family: 'Poppins', sans-serif;
-            color: #ffffff;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 48px;
-            letter-spacing: 3px;
-            color: black;
-            margin-top: 20px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 0 30px;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 300px;
-            transition: transform 0.4s, box-shadow 0.4s;
-            border: 1px solid #2f2f2f;
-            position: relative;
-            margin-bottom: 40px;
-            
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card h2 {
-            font-size: 20px;
-            color: red;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: black;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            padding: 10px 20px;
-            background-color: #f7b731;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
-
-        .read-more:hover {
-            background-color: #ffcc33;
-        }
-
-        .icon-bar {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .icon-bar i {
-            font-size: 18px;
-            color: #f7b731;
-            cursor: pointer;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .icon-bar i:hover {
-            color: #ffcc33;
-            transform: scale(1.2);
-        }
-
-        #alertBox {
-            overflow: hidden;
-            
-            width: 90%;
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #333333;
-            color: #f7b731;
-            padding: 25px;
-            border-radius: 10px;
-            z-index: 1000;
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8);
-            overflow: scroll;
-        }
-
-        #alertBox p {
-            font-size: 18px;
-        }
-
-        .close-btn {
-            padding: 10px 20px;
-            background-color: #f7b731;
-            color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .close-btn:hover {
-            background-color: #ffcc33;
-        }
-        footer {
-    background-color: #111;
-    color: #fff;
-    padding: 40px 0;
-    text-align: left;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap; /* Responsive behavior ke liye */
-    justify-content: space-between; /* Space ko achhe se distribute karne ke liye */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Extra padding for responsiveness */
-    box-sizing: border-box;
-}
-
-.footer-section {
-    flex: 1;
-    padding: 20px;
-    min-width: 250px; /* Small screens ke liye minimum width */
-    box-sizing: border-box;
-}
-
-.footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #f1c40f;
-}
-
-.footer-section p,
-.footer-section ul {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #bbb;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-    color: #f1c40f;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    justify-content: center; /* Center the icons */
-    gap: 15px; /* Space between icons */
-}
-
-.footer-section .social-icons a {
-    font-size: 1.5rem;
-    color: #fff;
-    transition: color 0.3s ease;
-}
-
-.footer-section .social-icons a:hover {
-    color: #f1c40f;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-}
-
-/* Media Queries for Responsive Design */
-
-/* Large Tablets and Smaller Desktops */
-@media (max-width: 1024px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .footer-section {
-        margin-bottom: 20px;
-        max-width: 100%;
-        text-align: center; /* Center text on smaller screens */
+    body {
+      background: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .footer-section h3 {
-        font-size: 1.3rem;
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      animation: fadeDown 1s ease;
     }
 
-    .footer-section ul li a {
-        font-size: 0.95rem;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-    .footer-section {
-        min-width: 100%; /* Full width for small screens */
-        text-align: center; /* Center text on small screens */
+    header h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      animation: zoomIn 1s ease-out;
     }
 
-    .footer-section h3 {
-        font-size: 1.2rem;
+    header p {
+      font-size: 1.3rem;
+      color: #e2e8f0;
+      margin-top: 15px;
+      animation: fadeIn 2s ease-in;
     }
 
-    .footer-section ul li a {
-        font-size: 0.9rem;
+    .section {
+      cursor: pointer; /* This changes arrow to hand */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      padding: 80px 20px;
+      flex-wrap: wrap;
+      background: #111827;
+      transition: all 0.5s ease-in-out;
     }
 
-    .footer-section .social-icons a {
-        margin: 10px;
+    .section:nth-child(even) {
+      background: #1e293b;
+      flex-direction: row-reverse;
     }
-}
 
-@media (max-width: 480px) {
+    .section img {
+      width: 350px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: transform 0.4s ease;
+      animation: slideInLeft 1s ease-out;
+    }
+
+    .section:nth-child(even) img {
+      animation: slideInRight 1s ease-out;
+    }
+
+    .section img:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .text-content {
+      max-width: 550px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .text-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+
+    .text-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+
     footer {
-        padding: 20px 0;
+      background: #000000;
+      color: #cbd5e1;
+      padding: 60px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
     }
 
     .footer-section h3 {
-        font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #22d3ee;
     }
 
-    .footer-section ul li a {
-        font-size: 0.85rem;
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .footer-section ul li:hover {
+      color: #38bdf8;
+      transform: translateX(5px);
     }
 
     .footer-bottom {
-        font-size: 0.8rem;
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      font-size: 0.9rem;
     }
-}
 
-    </style>
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      background: #1e293b;
+      border-radius: 50%;
+      color: #22d3ee;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: scale(1.1);
+    }
+
+    .newsletter input {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: #0ea5e9;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .section img {
+        width: 90%;
+        height: auto;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+
+    .search-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-container input {
+      padding: 12px 20px;
+      width: 80%;
+      max-width: 500px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Section hide utility */
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
    <!-- Loader Wrapper strat -->
- <link rel="stylesheet" href="loder.css">
- <script src="loder.js"></script>
- <div id="load-screen">
-    <div class="circle-animation"></div>
-    <div class="loading-text">primeprojects...</div>
+   <link rel="stylesheet" href="loder.css">
+   <script src="loder.js"></script>
+   <div id="load-screen">
+      <div class="circle-animation"></div>
+      <div class="loading-text">primeprojects...</div>
+    </div>
+  <!-- Loader Wrapper and -->
+   <!--sin in-->
+ <script src="gon_oder.js"></script>
+      
+
+  <header>
+    <h1>Explore Prime Projects</h1>
+    <p>Innovative ideas brought to life 🚀</p>
+
+    <!-- 🔍 Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search Projects..." onkeyup="searchProjects()">
+    </div>
+  </header>
+
+  <!-- 🔽 Project Sections -->
+  <div class="section" onclick="window.location.href='https://code-with-n-a.github.io/img-to-pdf/'">
+    <img src="https://www.gizbot.com/img/2023/03/how-to-convert-jpg-to-pdf-on-mac-or-windows-1679911970.jpg" alt="Images 5G pdf">
+    <div class="text-content">
+      <h2>Images 5G pdf</h2>
+      <p>Images 5G PDF offers a fast and efficient way to convert multiple images into a single PDF document. Easily organize and merge your images into a professional PDF format with just a few clicks.</p>
+    </div>
   </div>
-<!-- Loader Wrapper and -->
-  
-    <h1>Explore More Blogs</h1>
 
-    <div class="container">
-        <!-- Blog Post 1 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/images5.jpg" alt="Blog 1">
-            <div class="card-content">
-                <h2>Task Manager</h2>
-                <p>The Task Manager also includes additional functionalities like collaboration tools, task delegation, and custom labels. You can easily assign tasks to team members, track their work, and adjust priorities as needed.
-                </p><br>
-                <a href="task_menegar.html" class="read-more">Read More</a>
-            </div>
-        </div>
-
-        <!-- Blog Post 2 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/images7.jpg" alt="Blog 2">
-            <div class="card-content">
-                <h2>bill generater</h2>
-                <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p><br>
-                <a href="https://code-with-n-a.github.io/bill_generated-/" class="read-more">Read More</a>
-            </div>
-        </div>
-
-        <!-- Blog Post 3 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/Untitled2.png" alt="Blog 3">
-            <div class="card-content">
-                <h2>Full Stack Development</h2>
-                <p>Full Stack Development is a highly sought-after skill in web development. A Full Stack Developer is someone who can work on both the front-end and back-end parts of an application.</p><br>
-                <a href="full_stack.html" class="read-more">Read More</a>
-            </div>
-        </div>
-
-        <!-- Blog Post 4 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/maxresdefault.jpg" alt="Blog 3">
-            <div class="card-content">
-                <h2>Birthday Countdown Timer</h2>
-                <p>Birthday Timer: The Birthday Timer is a convenient tool that helps you count down the time left until your birthday. show the precise number of days, hours, minutes, and seconds until your celebration begins.</p><br>
-               
-                <a href="https://code-with-n-a.github.io/birthday_countdown-/" class="read-more">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Post 4 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/QR.jpg" alt="Blog 3">
-            <div class="card-content">
-                <h2>QR Code Generator with Format Selection</h2>
-                <p>This QR code generator allows users to input any URL or text to create a QR code. It offers the option to download the QR code in either PDF or image format, with customizable titles and enhanced resolution.
-                    s.</p><br>
-               
-                <a href="QR.html" class="read-more">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Post 5 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/paper1.jpg" alt="Blog 3">
-            <div class="card-content">
-                <h2>PaperLibrary</h2>
-                <p>PaperLibrary provides a comprehensive collection of exam papers for various subjects and courses.</p>
-                <p>Access study materials that enhance your preparation and help you succeed in your exams.</p><br>
-                               
-                <a href="paper.html" class="read-more">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Post 5 -->
-        <div class="card">
-            <div class="icon-bar">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-share-alt"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-            <img src="img/img to pdf 2.png" alt="Blog 3">
-            <div class="card-content">
-                <h2>Images 5G PDF</h2>
-                <p>Images 5G PDF quickly converts multiple images into a single PDF for easy management.</p>
-                <p>Create organized PDFs with just a few clicks for seamless sharing and storage.</p><br>
-
-                <a href="img_to_pdf_5G.html" class="read-more">Read More</a>
-            </div>
-        </div>
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/roode_map'">
+    <img src="https://miro.medium.com/v2/resize:fit:1400/1*QlwXMqK7ETkE0m06gMG-4A.jpeg" alt="The Coding Blueprint">
+    <div class="text-content">
+      <h2>The Coding Blueprint</h2>
+      <p>I have created a comprehensive roadmap for all coding-related subjects that will simplify and enhance your learning journey.</p>
     </div>
+  </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h3>About Us</h3>
-                <p>
-                    Welcome to our  website. We are dedicated to providing quality education and fostering a learning environment that helps students excel in their career.
-                </p>
-            </div>
-            <div class="footer-section links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="About.html">About Us</a></li>
-                    <li><a href="explor.html">Projects</a></li>
-                    <li><a href="contect.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://t.me/CodwithNA"><i class="fab fa-telegram"></i></a>
-                    <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/"><i class="fab fa-github"></i></a>
-                    <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CodeWith_N.A. All rights reserved.</p>
-        </div>
-    </footer>
-
-
-    <!-- Alert Box -->
-    <div id="alertBox">
-        <p id="alertMessage">This is the alert message!</p>
-        <button class="close-btn" onclick="closeAlert()">Close</button>
+  <div class="section"onclick="window,location.href='https://primeprojects.netlify.app/blog.html'">
+    <img src="https://png.pngtree.com/png-vector/20220810/ourmid/pngtree-blogging-concept-picture-writer-laptop-png-image_5722986.png" alt="Latest Tech Insights">
+    <div class="text-content">
+      <h2>Latest Tech Insights</h2>
+      <p>Discover the most up-to-date and informative blogs on technology, coding, and industry trends. Our content is designed to keep you ahead in the world of innovation and development. Stay informed, stay inspired.</p>
     </div>
+  </div>
 
-    <script>
-        function showAlert(message) {
-            document.getElementById('alertMessage').innerText = message;
-            document.getElementById('alertBox').style.display = 'block';
-        }
+  <div class="section"  onclick="window,location.href='https://primeprojects.netlify.app/password_chekar.html'">
+    <img src="https://www.hostpapa.com/blog/app/uploads/2017/08/password.png" alt="Password Strength">
+    <div class="text-content">
+      <h2>Password Strength</h2>
+      <p>Secure your digital world with a password that’s as strong as your protection needs – because your security matters.</p>
+    </div>
+  </div>
 
-        function closeAlert() {
-            document.getElementById('alertBox').style.display = 'none';
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/pdf_to_img.html'">
+    <img src="https://media.idownloadblog.com/wp-content/uploads/2022/02/Convert-PDF-to-JPEG-and-PNG-Mac.png" alt="PDFshift">
+    <div class="text-content">
+      <h2>PDFshift</h2>
+      <p>PDFshift is a tool for converting PDFs to high-quality images (PNG, JPG). It offers easy page selection, HD conversion, and quick downloads for a seamless user experience. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/worck.html'">
+    <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2024/05/Blog-1500-x-800.png?w=938" alt="Accounts Management">
+    <div class="text-content">
+      <h2>Accounts Management</h2>
+      <p> Accounts Management is a simple billing system for managing bills, tracking payments, and generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/bill.html'">
+    <img src="https://thumbs.dreamstime.com/b/online-digital-invoice-using-computer-calculator-credit-card-61459466.jpg" alt="Bill Generator">
+    <div class="text-content">
+      <h2>Bill Generator</h2>
+      <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/bjat-trecar.html'"
+  >
+    <img src="https://media.istockphoto.com/id/1458512835/photo/india-union-budget.jpg?s=612x612&w=0&k=20&c=fNpZUghUa4osgqCf_GOK1btBQ8ad0rq1vvOFfczJ-Ws=" alt="Budget Tracker">
+    <div class="text-content">
+      <h2>Budget Tracker</h2>
+      <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you achieve your financial goals.</p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/product_list.html'">
+    <img src="https://i0.wp.com/graphicsalon.com/wp-content/uploads/2018/09/Gala-Stylish-Corporate-Invoice-Template-2.jpg?fit=1500%2C1091&ssl=1" alt="Product Listener">
+    <div class="text-content">
+      <h2>Product Listener</h2>
+      <p>Product Listener is a project where you can create and manage a list of products, download it in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product management and document generation. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/pocket_expense'">
+    <img src="https://media.istockphoto.com/id/1331969738/photo/close-up-photo-of-young-successful-businessman-hands-with-wallet-and-bunch-of-dollars-of-usa.jpg?s=612x612&w=0&k=20&c=mZ4aSaW4F0HxLV15ON56pGA8mP9FjqdoCvU1Yn0XBmc=" alt="Pocket Expense">
+    <div class="text-content">
+      <h2>Pocket Expense</h2>
+      <p>Pocket ExpensePocket Expense helps you store all your expenses in one place, making it easier to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for quick access. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/unicode_character'">
+    <img src="https://onlinetools.com/images/unicode/illustrations/convert-unicode-to-utf8.png" alt="Unicode Character Finder">
+    <div class="text-content">
+      <h2>Unicode Character Finder</h2>
+      <p>Unicode Character FinderEasily find the Unicode values for any character and explore the magic behind digital text. Convert Unicode numbers to characters and unlock the hidden representations of symbols effortlessly. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://primeprojects.netlify.app/suvichar'">
+    <img src="https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/5/c/5ca340c495feeab7dc739dacd98102259c5de8edb05a019207d554a3689b33bd/thought-of-the-day-slide1.png" alt="Thought of the Day">
+    <div class="text-content">
+      <h2>Thought of the Day</h2>
+      <p>"Thought of the Day" is an inspirational website that provides a new Hindi thought every day. This platform is designed to spread positive energy and offer lessons related to success, self-confidence, and life values.
+
+        Let me know if you'd like this in a more formal or more creative tone!</p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://code-with-n-a.github.io/Task_Management-/'">
+    <img src="https://www.cflowapps.com/wp-content/uploads/2018/07/task-management-process.png" alt="Task Manager">
+    <div class="text-content">
+      <h2>Task Manager</h2>
+      <p>The Task Manager also includes additional functionalities like collaboration tools, task delegation, and custom labels. You can easily assign tasks to team members, track their work, and adjust priorities as needed. </p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://code-with-n-a.github.io/birthday_countdown-/'">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSfjarJKyuQMOVIFu3XmMB8shVOqSmxo99-tCq1iyiz8WytHZUlEQXMKdlPyQxB10IKNHcs5RCGwKSjQ2REz2FlCI__NOumYrtGg1Fxa-BPFR92CJkgmDtO72mf8Jb5ble8qX9jm-9DaE/s1600/cake.jpg" alt="Birthday Countdown Timer">
+    <div class="text-content">
+      <h2>Birthday Countdown Timer</h2>
+      <p>Birthday Timer: The Birthday Timer is a convenient tool that helps you count down the time left until your birthday. show the precise number of days, hours, minutes, and seconds until your celebration begins.</p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='QR.html'">
+    <img src="https://www.ruddersoft.com/assets/images/solutions/qr-code/url-qrcode.webp" alt="QR Code Generator with Format Selection">
+    <div class="text-content">
+      <h2>QR Code Generator with Format Selection</h2>
+      <p>This QR code generator allows users to input any URL or text to create a QR code. It offers the option to download the QR code in either PDF or image format, with customizable titles and enhanced resolution. s.</p>
+    </div>
+  </div>
+
+  <div class="section" onclick="window,location.href='https://paperlibrary.netlify.app/'">
+    <img src="https://img.freepik.com/free-photo/international-day-education-student-attending-school-anime-style_23-2151066312.jpg" alt="PaperLibrary">
+    <div class="text-content">
+      <h2>PaperLibrary</h2>
+      <p>PaperLibrary provides a comprehensive collection of exam papers for various subjects and courses.
+
+        Access study materials that enhance your preparation and help you succeed in your exams.</p>
+    </div>
+  </div>
+
+  <!-- 🔚 Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Prime Projects</h3>
+        <p>Empowering developers with project ideas and real-world implementations.</p>
+        <div class="social-icons">
+           <!-- Social Icons -->
+  <a href="https://instagram.com" target="_blank" class="social-icons"><i class="fab fa-instagram" onclick="window,location.href='https://www.instagram.com/codewith_n.a/'"></i></a>
+  <a href="https://youtube.com" target="_blank" class="social-icons"><i class="fab fa-youtube"></i></a onclick="window,location.href='https://youtube.com/@codewith_n.a?si=tHdYWf899rBarf6d'">
+  <a href="https://t.me" target="_blank" class="social-icons"><i class="fab fa-telegram"></i></a onclick="window,location.href='https://t.me/CodwithNA'">
+  <a href="https://linkedin.com" target="_blank" class="social-icons"><i class="fab fa-linkedin"></i></a onclick="window,location.href='https://www.linkedin.com/in/nitesh-amule-60223b34b/'">
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li>Home</li onclick="window,location.href='https://primeprojects.netlify.app/'">
+          <li>Projects</li>
+          <li>About</li onclick="window,location.href='https://primeprojects.netlify.app/about'">
+          <li>Contact</li onclick="window,location.href='https://primeprojects.netlify.app/contect'">
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li>Docs</li>
+          <li>Blog</li>
+          <li>Open Source</li>
+          <li>Community</li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Subscribe</h3>
+        <p>Get latest updates and free resources directly to your inbox.</p>
+        <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
+        <input type="email" placeholder="Enter your email"/>
+        <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+        <button>Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Prime Projects. All rights reserved. | Designed by <b>Code with N.A.</b>
+    </div>
+  </footer>
+
+  <!-- 🔧 JavaScript for Search -->
+  <script>
+    function searchProjects() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('.section');
+
+      sections.forEach(section => {
+        const title = section.querySelector('h2').textContent.toLowerCase();
+        const desc = section.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(input) || desc.includes(input)) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
         }
-    </script>
-    <script src="gon_oder.js"></script>
+      });
+    }
+  </script>
 
 </body>
 </html>

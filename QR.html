@@ -1,538 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR Code Generator with Format Selection</title>
+        <link rel="shorcut icon" href="img/logo2.png">
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>QR Code Generator - Create Custom QR Codes | PrimeProjects</title>
-<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
-  
-  <!-- Keywords for SEO -->
-  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
-  
-  <!-- Author -->
-  <meta name="author" content="Prime Projects">
-
-  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
-  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
-  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
-  <meta property="og:url" content="https://primeprojects.netlify.app/">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
-  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://primeprojects.netlify.app/">
-
-  <!-- Schema Markup (Structured Data for SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Prime Projects",
-    "url": "https://primeprojects.netlify.app/",
-    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
-    "sameAs": [
-      "https://www.facebook.com/primeprojects",
-      "https://twitter.com/primeprojects",
-      "https://www.linkedin.com/company/primeprojects"
-    ],
-    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
-  }
-  </script>
-
-  <!-- Google Ads Conversion Tracking (Google Ads) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826907933"></script>
-  <script>
+        <meta name="description" content="Prime Projects offers hands-on coding projects and tutorials for developers. Explore web development, software engineering, and more.">
+        <meta name="keywords" content="coding projects, web development, programming tutorials, developer tutorials, software solutions">
+        <meta name="author" content="Prime Projects">
+        <meta name="robots" content="index, follow">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://primeprojects.netlify.app"> <!-- Aapki website ka URL -->
+        
+        <!-- Open Graph for social media optimization -->
+        <meta property="og:title" content="Prime Projects - Learn Coding with Real Projects">
+        <meta property="og:description" content="Explore coding projects, tutorials, and solutions for developers at Prime Projects.">
+        <meta property="og:image" content="https://primeprojects.netlify.app/images/logo2.png"> <!-- Open Graph image ka URL -->
+        <meta property="og:url" content="https://primeprojects.netlify.app">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Prime Projects - Learn Coding with Real Projects">
+        <meta name="twitter:description" content="Learn and explore coding projects and tutorials with Prime Projects.">
+        <meta name="twitter:image" content="https://primeprojects.netlify.app/images/logo2.png"> <!-- Twitter image ka URL -->
+    </head>
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-16826907933'); // Google Ads Tracking ID
-  </script>
-
-  <!-- Google Analytics (Tracking Website Traffic) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHYT52RRYW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KHYT52RRYW'); // Google Analytics ID
-  </script>
-
-  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Free Programming Courses",
-    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Prime Projects",
-      "url": "https://primeprojects.netlify.app/"
-    }
-  }
-  </script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4faff;
-            color: #2c3e50;
-            margin: 0;
-            padding: 0;
-        }
-
-        .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background-color: #e0f7fa;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 2px solid #b2ebf2;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #00796b;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-
-        .article-section {
-            flex: 0 1 65%;
-            background-color: #ffffff;
-            padding: 30px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .article-section h2 {
-            font-size: 2.5rem;
-            color: #0288d1;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #b3e5fc;
-            padding-bottom: 10px;
-        }
-
-        .article-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #37474f;
-            margin-bottom: 30px;
-        }
-
-        .feature-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            color: #37474f;
-        }
-
-        .feature-list li::before {
-            content: "•";
-            color: #00796b;
-            font-weight: bold;
-            font-size: 1.8rem;
-            padding-right: 10px;
-        }
-
-        .image-section {
-            flex: 0 1 30%;
-            background-color: #e3f2fd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .image-section h3 {
-            font-size: 2rem;
-            color: #0288d1;
-            margin-bottom: 15px;
-        }
-
-        .image-section img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .side-section {
-            margin-top: 30px;
-            background-color: #e1f5fe;
-            padding: 20px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .side-section h3 {
-            font-size: 1.5rem;
-            color: #00796b;
-            margin-bottom: 20px;
-        }
-
-        /* Button for submitting to a website */
-        .submit-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #0288d1;
-            color: white;
-            text-align: center;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #0277bd;
-        }
-
-        footer {
-    background-color: #111;
-    color: #fff;
-    padding: 40px 0;
-    text-align: left;
-    width: 100%;
+    gtag('config', 'G-KHYT52RRYW');
+</script>
+    
+<style>
+  * {
     box-sizing: border-box;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap; /* Responsive behavior ke liye */
-    justify-content: space-between; /* Space ko achhe se distribute karne ke liye */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Extra padding for responsiveness */
-    box-sizing: border-box;
-}
-
-.footer-section {
-    flex: 1;
-    padding: 20px;
-    min-width: 250px; /* Small screens ke liye minimum width */
-    box-sizing: border-box;
-}
-
-.footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #f1c40f;
-}
-
-.footer-section p,
-.footer-section ul {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #bbb;
-}
-
-.footer-section ul {
-    list-style: none;
+    margin: 0;
     padding: 0;
-}
+  }
 
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-    color: #f1c40f;
-}
-
-.footer-section .social-icons {
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    animation: backgroundShift 10s infinite alternate;
     display: flex;
-    justify-content: center; /* Center the icons */
-    gap: 15px; /* Space between icons */
-}
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 
-.footer-section .social-icons a {
-    font-size: 1.5rem;
+  @keyframes backgroundShift {
+    0% {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    100% {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+    }
+  }
+
+  .main-box {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    animation: floatIn 1s ease-out;
+    flex-wrap: wrap;
+  }
+
+  @keyframes floatIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .left, .right {
+    flex: 1;
+    padding: 30px;
+    min-width: 300px;
+  }
+
+  .left {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .left input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .left button {
+    padding: 12px;
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .left button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(24, 90, 157, 0.4);
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-left: 1px solid #eee;
+  }
+
+  #qrCodeContainer {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+
+  a#downloadLink {
+    text-decoration: none;
+    color: #185a9d;
+    font-weight: bold;
+    border: 2px solid #185a9d;
+    padding: 8px 15px;
+    border-radius: 30px;
+    transition: 0.3s ease;
+  }
+
+  a#downloadLink:hover {
+    background-color: #185a9d;
     color: #fff;
-    transition: color 0.3s ease;
-}
+  }
 
-.footer-section .social-icons a:hover {
-    color: #f1c40f;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-}
-
-/* Media Queries for Responsive Design */
-
-/* Large Tablets and Smaller Desktops */
-@media (max-width: 1024px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
+  /* ✅ Responsive Design for Mobile/Tablet */
+  @media (max-width: 768px) {
+    .main-box {
+      flex-direction: column;
     }
 
-    .footer-section {
-        margin-bottom: 20px;
-        max-width: 100%;
-        text-align: center; /* Center text on smaller screens */
+    .right {
+      border-left: none;
+      border-top: 1px solid #eee;
+      margin-top: 20px;
     }
-
-    .footer-section h3 {
-        font-size: 1.3rem;
-    }
-
-    .footer-section ul li a {
-        font-size: 0.95rem;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-    .footer-section {
-        min-width: 100%; /* Full width for small screens */
-        text-align: center; /* Center text on small screens */
-    }
-
-    .footer-section h3 {
-        font-size: 1.2rem;
-    }
-
-    .footer-section ul li a {
-        font-size: 0.9rem;
-    }
-
-    .footer-section .social-icons a {
-        margin: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        padding: 20px 0;
-    }
-
-    .footer-section h3 {
-        font-size: 1.1rem;
-    }
-
-    .footer-section ul li a {
-        font-size: 0.85rem;
-    }
-
-    .footer-bottom {
-        font-size: 0.8rem;
-    }
-}
-
-
-        /* Responsive Design */
-        @media screen and (max-width: 1024px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .article-section h2 {
-                font-size: 2rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 1.1rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .article-section, .image-section {
-                flex: 0 1 100%;
-                margin-bottom: 20px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .article-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 1rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .header h1 {
-                font-size: 1.5rem;
-                padding: 20px;
-            }
-
-            .article-section h2 {
-                font-size: 1.6rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 0.9rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.4rem;
-            }
-
-            .submit-btn {
-                font-size: 1rem;
-                padding: 12px 25px;
-            }
-        }
-    </style>
+  }
+</style>
 </head>
-
 <body>
-    <!-- Loader Wrapper strat -->
- <link rel="stylesheet" href="loder.css">
- <script src="loder.js"></script>
- <div id="load-screen">
-    <div class="circle-animation"></div>
-    <div class="loading-text">primeprojects...</div>
-  </div>
-<!-- Loader Wrapper and -->
-   
-    <div class="wrapper">
-        <!-- Header -->
-        <div class="header">
-            <h1>QR Code Generator with Format Selection</h1>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Left Content (Article) -->
-            <div class="article-section">
-                <h2>What is QR Code Generator with Format Selection?</h2>
-                <p>
-                    A QR Code Generator with Format Selection is a tool that allows users to create QR codes based on text or URLs they input. It includes the following features:<p>
-                    <p>   This makes it convenient for generating sharable QR codes that suit different use cases, such as websites, product labels, or marketing materials.</p>
-
-                <h2>QR Code Generator with Format Selection:</h2>
-                <ul class="feature-list">
-                    <li>QR Code Creation:- Input any URL or text to generate a QR code.</li>
-                    <li>Multiple Download:- Formats Option to download the QR code as either a PDF or an image.</li>
-                    <li>Customizable Titles:- Users can add a title to the QR code for a personalized touch.</li>
-                    <li>High-Resolution Output:- Generates QR codes with adjustable resolution for better quality.</li>
-                    <li>Interactive Design:- User-friendly interface with hover effects and clear action buttons.</li>
-                </ul>
-
-                <!-- Submit Button -->
-                <a href="https://code-with-n-a.github.io/QR_ganretar/" class="submit-btn">Explore More</a>
-            </div>
-
-            <!-- Right Content (Image Section) -->
-            <div class="image-section">
-                <h3>QR Code Generator with Format Selection:</h3>
-                <img src="img/QR1.jpg" alt="Task Manager Dashboard Image">
-                <div class="side-section">
-                    <h3>Additional Features</h3>
-                    <p>
-                        The QR Code Generator with Format Selection allows users to easily create QR codes from URLs or text. It offers options to download the generated code as a high-resolution PDF or image, with customizable titles. The tool is user-friendly, responsive, and ensures smooth functionality across different devices and browsers.</p>
-                </div>
-            </div>
-        </div>
+   <!-- Loader Wrapper strat -->
+   <link rel="stylesheet" href="loder.css">
+   <script src="loder.js"></script>
+   <div id="load-screen">
+      <div class="circle-animation"></div>
+      <div class="loading-text">primeprojects...</div>
     </div>
+  <!-- Loader Wrapper and -->
+   <!--sin in-->
+ <script src="gon_oder.js"></script>
+      
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section about">
-                    <h3>About Us</h3>
-                    <p>
-                        Welcome to our  website. We are dedicated to providing quality education and fostering a learning environment that helps students excel in their careers.
-                    </p>
-                </div>
-                <div class="footer-section links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="About.html">About Us</a></li>
-                        <li><a href="explor.html">Projects</a></li>
-                        <li><a href="contect.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="https://t.me/CodwithNA"><i class="fab fa-telegram"></i></a>
-                        <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
-                        <a href="https://github.com/"><i class="fab fa-github"></i></a>
-                        <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 CodeWith_N.A. All rights reserved.</p>
-            </div>
-        </footer>
-        <script src="gon_oder.js"></script>
+<div class="main-box">
+<div class="left">
+  <h1>QR Code Generator</h1>
+  <input type="text" id="titleInput" placeholder="Enter Title (optional)">
+  <input type="text" id="inputData" placeholder="Enter URL or Text">
+  <button onclick="generateQRCode()">Generate QR Code</button>
+</div>
+
+<div class="right">
+  <div id="qrCodeContainer"></div>
+  <a id="downloadLink" href="#" onclick="downloadQRCode()">Download QR</a>
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    let qrCodeDataUrl = '';
+
+    function generateQRCode() {
+        const inputData = document.getElementById('inputData').value;
+        const titleInput = document.getElementById('titleInput').value;
+
+        if (!inputData) {
+            alert("Please enter the URL or text");
+            return;
+        }
+
+        const qrCodeContainer = document.getElementById('qrCodeContainer');
+        qrCodeContainer.innerHTML = "";
+
+        // URL only for redirection when scanned
+        let qrData = inputData;
+
+        // Generate QR code with the URL for redirection
+        QRCode.toDataURL(qrData, { 
+            width: 500,  // Increased width for better resolution
+            height: 500,  // Increased height for better resolution
+            color: {
+                dark: "#000000",   // Black color for QR code
+                light: "#ffffff"   // White background for QR code
+            }
+        }, function (error, url) {
+            if (error) throw error;
+
+            const img = document.createElement('img');
+            img.src = url;
+            img.style.width = '250px';  // Adjust size to fit better in PDF
+            img.style.height = '250px'; // Adjust size to fit better in PDF
+            qrCodeContainer.appendChild(img);
+
+            qrCodeDataUrl = url;
+        });
+    }
+
+    function downloadQRCode() {
+        // Ask user for their preferred download format (PDF or Image)
+        const format = prompt("Would you like to download the QR Code as a PDF or an Image? (Enter 'pdf' or 'img')").toLowerCase();
+
+        if (!qrCodeDataUrl) {
+            alert("Please generate the QR code first");
+            return;
+        }
+
+        if (format === "pdf") {
+            downloadPDF();
+        } else if (format === "img") {
+            downloadImage();
+        } else {
+            alert("Invalid format. Please enter 'pdf' or 'img'.");
+        }
+    }
+
+    function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const title = document.getElementById('titleInput').value;
+
+        // Create a new jsPDF document with a single page
+        const doc = new jsPDF({
+            unit: 'px',
+            format: [350, 350]  // Ensure the page is a single size (350x350)
+        });
+
+        // Set a gradient background for the page
+        const gradient = doc.context2d.createLinearGradient(0, 0, 350, 350);
+        gradient.addColorStop(0, '#FFDEE9');  // Pinkish color
+        gradient.addColorStop(1, '#B5FFFC');  // Light Blue color
+        doc.context2d.fillStyle = gradient;
+        doc.context2d.fillRect(0, 0, 350, 350);
+
+        // Add Title if it exists
+        if (title) {
+            doc.setTextColor('#262626');  // Black color for title
+            doc.setFontSize(16);
+            doc.text(title, 175, 50, { align: 'center' });  // Title above QR code
+        }
+
+        // Add QR Code in the center of the page
+        doc.addImage(qrCodeDataUrl, 'PNG', 50, 75, 250, 250);  // Adjust QR code position and size
+
+        // Save the PDF with a dynamic filename
+        const filename = title ? title.replace(/\s+/g, '_') + "_QRCode.pdf" : "QRCode.pdf";
+        doc.save(filename);
+    }
+
+    function downloadImage() {
+        const link = document.createElement('a');
+        link.href = qrCodeDataUrl;
+        link.download = "QRCode.png";  // Set filename for image download
+        link.click();
+    }
    
+
+
+</script>
+
 
 </body>
-
 </html>
