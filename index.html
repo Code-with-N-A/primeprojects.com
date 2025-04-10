@@ -226,22 +226,27 @@
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 40px;
-                background-color: whitesmoke;
+                
+                 background: #0f172a; /* Dark slate */
+                color: #f8fafc; /* Light text */
+
+
             }
             
             .content-box {
                 padding: 20px;
-                background-color: white;
                 border-radius: 10px;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
                 transition: transform 0.4s ease, box-shadow 0.4s ease;
                 cursor: pointer;
                 color: black;
+                background: linear-gradient(135deg, #1f2937, #334155);
+                color: #f8fafc;
             }
             
             .content-box:hover {
                 transform: translateY(-10px);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+                box-shadow: 0 12px 50px rgba(70, 147, 211, 0.7);
                 
             }
             
@@ -252,7 +257,7 @@
             
             .content-box p {
                 font-size: 1rem;
-                color: #0b0c10;
+                color: #ffffff;
             }
             
             /* Footer */
