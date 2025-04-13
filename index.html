@@ -161,7 +161,7 @@
                 color: white;
                 font-size: 17px;
                 overflow-x: hidden;
-            
+                font-family: 'Times New Roman', Times, serif;
                
             }
             @keyframes slideIn {
@@ -1011,7 +1011,7 @@
                 max-width: 1500px;
                 overflow: hidden;
                 background: linear-gradient(rgb(110, 218, 232),rgb(111, 151, 245));
-
+                padding: 5px;
 
             }
             
@@ -1031,7 +1031,8 @@
                 text-align: center;
                 transition: transform 0.5s ease, opacity 0.5s ease;
                 color: rgb(255, 255, 255);
-                padding: 20px;
+                padding-left: 20px;
+               
             }
             
             .slider-item:hover {
@@ -1054,8 +1055,7 @@
             
             .slider-item p {
                 font-size: 1.1rem;
-                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-               
+                
             }
             
             .slider-item-content {
@@ -1067,7 +1067,7 @@
             
             .slider-item-text {
                 flex: 1;
-                padding: 5px;
+                padding-right: 5px;
                 max-width: 50%;
             }
             
@@ -1101,7 +1101,7 @@
                 }
             
                 .slider-item img {
-                    max-width: 50%; /* Image takes up 50% of the width */
+                    max-width: 45%; /* Image takes up 50% of the width */
                     margin-right: 20px;
                 }
             
@@ -1110,31 +1110,11 @@
                 }
             }
             
-            /* Dots for current slide indicator */
-            .dots-container {
-                text-align: center;
-               
-            }
-            
-            .dot {
-                display: inline-block;
-                height: 10px;
-                width: 10px;
-                margin: 0 5px;
-                border-radius: 50%;
-                border: 1px solid rgb(0, 0, 0);
-
-            }
-            
-            .active-dot {
-                background-color: #000000;
-               
-            }
             
             /*sliding img and*/
             .sin button{
             
-            padding: 10px;
+                padding: 10px;
             background-color: #000000;
             border-radius: 12px;
             border: 2px solid rgb(7, 183, 237);
@@ -1212,71 +1192,73 @@
         <div class="slider">
             <div class="slider-item">
                 <div class="slider-item-content">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPecz7s4CAL29Q8XVWUvDsmst7QQzWUZJMKg&s" alt="Image 1">
+                    <img src="https://miro.medium.com/v2/resize:fit:1024/0*OmuboVJgMz7NzSzr.jpg" alt="Image 1">
                     <div class="slider-item-text">
-                        <h3>DeepSeek AI V/S ChatGPT</h3>
-                        <p>
-                            <strong>DeepSeek AI</strong> is affordable, while <strong>ChatGPT</strong> offers advanced features.                        
+                        <h3>Frontend coding Language</h3>
+                        <p>Frontend is the part of a website that users directly see and interact with, including the design, layout, and user interface.</p>
                     </div>
                 </div>
             </div>
             <div class="slider-item">
                 <div class="slider-item-content">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQHmt2HavWsIoQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1697380698315?e=2147483647&v=beta&t=eBTgOHI4XcavXC-3v_H83FU18rJtEzYm-q08a8eBHWY" alt="Image 2">
+                    <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh5asydv3ruwy7x7pgreo.jpg" alt="Image 2">
                     <div class="slider-item-text">
-                        <h3>Generative AI</h3>
-                        <p>It is refers to models that can create new content such as images text and music based on learned patterns from existing data.</p>
+                        <h3>HTML and CSS</h3>
+                        <p>HTML creates the structure of a web page, while CSS styles and designs that structure.</p>
 
                     </div>
                 </div>
             </div>
             <div class="slider-item">
                 <div class="slider-item-content">
-                    <img src="https://datablaze.com/wp-content/uploads/2022/03/what-is-5G-1024x608.webp" alt="Image 3">
+                    <img src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/typescript-vs-javascript.png" alt="Image 3">
                     <div class="slider-item-text">
-                        <h3>5G technology</h3>
-                        <p>5G technology provides faster speeds, lower latency, and enhanced connectivity for advanced applications.</p>
+                        <h3>TS / JS</h3>
+                       
+                        <p>JavaScript is a lightweight scripting language that makes web pages interactive, while TypeScript is its upgraded version that adds static typing.</p>
                     </div> 
                    </div>         
             </div>
             <div class="slider-item">
                 <div class="slider-item-content">
-                    <img src="https://www.sysinfotools.com/asset/img/when-to-use/Pdf-to-Jpg.webp" alt="Image 3">
+                    <img src="https://unicorn.dev/wp-content/uploads/2023/01/react.png" alt="Image 3">
                     <div class="slider-item-text">
-                        <h3>PDFshift</h3>
-                        <p>
-                            <strong>PDFshift</strong> converts PDFs to high-quality images with easy page selection and quick downloads.
-                        </p>
+                        <h3>React</h3>
+                        <p>React is a JavaScript library used for building fast and dynamic user interfaces, especially for single-page applications.</p>
                     </div>          
             </div>
         </div>
             <div class="slider-item">
                 <div class="slider-item-content">
-                    <img src="https://media.istockphoto.com/id/1401555201/photo/weak-password-words-on-the-screen-in-the-dark.jpg?s=612x612&w=0&k=20&c=zwD3wXz5fBNCXCULLMTfsYbi9vtoPnMrvCfHG1KuatE=" alt="Image 3">
+                    <img src="https://cdn-images-1.medium.com/max/800/0*dbCcdY_EnP4CmV7L" alt="Image 3">
                     <div class="slider-item-text">
-                        <h3>Password Strength</h3>
-                        <p>Secure your digital world with a strong password because your online safety and privacy matter!</p>
+                        <h3>Angular</h3>
+                        <p>ngular is a powerful TypeScript-based framework developed by Google for building dynamic, single-page web applications.</p>
 
-                    </div>          
+                    </div>                 
+            </div>
+            </div>
+            <div class="slider-item">
+                <div class="slider-item-content">
+                    <img src="https://cdn.prod.website-files.com/60f8ffe4d3ddfa64654d6667/658434b6bfd2c1d3d548ee2b_what%20is%20vuejs.webp" alt="Image 3">
+                    <div class="slider-item-text">
+                        <h3>Vue.js</h3>
+                        <p>Vue.js is a progressive JavaScript framework used for building user interfaces, known for its simplicity and flexibility in creating dynamic web applications.</p>
+
+                    </div>                 
             </div>
         </div>
     </div>
    
 
-    <!-- Dots indicator below slider -->
-    <div class="dots-container">
-        <span class="dot" id="dot1"></span>
-        <span class="dot" id="dot2"></span>
-        <span class="dot" id="dot3"></span>
-        <span class="dot" id="dot4"></span>
-        <span class="dot" id="dot5"></span>
-    </div>
+  
 </div>
     <!--img sliding code AND-->
       
     
   
      <div class="image-container">
+        
         <img class="background-image" src="img/3.jpg" alt="img">
         <div class="overlay-text">
             <div class="b">
