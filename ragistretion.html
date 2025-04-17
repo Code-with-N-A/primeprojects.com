@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -81,399 +81,519 @@
     }
   }
   </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
 
-        body {
-            background-color: #f4f7fc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 20px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP Form</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-        .form-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 1000px;
-            overflow: hidden;
-        }
-
-        .form-left {
-            flex: 1;
-            background: linear-gradient(to right, #007bff, #00d2ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .form-left img {
-            max-width: 200px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-
-        
-
-        }
-
-        .form-left h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            padding-left: 10px;
-        }
-        .form-left p{
-            padding-left: 3px;
-        }
-
-        .form-right {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-           
-        }
-
-        .form-right h3 {
-            font-size: 30px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .input-group i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #007bff;
-            font-size: 18px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 15px 20px 15px 40px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background-color: #fafafa;
-        }
-
-        .input-group input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-            outline: none;
-        }
-
-        .submit-btn {
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background-color: #007bff;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .submit-btn:active {
-            background-color: #003366;
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .form-wrapper {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .form-left {
-                padding: 40px;
-            }
-
-            .form-right {
-                padding: 20px;
-            }
-
-            .form-left h2 {
-                font-size: 24px;
-            }
-
-            .form-right h3 {
-                font-size: 26px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .form-wrapper {
-                padding: 10px;
-            }
-
-            .form-left {
-                padding: 30px;
-            }
-
-            .form-right {
-                padding: 15px;
-            }
-
-            .form-left h2 {
-                font-size: 20px;
-            }
-
-            .form-right h3 {
-                font-size: 22px;
-            }
-
-            .submit-btn {
-                font-size: 16px;
-            }
-        }
-        /* icon*/
-        /* Profile Icon */
-.profile-icon {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #007bff;
-    border-radius: 50%;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile-icon:hover {
-    background-color: #f1f1f1;
-    transform: scale(1.1);
-}
-
-/* Profile Popup */
-.profile-popup {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    z-index: 100;
-    animation: slideIn 0.3s ease-in-out;
-}
-
-.profile-popup p {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.profile-popup button {
-    padding: 10px;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.profile-popup button:hover {
-    background-color: #0056b3;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+  <style>
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px;
+      position: relative;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+
+
+    .dropdown {
+      position: absolute;
+      right: 20px;
+      top: 60px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 10px;
+      display: none;
     }
-}
 
-/* Logout Button Styling */
-.profile-popup button#logoutBtn {
-    background-color: #dc3545;
-}
+    .dropdown p {
+      margin: 0;
+      font-size: 16px;
+      color: #000000;
+    }
 
-.profile-popup button#logoutBtn:hover {
-    background-color: #c82333;
-}
+    .dropdown button {
+      margin-top: 10px;
+      background: #ed3e50;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-    </style>
+
+
+    input,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background-color: #fafafa;
+      padding: 20px;
+    }
+
+
+    input {
+      border-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+      outline: none;
+      padding: 20px;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    #otpInput,
+    #submitBtn {
+      display: none;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .success {
+      color: rgb(0, 194, 0);
+    }
+
+    .error {
+      color: red;
+    }
+
+    .info {
+      color: rgb(0, 21, 255);
+    }
+
+
+
+    /* icon*/
+    /* Profile Icon */
+    .profile-icon {
+      position: absolute;
+      font-size: 30px;
+      cursor: pointer;
+      color: #007bff;
+      border-radius: 50%;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 100;
+    }
+
+
+
+    .form-container {
+      display: flex;
+      width: 100%;
+      max-width: 1000px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    form button {
+      padding: 12px;
+      border: none;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #357ab8;
+    }
+
+    .message {
+      font-size: 16px;
+    }
+
+
+
+    /* LEFT SECTION */
+    .form-left {
+      flex: 1;
+      background: linear-gradient(to right, #007bff, #00d2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .form-left img {
+      max-width: 200px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+
+
+
+    }
+
+    .form-left h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      padding-left: 10px;
+    }
+
+    .form-left p {
+      padding-left: 3px;
+    }
+
+    /* RIGHT SECTION */
+    .form-right {
+      flex: 1;
+      padding: 40px;
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media screen and (max-width: 768px) {
+      .form-container {
+        flex-direction: column;
+      }
+
+      .form-left {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .left-text h2 {
+        font-size: 20px;
+      }
+
+      .left-text p {
+        font-size: 14px;
+      }
+
+      .form-right {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-wrapper {
+        padding: 20px;
+      }
+
+      .form-left {
+        padding: 20px;
+      }
+
+      .form-right {
+        padding: 15px;
+      }
+
+      .form-left h2 {
+        font-size: 20px;
+      }
+
+      .form-right h3 {
+        font-size: 22px;
+      }
+
+      .submit-btn {
+        font-size: 16px;
+      }
+    }
+
+    /*icons ajx line*/
+    /* Input Group (Ajax Style) */
+    .input-group {
+      position: relative;
+      width: 100%;
+
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      /* Padding-left for icon */
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Icon Style Inside Input */
+    .input-group .icon {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #5a9de4;
+      pointer-events: none;
+    }
+
+    .form-container {
+      padding: 20px;
+
+    }
+  </style>
 </head>
-<body>
 
-    <i class="fas fa-user profile-icon" id="profileIcon"></i>
-    
-    <!-- Profile Popup -->
-    <div class="profile-popup" id="profilePopup">
-        <p id="storedEmail">Your email will appear here...</p>
-        <button id="logoutBtn">Logout</button>
+<body>
+  <!-- Top Bar with User Icon -->
+  <div class="top-bar">
+    <i class="fas fa-user profile-icon" onclick="toggleDropdown()"></i>
+    <div class="dropdown" id="dropdown">
+      <p id="userEmail"></p>
+      <button onclick="logout()">Logout</button>
     </div>
-    
-    <div class="form-wrapper">
-        <!-- Left Section (Logo & Intro) -->
-        <div class="form-left">
-            <img src="https://img.freepik.com/free-photo/view-3d-woman-using-laptop_23-2150710060.jpg?t=st=1738675400~exp=1738679000~hmac=2832a2a3492336b680dc672cca7caadead7ec1188bb478ef22ee8165595c85e1&w=740" alt="Logo">
-            <div>
-                <h2>Welcome to Primeprojects</h2>
-                <p>Fill in the details below to contact us.</p>
-            </div>
-        </div>
-    
-        <!-- Right Section (Form) -->
-        <div class="form-right">
-            <h3>Get in Touch</h3>
-    
-            <form id="contactForm" action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
-                <!-- Name Input -->
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="name" id="name" placeholder="Your Name" required>
-                </div>
-    
-                <!-- Email Input -->
-                <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="email" id="email" placeholder="Your Email" required>
-                </div>
-    
-                <!-- Phone Input -->
-                <div class="input-group">
-                    <i class="fas fa-phone"></i>
-                    <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" pattern="^[0-9]{10}$" required>
-                </div>
-    
-                <!-- Hidden field to identify form -->
-                <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
-    
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn">Submit</button>
-                <button style="background-color: red;" type="button" class="submit-btn" onclick="go()">✖</button>
-            </form>
-    
-            <!-- Footer -->
-            <div class="form-footer">
-                <p>&copy; 2025 Company Name. CodeWth_N.A.</p>
-            </div>
-        </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="form-container">
+    <!-- Left Section (Logo & Intro) -->
+    <div class="form-left">
+      <!-- Image Left -->
+      <div class="left-img">
+        <img
+          src="https://img.freepik.com/free-photo/view-3d-woman-using-laptop_23-2150710060.jpg?t=st=1738675400~exp=1738679000~hmac=2832a2a3492336b680dc672cca7caadead7ec1188bb478ef22ee8165595c85e1&w=740"
+          alt="Logo" />
+      </div>
+
+      <!-- Text Right -->
+      <div class="left-text">
+        <h2>Welcome to Primeprojects</h2>
+        <p>Fill in the details below to contact us.</p>
+      </div>
     </div>
-    
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", async function (event) {
-            event.preventDefault();
-    
-            const email = document.getElementById("email").value;
-            const form = this;
-    
-            const apiURL = `https://emailvalidation.abstractapi.com/v1/?api_key=04515190454e461087b994825902f8f0&email=${encodeURIComponent(email)}`;
-    
-            try {
-                const response = await fetch(apiURL, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-    
-                const data = await response.json();
-    
-                if (data.deliverability && data.deliverability === "DELIVERABLE") {
-                    // ✅ Store email
-                    localStorage.setItem('email', email);
-                    document.cookie = "email=" + email + ";path=/";
-                    localStorage.setItem('isRegistered', 'true');
-    
-                    alert('Registration successful!');
-                    form.submit(); // 🔥 Proceed with form submission
-                } else {
-                    alert("⚠️ Invalid email address. Please enter a valid one.");
-                }
-    
-            } catch (error) {
-                console.error("Validation error:", error);
-                alert("❌ Email validation service failed. Try again later.");
-            }
-        });
-    
-        // Show stored email when the Profile icon is clicked
-        document.getElementById('profileIcon').addEventListener('click', function () {
-            const storedEmail = localStorage.getItem('email') || getCookie("email");
-            if (storedEmail) {
-                document.getElementById('storedEmail').textContent = `Login as: ${storedEmail}`;
-                document.getElementById('profilePopup').style.display = 'block';
-            }
-        });
-    
-        // Logout functionality
-        document.getElementById('logoutBtn').addEventListener('click', function () {
-            localStorage.removeItem('email');
-            localStorage.removeItem('isRegistered');
-            document.cookie = "email=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
-    
-            document.getElementById('storedEmail').textContent = '';
-            document.getElementById('profilePopup').style.display = 'none';
-            alert('Logged out successfully!');
-        });
-    
-        // Get cookie by name
-        function getCookie(name) {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.startsWith(name + '=')) {
-                    return cookie.substring((name + '=').length);
-                }
-            }
-            return null;
+
+    <!-- Right Section (Inputs) -->
+    <div class="form-right">
+
+
+
+      <div class="form-right">
+        <form id="otpForm">
+
+          <!-- Name Field -->
+          <div class="input-group">
+            <i class="fa fa-user icon"></i>
+            <input type="text" id="name" placeholder="Enter your name" required />
+          </div>
+
+          <!-- Email Field -->
+          <div class="input-group">
+            <i class="fa fa-envelope icon"></i>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </div>
+
+          <!-- Generate OTP Button -->
+          <button type="button" id="generateBtn">Generate OTP</button>
+
+          <!-- OTP Field -->
+          <div class="input-group">
+
+            <input type="text" id="otpInput" placeholder="Enter OTP" />
+          </div>
+
+          <button type="button" id="submitBtn">Submit</button>
+          <p id="message" class="message info"></p>
+        </form>
+      </div>
+
+
+      <script>
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const otpInput = document.getElementById("otpInput");
+        const generateBtn = document.getElementById("generateBtn");
+        const submitBtn = document.getElementById("submitBtn");
+        const message = document.getElementById("message");
+        const dropdown = document.getElementById("dropdown");
+        const userEmail = document.getElementById("userEmail");
+
+        window.onload = () => {
+          const user = JSON.parse(localStorage.getItem("userData"));
+          if (user && user.verified) {
+            userEmail.textContent = user.email;
+          } else {
+            localStorage.removeItem("otpFormState");
+            nameInput.value = "";
+            emailInput.value = "";
+            otpInput.value = "";
+            otpInput.style.display = "none";
+            submitBtn.style.display = "none";
+            message.textContent = "";
+          }
+        };
+
+        function toggleDropdown() {
+          dropdown.style.display =
+            dropdown.style.display === "block" ? "none" : "block";
         }
-    
-        // Redirect cancel button
-        function go() {
-            window.location.href = 'index.html';
+
+        function logout() {
+          localStorage.clear();
+          document.cookie =
+            "verifiedUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          window.location.href = "https://primeprojects.netlify.app/";
         }
-    </script>
-    
-    
-    </body>
-    
+
+        function isValidGmail(email) {
+          const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+          return regex.test(email);
+        }
+
+        generateBtn.onclick = () => {
+          const name = nameInput.value.trim();
+          const email = emailInput.value.trim();
+          const registeredUser = JSON.parse(localStorage.getItem("userData"));
+
+          if (!name || !email) {
+            message.textContent = "Please fill in both name and email.";
+            message.className = "error";
+            return;
+          }
+
+          if (!isValidGmail(email)) {
+            message.textContent =
+              "Please enter a valid Gmail address (example@gmail.com)";
+            message.className = "error";
+            return;
+          }
+
+          if (
+            registeredUser &&
+            registeredUser.email === email &&
+            registeredUser.verified
+          ) {
+            message.textContent = "This email is already registered.";
+            message.className = "error";
+            return;
+          }
+
+          const otp = Math.floor(100000 + Math.random() * 900000).toString();
+          localStorage.setItem("otp", otp);
+          localStorage.setItem(
+            "otpFormState",
+            JSON.stringify({ name, email, otpGenerated: true })
+          );
+          otpInput.style.display = "block";
+          submitBtn.style.display = "block";
+          message.textContent = "Sending OTP...";
+          message.className = "info";
+
+          const payload = { Name: name, Email: email, OTP: otp };
+
+          fetch(`https://formsubmit.co/ajax/${email}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          fetch(`https://formsubmit.co/ajax/primeprojects.dev@gmail.com`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          })
+            .then(() => {
+              message.textContent = "OTP sent to your Gmail.";
+              message.className = "success";
+            })
+            .catch(() => {
+              message.textContent = "Error sending OTP.";
+              message.className = "error";
+            });
+        };
+
+        submitBtn.onclick = () => {
+          const enteredOtp = otpInput.value.trim();
+          const actualOtp = localStorage.getItem("otp");
+          const state = JSON.parse(localStorage.getItem("otpFormState"));
+
+          if (enteredOtp === actualOtp) {
+            const userData = {
+              name: state.name,
+              email: state.email,
+              verified: true,
+            };
+
+            localStorage.setItem("userData", JSON.stringify(userData));
+            document.cookie = `verifiedUser=${state.email}; path=/; max-age=31536000`;
+
+            fetch(`https://formsubmit.co/ajax/primeprojects.dev@gmail.com`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                Name: state.name,
+                Email: state.email,
+                Verified: true,
+              }),
+            });
+
+            nameInput.value = "";
+            emailInput.value = "";
+            otpInput.value = "";
+            otpInput.style.display = "none";
+            submitBtn.style.display = "none";
+            message.textContent = "Verified! Redirecting...";
+            message.className = "success";
+            localStorage.removeItem("otpFormState");
+            localStorage.removeItem("otp");
+
+            setTimeout(() => {
+              window.location.href = "https://primeprojects.netlify.app/";
+            }, 1500);
+          } else {
+            message.textContent = "Incorrect OTP.";
+            message.className = "error";
+          }
+        };
+      </script>
+</body>
+
+</html>
