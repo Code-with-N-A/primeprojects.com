@@ -483,9 +483,7 @@
                   if (user && user.verified) {
                     userEmail.textContent = user.email;
                   } else {
-                    // Clear OTP form state but not other local storage data
                     localStorage.removeItem("otpFormState");
-                    localStorage.removeItem("otp");
                     nameInput.value = "";
                     emailInput.value = "";
                     otpInput.value = "";
@@ -500,13 +498,16 @@
                 }
               
                 function logout() {
-                  // Only remove registration-related data from localStorage
-                  localStorage.removeItem("otpFormState");
-                  localStorage.removeItem("otp");
+                  // Sirf registration se related localStorage keys ko remove karo
                   localStorage.removeItem("userData");
-                  document.cookie =
-                    "verifiedUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                  window.location.href = "ragistretion.html"; // Redirect to the registration page
+                  localStorage.removeItem("otp");
+                  localStorage.removeItem("otpFormState");
+              
+                  // Cookie clear karo
+                  document.cookie = "verifiedUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              
+                  // Redirect to registration page
+                  window.location.href = "ragistretion.html";
                 }
               
                 function isValidGmail(email) {
@@ -526,8 +527,7 @@
                   }
               
                   if (!isValidGmail(email)) {
-                    message.textContent =
-                      "Please enter a valid Gmail address (example@gmail.com)";
+                    message.textContent = "Please enter a valid Gmail address (example@gmail.com)";
                     message.className = "error";
                     return;
                   }
@@ -632,6 +632,7 @@
                   }
                 };
               </script>
+              
               
 </body>
 
