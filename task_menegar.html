@@ -315,192 +315,200 @@
   </div>
   
   <script>
-      const apiUrl = "https://formsubmit.co/ajax/";
-      let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-      const user = JSON.parse(localStorage.getItem("user"));
-      
-      function saveUser() {
-        const name = document.getElementById("userName").value;
-        const email = document.getElementById("userEmail").value;
-        if (name && email) {
-          localStorage.setItem("user", JSON.stringify({ name, email }));
-          location.reload();
-        }
+    const apiUrl = "https://formsubmit.co/ajax/";
+    let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    const user = JSON.parse(localStorage.getItem("user"));
+    
+    function saveUser() {
+      const name = document.getElementById("userName").value;
+      const email = document.getElementById("userEmail").value;
+      if (name && email) {
+        localStorage.setItem("user", JSON.stringify({ name, email }));
+        location.reload();
       }
-      
-      function displayUser() {
-        if (user) {
-          document.getElementById("userForm").classList.add("hidden");
-          document.getElementById("todoApp").classList.remove("hidden");
-          document.getElementById("displayName").innerText = user.name;
-          renderTasks();
-          setInterval(checkTaskTimes, 1000);
-        }
+    }
+    
+    function displayUser() {
+      if (user) {
+        document.getElementById("userForm").classList.add("hidden");
+        document.getElementById("todoApp").classList.remove("hidden");
+        document.getElementById("displayName").innerText = user.name;
+        renderTasks();
       }
-      
-      function addTask() {
-        const name = document.getElementById("taskName").value;
-        const description = document.getElementById("taskDescription").value;
-        const date = document.getElementById("taskDate").value;
-        const time = document.getElementById("taskTime").value;
-      
-        if (name && description && date && time) {
-          const task = {
-            id: Date.now(),
-            name,
-            description,
-            date,
-            time,
-            status: "future",
-            apiCalled: false,
-            completed: false,
-            completedAPI: false,
-            deleted: false
-          };
-          tasks.push(task);
-          localStorage.setItem("tasks", JSON.stringify(tasks));
-          renderTasks();
-        }
-      }
-      
-      function renderTasks() {
-        const sections = ["futureTasks", "urgentTasks", "overdueTasks", "completedTasks"];
-        sections.forEach(id => document.getElementById(id).innerHTML = "");
-      
-        tasks.forEach(task => {
-          if (task.deleted) return;
-      
-          const el = document.createElement("div");
-          el.className = `task-card ${task.status} ${task.completed ? 'complete' : ''}`;
-          el.innerHTML = `
-            <strong>${task.name}</strong> <span style="font-size: 13px; color: #ccc;">(${task.date} ${task.time})</span><br>
-            <p style="margin-top: 5px; font-size: 14px;">${task.description}</p>
-            <div>
-              ${!task.completed ? `
-                <button onclick="markComplete(${task.id})">Complete</button>
-                <button onclick="editTask(${task.id})">Update</button>
-              ` : ''}
-              <button onclick="deleteTask(${task.id})">Delete</button>
-            </div>
-          `;
-      
-          if (task.completed) {
-            document.getElementById("completedTasks").appendChild(el);
-          } else if (task.status === "future") {
-            document.getElementById("futureTasks").appendChild(el);
-          } else if (task.status === "urgent") {
-            document.getElementById("urgentTasks").appendChild(el);
-          } else if (task.status === "overdue") {
-            document.getElementById("overdueTasks").appendChild(el);
-          }
-        });
-      }
-      
-      function checkTaskTimes() {
-        const now = new Date();
-        tasks.forEach(task => {
-          if (task.completed || task.deleted) return;
-      
-          const taskTime = new Date(`${task.date}T${task.time}`);
-          const diff = (taskTime - now) / 1000;
-      
-          if (diff <= 120 && !task.apiCalled) {
-            sendAPI(task, "2-minute-alert");
-            task.apiCalled = true;
-          }
-      
-          if (diff <= 300 && task.status === "future") {
-            task.status = "urgent";
-            sendAPI(task, "urgent");
-          }
-      
-          if (diff <= 0 && task.status !== "overdue") {
-            task.status = "overdue";
-            task.lastOverdueCall = Date.now();
-            sendAPI(task, "overdue");
-          }
-      
-          if (task.status === "overdue" && Date.now() - (task.lastOverdueCall || 0) >= 30000) {
-            sendAPI(task, "overdue-repeat");
-            task.lastOverdueCall = Date.now();
-          }
-        });
-      
+      setInterval(backgroundTaskChecker, 1000);  // Always running
+    }
+    
+    function addTask() {
+      const name = document.getElementById("taskName").value;
+      const description = document.getElementById("taskDescription").value;
+      const date = document.getElementById("taskDate").value;
+      const time = document.getElementById("taskTime").value;
+    
+      if (name && description && date && time) {
+        const task = {
+          id: Date.now(),
+          name,
+          description,
+          date,
+          time,
+          status: "future",
+          apiCalled: false,
+          completed: false,
+          completedAPI: false,
+          deleted: false,
+          lastOverdueCall: null
+        };
+        tasks.push(task);
         localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks();
       }
-      
-      function sendAPI(task, type) {
+    }
+    
+    function renderTasks() {
+      const containers = {
+        future: document.getElementById("futureTasks"),
+        urgent: document.getElementById("urgentTasks"),
+        overdue: document.getElementById("overdueTasks"),
+        completed: document.getElementById("completedTasks")
+      };
+    
+      Object.values(containers).forEach(el => el.innerHTML = "");
+    
+      tasks.forEach(task => {
         if (task.deleted) return;
-        if (type === "completed" && task.completedAPI) return;
-      
-        fetch(apiUrl + user.email, {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: task.name,
-            description: task.description,
-            date: task.date,
-            time: task.time,
-            status: type === "completed" ? "✅ Completed Task" : type
-          })
-        }).then(res => res.json()).then(console.log);
-      
-        if (type === "completed") task.completedAPI = true;
-      }
-      
-      function markComplete(id) {
-        const task = tasks.find(t => t.id === id);
-        task.completed = true;
-        task.status = "complete";
-        sendAPI(task, "completed");
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        renderTasks();
-      }
-      
-      function editTask(id) {
-        const task = tasks.find(t => t.id === id);
-        const newName = prompt("Update Task Name:", task.name);
-        const newDescription = prompt("Update Description:", task.description);
-        const newDate = prompt("Update Date (YYYY-MM-DD):", task.date);
-        const newTime = prompt("Update Time (HH:MM):", task.time);
-      
-        if (newName && newDescription && newDate && newTime) {
-          task.name = newName;
-          task.description = newDescription;
-          task.date = newDate;
-          task.time = newTime;
-      
-          // Reset timing and status
-          const now = new Date();
-          const taskTime = new Date(`${newDate}T${newTime}`);
-          const diff = (taskTime - now) / 1000;
-      
-          if (diff <= 0) {
-            task.status = "overdue";
-          } else if (diff <= 300) {
-            task.status = "urgent";
-          } else {
-            task.status = "future";
-          }
-      
-          task.apiCalled = false;
-          task.completed = false;
-          task.completedAPI = false;
-      
-          localStorage.setItem("tasks", JSON.stringify(tasks));
-          renderTasks();
+    
+        const el = document.createElement("div");
+        el.className = `task-card ${task.status}`;
+        el.innerHTML = `
+          <strong>${task.name}</strong> <span style="font-size: 13px; color: #ccc;">(${task.date} ${task.time})</span><br>
+          <p style="margin-top: 5px; font-size: 14px;">${task.description}</p>
+          <div>
+            ${!task.completed ? `
+              <button onclick="markComplete(${task.id})">Complete</button>
+              <button onclick="editTask(${task.id})">Update</button>
+            ` : ''}
+            <button onclick="deleteTask(${task.id})">Delete</button>
+          </div>
+        `;
+    
+        if (task.completed) {
+          containers.completed.appendChild(el);
+        } else if (task.status === "future") {
+          containers.future.appendChild(el);
+        } else if (task.status === "urgent") {
+          containers.urgent.appendChild(el);
+        } else if (task.status === "overdue") {
+          containers.overdue.appendChild(el);
         }
-      }
-      
-      function deleteTask(id) {
-        const task = tasks.find(t => t.id === id);
-        task.deleted = true;  // Mark as deleted
+      });
+    }
+    
+    function backgroundTaskChecker() {
+      const now = new Date();
+      tasks.forEach(task => {
+        if (task.deleted || task.completed) return;
+    
+        const taskTime = new Date(`${task.date}T${task.time}`);
+        const secondsLeft = (taskTime - now) / 1000;
+    
+        if (secondsLeft <= 0) {
+          if (task.status !== "overdue") {
+            task.status = "overdue";
+            task.lastOverdueCall = Date.now();
+            sendAPI(task, "🔴 Overdue Task");
+          } else if (Date.now() - (task.lastOverdueCall || 0) > 30000) {
+            sendAPI(task, "🔴 Overdue Reminder");
+            task.lastOverdueCall = Date.now();
+          }
+        } else if (secondsLeft <= 120 && task.status === "future") {
+          task.status = "urgent";
+          sendAPI(task, "🟠 Urgent Task");
+        }
+    
+        // Optional 2-minute pre-alert
+        if (secondsLeft <= 120 && !task.apiCalled) {
+          sendAPI(task, "⚠️ 2 Minute Alert");
+          task.apiCalled = true;
+        }
+      });
+    
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      renderTasks();
+    }
+    
+    function sendAPI(task, statusText) {
+      if (!user || task.deleted) return;
+      if (statusText === "✅ Completed Task" && task.completedAPI) return;
+    
+      fetch(apiUrl + user.email, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: task.name,
+          description: task.description,
+          date: task.date,
+          time: task.time,
+          status: statusText
+        })
+      }).then(res => res.json()).then(console.log);
+    
+      if (statusText === "✅ Completed Task") task.completedAPI = true;
+    }
+    
+    function markComplete(id) {
+      const task = tasks.find(t => t.id === id);
+      if (task) {
+        task.completed = true;
+        task.status = "completed";
+        sendAPI(task, "✅ Completed Task");
         localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks();
       }
-      displayUser();
-      </script>
+    }
+    
+    function editTask(id) {
+      const task = tasks.find(t => t.id === id);
+      if (!task) return;
+    
+      const newName = prompt("Update Task Name:", task.name);
+      const newDesc = prompt("Update Description:", task.description);
+      const newDate = prompt("Update Date (YYYY-MM-DD):", task.date);
+      const newTime = prompt("Update Time (HH:MM):", task.time);
+    
+      if (newName && newDesc && newDate && newTime) {
+        task.name = newName;
+        task.description = newDesc;
+        task.date = newDate;
+        task.time = newTime;
+        task.status = "future";
+        task.apiCalled = false;
+        task.completed = false;
+        task.completedAPI = false;
+        task.lastOverdueCall = null;
+    
+        const now = new Date();
+        const taskTime = new Date(`${newDate}T${newTime}`);
+        const diff = (taskTime - now) / 1000;
+    
+        if (diff <= 0) task.status = "overdue";
+        else if (diff <= 120) task.status = "urgent";
+    
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        renderTasks();
+      }
+    }
+    
+    function deleteTask(id) {
+      const task = tasks.find(t => t.id === id);
+      if (task) {
+        task.deleted = true;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        renderTasks();
+      }
+    }
+    displayUser();
+    </script>
+    
        
   </body>
   </html>
