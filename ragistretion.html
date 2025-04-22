@@ -401,21 +401,28 @@
         .info {
             color: rgb(0, 21, 255);
         }
+        h3{
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+   
     <!-- Top Bar with User Icon -->
     <div class="top-bar">
         <i class="fas fa-user profile-icon" onclick="toggleDropdown()"></i>
+      
         <div class="profile-popup" id="dropdown">
             <p id="userEmail"></p>
             <button onclick="logout()">Logout</button>
         </div>
+       
     </div>
 
     <!-- Main Container -->
     <div class="form-wrapper">
+    
         <!-- Left Section (Logo & Intro) -->
         <div class="form-left">
             <!-- Image Left -->
@@ -433,7 +440,8 @@
 
         <!-- Right Section (Inputs) -->
         <div class="form-right">
-            <h3>Get in Touch</h3>
+            <h3 onclick="window.location.href='rg_video.html'">Get in Touch ▶</h3>
+           
 
 
 
@@ -465,9 +473,11 @@
                     <!-- Generate OTP Button -->
                     <button type="button" id="generateBtn" class="submit-btn">Generate OTP</button>
                    
+                   
                 </form>
+               
             </div>
-
+          
             <script>
                 const nameInput = document.getElementById("name");
                 const emailInput = document.getElementById("email");
