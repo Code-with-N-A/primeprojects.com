@@ -2,145 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Google Drive PDF Downloader</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drive to Download + Preview</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 900px;
+      max-width: 700px;
       margin: auto;
-      background-color: #f4f4f4;
-     
     }
-    h2 {
-      text-align: center;
-      font-size: 24px;
-    }
+
     input, button {
-      padding: 10px;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
       font-size: 16px;
-      margin: 10px 0;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
     }
-    .output {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      margin-top: 20px;
-      border: 1px solid #ccc;
-    }
+
     .btn {
       color: white;
       border: none;
-      padding: 12px 16px;
       cursor: pointer;
       margin-top: 10px;
-      width: 100%;
-    }
-    .btn-copy {
-      background-color: #2196F3;
-    }
-    .btn-copy:hover {
-      background-color: #0b7dda;
-    }
-    .btn-download {
-      background-color: #4CAF50;
-    }
-    .btn-download:hover {
-      background-color: #45a049;
-    }
-    
-    /* Responsive Design */
-    @media screen and (max-width: 768px) {
-      body {
-        padding: 15px;
-      }
-      iframe {
-        height: 650px;
-      }
     }
 
-    @media screen and (max-width: 480px) {
-      input, button {
-        font-size: 14px;
-        padding: 8px;
-      }
-      h2 {
-        font-size: 20px;
-      }
+    .btn-generate {
+      background-color: #007BFF;
+    }
+
+    .btn-download {
+      background-color: #28A745;
+    }
+
+    .btn-copy {
+      background-color: #f39c12;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      display: none;
+    }
+
+    .output a {
+      word-wrap: break-word;
+      color: #007BFF;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .output {
+      margin-top: 15px;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
       iframe {
-        height: 450px;
-      }
-      .output {
-        font-size: 10px;
-      }
-      .btn {
-        padding: 10px;
-        width: 200px;
+        height: 300px;
       }
     }
   </style>
 </head>
 <body>
+   <!-- Loader Wrapper strat -->
+   <link rel="stylesheet" href="loder.css">
+   <script src="loder.js"></script>
+   <div id="load-screen">
+      <div class="circle-animation"></div>
+      <div class="loading-text">primeprojects...</div>
+    </div>
+  <!-- Loader Wrapper and -->
+       <!--sin in-->
+       <script src="sin.js"></script>
 
-  <h2>Google Drive to Direct Download + Preview</h2>
+  <h2>Google Drive PDF Downloader</h2>
 
   <input type="text" id="driveLink" placeholder="Paste Google Drive link here">
-  <button onclick="generateDownloadLink()">Generate Link & Preview</button>
+  <button class="btn btn-generate" onclick="generateLink()">Generate & Preview</button>
 
   <div class="output" id="outputLink"></div>
-  <button class="btn btn-copy" onclick="copyLink()">Copy Download Link</button>
-  <a id="downloadBtn" class="btn btn-download" style="display:none;" target="_blank">Download PDF</a>
 
-  <iframe id="pdfViewer" style="display:none;"></iframe>
+  <button class="btn btn-copy" onclick="copyLink()"> Copy Download Link</button>
+  <button class="btn btn-download" onclick="downloadFile()"> Force Download PDF</button>
+
+  <iframe id="pdfViewer"></iframe>
 
   <script>
+    let fileId = "";
     let directLink = "";
 
-    function generateDownloadLink() {
-      const input = document.getElementById("driveLink").value;
-      const match = input.match(/\/d\/([a-zA-Z0-9_-]+)\//);
+    function generateLink() {
+      const inputLink = document.getElementById("driveLink").value;
+      const match = inputLink.match(/\/d\/([a-zA-Z0-9_-]+)\//);
 
-      if (match && match[1]) {
-        const fileId = match[1];
-        directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
-        const previewLink = `https://drive.google.com/file/d/${fileId}/preview`;
-
-        document.getElementById("outputLink").innerHTML = `
-          Direct Download Link:<br>
-          <a href="${directLink}" target="_blank">${directLink}</a>
-        `;
-
-        const iframe = document.getElementById("pdfViewer");
-        iframe.src = previewLink;
-        iframe.style.display = "block";
-
-        const downloadBtn = document.getElementById("downloadBtn");
-        downloadBtn.href = directLink;
-        downloadBtn.style.display = "inline-block";
-        downloadBtn.innerText = "⬇️ Download PDF";
-
-      } else {
-        document.getElementById("outputLink").innerText = "❌ Invalid Google Drive link!";
-        document.getElementById("pdfViewer").style.display = "none";
-        document.getElementById("downloadBtn").style.display = "none";
+      if (!match) {
+        alert(" Invalid Google Drive link!");
+        return;
       }
+
+      fileId = match[1];
+      directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+
+      // Show preview
+      const iframe = document.getElementById("pdfViewer");
+      iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      iframe.style.display = "block";
+
+      // Show clickable download link
+      document.getElementById("outputLink").innerHTML = `
+        <strong>Direct Download Link:</strong><br>
+        <a onclick="downloadFile()">🔗 ${directLink}</a>
+      `;
+    }
+
+    function downloadFile() {
+      if (!directLink) {
+        alert("Generate the link first.");
+        return;
+      }
+
+      const iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.src = directLink;
+      document.body.appendChild(iframe);
     }
 
     function copyLink() {
-      if (directLink) {
-        navigator.clipboard.writeText(directLink).then(() => {
-          alert("✅ Download link copied to clipboard!");
-        });
-      } else {
-        alert("❗ Please generate the download link first.");
+      if (!directLink) {
+        alert("Generate the link first.");
+        return;
       }
+
+      navigator.clipboard.writeText(directLink)
+        .then(() => alert(" Download link copied!"))
+        .catch(() => alert(" Failed to copy link."));
     }
   </script>
 
