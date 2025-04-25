@@ -30,11 +30,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 50px;
       background-color: #f5f7fa;
       color: #333;
     }
@@ -47,7 +46,6 @@
       margin-top: 30px;
     }
 
-    /* Search Bar */
     .search-bar {
       text-align: center;
       margin: 30px 0;
@@ -71,17 +69,15 @@
       box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
     }
 
-    /* Cards Grid */
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px; /* Increased gap between the cards */
+      gap: 50px;
       padding: 10px;
       justify-items: center;
       margin-bottom: 30px;
     }
 
-    /* Card Styles */
     .card {
       background-color: #fff;
       border-radius: 15px;
@@ -89,9 +85,8 @@
       padding: 20px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      width: 80%;
+      width: 100%;
       max-width: 300px;
-      margin: 0 auto; /* Center the cards in grid */
     }
 
     .card:hover {
@@ -123,7 +118,6 @@
       margin-bottom: 20px;
     }
 
-    /* Button Styles */
     .btn {
       padding: 12px 25px;
       font-size: 16px;
@@ -154,8 +148,6 @@
       background-color: #45a049;
     }
 
-    /* Responsive Design for Different Screen Sizes */
-    /* Mobile Devices (Phones) */
     @media (max-width: 767px) {
       h1 {
         font-size: 28px;
@@ -174,17 +166,12 @@
         font-size: 2.5rem;
       }
 
-      .card h2 {
-        font-size: 18px;
-      }
-
       .btn {
         padding: 12px;
         font-size: 14px;
       }
     }
 
-    /* Tablets (iPads, smaller tablets) */
     @media (min-width: 768px) and (max-width: 1024px) {
       h1 {
         font-size: 32px;
@@ -193,43 +180,33 @@
       .card {
         max-width: 80%;
       }
-
-      .card i {
-        font-size: 2.8rem;
-      }
-
-      .card h2 {
-        font-size: 19px;
-      }
-
-      .btn {
-        padding: 12px 20px;
-        font-size: 15px;
-      }
     }
 
-    /* Desktops and Larger Screens */
     @media (min-width: 1025px) {
       .search-bar input {
         width: 70%;
       }
-
-      .card i {
-        font-size: 3rem;
-      }
-
-      .card h2 {
-        font-size: 20px;
-      }
-
-      /* Extra large screens (e.g., large desktop monitors) */
-      @media (min-width: 1440px) {
-        .courses-grid {
-          gap: 40px; /* Even more gap for larger screens */
-        }
-      }
     }
 
+    .loader {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -244,73 +221,75 @@
        <!--sin in-->
        <script src="sin.js"></script>
 
-  <h1>Explore Courses & Download PDFs</h1>
+       <div class="loader" id="loader"></div>
 
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for a course..." onkeyup="searchCourses()">
-  </div>
-
-  <div id="coursesGrid" class="courses-grid"></div>
-
-  <script>
-    const courses = [
-      {
-        title: "Chapter(1) JS Introduction",
-        description: "JavaScript is a language used to make web pages interactive and dynamic.",
-        icon: "fab fa-js",
-        url: "https://drive.google.com/file/d/1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh/view?usp=drive_link",
-        dow: "https://drive.google.com/uc?export=download&id=1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh"
-      },
+       <h1>Explore Courses & Download PDFs</h1>
      
-    ];
-
-    // Function to dynamically display courses
-    function loadCourses() {
-      let coursesGrid = document.getElementById('coursesGrid');
-      courses.forEach(course => {
-        let card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
-          <i class="${course.icon} fa-4x"></i>
-          <h2>${course.title}</h2>
-          <p>${course.description}</p>
-          <button class="btn btn-view" onclick="window.open('${course.url}', '_blank')">View</button>
-          <button class="btn btn-download" onclick="downloadPDF('${course.dow}')">Download</button>
-        `;
-        coursesGrid.appendChild(card);
-      });
-    }
-
-    // Function to trigger download for PDF
-    function downloadPDF(downloadUrl) {
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = downloadUrl;
-      document.body.appendChild(iframe);
-    }
-
-    // Function to search courses
-    function searchCourses() {
-      var input, filter, grid, cards, h2, i, txtValue;
-      input = document.getElementById('searchInput');
-      filter = input.value.toUpperCase();
-      grid = document.getElementById("coursesGrid");
-      cards = grid.getElementsByClassName('card');
-      
-      for (i = 0; i < cards.length; i++) {
-        h2 = cards[i].getElementsByTagName("h2")[0];
-        txtValue = h2.textContent || h2.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          cards[i].style.display = "";
-        } else {
-          cards[i].style.display = "none";
-        }
-      }
-    }
-
-    // Load courses on page load
-    window.onload = loadCourses;
-  </script>
-
-</body>
-</html>
+       <div class="search-bar">
+         <input type="text" id="searchInput" placeholder="Search for a course..." onkeyup="searchCourses()">
+       </div>
+     
+       <div id="coursesGrid" class="courses-grid"></div>
+     
+       <script>
+         const courses = [
+           {
+             title: "Chapter(1) JS Introduction",
+             description: "JavaScript is a language used to make web pages interactive and dynamic.",
+             icon: "fab fa-js",
+             url: "https://drive.google.com/file/d/1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh/view?usp=drive_link",
+             dow: "https://drive.google.com/uc?export=download&id=1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh"
+           },
+          
+         ];
+     
+         function loadCourses() {
+           const grid = document.getElementById('coursesGrid');
+           courses.forEach(course => {
+             const card = document.createElement('div');
+             card.className = 'card';
+             card.innerHTML = `
+               <i class="${course.icon}"></i>
+               <h2>${course.title}</h2>
+               <p>${course.description}</p>
+               <button class="btn btn-view" onclick="window.open('${course.url}', '_blank')">View</button>
+               <button class="btn btn-download" onclick="downloadPDF('${course.dow}')">Download</button>
+             `;
+             grid.appendChild(card);
+           });
+         }
+     
+         function downloadPDF(url) {
+           const loader = document.getElementById('loader');
+           loader.style.display = 'block';
+     
+           const link = document.createElement('a');
+           link.href = url;
+           link.download = '';
+           document.body.appendChild(link);
+           link.click();
+     
+           setTimeout(() => {
+             loader.style.display = 'none';
+             document.body.removeChild(link);
+           }, 1500); // enough delay for fast response
+         }
+     
+         function searchCourses() {
+           const input = document.getElementById('searchInput');
+           const filter = input.value.toUpperCase();
+           const grid = document.getElementById("coursesGrid");
+           const cards = grid.getElementsByClassName('card');
+     
+           for (let i = 0; i < cards.length; i++) {
+             const h2 = cards[i].getElementsByTagName("h2")[0];
+             const txtValue = h2.textContent || h2.innerText;
+             cards[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
+           }
+         }
+     
+         window.onload = loadCourses;
+       </script>
+     </body>
+     </html>
+     
