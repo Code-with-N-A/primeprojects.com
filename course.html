@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Explore a curated collection of learning resources and chapters for professional growth." />
   <meta name="twitter:image" content="https://yourwebsite.com/images/thumbnail.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>Top Programming Courses - Code with N.A.</title>
+  <title> Programming Courses </title>
   
   <title>Course List - Download & View</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
@@ -167,7 +167,7 @@ body {
 }
 
 .btn-view {
-  background-color: var(--primary-color);
+ background-color: var(--secondary-color);
   color: #fff;
 }
 
@@ -267,7 +267,7 @@ body {
        <!--sin in-->
        <script src="sin.js"></script>
 
-       <div id="loader"><div class="spinner"></div></div>
+      
 
        <header class="main-header">
          <h1>Explore Courses & Download PDFs</h1>
@@ -303,8 +303,7 @@ body {
                <i class="${course.icon}"></i>
                <h2>${course.title}</h2>
                <p>${course.description}</p>
-               <button class="btn btn-view" onclick="window.open('${course.url}', '_blank')">View</button>
-               <button class="btn btn-download" onclick="downloadPDF('${course.dow}')">Download</button>
+               <button class="btn btn-view" onclick="window.open('${course.url}', '_blank')">View-download</button>
              `;
              grid.appendChild(card);
            });
