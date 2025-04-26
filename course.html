@@ -27,340 +27,202 @@
   <title> Programming Courses </title>
   
   <title>Course List - Download & View</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-  <style>
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #00c9a7;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --card-hover-color: #e6f7ff;
-  --text-color: #fff;
-}
-
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-/* Animate background */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Header styles */
-.main-header {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.main-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #ffffff;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-}
-
-/* Glass effect search bar */
-.search-bar {
-  margin: 0 auto;
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  padding: 10px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.search-bar input {
-  width: 100%;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  background: transparent;
-  color: white;
-  outline: none;
-}
-
-.search-bar input::placeholder {
-  color: #d0d0d0;
-}
-
-/* Courses grid */
-.courses-grid {
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* Card styles */
-.card {
-  background: linear-gradient(135deg, #ffffff, #f0f4f8);
-  border-radius: 16px;
-  box-shadow: 0 6px 24px var(--card-shadow);
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  border: 2px solid #f0f4f8;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px var(--card-shadow);
-  background-color: var(--card-hover-color);
-}
-
-.card i {
-  color: var(--primary-color);
-  font-size: 4rem;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-}
-
-.card:hover i {
-  color: var(--secondary-color);
-  transform: rotate(20deg);
-}
-
-.card h2 {
-  font-size: 22px;
-  color: #333;
-  font-weight: 600;
-  margin: 15px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.card p {
-  color: #555;
-  font-size: 15px;
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 10px 20px;
-  font-size: 15px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 8px 5px;
-  transition: all 0.3s ease-in-out;
-  font-weight: 500;
-}
-
-.btn-view {
- background-color: var(--secondary-color);
-  color: #fff;
-}
-
-.btn-download {
-  background-color: var(--secondary-color);
-  color: #fff;
-}
-
-.btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-
-/* Loader Styles */
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  display: none;
-}
-
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid var(--primary-color);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .main-header h1 {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .search-bar {
-    max-width: 90%;
-  }
-
-  .courses-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .card h2 {
-    font-size: 18px;
-  }
-
-  .card p {
-    font-size: 14px;
-  }
-
-  .btn {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
    
-  </style>
+   body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+
+
+        h1 {
+          font-size: 2.5rem;
+          margin-bottom: 30px;
+          color: #2f3131;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+          text-align: center;
+          
+            
+        }
+
+        /* Heading Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .search-container {
+          margin-top: 30px;
+            width: 80%;
+            max-width: 600px5;
+            backdrop-filter: blur(10px);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 3px solid #f3f1f6;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        #coursesGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #ffcc00;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .card-container {
+            animation: cardFadeIn 1.5s ease-out;
+        }
+
+        /* Card Animation */
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-   <!-- Loader Wrapper strat -->
-   <link rel="stylesheet" href="loder.css">
-   <script src="loder.js"></script>
-   <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
-  <!-- Loader Wrapper and -->
-       <!--sin in-->
-       <script src="sin.js"></script>
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css">
+  <script src="loder.js"></script>
+  <div id="load-screen">
+     <div class="circle-animation"></div>
+     <div class="loading-text">primeprojects...</div>
+   </div>
+ <!-- Loader Wrapper and -->
+      <!--sin in-->
+      <script src="sin.js"></script>
 
-      
+     
+  
+<h1>Explore Courses & Download PDFs</h1>
 
-       <header class="main-header">
-         <h1>Explore Courses & Download PDFs</h1>
-         <div class="search-bar">
-           <input type="text" id="searchInput" placeholder="Search for a course..." onkeyup="searchCourses()">
-         </div>
-       </header>
-     
-       <div id="coursesGrid" class="courses-grid">
-         <!-- Your courses will appear here -->
-       </div>
-     
-       <script>
-         const courses = [
-           {
-             title: "Chapter(1) JS Introduction",
-             description: "JavaScript is a language used to make web pages interactive and dynamic.",
-             icon: "fab fa-js",
-             url: "https://drive.google.com/file/d/1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh/view?usp=drive_link",
-           },
-           
-           {
-             title: "Chapter(1) JS Introduction",
-             description: "JavaScript is a language used to make web pages interactive and dynamic.",
-             icon: "fab fa-js",
-             url: "https://drive.google.com/file/d/13x0gbchkl3I66GWKEG0GOV3qHpcXUQOF/view?usp=drive_link",
-           },
-           
-          
-          
-         ];
-     
-         function loadCourses() {
-           let grid = document.getElementById('coursesGrid');
-           courses.forEach(course => {
-             let card = document.createElement('div');
-             card.classList.add('card');
-             card.innerHTML = `
-               <i class="${course.icon}"></i>
-               <h2>${course.title}</h2>
-               <p>${course.description}</p>
-               <button class="btn btn-view" onclick="window.open('${course.url}', '_blank')">View-download</button>
-             `;
-             grid.appendChild(card);
-           });
-         }
-     
-         function downloadPDF(downloadUrl) {
-           const loader = document.getElementById("loader");
-           loader.style.display = "flex";
-     
-           const iframe = document.createElement('iframe');
-           iframe.style.display = 'none';
-           iframe.src = downloadUrl;
-     
-           // Add abort event to hide loader when download is canceled
-           iframe.onabort = () => {
-             loader.style.display = "none";
-             document.body.removeChild(iframe);
-           };
-     
-           document.body.appendChild(iframe);
-     
-           // Simulate wait before hiding loader
-           iframe.onload = () => {
-             setTimeout(() => {
-               loader.style.display = "none";
-               document.body.removeChild(iframe);
-             }, 2000); // wait for 3 seconds
-           };
-     
-           // fallback in case iframe onload doesn't fire
-           setTimeout(() => {
-             loader.style.display = "none";
-             document.body.removeChild(iframe);
-           }, 4000); // max wait 8 seconds
-         }
-     
-         function searchCourses() {
-           let input = document.getElementById('searchInput');
-           let filter = input.value.toUpperCase();
-           let grid = document.getElementById("coursesGrid");
-           let cards = grid.getElementsByClassName('card');
-     
-           for (let i = 0; i < cards.length; i++) {
-             let h2 = cards[i].getElementsByTagName("h2")[0];
-             let txtValue = h2.textContent || h2.innerText;
-             cards[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
-           }
-         }
-     
-         window.onload = loadCourses;
-       </script>
-     </body>
-     </html>
-     
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for courses..." onkeyup="searchCourses()">
+</div>
+
+<div id="coursesGrid"></div>
+
+<script>
+    const courses = [
+        {
+            title: "Chapter(1) JS Introduction",
+            description: "JavaScript is a language used to make web pages interactive and dynamic.",
+            icon: "fab fa-js",
+            url: "https://drive.google.com/uc?export=download&id=1eqAsL9oGQxeGgqWVTNPq5kCBm9buDFkv", // Direct download URL
+        },
+        {
+            title: "Chapter(2) JavaScript Syntax",
+            description: "JavaScript syntax refers to the set of rules that define how JavaScript is structured and written",
+            icon: "fab fa-js",
+            url: "https://drive.google.com/uc?export=download&id=13x0gbchkl3I66GWKEG0GOV3qHpcXUQOF", // Direct download URL
+        },
+    ];
+
+    function loadCourses() {
+        let grid = document.getElementById('coursesGrid');
+        courses.forEach(course => {
+            let card = document.createElement('div');
+            card.classList.add('card', 'card-container');
+            card.innerHTML = `
+                <i class="${course.icon}"></i>
+                <h2>${course.title}</h2>
+                <p>${course.description}</p>
+                <button class="btn" onclick="downloadFile('${course.url}')">Download</button>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function downloadFile(courseUrl) {
+        // Create an invisible iframe to trigger the download
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = courseUrl;
+        document.body.appendChild(iframe);
+    }
+
+    function searchCourses() {
+        let input = document.getElementById('searchInput');
+        let filter = input.value.toUpperCase();
+        let grid = document.getElementById("coursesGrid");
+        let cards = grid.getElementsByClassName('card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let h2 = cards[i].getElementsByTagName("h2")[0];
+            let txtValue = h2.textContent || h2.innerText;
+            cards[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
+        }
+    }
+
+    window.onload = loadCourses;
+</script>
+
+</body>
+</html>
