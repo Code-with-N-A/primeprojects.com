@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<!-- Google tag (gtag.js) -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -64,11 +66,11 @@
     ],
     "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
   }
-  </script>
+  
 
 
   <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-  <script type="application/ld+json">
+  <type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -80,14 +82,9 @@
       "url": "https://primeprojects.netlify.app/"
     }
   }
-  </script>
-
-  <!--youtub icon start-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!--youtub icon start end-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <style>
-            * {
+</script>
+  <style>
+      * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -155,27 +152,7 @@
             to { transform: translateX(100%); }
             }
             
-            
-            body {
-                background-color: #000000;
-                color: white;
-                font-size: 17px;
-                overflow-x: hidden;
-                font-family: 'Times New Roman', Times, serif;
-               
-            }
-            @keyframes slideIn {
-            0% {
-            opacity: 0;
-            transform: translateX(-100%); /* Start from the left */
-            }
-            100% {
-            opacity: 1;
-            transform: translateX(0); /* End at normal position */
-            }
-            }
-            
-            
+          
             
             /* Hero Section */
             .hero {
@@ -221,8 +198,8 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 40px;
                 
-                 background: #0f172a; /* Dark slate */
-                color: #f8fafc; /* Light text */
+                background-color: whitesmoke;
+                color: #000000; /* Light text */
 
 
             }
@@ -233,9 +210,7 @@
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
                 transition: transform 0.4s ease, box-shadow 0.4s ease;
                 cursor: pointer;
-                color: black;
-                background: linear-gradient(135deg, #1f2937, #334155);
-                color: #f8fafc;
+                color: #000000;
             }
             
             .content-box:hover {
@@ -251,7 +226,7 @@
             
             .content-box p {
                 font-size: 1rem;
-                color: #ffffff;
+                color: #000000;
             }
             
             /* Footer */
@@ -282,29 +257,7 @@
             
             /* Toggle Menu */
             
-          /*bagrun img start */
-          .image-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%; /* Ensure it doesn't exceed 100% of the container */
-    margin: 0 auto; /* Center the container */
-    overflow: hidden; /* Hide overflow if image exceeds container */
-}
-
-.background-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; /* Ensures the image covers the container proportionally */
-}
-
-/* For small devices like mobile phones */
-@media (max-width: 480px) {
-    .image-container {
-        max-width: 100%; /* Full width on mobile */
        
-    }
-}
 
 /* For tablets */
 @media (min-width: 481px) and (max-width: 768px) {
@@ -321,528 +274,79 @@
 }
 
             
-          /*bagrun img and */
-            
-            .overlay-text {
-            position: absolute;
-            top: 40%; /* Center vertically */
-            left: 30%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Adjust positioning */
-            color: black;
-            text-align: center;
-            width: 90%; /* Make sure text doesn't overflow on small screens */
-            padding: 10px; /* Add some padding */
-            margin-top: 30px;
-            
-            }
-            
-            /* Responsive Text */
-            .overlay-text h1 {
-            font-size: 6vw; /* Font size relative to viewport width */
-            margin: 0;
-            }
-            
-            .overlay-text p {
-            font-size: 3vw; /* Font size relative to viewport width */
-            margin: 10px 0 0 0;
-            margin-bottom: 20px;
-            }
-            
-            /* Media Queries for Smaller Devices */
-            @media (max-width: 768px) {
-            .overlay-text h1 {
-            font-size: 10vw; /* Increase font size on smaller devices */
-            }
-            
-            .overlay-text p {
-            font-size: 6vw; /* Adjust paragraph text size */
-            }
-            }
-            
-            @media (max-width: 480px) {
-            .overlay-text h1 {
-            font-size: 8vw; /* Further increase font size for mobile */
-            }
-            
-            .overlay-text p {
-            font-size: 5vw;
-            }
-            }
-            
-            /* Button Styling */
-            .toggle-btn {
-                display: none;
-                position: absolute;
-                top: 5px;
-                right: 0px;
-                width: 40px;
-                height: 30px;
-                cursor: pointer;
-                z-index: 1000;
-                transition: all 0.3s ease;
-              
-               
-               
-            }
-            
-            .toggle-btn div {
-                background-color: rgb(0, 0, 0);
-                width: 70%;
-                height: 3px;
-                margin: 6px 0;
-                transition: all 0.3s ease;
-            
-               
-            }
-            
-            /* Toggle Menu */
-            .toggle-menu {
-                position: fixed;
-                top: 85px;
-                right: -250px;
-                width: 100px;
-                height: 40%;
-                background-color: hsla(1, 1%, 1%, 0.6); /* Green with 30% opacity */
-                transition: right 0.5s ease;
-                z-index: 1001;
-                display: flex;
-                flex-direction: column;
-                align-items:  center;
-                border-radius: 5px;
-               
+        
+          
+img{
+              width: 100%;
+          }
+          .text{
+              background-color: whitesmoke;
+              color: black;
+              overflow: hidden;
+              padding-top: 40px;
              
-               
-            }
-            
-            .toggle-menu.active {
-                left: 0;
-              
-            }
-            
-            .toggle-menu a {
-                color: white;
-                text-decoration: none;
-                font-size: 1.5rem;
-                margin: 10px 0;
-                animation: blink 1s infinite alternate;
-                transition: color 0.3s ease;
-                padding: 10px;
-               
-               
-               
-            }
-            
-            .toggle-menu a:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-            
-            .toggle-menu a:nth-child(2) {
-                animation-delay: 0.3s;
-            }
-            
-            .toggle-menu a:nth-child(3) {
-                animation-delay: 0.5s;
-            }
-            
-            .toggle-menu a:nth-child(4) {
-                animation-delay: 0.7s;
-            }
-            
-            /* Keyframes for the blinking effect */
-            @keyframes blink {
-                0% {
-                    color: #ffffff;
-                }
-                50% {
-                    color: #2fff00;
-                }
-                100% {
-                    color: #ff0000;
-                }
-            }
-            
-            /* Media Query for the Toggle Button */
-            @media (max-width: 768px) {
-                .toggle-btn {
-                    display: block;
-                }
-            
-                .toggle-menu {
-                    right: -280px;
-                    width: 250px;
-                }
-            
-                .toggle-menu.active {
-                    right: 0;
-                }
-            }
-            /* For Desktop/Laptop Screens */
-            @media (min-width: 769px) {
-                /* Display the menu horizontally for larger screens */
-                .toggle-menu {
-                    position: static;
-                    width: auto;
-                    height: auto;
-                    display: flex;
-                    align-items: center;
-                    text-align: center;
-                    flex-direction: row;
-                    padding: 0;
-                    background-color: transparent;
-                   
-                   
-                }
-            
-                .toggle-btn {
-                    display: none;
-                }
-            
-                .toggle-menu a {
-                    margin: 0 20px;
-                    font-size: 1rem;
-                }
-            }
-            
-            
-            
-            /* Animation for Toggle Button when active */
-            .toggle-btn.active div:nth-child(1) {
-                transform: translateY(11px) rotate(45deg);
-            }
-            
-            .toggle-btn.active div:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .toggle-btn.active div:nth-child(3) {
-                transform: translateY(-11px) rotate(-45deg);
-            }
-            .i img{
-              
-                width: 70px; /* Adjust the size of the logo */
-                height: auto;
-                border-radius: 50%; /* Make the logo circular */
-                border: 2px solid #fff; /* Add border to the logo */
-              
-            }
-            
-            .b button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4594a0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-
-    /* Center the button horizontally */
-    position: relative;
-    top: 190px; /* Adjusts how far down the button appears */
-}
-
-/* Hover effect */
-.b button:hover {
-    background-color: #455da0;
-}
-
-/* Responsive design for tablets */
-@media screen and (max-width: 1024px) {
-    .b-button {
-        font-size: 15px;
-        padding: 9px 18px;
-        top: 170px; /* Adjust top margin for tablets */
-        left: 8px; /* Adjust left margin for tablets */
-    }
-}
-
-/* Responsive design for iPads and larger mobile screens */
-@media screen and (max-width: 768px) {
-    .b button {
-        font-size: 14px;
-        padding: 8px 16px;
-        top: 130px; /* Adjust top margin for iPads */
-        left: 5px;
-    }
-}
-
-/* Responsive design for smaller mobile devices */
-@media screen and (max-width: 480px) {
-    .b button {
-        font-size: 10px;
-        padding: 6px 10px;
-        top: 50px; /* Adjust top margin for small screens */
-    }
-}
-
-/* For very small screens like old phones */
-@media screen and (max-width: 320px) {
-    .b button {
-        font-size: 11px;
-        padding: 5px 10px;
-        top: 10px;
-        left: 2px;
-    }
-}
-
-
-
-            
-            img{
-                width: 100%;
-            }
-            .text{
-                background-color: whitesmoke;
-                color: black;
-                overflow: hidden;
-                padding-top: 40px;
-               
-            }
-            .text h2{
-                padding: 20px;
-            
-            }
-            .text p{
-                padding: 20px;
-                font-size: larger;
-            }
-            
-            .marquee-wrapper {
-            width: 100%;
-            overflow: hidden;
-            background-color: lavender;
-            padding: 10px ;
-            
-            }
-            
-            .marquee-content {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 17s linear infinite;
-            }
-            
-            
-            
-            .marquee-content .marquee-item {
-            display: inline-block;
-            background-color: whitesmoke;
-            padding: 30px;
-            margin: 0 20px;
-            width: 150px;
-            text-align: center;
-            border-radius: 1px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            .marquee-content .marquee-item img {
-            width: 100%;
-            margin-bottom: 10px;
-            }
-            
-            .marquee-content .marquee-item h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: black;
-            }
-            
-            .marquee-content .marquee-item p {
-            font-size: 14px;
-            color: #666;
-            }
-            
-            @keyframes marquee {
-            0% {
-            transform: translateX(100%);
-            }
-            100% {
-            transform: translateX(-100%);
-            }
-            }
-            
-            
-            .fo {
-                width: 100%;
-                background-color: #000000;
-                padding: 20px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            
-            }
-            
-            .header {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            
-            .header h2 {
-                margin: 0;
-                color: white;
-            }
-            
-            
-            .stars {
-                text-align: center;
-                margin: 15px 0;
-            }
-            
-            .stars input[type="radio"] {
-                display: none;
-            }
-            
-            .stars label {
-                font-size: 35px;
-                color: #ccc;
-                cursor: pointer;
-                transition: color 0.3s;
-            }
-            
-            .stars input[type="radio"]:checked ~ label {
-                color: gold;
-            }
-            
-            .stars input[type="radio"]:checked ~ label:hover {
-                color: darkorange;
-            }
-            
-            .description {
-                text-align: center;
-                margin: 10px 0;
-                font-size: 14px;
-                color: #fff6f6;
-            }
-            
-            .progress-bar-container {
-                margin: 20px 0;
-                width: 80%;
-            }
-            
-            .progress-bar1 {
-                width: 100%;
-                background-color: #000000;
-                overflow: hidden;
-            }
-            
-            .progress1 {
-                width: 0%;
-                height: 10px;
-                background-color: #ee0a3b;
-               
-                transition: width 0.5s ease;
-            }
-            
-            .indicator {
-                text-align: right;
-                font-size: 12px;
-                color: #ffffff;
-               
-            }
-            
-            .feedback-section {
-                margin: 20px 0;
-                text-align: center;
-               
-            }
-            
-            .feedback-section textarea {
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                resize: none;
-            }
-            
-            .button-container {
-                text-align: center;
-                margin-top: 20px;
-            }
-            
-            .submit-btn {
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-            
-            .submit-btn:hover {
-                background-color: #0056b3;
-            }
-            
-            .reset-btn {
-                padding: 10px 20px;
-                background-color: #ff4d4d;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-            
-            .reset-btn:hover {
-                background-color: #cc0000;
-            }
-            
-            form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            form input, form textarea {
-                margin-bottom: 10px;
-                width: 95%;
-                padding: 10px;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-            }
-            
-            form input[type="submit"] {
-                width: auto;
-                background-color: #ff9800;
-                color: white;
-                cursor: pointer;
-            }
-            
-            form input[type="submit"]:hover {
-                background-color: #ff9800;
-            }
-            
-            .badge-progress {
-                background-color: #e0e0e0;
-                overflow: hidden;
-                margin: 10px 0;
-            }
-            
-            .progress-bar {
-                width: 0;
-                height: 7px;
-                background-color: #4caaaf;
-                border-radius: 10px;
-                transition: width 0.5s ease;
-            }
-            .badge-title {
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 10px;
-                color: black;
-            }
-            
-            .badge-stats {
-                font-size: 14px;
-                margin-bottom: 10px;
-                color: black;
-            }
-            
-            .badge-stats span {
-                font-weight: bold;
-                color: #007bff;
-            }
-            
-            
-            footer {
+          }
+          .text h2{
+              padding: 20px;
+          
+          }
+          .text p{
+              padding: 20px;
+              font-size: larger;
+          }
+          
+          .marquee-wrapper {
+          width: 100%;
+          overflow: hidden;
+          background-color: lavender;
+          padding: 10px ;
+          
+          }
+          
+          .marquee-content {
+          display: flex;
+          white-space: nowrap;
+          animation: marquee 17s linear infinite;
+          }
+          
+          
+          
+          .marquee-content .marquee-item {
+          display: inline-block;
+          background-color: whitesmoke;
+          padding: 30px;
+          margin: 0 20px;
+          width: 150px;
+          text-align: center;
+          border-radius: 1px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .marquee-content .marquee-item img {
+          width: 100%;
+          margin-bottom: 10px;
+          }
+          
+          .marquee-content .marquee-item h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: black;
+          }
+          
+          .marquee-content .marquee-item p {
+          font-size: 14px;
+          color: #666;
+          }
+          
+          @keyframes marquee {
+          0% {
+          transform: translateX(100%);
+          }
+          100% {
+          transform: translateX(-100%);
+          }
+          }
+         footer {
                 background-color: #000000;
                 color: #fff;
                 padding: 50px 0;
@@ -934,85 +438,61 @@
                     margin-bottom: 20px;
                 }
             }
-            
-             /* Modal styles */
-             .modal {
-                display: none; /* Hidden by default */
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
-            }
-            
-            .modal-content {
-                background-color: white;
-                margin: 15% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-                max-width: 500px;
-                border-radius: 10px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-                color: rgb(0, 0, 0);
-            }
-            
-            /* Close button */
-            .close {
-                color: #aaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-            
-            .close:hover,
-            .close:focus {
-                color: black;
-            }
-            
-            /* Blinking "NEW" message */
-            .blink {
-                font-weight: bold;
-                color: red;
-                animation: blink-animation 1s steps(5, start) infinite;
-            }
-            
-            @keyframes blink-animation {
-                to {
-                    visibility: hidden;
-                }
-            }
-            
-            /* Modal open button */
-            #openModalBtn {
-                display: none;
-            }
-            
-            /* may project h1 */
-            .pro{
-                background-color: whitesmoke; /* Updated background color */
-                padding: 20px;
-                color: black;
-            }
-            .pro h1{
-                text-align: center;
-                padding: 20px;
-            }
-            .pro p{
-                text-align: left;
-            }
-            
+            .mini-course-scroll {
+  display: flex;
+  justify-content: center; /* Center align content */
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.mini-course-scroll::-webkit-scrollbar {
+  height: 0px;
+}
+
+.mini-course-scroll:hover::-webkit-scrollbar {
+  height: 5px;
+}
+
+.mini-course-scroll:hover::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 8px;
+}
+
+/* Card Style */
+.mini-card {
+  flex: 0 0 auto;
+  background: #f9f9f9;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 70px;
+  font-size: 0.7rem;
+  color: #333;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  scroll-snap-align: center;
+}
+.mini-card i {
+  font-size: 1.1rem;
+  color: #007bff;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.mini-card:hover {
+  transform: scale(1.05);
+}
+           
             /*sliding img start*/
             .slider-container {
                 position: relative;
                 width: 100%;
                 max-width: 1500px;
                 overflow: hidden;
-                background: linear-gradient(rgb(110, 218, 232),rgb(111, 151, 245));
                 padding: 5px;
+                background: linear-gradient(rgb(227, 230, 231),rgb(228, 228, 230));
 
             }
             
@@ -1031,7 +511,7 @@
                 align-items: center;
                 text-align: center;
                 transition: transform 0.5s ease, opacity 0.5s ease;
-                color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
                 padding-left: 20px;
                
             }
@@ -1042,7 +522,7 @@
             }
             
             .slider-item img {
-                max-width: 10%;
+                max-width: 20%;
                 height: auto;
                 margin-right: 20px;
                 transition: width 0.5s ease, height 0.5s ease;
@@ -1110,538 +590,754 @@
                     width: 50%; /* Text takes up 50% of the width */
                 }
             }
-            
-            
-            /*sliding img and*/
-            .sin button{
-            
-                padding: 10px;
-            background-color: #000000;
-            border-radius: 12px;
-            border: 2px solid rgb(7, 183, 237);
-            font-size: 1rcap;
-            color: lavender;
-            font-size: 0.9ric;
-            font-weight: bold;
+            .sin{
+                width: 19%;
+               padding: 4px;
+                margin-left: 10px;
+                border-radius: 5px;
+                font-size: medium;
+                border: 1px solid rgb(126, 124, 124);
+                color: #6e6c6c;
+                text-decoration: none;
             }
-            .sin button:hover {
-            background-color: #68d1f4;
-            color: #000000;
-            
+            .sin:hover{
+                background-color: #00ADD8;
+                color: whitesmoke;
             }
-            
-            </style>   
+            .image-frame {
+      background-image: url('img/new ii hey.png');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* For smaller screens (phones) - Set height to 80vh */
+@media (max-width: 768px) {
+  .image-frame {
+    min-height: 80vh;
+  }
+}
+
+    .image-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(76, 9, 68, 0.25);
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+
+    .image-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      max-width: 90%;
+      transform: translateY(-10%); /* Moves content slightly up */
+    }
+
+    .image-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .typewriter {
+      font-size: 1.5rem;
+      color: #ffcc00;
+      height: 40px;
+      margin-bottom: 1.5rem;
+      min-height: 40px;
+    }
+
+    .image-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .image-content button {
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      background-color: #ff6600;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .image-content button:hover {
+      background-color: #e65c00;
+    }
+/* For smaller screens (Mobile devices) */
+@media (max-width: 768px) {
+  .image-content h1 {
+    font-size: 8vw; /* Larger text on small screens */
+  }
+  .typewriter {
+    font-size: 5vw; /* Bigger text for better visibility */
+  }
+  .image-content p {
+    font-size: 4vw; /* Adjust for readability */
+  }
+}
+
+/* For very small screens (Extra small devices) */
+@media (max-width: 480px) {
+  .image-content h1 {
+    font-size: 10vw; /* Large text for mobile */
+  }
+  .typewriter {
+    font-size: 6vw; /* Larger typewriter text */
+  }
+  .image-content p {
+    font-size: 5vw; /* Adjust to maintain balance */
+  }
+
+}
+
+
+
+.courses-section {
+  padding: 40px 20px;
+  background: #ffffff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.courses-header h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.courses-header p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.course-card {
+  background: rgb(187, 186, 186);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.course-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #000000;
+}
+.course-icon i {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+
+
+.empower-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.empower-content h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.stat-block {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  max-width: 250px;
+}
+
+.stat-block h3 {
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.stat-block p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.companies-title {
+  font-size: 1.5rem;
+  margin: 40px 0 20px;
+  color: #333;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.company-card {
+  padding: 15px;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Company Colors */
+.amazon { background-color: #ff9900; }
+.google { background-color: #4285f4; }
+.microsoft { background-color: #737373; }
+.goldman { background-color: #1d2951; }
+.paypal { background-color: #003087; }
+.samsung { background-color: #1428a0; }
+.ey { background-color: #ffcc00; color: #000; }
+.hitachi { background-color: #e60012; }
+.jpmorgan { background-color: #003f5c; }
+.ibm { background-color: #054ada; }
+.dell { background-color: #007db8; }
+.deloitte { background-color: #86bc25; color: #000; }
+.more { background-color: #444; }
+
+@media (max-width: 768px) {
+  .empower-content h2 {
+    font-size: 1.6rem;
+  }
+  .stat-block {
+    max-width: 100%;
+  }
+  .company-card {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+</style>
+
+  <!--youtub icon start-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!--youtub icon start end-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link rel="stylesheet" href="srach.css">
+  <title>Document</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 <body>
-    <!-- sarchbar -->
-    <link rel="stylesheet" href="srach.css">
-   
-  <!-- Loader Wrapper strat -->
-  <link rel="stylesheet" href="loder.css">
-  <script src="loder.js"></script>
-  <div id="load-screen">
-     <div class="circle-animation"></div>
-     <div class="loading-text">primeprojects...</div>
-   </div>
- <!-- Loader Wrapper and -->
-
- <script src="sarch.js"></script>
- 
-     <!-- Modal structure -->
-     <div id="updateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Latest Updates</h2>
-            <div id="updatesContainer"></div>
-        </div>
+  
+   <!-- Loader Wrapper strat -->
+   <link rel="stylesheet" href="loder.css">
+   <script src="loder.js"></script>
+   <div id="load-screen">
+      <div class="circle-animation"></div>
+      <div class="loading-text">primeprojects...</div>
     </div>
-    <!--srch bar-->
-    <div class="container">
-        <div class="i">
-            <img src="img/logo2.png" alt="logo">
-             <!-- Toggle Menu -->
-        <div class="toggle-menu" id="toggle-menu">
-            <a href="index.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="servises.html">Services</a>
-            <a href="contect.html">Contact</a>
-            <a href="course.html">Courses</a>
-           
-        </div>
-           </div>
-       
-        <div class="search-container" id="searchContainer">
-          <input type="text" class="search-bar" id="searchInput" placeholder="Search..." oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
-          <span class="search-icon" onclick="performSearch()">&#128269;</span>
+  <!-- Loader Wrapper and -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">CodeWith_N.A</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/about">Abouts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/contect">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Explore
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/course">Notes</a></li>
+              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/explor.html">Projects</a></li>
+              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/roode_map">Begin</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">PrimeProjects</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  id="searchInput" oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
           <div class="suggestions" id="suggestions"></div>
-        </div>
-        <div class="sin">
-            <button onclick="window.location.href='ragistretion.html'">SignUp</button>
-           </div>
-      </div>
-
-      <!--img sliding code  Start-->
-      <div class="slider-container">
-        <div class="toggle-btn" id="toggle-btn">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    
-      
-       
-        <div class="slider">
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://miro.medium.com/v2/resize:fit:1024/0*OmuboVJgMz7NzSzr.jpg" alt="Image 1">
-                    <div class="slider-item-text">
-                        <h3>Frontend coding Language</h3>
-                        <p>Frontend is the part of a website that users directly see and interact with, including the design, layout, and user interface.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh5asydv3ruwy7x7pgreo.jpg" alt="Image 2">
-                    <div class="slider-item-text">
-                        <h3>HTML and CSS</h3>
-                        <p>HTML creates the structure of a web page, while CSS styles and designs that structure.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/typescript-vs-javascript.png" alt="Image 3">
-                    <div class="slider-item-text">
-                        <h3>TS / JS</h3>
-                       
-                        <p>JavaScript is a lightweight scripting language that makes web pages interactive, while TypeScript is its upgraded version that adds static typing.</p>
-                    </div> 
-                   </div>         
-            </div>
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://unicorn.dev/wp-content/uploads/2023/01/react.png" alt="Image 3">
-                    <div class="slider-item-text">
-                        <h3>React</h3>
-                        <p>React is a JavaScript library used for building fast and dynamic user interfaces, especially for single-page applications.</p>
-                    </div>          
-            </div>
-        </div>
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://cdn-images-1.medium.com/max/800/0*dbCcdY_EnP4CmV7L" alt="Image 3">
-                    <div class="slider-item-text">
-                        <h3>Angular</h3>
-                        <p>ngular is a powerful TypeScript-based framework developed by Google for building dynamic, single-page web applications.</p>
-
-                    </div>                 
-            </div>
-            </div>
-            <div class="slider-item">
-                <div class="slider-item-content">
-                    <img src="https://cdn.prod.website-files.com/60f8ffe4d3ddfa64654d6667/658434b6bfd2c1d3d548ee2b_what%20is%20vuejs.webp" alt="Image 3">
-                    <div class="slider-item-text">
-                        <h3>Vue.js</h3>
-                        <p>Vue.js is a progressive JavaScript framework used for building user interfaces, known for its simplicity and flexibility in creating dynamic web applications.</p>
-
-                    </div>                 
-            </div>
-        </div>
-    </div>
-   
-
-  
-</div>
-    <!--img sliding code AND-->
-      
-    
-  
-     <div class="image-container">
+          <button class="btn btn-outline-success" type="submit"  id="searchInput">Search</button> 
         
-        <img class="background-image" src="img/3.jpg" alt="img">
-        <div class="overlay-text">
-            <div class="b">
-                <button onclick="explor()">Explore More</button>
-            </div>
-                
-           </div>
+          <button class="sin" ><a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/ragistretion.html">Signup</a></button>
+        </form>
+      </div>
     </div>
-   
-    <div class="text">
-        <h2>PrimeProjects</h2>
-        <p><strong style="color: red;">CodeWith_N.A </strong>is your one-stop destination for mastering programming. We provide comprehensive tutorials, real-world projects, and coding challenges designed for both <strong>beginners and experienced developers.</strong> Our platform covers a variety of programming languages, helping you enhance your skills and build practical solutions. With interactive tools and a supportive community, you'll have everything you need to excel in coding. Start your programming journey with us today and unlock your full potential as a coder!</p>
-    </div>
-   
+  </nav>
 
-<div class="language-marquee">
-    <div class="marquee-container">
-      <!-- First Line - Right to Left -->
-      <div class="marquee-content">
-        <i class="fab fa-python"></i>
-        <i class="fab fa-js-square"></i>
-        <i class="fab fa-java"></i>
-        <i class="fab fa-html5"></i>
-        <i class="fab fa-css3-alt"></i>
-        <i class="fab fa-php"></i>
-        <i class="fab fa-node"></i>
-        <i class="fab fa-react"></i>
-        <i class="fab fa-angular"></i>
-        <i class="fab fa-github"></i>
-        <i class="fab fa-linux"></i>
-      </div>
+    <!-- Course Scroll Section -->
+<div class="mini-course-scroll">
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/h'"><i class="fa-brands fa-html5"></i>HTML</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/css'"><i class="fa-brands fa-css3-alt"></i>CSS</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/js'"><i class="fa-brands fa-js"></i>JavaScript</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/react'"><i class="fa-brands fa-react"></i>React</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/php'"><i class="fa-brands fa-php"></i>PHP</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mysqli'"><i class="fa-solid fa-database"></i>MySQL</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mongodb'"><i class="fa-solid fa-leaf"></i>MongoDB</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/java'"><i class="fa-brands fa-java"></i>Java</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/python'"><i class="fa-brands fa-python"></i>Python</div>
+  </div>
   
-      <!-- Second Line - Left to Right -->
-      <div class="marquee-content-2">
-        <i class="fab fa-docker"></i>
-        <i class="fab fa-rust"></i>
-        <i class="fab fa-go"></i>
-        <i class="fab fa-swift"></i>
-        <i class="fab fa-kotlin"></i>
-        <i class="fab fa-vuejs"></i>
-        <i class="fab fa-angular"></i>
-        <i class="fab fa-sass"></i>
-        <i class="fab fa-typescript"></i>
-        <i class="fab fa-laravel"></i>
-        <i class="fab fa-bookmark"></i>
-      </div>
+
+   <!--img sliding code  Start-->
+   <div class="slider-container">
+    <div class="toggle-btn" id="toggle-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+ 
+    <div class="slider">
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://miro.medium.com/v2/resize:fit:1024/0*OmuboVJgMz7NzSzr.jpg" alt="Image 1">
+                <div class="slider-item-text">
+                    <h3>Frontend coding Language</h3>
+                    <p>Frontend is the part of a website that users directly see and interact with, including the design, layout, and user interface.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh5asydv3ruwy7x7pgreo.jpg" alt="Image 2">
+                <div class="slider-item-text">
+                    <h3>HTML and CSS</h3>
+                    <p>HTML creates the structure of a web page, while CSS styles and designs that structure.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/typescript-vs-javascript.png" alt="Image 3">
+                <div class="slider-item-text">
+                    <h3>TS / JS</h3>
+                   
+                    <p>JavaScript is a lightweight scripting language that makes web pages interactive, while TypeScript is its upgraded version that adds static typing.</p>
+                </div> 
+               </div>         
+        </div>
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://unicorn.dev/wp-content/uploads/2023/01/react.png" alt="Image 3">
+                <div class="slider-item-text">
+                    <h3>React</h3>
+                    <p>React is a JavaScript library used for building fast and dynamic user interfaces, especially for single-page applications.</p>
+                </div>          
+        </div>
+    </div>
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://cdn-images-1.medium.com/max/800/0*dbCcdY_EnP4CmV7L" alt="Image 3">
+                <div class="slider-item-text">
+                    <h3>Angular</h3>
+                    <p>ngular is a powerful TypeScript-based framework developed by Google for building dynamic, single-page web applications.</p>
+
+                </div>                 
+        </div>
+        </div>
+        <div class="slider-item">
+            <div class="slider-item-content">
+                <img src="https://cdn.prod.website-files.com/60f8ffe4d3ddfa64654d6667/658434b6bfd2c1d3d548ee2b_what%20is%20vuejs.webp" alt="Image 3">
+                <div class="slider-item-text">
+                    <h3>Vue.js</h3>
+                    <p>Vue.js is a progressive JavaScript framework used for building user interfaces, known for its simplicity and flexibility in creating dynamic web applications.</p>
+
+                </div>                 
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+<!--img sliding code AND-->
+
+<div class="image-frame">
+    <div class="image-content">
+      <h1>Welcome to PrimeProjects</h1>
+      <div class="typewriter" id="typewriter-text"></div>
+      <p>Confused where to begin your coding journey?
+        PrimeProjects brings you real-life, hands-on coding projects.
+        Learn the skills that took me years — in simple, short lessons.
+        Start building today — it's practical, powerful, and free!</p>
+      <button onclick="alert('Explore Projects')">Explore Now</button>
     </div>
   </div>
-  <video width="100%" controls autoplay loop>
-    <source src="img/Black and Blue Neon Technology Video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-<div class="text">
-    <h2>Discover Projects to Boost Your Coding Expertise</h2>
-    <p>At <strong style="color: red;">CodeWitg_N.A</strong>, we offer a variety of coding projects to enhance your development skills.<strong>Explore our task manager, full_stack, bill generation system</strong>, and other feature-rich applications that cover front-end, back-end, and database integration. These projects will give you practical experience in building dynamic and scalable web applications. Whether you're a beginner or an advanced developer, our projects are designed to take your coding skills to the next level. Start your journey with our hands-on projects today!
-        </p>
-</div>
-<video width="100%" id="myVideo" controls autoplay loop>
-    <source src="img/Untitled video - Made with Clipchamp.mp4" type="video/mp4">
-</video>
 
+<div class="text">
+    <h2>PrimeProjects</h2>
+    <p><strong style="color: red;">CodeWith_N.A </strong>is your one-stop destination for mastering programming. We provide comprehensive tutorials, real-world projects, and coding challenges designed for both <strong>beginners and experienced developers.</strong> Our platform covers a variety of programming languages, helping you enhance your skills and build practical solutions. With interactive tools and a supportive community, you'll have everything you need to excel in coding. Start your programming journey with us today and unlock your full potential as a coder!</p>
+</div>
+
+
+<div class="language-marquee">
+<div class="marquee-container">
+  <!-- First Line - Right to Left -->
+  <div class="marquee-content">
+    <i class="fab fa-python"></i>
+    <i class="fab fa-js-square"></i>
+    <i class="fab fa-java"></i>
+    <i class="fab fa-html5"></i>
+    <i class="fab fa-css3-alt"></i>
+    <i class="fab fa-php"></i>
+    <i class="fab fa-node"></i>
+    <i class="fab fa-react"></i>
+    <i class="fab fa-angular"></i>
+    <i class="fab fa-github"></i>
+    <i class="fab fa-linux"></i>
+  </div>
+
+  <!-- Second Line - Left to Right -->
+  <div class="marquee-content-2">
+    <i class="fab fa-docker"></i>
+    <i class="fab fa-rust"></i>
+    <i class="fab fa-go"></i>
+    <i class="fab fa-swift"></i>
+    <i class="fab fa-kotlin"></i>
+    <i class="fab fa-vuejs"></i>
+    <i class="fab fa-angular"></i>
+    <i class="fab fa-sass"></i>
+    <i class="fab fa-typescript"></i>
+    <i class="fab fa-laravel"></i>
+    <i class="fab fa-bookmark"></i>
+  </div>
+</div>
+</div>
+
+<div class="text">
+<h2>Discover Projects to Boost Your Coding Expertise</h2>
+<p>At <strong style="color: red;">CodeWitg_N.A</strong>, we offer a variety of coding projects to enhance your development skills.<strong>Explore our task manager, full_stack, bill generation system</strong>, and other feature-rich applications that cover front-end, back-end, and database integration. These projects will give you practical experience in building dynamic and scalable web applications. Whether you're a beginner or an advanced developer, our projects are designed to take your coding skills to the next level. Start your journey with our hands-on projects today!
+    </p>
+</div>
+
+<!-- Feather Icons CDN -->
+<script src="https://unpkg.com/feather-icons"></script>
+
+<!-- Courses Section Start -->
+<section class="courses-section">
+  <div class="courses-header">
+    <h2>Courses</h2>
+    <p>Master Coding with Our Core Offerings</p>
+  </div>
+
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="smile"></i></div>
+      <h3>Beginner-Friendly</h3>
+      <p>Step-by-step courses designed for absolute beginners to kickstart your coding journey.</p>
+    </div>
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="layers"></i></div>
+      <h3>Advanced Concepts</h3>
+      <p>Deep dive into advanced topics and frameworks to level up your skills.</p>
+    </div>
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="monitor"></i></div>
+      <h3>Real-World Projects</h3>
+      <p>Learn by building real-world projects and gain hands-on experience.</p>
+    </div>
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="dollar-sign"></i></div>
+      <h3>Affordable Pricing</h3>
+      <p>Access premium courses at prices tailored for students and professionals.</p>
+    </div>
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="folder"></i></div>
+      <h3>Comprehensive Resources</h3>
+      <p>Access templates, documentation, and code snippets to enhance your learning.</p>
+    </div>
+    <div class="course-card">
+      <div class="course-icon"><i data-feather="trending-up"></i></div>
+      <h3>Industry Insights</h3>
+      <p>Stay updated with the latest tech trends and insights to keep your skills relevant.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  feather.replace();
+</script>
+<!-- Courses Section End -->
+
+
+  
+    <div class="row g-0 bg-body-secondary position-relative">
+        <div class="col-md-6 mb-md-0 p-md-4">
+          <img src="https://www.ntaskmanager.com/wp-content/uploads/2020/02/What-is-a-Project-1-scaled.jpg" class="w-100" alt="...">
+        </div>
+        <div class="col-md-6 p-4 ps-md-0">
+          <h5 class="mt-0">My real life Projects</h5>
+          <p>PrimeProjects – Real-Life Software Projects for Everyday Use
+            PrimeProjects offers a collection of practical projects designed to solve real-life problems.
+            Whether it's a billing software, a task management tool, or a platform to learn coding, you’ll find it here.
+            Each project is focused on usefulness, simplicity, and real-world application.
+            This platform is perfect for students and developers who want to build meaningful, everyday-use solutions.
+            At PrimeProjects, you don't just learn—you create something truly useful.</p>
+          <a href="https://primeprojects.netlify.app/explor.html" class="stretched-link">Go somewhere</a>
+        </div>
+      </div>  
+    </div>
 
     <section class="content">
-        <div class="content-box">
-            <img src="img/Untitled.jpg" alt="img">
-            <h3>Exclusive Design</h3>
-            <p>Our designs are carefully crafted to make an impact and leave a lasting impression.</p>
-        </div>
-        <div class="content-box">
-            <img src="img/istockphoto-1371339413-612x612.jpg" alt="img">
-            <h3>Premium Features</h3>
-            <p>Experience cutting-edge features that elevate your web presence to the next level.</p>
-        </div>
-        <div class="content-box">
-            <img src="img/web-development-coding-programming-internet-technology-business-concept-web-development-coding-programming-internet-technology-122084136.webp" alt="img">
-            <h3>Custom Solutions</h3>
-            <p>Tailor-made solutions that perfectly match your brand and business objectives.</p>
-        </div>
-        
-        </div>
-        </section>
+   
 
-      
-        <div class="pro"><h1>My real life Projects</h1><br>
-            <ul>
-                <li><strong>Smart Task Manager</strong> - A productivity tool designed to help users efficiently organize and track their daily tasks with smart reminders and notifications.</li><br>
-                <li><strong>Online Learning Platform</strong> - A web-based platform to provide interactive courses with quizzes and video lectures to enhance learning experiences.</li><br>
-                <li><strong>Real-time Weather App</strong> - An application that provides accurate weather forecasts using live data feeds, helping users stay prepared for any weather condition.</li><br>
-                <li><strong>E-Commerce Solution</strong> - A complete online store system that integrates product management, payment gateway, and customer support features.</li><br>
-                <li><strong>Inventory Management System</strong> - A tool for businesses to streamline their inventory, track stock levels, and manage orders seamlessly.</li><br>
-                <li><strong>Healthcare Appointment Booking</strong> - A system that allows patients to book appointments with healthcare professionals easily, reducing wait times and improving scheduling efficiency.</li><br>
-                <li><strong>Personal Finance Tracker</strong> - An app designed to help individuals manage their finances by tracking expenses, setting budgets, and analyzing spending patterns.</li><br>
-                <li><strong>Social Media Dashboard</strong> - A tool for businesses to manage multiple social media accounts, track engagement, and analyze metrics from one platform.</li><br>
-            </ul>
-            
-        
+    <div class="content-box" onclick="Invoicify('pdf_to_img')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
+        <h3>Accounts Management</h3>
+        <p>
+            <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
+        </p><br>
+        <!--video youtub start-->
+        <link rel="stylesheet" href="youtub_video.css">
+        </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu"><div id="ico" class="fab fa-youtube"></div></a><br>
+
+      <!--video youtub end-->
+         </div>
+
+         <div class="content-box" onclick="window.location.href='bill.html'">
+            <img src="img/gst-bills.webp" alt="img">
+            <h3>Bill Generator</h3>
+            <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p>
         </div>
-        <section class="content">
-        <div class="content-box" onclick="PaperLibrary(PaperLibrary)">
-            <img src="img/homeexam.jpg" alt="img">
-            <h3>PaperLibrary - Access Exam Papers Anytime</h3>
-            <p>  PaperLibrary offers a comprehensive collection of previous years' exam papers for various subjects. </p>
+        <!--bujat trecar-->
+         <div class="content-box" onclick="window.location.href='bjat-trecar.html'">
+            <img src="https://i0.wp.com/proceipt.com/wp-content/uploads/2023/05/budget.jpg?resize=768%2C512&ssl=1" alt="img">
+            <h3>Budget Tracker</h3>
+            <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you achieve your financial goals.</p>
+        </div>
+
+        <div class="content-box" onclick="window.location.href='product_list.html'">
+            <img src="img/Product List.png" alt="img">
+            <h3>Product Listener</h3>
+            <p>
+                <strong>Product Listener </strong>  is a project where you can create and manage a list of products, download it in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product management and document generation.
+              
+            </p>
+            </div>
+
+        <div class="content-box" onclick="window.location.href='Pocket_Expense.html'">
+            <img src="https://mgl.gogo.mn/newsn/thumbnail/1000/images/c/2020/01/-22012020-1579658269-1657156546-Gogo_medee_cover.jpg"alt="img">
+            <h3>Pocket Expense</h3>
+            <p>
+                <strong>Pocket Expense</strong>Pocket Expense helps you store all your expenses in one place, making it easier to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for quick access.
+              
+            </p>
+            </div>
+
+          
+</section>
+
+<div class="marquee-wrapper">
+<div class="marquee-content">
+  <!-- First Div -->
+  <div class="marquee-item">
+   
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+        <div class="badge-title">Python</div>
+        <div class="badge-stats">Projects: <span>10</span></div>
+        <div class="badge-progress">
+            <div class="progress-bar" style="width: 80%;"></div>
         </div>
    
-        <div class="content-box" onclick="imgspdf(imgspdf)">
-            <img src="img/img to  pdf 1.jpg" alt="img">
-            <h3>Images 5G pdf</h3>
-            <p>Images 5G PDF offers a fast and efficient way to convert multiple images into a single PDF document. Easily organize and merge your images into a professional PDF format with just a few clicks.</p>
-        </div>
-        <div class="content-box" onclick="CodingBlueprint('Roode_Map.html')">
-            <img src="img/rood_map.jpg" alt="img">
-            <h3>The Coding Blueprint</h3>
-            <p>I have created a comprehensive roadmap for all coding-related subjects that will simplify and enhance your learning journey.</p>
-        </div>
-        <div class="content-box" onclick="blogs('blog.html')">
-            <img src="img/blog.jpg" alt="img">
-            <h3>Latest Tech Insights</h3>
-            <p>Discover the most up-to-date and informative blogs on technology, coding, and industry trends. Our content is designed to keep you ahead in the world of innovation and development. Stay informed, stay inspired.</p>
-            </div>
-        <div class="content-box" onclick="password('password_chekar.html')">
-            <img src="https://cdn.sanity.io/images/3jwyzebk/production/9839060577d7181a25556c20cb1e8c376a8b4795-1510x904.png?auto=format&fit=max&w=1920&q=75" alt="img">
-            <h3>Password Strength</h3>
-            <p>Secure your digital world with a password that’s as strong as your protection needs – because your security matters!</p><br>
-            <!--video youtub start-->
-            </p><a href="https://youtu.be/9XmXfG9OJmQ?si=Hv4wkrAwcY1uYFrx"><div id="ico" class="fab fa-youtube"></div></a><br>
+  </div>
 
-                <!--video youtub end-->
-        </div>
-        <div class="content-box" onclick="PDFshift('pdf_to_img')">
-            <img src="https://www.sysinfotools.com/asset/img/when-to-use/Pdf-to-Jpg.webp" alt="img">
-            <h3>PDFshift</h3>
-            <p>
-                <strong>PDFshift</strong> is a tool for converting PDFs to high-quality images (PNG, JPG). It offers easy page selection, HD conversion, and quick downloads for a seamless user experience.
-              
-            </p><br>
-             <!--video youtub start-->
-            <a href="https://youtu.be/en0m6psidOM?si=1Y9o7_7Lr7Fs3Dep"><div id="ico" class="fab fa-youtube"></div></a><br>
-             <!--video youtub end-->
-            </div>
-
-        <div class="content-box" onclick="Invoicify('pdf_to_img')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
-            <h3>Accounts Management</h3>
-            <p>
-                <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
-            </p><br>
-            <!--video youtub start-->
-            <link rel="stylesheet" href="youtub_video.css">
-            </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu"><div id="ico" class="fab fa-youtube"></div></a><br>
-
-          <!--video youtub end-->
-             </div>
-
-             <div class="content-box" onclick="window.location.href='bill.html'">
-                <img src="img/gst-bills.webp" alt="img">
-                <h3>Bill Generator</h3>
-                <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p>
-            </div>
-            <!--bujat trecar-->
-             <div class="content-box" onclick="window.location.href='bjat-trecar.html'">
-                <img src="https://i0.wp.com/proceipt.com/wp-content/uploads/2023/05/budget.jpg?resize=768%2C512&ssl=1" alt="img">
-                <h3>Budget Tracker</h3>
-                <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you achieve your financial goals.</p>
-            </div>
-
-            <div class="content-box" onclick="window.location.href='product_list.html'">
-                <img src="img/Product List.png" alt="img">
-                <h3>Product Listener</h3>
-                <p>
-                    <strong>Product Listener </strong>  is a project where you can create and manage a list of products, download it in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product management and document generation.
-                  
-                </p>
-                </div>
-
-            <div class="content-box" onclick="window.location.href='Pocket_Expense.html'">
-                <img src="data:image/jpeg;base64,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" alt="img">
-                <h3>Pocket Expense</h3>
-                <p>
-                    <strong>Pocket Expense</strong>Pocket Expense helps you store all your expenses in one place, making it easier to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for quick access.
-                  
-                </p>
-                </div>
-
-                <div class="content-box" onclick="window.location.href='Unicode_Character.html'">
-                    <img src="img/unicode.png" alt="img">
-                    <h3>Unicode Character Finder</h3>
-                    <p>
-                        <strong>Unicode Character Finder</strong>Easily find the Unicode values for any character and explore the magic behind digital text. Convert Unicode numbers to characters and unlock the hidden representations of symbols effortlessly.
-                      
-                    </p>
-                    </div>
-
-                <div class="content-box" onclick="window.location.href='Suvichar.html'">
-                    <img src="img/CodeWith_N.A (3).png" alt="img">
-                    <h3>आज का सुविचार</h3>
-                    <p>
-                        <strong>आज का सुविचार</strong>आज का सुविचार" एक प्रेरणादायक वेबसाइट है जो हर दिन नया हिंदी सुविचार प्रदान करती है। यह प्लेटफ़ॉर्म सकारात्मक ऊर्जा फैलाने और लोगों को सफलता, आत्मविश्वास और जीवन मूल्यों से जुड़ी सीख देने के लिए डिज़ाइन किया गया है।.
-                      
-                    </p>
-                    </div>
-    </section>
-    
-<div class="marquee-wrapper">
-    <div class="marquee-content">
-      <!-- First Div -->
-      <div class="marquee-item">
-       
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
-            <div class="badge-title">Python</div>
-            <div class="badge-stats">Projects: <span>10</span></div>
+  <!-- Second Div -->
+  <div class="marquee-item">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
+            <div class="badge-title">JavaScript</div>
+            <div class="badge-stats">Projects: <span>15</span></div>
             <div class="badge-progress">
-                <div class="progress-bar" style="width: 80%;"></div>
+                <div class="progress-bar" style="width: 65%;"></div>
             </div>
-       
-      </div>
-  
-      <!-- Second Div -->
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
-                <div class="badge-title">JavaScript</div>
-                <div class="badge-stats">Projects: <span>15</span></div>
-                <div class="badge-progress">
-                    <div class="progress-bar" style="width: 65%;"></div>
-                </div>
-      </div>
-  
-      <!-- Third Div -->
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
-                <div class="badge-title">HTML & CSS</div>
-                <div class="badge-stats">Projects: <span>20</span></div>
-                <div class="badge-progress">
-                    <div class="progress-bar" style="width: 90%;"></div>
-                </div>
-      </div>
-  
-      <!-- Fourth Div -->
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo">
-                <div class="badge-title">C++</div>
-                <div class="badge-stats">Projects: <span>8</span></div>
-                <div class="badge-progress">
-                    <div class="progress-bar" style="width: 50%;"></div>
-                </div>
-      </div>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby Logo">
-        <div class="badge-title">Ruby</div>
-                <div class="badge-stats">Projects: <span>8</span></div>
-                <div class="badge-progress">
-                    <div class="progress-bar" style="width: 90%;"></div>
-                </div>
-     
-      </div>
-    </div>
-    </div>
+  </div>
 
-
-  <div class="fo">
-    <div class="header">
-        <h2>Rate This Website</h2>
-    </div>
-
-    <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
-        <!-- Rating Stars -->
-        <div class="stars">
-            <input type="radio" id="star5" name="rating" value="5">
-            <label for="star5">★</label>
-            <input type="radio" id="star4" name="rating" value="4">
-            <label for="star4">★</label>
-            <input type="radio" id="star3" name="rating" value="3">
-            <label for="star3">★</label>
-            <input type="radio" id="star2" name="rating" value="2">
-            <label for="star2">★</label>
-            <input type="radio" id="star1" name="rating" value="1">
-            <label for="star1">★</label>
-        </div>
-
-        <!-- Description -->
-        <p class="description">Please give your valuable rating for this Website.</p>
-
-        <!-- Progress Bar (Indicator) -->
-        <div class="progress-bar-container">
-            <div class="progress-bar1">
-                <div class="progress1" id="progress"></div>
+  <!-- Third Div -->
+  <div class="marquee-item">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
+            <div class="badge-title">HTML & CSS</div>
+            <div class="badge-stats">Projects: <span>20</span></div>
+            <div class="badge-progress">
+                <div class="progress-bar" style="width: 90%;"></div>
             </div>
-            <div class="indicator" id="indicator">0% Rated</div>
-        </div>
+  </div>
 
-        <!-- Name and Email -->
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-
-        <!-- Feedback Section -->
-        <textarea name="feedback" rows="3" placeholder="Provide your feedback..."></textarea>
-        <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
-        <input type="hidden" name="_subject" value="New Contact Form Submission">
-        <!-- Submit Button -->
-        <input type="submit" value="Submit Rating">
-    </form>
-
-    <div class="button-container">
-        <button class="reset-btn" onclick="resetForm()">Reset</button>
-    </div>
+  <!-- Fourth Div -->
+  <div class="marquee-item">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo">
+            <div class="badge-title">C++</div>
+            <div class="badge-stats">Projects: <span>8</span></div>
+            <div class="badge-progress">
+                <div class="progress-bar" style="width: 50%;"></div>
+            </div>
+  </div>
+  <div class="marquee-item">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby Logo">
+    <div class="badge-title">Ruby</div>
+            <div class="badge-stats">Projects: <span>8</span></div>
+            <div class="badge-progress">
+                <div class="progress-bar" style="width: 90%;"></div>
+            </div>
+ 
+  </div>
 </div>
+</div>
+<!-- Empower Section Start -->
+<section class="empower-section">
+    <div class="empower-content">
+      <h2>Empowering Aspiring Developers to Build Their Future in Tech!</h2>
   
+      <div class="stats">
+        <div class="stat-block">
+          <h3>6 months</h3>
+          <p>Students land their first developer job in</p>
+        </div>
+        <div class="stat-block">
+          <h3>1,00,000+</h3>
+          <p>students trained</p>
+        </div>
+        <div class="stat-block">
+          <h3>2 00,000+</h3>
+          <p>Total YouTube Views</p>
+        </div>
+      </div>
+  
+      <h4 class="companies-title">Helped students achieve their dream job at</h4>
+  
+      <div class="company-grid">
+        <div class="company-card amazon">Amazon</div>
+        <div class="company-card google">Google</div>
+        <div class="company-card microsoft">Microsoft</div>
+        <div class="company-card goldman">Goldman Sachs</div>
+        <div class="company-card paypal">PayPal</div>
+        <div class="company-card samsung">Samsung</div>
+        <div class="company-card ey">EY</div>
+        <div class="company-card hitachi">Hitachi</div>
+        <div class="company-card jpmorgan">JPMorgan</div>
+        <div class="company-card ibm">IBM</div>
+        <div class="company-card dell">Dell</div>
+        <div class="company-card deloitte">Deloitte</div>
+        <div class="company-card more">+ many more</div>
+      </div>
+    </div>
+  </section>
+  <!-- Empower Section End -->
+
+
+
 
 <footer>
-    <div class="footer-container">
+<div class="footer-container">
 
-        <!-- About Section -->
-        <div class="footer-section">
-            <h3>About Us</h3>
-            <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.</p>
-            <div class="social-icons">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="https://t.me/CodwithNA" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-linkedin-in"></a>
-                <a href="https://github.com/" class="fab fa-github"></a>
-                <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69" class="fab fa-youtube"></a> 
-                <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a> 
-               
-            </div>
+    <!-- About Section -->
+    <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="https://t.me/CodwithNA" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-linkedin-in"></a>
+            <a href="https://github.com/" class="fab fa-github"></a>
+            <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69" class="fab fa-youtube"></a> 
+            <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a> 
+           
         </div>
-
-        <!-- Contact Section -->
-        <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: <a href="mailto:codewithna73@gmail.com">codewithna73@gmail.com</a></p>
-            <p>Phone: <a href="tel:+919303546247">9303546247</a></p>
-            <p>Address: mp balaghat katangi 481449</p>
-        </div>
-
-        <!-- Quick Links Section -->
-        <div class="footer-section footer-menu">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About Us</a></li>
-                <li><a href="explor.html">Blogs</a></li>
-                <li><a href="contect.html">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-            </ul>
-        </div>
-
-        <!-- Newsletter Section -->
-        <div class="footer-section newsletter">
-            <h3>Newsletter</h3>
-            <p>Subscribe to our newsletter to get the latest updates directly to your inbox.</p>
-            <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
-                <input  type="email" placeholder="Enter your email">
-                <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-
     </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
+    <!-- Contact Section -->
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:codewithna73@gmail.com">codewithna73@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919303546247">9303546247</a></p>
+        <p>Address: mp balaghat katangi 481449</p>
     </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-section footer-menu">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="explor.html">Blogs</a></li>
+            <li><a href="contect.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter to get the latest updates directly to your inbox.</p>
+        <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
+            <input  type="email" placeholder="Enter your email">
+            <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
+</div>
 </footer>
-
-    <script>
-        const toggleBtn = document.getElementById('toggle-btn');
-        const toggleMenu = document.getElementById('toggle-menu');
-
-        toggleBtn.addEventListener('click', function() {
-            toggleMenu.classList.toggle('active');
-            toggleBtn.classList.toggle('active');
-        });
-
-        function explor (){
-            window.location.href="explor.html";
-        }
-
-
-         // Video ko observe karne ke liye Intersection Observer banaye
-         const video = document.getElementById('myVideo');
+<script src="sarch.js"></script>
+  <script src="index_img_text.js"></script>
+<script>
+  
+    // Video ko observe karne ke liye Intersection Observer banaye
+    const video = document.getElementById('myVideo');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -1656,101 +1352,7 @@ const observer = new IntersectionObserver(entries => {
 // Video element ko observe karein
 observer.observe(video);
 
-
-// indicetor 
-const stars = document.querySelectorAll('.stars input');
-        const progress = document.getElementById('progress');
-        const indicator = document.getElementById('indicator');
-        let ratingValue = 0;
-
-        stars.forEach((star) => {
-            star.addEventListener('change', () => {
-                ratingValue = star.value * 20; // Convert star rating to percentage
-                progress.style.width = ratingValue + '%';
-                indicator.innerText = ratingValue + '% Rated';
-            });
-        });
-
-        function resetForm() {
-            document.querySelector('form').reset(); // Reset the form
-            progress.style.width = '0%';
-            indicator.innerText = '0% Rated';
-        }
-
-
-         // Updates array containing messages and their corresponding URLs
-         const updates = [
-            { message: "New feature: Accounts Management", url: "worck.html" },
-            { message: "New feature: PDFshift", url: "pdf_to_img.html" },
-            { message: "New feature: Password Strength", url: "password_chekar.html" },
-            { message: "New feature: Latest Blogs", url: "blog.html" },
-            { message: "New feature: The Coding Blueprint ", url: "Roode_Map.html" },
-            
-        ];
-
-        // Function to display updates in the modal
-        function showUpdates() {
-            const updatesContainer = document.getElementById('updatesContainer');
-            updates.forEach(update => {
-                const updateElement = document.createElement('p');
-                updateElement.innerHTML = `${update.message} <a href="${update.url}" class="blink" target="_blank">NEW</a>`;
-                updatesContainer.appendChild(updateElement);
-            });
-
-            // Display the modal
-            document.getElementById('updateModal').style.display = 'block';
-        }
-
-        // Close the modal when user clicks the close button
-        document.getElementById('closeModal').onclick = function() {
-            document.getElementById('updateModal').style.display = 'none';
-        };
-
-        // Close the modal if user clicks anywhere outside of the modal content
-        window.onclick = function(event) {
-            const modal = document.getElementById('updateModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        };
-
-        // Call the function when the page loads
-        window.onload = showUpdates;
-
-      
-    
-        // The Coding Blueprint
-        function PaperLibrary(PaperLibrary) {
-    window.location.href = "paper.html";
-}
-        // The Coding Blueprint
-        function imgspdf(Imagespdf) {
-    window.location.href = "img_to_pdf_5G.html";
-}
-
-    // The Coding Blueprint
-    function CodingBlueprint(Roode_Maphtml) {
-    window.location.href = "Roode_Map.html";
-}
-    //  blogs
-    function blogs(blog) {
-    window.location.href = "blog.html";
-}
-    //  password chakar
-    function password(password) {
-    window.location.href = "password_chekar.html";
-}
-    //  pdf_to_img.html
-    function PDFshift(PDFshift) {
-    window.location.href = "pdf_to_img.html";
-}
-    //  pdf_to_img.html
-    function Invoicify(Invoicify) {
-    window.location.href = "worck.html";
-}
-
-
-//sliding img strt
+      //sliding img strt
 
         const slider = document.querySelector('.slider');
         const dots = document.querySelectorAll('.dot'); // Dots for slide indicator
@@ -1851,8 +1453,9 @@ const stars = document.querySelectorAll('.stars input');
         // Initially update the active dot
         updateActiveDot();
 
-       
-    </script>
+</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 </body>
 </html>
