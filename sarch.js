@@ -24,7 +24,6 @@ const pages = [
     { name: "all projects", url: "https://primeprojects.netlify.app/explor.html"},
     { name: "location map", url: "https://primeprojects.netlify.app/map"},
     { name: "QR qr code ganretar", url: "QR.html"},
-    {name: "service", url: "https://primeprojects.netlify.app/servises"},
     {name: " task manager", url: "https://primeprojects.netlify.app/task_menegar"},
     {name: "img to pdf ", url: "https://primeprojects.netlify.app/img_to_pdf_5G"},
     {name: " The Coding Blueprint map", url: "Roode_Map.html"},
