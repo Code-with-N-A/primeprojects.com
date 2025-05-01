@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-6N0JHLBDCE');
-</script>
+    gtag('config', 'G-6N0JHLBDCE');
+  </script>
 
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Prime Projects - Learn Programming, Build Projects, and Access Developer Tools</title>
-<meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Prime Projects - Learn Programming, Build Projects, and Access Developer Tools</title>
+  <meta name="description"
+    content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+
   <!-- Keywords for SEO -->
-  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
-  
+  <meta name="keywords"
+    content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
+
   <!-- Author -->
   <meta name="author" content="Prime Projects">
 
   <!-- Open Graph Meta Tags (For Social Media Sharing) -->
   <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
-  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
+  <meta property="og:description"
+    content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
+  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+  <!-- This image is your logo -->
   <meta property="og:url" content="https://primeprojects.netlify.app/">
   <meta property="og:type" content="website">
-  
+
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
+  <meta name="twitter:description"
+    content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
   <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
 
   <!-- Favicon -->
   <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
   <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
+
   <!-- Additional SEO Meta Tags -->
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
   <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://primeprojects.netlify.app/">
 
@@ -84,553 +90,661 @@
   }
 </script>
   <style>
-      * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            
-            .language-marquee {
-            width: 100%;
-            overflow: hidden;
-            background-color: whitesmoke; /* Updated background color */
-            padding: 20px 0;
-            color: black;
-            }
-            
-            .marquee-container {
-            display: flex;
-            flex-direction: column;
-            }
-            
-            .marquee-content, .marquee-content-2 {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee-left 15s linear infinite;
-            }
-            
-            .marquee-content-2 {
-            animation: marquee-right 16s linear infinite;
-            }
-            
-            .marquee-content i, .marquee-content-2 i {
-            font-size: 40px; /* Updated icon size for both lines */
-            margin:  20px;
-            }
-            
-            /* Colors for each icon */
-            .fa-python { color: #306998; }
-            .fa-js-square { color: #f0db4f; }
-            .fa-java { color: #f89820; }
-            .fa-html5 { color: #e34c26; }
-            .fa-css3-alt { color: #264de4; }
-            .fa-php { color: #8993be; }
-            .fa-node { color: #68a063; }
-            .fa-react { color: #61dbfb; }
-            .fa-angular { color: #dd1b16; }
-            .fa-github { color: #4078c0; }
-            .fa-linux { color: #f7d038; }
-            .fa-docker { color: #2496ed; }
-            .fa-rust { color: #000000; }
-            .fa-go { color: #00ADD8; }
-            .fa-swift { color: #F05138; }
-            .fa-kotlin { color: #7F52FF; }
-            .fa-vuejs { color: #4FC08D; }
-            .fa-sass { color: #CC6699; }
-            .fa-typescript { color: #3178C6; }
-            .fa-laravel { color: #FF2D20; }
-            
-            /* Animation for left to right */
-            @keyframes marquee-left {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
-            }
-            
-            /* Animation for right to left */
-            @keyframes marquee-right {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(100%); }
-            }
-            
-          
-            
-            /* Hero Section */
-            .hero {
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                color: #66fcf1;
-               
-            
-            }
-            
-            .hero::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-            }
-            
-            .hero h1 {
-                z-index: 1;
-                font-size: 4rem;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-                animation: fadeInDown 1s ease forwards;
-            }
-            
-            .hero p {
-                z-index: 1;
-                font-size: 1.5rem;
-                margin-top: 20px;
-                animation: fadeInUp 1.2s ease forwards;
-            }
-            
-            /* Main Content Section */
-            .content {
-                padding: 100px 20px;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 40px;
-                
-                background-color: whitesmoke;
-                color: #000000; /* Light text */
-
-
-            }
-            
-            .content-box {
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-                transition: transform 0.4s ease, box-shadow 0.4s ease;
-                cursor: pointer;
-                color: #000000;
-            }
-            
-            .content-box:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 12px 50px rgba(70, 147, 211, 0.7);
-                
-            }
-            
-            .content-box h3 {
-                font-size: 1.8rem;
-                margin-bottom: 10px;
-            }
-            
-            .content-box p {
-                font-size: 1rem;
-                color: #000000;
-            }
-            
-            /* Footer */
-            
-            
-            /* Animations */
-            @keyframes fadeInDown {
-                0% {
-                    opacity: 0;
-                    transform: translateY(-50px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            @keyframes fadeInUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            /* Toggle Menu */
-            
-       
-
-/* For tablets */
-@media (min-width: 481px) and (max-width: 768px) {
-    .image-container {
-        max-width: 100%; /* Full width on tablets */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-}
 
-/* For laptops and larger devices */
-@media (min-width: 769px) {
-    .image-container {
-        max-width: 100%; /* Stays full width on larger screens */
+    .language-marquee {
+      width: 100%;
+      overflow: hidden;
+      background-color: whitesmoke;
+      /* Updated background color */
+      padding: 20px 0;
+      color: black;
     }
-}
 
-            
-        
-          
-img{
-              width: 100%;
-          }
-          .text{
-              background-color: whitesmoke;
-              color: black;
-              overflow: hidden;
-              padding-top: 40px;
-             
-          }
-          .text h2{
-              padding: 20px;
-          
-          }
-          .text p{
-              padding: 20px;
-              font-size: larger;
-          }
-          
-          .marquee-wrapper {
-          width: 100%;
-          overflow: hidden;
-          background-color: lavender;
-          padding: 10px ;
-          
-          }
-          
-          .marquee-content {
-          display: flex;
-          white-space: nowrap;
-          animation: marquee 17s linear infinite;
-          }
-          
-          
-          
-          .marquee-content .marquee-item {
-          display: inline-block;
-          background-color: whitesmoke;
-          padding: 30px;
-          margin: 0 20px;
-          width: 150px;
-          text-align: center;
-          border-radius: 1px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-          
-          .marquee-content .marquee-item img {
-          width: 100%;
-          margin-bottom: 10px;
-          }
-          
-          .marquee-content .marquee-item h2 {
-          font-size: 18px;
-          margin-bottom: 10px;
-          color: black;
-          }
-          
-          .marquee-content .marquee-item p {
-          font-size: 14px;
-          color: #666;
-          }
-          
-          @keyframes marquee {
-          0% {
-          transform: translateX(100%);
-          }
-          100% {
-          transform: translateX(-100%);
-          }
-          }
-         footer {
-                background-color: #000000;
-                color: #fff;
-                padding: 50px 0;
-                font-size: 16px;
-                font-family: Arial, sans-serif;
-            }
-            
-            .footer-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-            }
-            
-            .footer-section {
-                width: 25%;
-                padding: 20px;
-            }
-            
-            .footer-section h3 {
-                font-size: 20px;
-                margin-bottom: 15px;
-                color: #ff9800;
-            }
-            
-            .footer-section p, .footer-section a {
-                color: #ffffff;
-                margin-bottom: 10px;
-                text-decoration: none;
-            }
-            
-            .footer-section a:hover {
-                color: #ff9800;
-            }
-            
-            .social-icons a {
-                color: #43d45e;
-                font-size: 28px;
-                margin: 0 10px;
-                text-decoration: none;
-                transition: color 0.3s ease;
-               
-            }
-            
-            .social-icons a:hover {
-                color: #ff9800;
-            }
-            
-            .footer-menu ul {
-                list-style: none;
-            }
-            
-            .footer-menu ul li {
-                margin-bottom: 10px;
-            }
-            
-            .newsletter input[type="email"] {
-                padding: 10px;
-                border: none;
-                width: 80%;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter button {
-                padding: 10px 20px;
-                border: none;
-                background-color: #ff9800;
-                color: #fff;
-                cursor: pointer;
-            }
-            
-            .newsletter button:hover {
-                background-color: #e67e00;
-            }
-            
-            .footer-bottom {
-                text-align: center;
-                padding: 20px 0;
-                border-top: 1px solid #444;
-                color: #aaa;
-                font-size: 14px;
-            }
-            
-            @media(max-width: 768px) {
-                .footer-section {
-                    width: 100%;
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-            }
-       
+    .marquee-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .marquee-content,
+    .marquee-content-2 {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee-left 15s linear infinite;
+    }
+
+    .marquee-content-2 {
+      animation: marquee-right 16s linear infinite;
+    }
+
+    .marquee-content i,
+    .marquee-content-2 i {
+      font-size: 40px;
+      /* Updated icon size for both lines */
+      margin: 20px;
+    }
+
+    /* Colors for each icon */
+    .fa-python {
+      color: #306998;
+    }
+
+    .fa-js-square {
+      color: #f0db4f;
+    }
+
+    .fa-java {
+      color: #f89820;
+    }
+
+    .fa-html5 {
+      color: #e34c26;
+    }
+
+    .fa-css3-alt {
+      color: #264de4;
+    }
+
+    .fa-php {
+      color: #8993be;
+    }
+
+    .fa-node {
+      color: #68a063;
+    }
+
+    .fa-react {
+      color: #61dbfb;
+    }
+
+    .fa-angular {
+      color: #dd1b16;
+    }
+
+    .fa-github {
+      color: #4078c0;
+    }
+
+    .fa-linux {
+      color: #f7d038;
+    }
+
+    .fa-docker {
+      color: #2496ed;
+    }
+
+    .fa-rust {
+      color: #000000;
+    }
+
+    .fa-go {
+      color: #00ADD8;
+    }
+
+    .fa-swift {
+      color: #F05138;
+    }
+
+    .fa-kotlin {
+      color: #7F52FF;
+    }
+
+    .fa-vuejs {
+      color: #4FC08D;
+    }
+
+    .fa-sass {
+      color: #CC6699;
+    }
+
+    .fa-typescript {
+      color: #3178C6;
+    }
+
+    .fa-laravel {
+      color: #FF2D20;
+    }
+
+    /* Animation for left to right */
+    @keyframes marquee-left {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Animation for right to left */
+    @keyframes marquee-right {
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    }
 
 
-       /* Scrollable Course Section */
-.mini-course-scroll {
-  display: flex;
-  justify-content: flex-start; /* Align to left */
-  overflow-x: auto;
-  gap: 0.5rem; /* Adjusted gap between cards */
-  padding: 0.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-}
 
-.mini-course-scroll::-webkit-scrollbar {
-  height: 0px;
-}
-.mini-course-scroll:hover::-webkit-scrollbar {
-  height: 5px;
-}
-.mini-course-scroll:hover::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 8px;
-}
-
-/* Card Styles */
-.mini-card {
-  flex: 0 0 auto;
-  background: #f9f9f9;
-  padding: 0.5rem;
-  border-radius: 8px;
-  text-align: center;
-  min-width: 70px; /* Reduced size */
-  font-size: 0.65rem; /* Smaller font size */
-  color: #333;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  scroll-snap-align: start;
-  cursor: pointer;
-}
-.mini-card i {
-  font-size: 1rem; /* Smaller icon size */
-  color: #007bff;
-  display: block;
-  margin-bottom: 0.2rem;
-}
-.mini-card:hover {
-  transform: scale(1.05); /* Slightly smaller hover effect */
-}
-
-/* Optional: Make sure first cards are not hidden in small devices */
-@media (max-width: 768px) {
-  .mini-course-scroll {
-    padding-left: 0.5rem;
-  }
-
-  .mini-card {
-    min-width: 60px; /* Further reduced size */
-    font-size: 0.6rem; /* Even smaller font size */
-  }
-}
-
-@media (max-width: 480px) {
-  .mini-card {
-    min-width: 50px; /* Much smaller card size */
-    font-size: 0.5rem; /* Smallest font size */
-  }
-}
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: #66fcf1;
 
 
-        
-            /*sliding img start*/
-            .slider-container {
-                position: relative;
-                width: 100%;
-                max-width: 1500px;
-                overflow: hidden;
-                padding: 5px;
-                background: linear-gradient(rgb(149, 154, 253),rgb(183, 182, 219));
+    }
 
-            }
-            
-            .slider {
-                display: flex;
-                transition: transform 1s ease;
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
 
-               
-               
-            }
-            
-            .slider-item {
-                flex: 0 0 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                transition: transform 0.5s ease, opacity 0.5s ease;
-                color: rgb(0, 0, 0);
-                padding-left: 20px;
-               
-            }
-            
-            .slider-item:hover {
-                transform: scale(1.02);
-                opacity: 1;
-            }
-            
-            .slider-item img {
-                max-width: 20%;
-                height: auto;
-                margin-right: 20px;
-                transition: width 0.5s ease, height 0.5s ease;
-                border-radius: 10px;
-            }
-            
-            .slider-item h3 {
-                margin-top: 15px;
-                font-size: 2rem; 
-            }
-            
-            .slider-item p {
-                font-size: 1.1rem;
-                
-            }
-            
-            .slider-item-content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-            }
-            
-            .slider-item-text {
-                flex: 1;
-                padding-right: 5px;
-                max-width: 50%;
-            }
-            
-            /* Responsive styling */
-            @media (max-width: 768px) {
-                .slider-item h3 {
-                    font-size: 1.5rem;
-                }
-            
-                .slider-item p {
-                    font-size: 1rem;
-                }
-            
-                .slider-item img {
-                    max-width: 20%; /* Image takes up 50% of the width */
-                    margin-right: 10px;
-                }
-            
-                .slider-item-text {
-                    width: 50%; /* Text takes up 50% of the width */
-                }
-            }
-            
-            @media (max-width: 480px) {
-                .slider-item h3 {
-                    font-size: 0.8rem;
-                }
-            
-                .slider-item p {
-                    font-size: 0.7rem;
-                }
-            
-                .slider-item img {
-                    max-width: 45%; /* Image takes up 50% of the width */
-                    margin-right: 20px;
-                }
-            
-                .slider-item-text {
-                    width: 50%; /* Text takes up 50% of the width */
-                }
-            }
-            .sin{
-                width: 19%;
-               padding: 4px;
-                margin-left: 10px;
-                border-radius: 5px;
-                font-size: medium;
-                border: 1px solid rgb(126, 124, 124);
-                color: #6e6c6c;
-                text-decoration: none;
-            }
-            .sin:hover{
-                background-color: #00ADD8;
-                color: whitesmoke;
-            }
-            .image-frame {
+    .hero h1 {
+      z-index: 1;
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .hero p {
+      z-index: 1;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    /* Main Content Section */
+    .content {
+      padding: 100px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+
+      background-color: whitesmoke;
+      color: #000000;
+      /* Light text */
+
+
+    }
+
+    .content-box {
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      color: #000000;
+    }
+
+    .content-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 50px rgba(70, 147, 211, 0.7);
+
+    }
+
+    .content-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .content-box p {
+      font-size: 1rem;
+      color: #000000;
+    }
+
+    /* Footer */
+
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Toggle Menu */
+
+
+
+    /* For tablets */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .image-container {
+        max-width: 100%;
+        /* Full width on tablets */
+      }
+    }
+
+    /* For laptops and larger devices */
+    @media (min-width: 769px) {
+      .image-container {
+        max-width: 100%;
+        /* Stays full width on larger screens */
+      }
+    }
+
+
+
+
+    img {
+      width: 100%;
+    }
+
+    .text2 {
+      background-color: whitesmoke;
+      color: black;
+      overflow: hidden;
+      padding-top: 40px;
+
+    }
+
+    .text2 h2 {
+      padding: 20px;
+
+    }
+
+    .text2 p {
+      padding: 20px;
+      font-size: larger;
+    }
+
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background-color: lavender;
+      padding: 10px;
+
+    }
+
+    .marquee-content {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 17s linear infinite;
+    }
+
+
+
+    .marquee-content .marquee-item {
+      display: inline-block;
+      background-color: whitesmoke;
+      padding: 30px;
+      margin: 0 20px;
+      width: 150px;
+      text-align: center;
+      border-radius: 1px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .marquee-content .marquee-item img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .marquee-content .marquee-item h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    .marquee-content .marquee-item p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    footer {
+      background-color: #000000;
+      color: #fff;
+      padding: 50px 0;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      width: 25%;
+      padding: 20px;
+    }
+
+    .footer-section h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #ff9800;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #ffffff;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #ff9800;
+    }
+
+    .social-icons a {
+      color: #43d45e;
+      font-size: 28px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+    }
+
+    .social-icons a:hover {
+      color: #ff9800;
+    }
+
+    .footer-menu ul {
+      list-style: none;
+    }
+
+    .footer-menu ul li {
+      margin-bottom: 10px;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      border: none;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff9800;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #e67e00;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    @media(max-width: 768px) {
+      .footer-section {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* img slider Starat*/
+    .slider-container {
+      width: 100%;
+      max-width: 1400px;
+      height: 1in;
+      /* 1 inch height */
+      overflow: hidden;
+      position: relative;
+      border: 2px solid rgb(236, 239, 239);
+      background: linear-gradient(rgb(212, 246, 240), rgb(204, 252, 241));
+
+
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      height: 100%;
+    }
+
+    .slider-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1em;
+      color: #333;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* Mobile: 1 item */
+    @media screen and (max-width: 767px) {
+      .slider-item {
+        width: 100%;
+      }
+
+      .slider-container {
+        height: 100px;
+      }
+
+      .text {
+        font-size: 0.9em;
+      }
+
+      .prev,
+      .next {
+        font-size: 16px;
+      }
+    }
+
+    /* Tablet: 2 items */
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .slider-item {
+        width: 50%;
+      }
+
+      .text {
+        font-size: 0.7em;
+      }
+    }
+
+    /* Desktop: 3 items */
+    @media screen and (min-width: 1024px) {
+      .slider-item {
+        width: 33.33%;
+      }
+
+      .text {
+        font-size: 0.8em;
+      }
+    }
+
+    /* img slider AND*/
+
+
+
+    /* Scrollable Course Section */
+    .mini-course-scroll {
+      display: flex;
+      justify-content: flex-start;
+      /* Align to left */
+      overflow-x: auto;
+      gap: 0.5rem;
+      /* Adjusted gap between cards */
+      padding: 0.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .mini-course-scroll::-webkit-scrollbar {
+      height: 0px;
+    }
+
+    .mini-course-scroll:hover::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .mini-course-scroll:hover::-webkit-scrollbar-thumb {
+      background: #999;
+      border-radius: 8px;
+    }
+
+    /* Card Styles */
+    .mini-card {
+      flex: 0 0 auto;
+      background: #f9f9f9;
+      padding: 0.5rem;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 70px;
+      /* Reduced size */
+      font-size: 0.65rem;
+      /* Smaller font size */
+      color: #333;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      scroll-snap-align: start;
+      cursor: pointer;
+    }
+
+    .mini-card i {
+      font-size: 1rem;
+      /* Smaller icon size */
+      color: #007bff;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .mini-card:hover {
+      transform: scale(1.05);
+      /* Slightly smaller hover effect */
+    }
+
+    /* Optional: Make sure first cards are not hidden in small devices */
+    @media (max-width: 768px) {
+      .mini-course-scroll {
+        padding-left: 0.5rem;
+      }
+
+      .mini-card {
+        min-width: 60px;
+        /* Further reduced size */
+        font-size: 0.6rem;
+        /* Even smaller font size */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mini-card {
+        min-width: 50px;
+        /* Much smaller card size */
+        font-size: 0.5rem;
+        /* Smallest font size */
+      }
+    }
+
+    .sin {
+      width: 19%;
+      padding: 4px;
+      margin-left: 10px;
+      border-radius: 5px;
+      font-size: medium;
+      border: 1px solid rgb(126, 124, 124);
+      color: #6e6c6c;
+      text-decoration: none;
+    }
+
+    .sin:hover {
+      background-color: #00ADD8;
+      color: whitesmoke;
+    }
+
+    .image-frame {
       background-image: url('img/new ii hey.png');
       background-size: cover;
       background-position: center;
@@ -643,12 +757,13 @@ img{
       align-items: center;
       justify-content: center;
     }
+
     /* For smaller screens (phones) - Set height to 80vh */
-@media (max-width: 768px) {
-  .image-frame {
-    min-height: 80vh;
-  }
-}
+    @media (max-width: 768px) {
+      .image-frame {
+        min-height: 80vh;
+      }
+    }
 
     .image-frame::before {
       content: "";
@@ -666,7 +781,8 @@ img{
       color: #fff;
       padding: 2rem;
       max-width: 90%;
-      transform: translateY(-10%); /* Moves content slightly up */
+      transform: translateY(-10%);
+      /* Moves content slightly up */
     }
 
     .image-content h1 {
@@ -701,225 +817,283 @@ img{
     .image-content button:hover {
       background-color: #e65c00;
     }
-/* For smaller screens (Mobile devices) */
-@media (max-width: 768px) {
-  .image-content h1 {
-    font-size: 8vw; /* Larger text on small screens */
-  }
-  .typewriter {
-    font-size: 5vw; /* Bigger text for better visibility */
-  }
-  .image-content p {
-    font-size: 4vw; /* Adjust for readability */
-  }
-}
 
-/* For very small screens (Extra small devices) */
-@media (max-width: 480px) {
-  .image-content h1 {
-    font-size: 10vw; /* Large text for mobile */
-  }
-  .typewriter {
-    font-size: 6vw; /* Larger typewriter text */
-  }
-  .image-content p {
-    font-size: 5vw; /* Adjust to maintain balance */
-  }
+    /* For smaller screens (Mobile devices) */
+    @media (max-width: 768px) {
+      .image-content h1 {
+        font-size: 8vw;
+        /* Larger text on small screens */
+      }
 
-}
+      .typewriter {
+        font-size: 5vw;
+        /* Bigger text for better visibility */
+      }
 
+      .image-content p {
+        font-size: 4vw;
+        /* Adjust for readability */
+      }
+    }
 
+    /* For very small screens (Extra small devices) */
+    @media (max-width: 480px) {
+      .image-content h1 {
+        font-size: 10vw;
+        /* Large text for mobile */
+      }
 
-.courses-section {
-  padding: 40px 20px;
-  background: #ffffff;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-}
+      .typewriter {
+        font-size: 6vw;
+        /* Larger typewriter text */
+      }
 
-.courses-header h2 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #222;
-}
+      .image-content p {
+        font-size: 5vw;
+        /* Adjust to maintain balance */
+      }
 
-.courses-header p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* changed 360px to 280px for better fit on mobiles */
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px; /* add padding for equal space on left and right */
-  box-sizing: border-box;
-}
-
-.course-card {
-  background: rgb(187, 186, 186);
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-.course-icon {
-  font-size: 40px;
-  margin-bottom: 15px;
-  color: #000000;
-}
-
-.course-icon i {
-  width: 40px;
-  height: 40px;
-}
-
-/* Responsive Typography for Headings and Paragraph */
-@media (max-width: 768px) {
-  .courses-header h2 {
-    font-size: 2rem;
-  }
-
-  .courses-header p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .courses-header h2 {
-    font-size: 1.6rem;
-  }
-
-  .courses-header p {
-    font-size: 0.95rem;
-  }
-}
+    }
 
 
 
-.empower-section {
-  padding: 60px 20px;
-  background: #f9f9f9;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-}
+    .courses-section {
+      padding: 40px 20px;
+      background: #ffffff;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-.empower-content h2 {
-  font-size: 2.2rem;
-  color: #222;
-  margin-bottom: 30px;
-}
+    .courses-header h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
 
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 40px;
-}
+    .courses-header p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
 
-.stat-block {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  max-width: 250px;
-}
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* changed 360px to 280px for better fit on mobiles */
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      /* add padding for equal space on left and right */
+      box-sizing: border-box;
+    }
 
-.stat-block h3 {
-  font-size: 1.8rem;
-  color: #007bff;
-  margin-bottom: 10px;
-}
+    .course-card {
+      background: rgb(187, 186, 186);
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.stat-block p {
-  font-size: 1rem;
-  color: #555;
-}
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
 
-.companies-title {
-  font-size: 1.5rem;
-  margin: 40px 0 20px;
-  color: #333;
-}
+    .course-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #000000;
+    }
 
-.company-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+    .course-icon i {
+      width: 40px;
+      height: 40px;
+    }
 
-.company-card {
-  padding: 15px;
-  color: white;
-  font-weight: 600;
-  border-radius: 10px;
-  font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+    /* Responsive Typography for Headings and Paragraph */
+    @media (max-width: 768px) {
+      .courses-header h2 {
+        font-size: 2rem;
+      }
 
-/* Company Colors */
-.amazon { background-color: #ff9900; }
-.google { background-color: #4285f4; }
-.microsoft { background-color: #737373; }
-.goldman { background-color: #1d2951; }
-.paypal { background-color: #003087; }
-.samsung { background-color: #1428a0; }
-.ey { background-color: #ffcc00; color: #000; }
-.hitachi { background-color: #e60012; }
-.jpmorgan { background-color: #003f5c; }
-.ibm { background-color: #054ada; }
-.dell { background-color: #007db8; }
-.deloitte { background-color: #86bc25; color: #000; }
-.more { background-color: #444; }
+      .courses-header p {
+        font-size: 1rem;
+      }
+    }
 
-@media (max-width: 768px) {
-  .empower-content h2 {
-    font-size: 1.6rem;
-  }
-  .stat-block {
-    max-width: 100%;
-  }
-  .company-card {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-}
-</style>
+    @media (max-width: 480px) {
+      .courses-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .courses-header p {
+        font-size: 0.95rem;
+      }
+    }
+
+
+
+    .empower-section {
+      padding: 60px 20px;
+      background: #f9f9f9;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .empower-content h2 {
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .stat-block {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      max-width: 250px;
+    }
+
+    .stat-block h3 {
+      font-size: 1.8rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .stat-block p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .companies-title {
+      font-size: 1.5rem;
+      margin: 40px 0 20px;
+      color: #333;
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .company-card {
+      padding: 15px;
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Company Colors */
+    .amazon {
+      background-color: #ff9900;
+    }
+
+    .google {
+      background-color: #4285f4;
+    }
+
+    .microsoft {
+      background-color: #737373;
+    }
+
+    .goldman {
+      background-color: #1d2951;
+    }
+
+    .paypal {
+      background-color: #003087;
+    }
+
+    .samsung {
+      background-color: #1428a0;
+    }
+
+    .ey {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    .hitachi {
+      background-color: #e60012;
+    }
+
+    .jpmorgan {
+      background-color: #003f5c;
+    }
+
+    .ibm {
+      background-color: #054ada;
+    }
+
+    .dell {
+      background-color: #007db8;
+    }
+
+    .deloitte {
+      background-color: #86bc25;
+      color: #000;
+    }
+
+    .more {
+      background-color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .empower-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .stat-block {
+        max-width: 100%;
+      }
+
+      .company-card {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+    }
+  </style>
 
   <!--youtub icon start-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!--youtub icon start end-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <link rel="stylesheet" href="srach.css">
+  <link rel="stylesheet" href="srach.css">
   <title>Document</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 <body>
-  
-   <!-- Loader Wrapper strat -->
-   <link rel="stylesheet" href="loder.css">
-   <script src="loder.js"></script>
-   <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
+
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css">
+  <script src="loder.js"></script>
+  <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
   <!-- Loader Wrapper and -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="">CodeWith_N.A</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -935,14 +1109,16 @@ img{
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Explore
+              Explore
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="https://primeprojects.netlify.app/course">Notes</a></li>
               <li><a class="dropdown-item" href="https://primeprojects.netlify.app/blog.html">Blog</a></li>
               <li><a class="dropdown-item" href="https://primeprojects.netlify.app/explor.html">Projects</a></li>
               <li><a class="dropdown-item" href="https://primeprojects.netlify.app/roode_map">Begin</a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a></li>
             </ul>
           </li>
@@ -951,107 +1127,116 @@ img{
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  id="searchInput" oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
+            oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
           <div class="suggestions" id="suggestions"></div>
-          <button class="btn btn-outline-success" type="submit"  id="searchInput">Search</button> 
-        
-          <button class="sin" ><a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/ragistretion.html">Signup</a></button>
+          <button class="btn btn-outline-success" type="submit" id="searchInput">Search</button>
+
+          <button class="sin"><a class="nav-link active" aria-current="page"
+              href="https://primeprojects.netlify.app/ragistretion.html">Signup</a></button>
         </form>
       </div>
     </div>
   </nav>
 
-    <!-- Course Scroll Section -->
-<div class="mini-course-scroll">
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/h'"><i class="fa-brands fa-html5"></i>HTML</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/css'"><i class="fa-brands fa-css3-alt"></i>CSS</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/js'"><i class="fa-brands fa-js"></i>JavaScript</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/react'"><i class="fa-brands fa-react"></i>React</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/php'"><i class="fa-brands fa-php"></i>PHP</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mysqli'"><i class="fa-solid fa-database"></i>MySQL</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mongodb'"><i class="fa-solid fa-leaf"></i>MongoDB</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/java'"><i class="fa-brands fa-java"></i>Java</div>
-  <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/python'"><i class="fa-brands fa-python"></i>Python</div>
+  <!-- Course Scroll Section -->
+  <div class="mini-course-scroll">
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/h'"><i
+        class="fa-brands fa-html5"></i>HTML</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/css'"><i
+        class="fa-brands fa-css3-alt"></i>CSS</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/js'"><i
+        class="fa-brands fa-js"></i>JavaScript</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/react'"><i
+        class="fa-brands fa-react"></i>React</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/php'"><i
+        class="fa-brands fa-php"></i>PHP</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mysqli'"><i
+        class="fa-solid fa-database"></i>MySQL</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/mongodb'"><i
+        class="fa-solid fa-leaf"></i>MongoDB</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/java'"><i
+        class="fa-brands fa-java"></i>Java</div>
+    <div class="mini-card" onclick="window.location.href='https://studyvibe.netlify.app/python'"><i
+        class="fa-brands fa-python"></i>Python</div>
 
-</div>
+  </div>
 
 
-   <!--img sliding code  Start-->
-   <div class="slider-container">
-    <div class="toggle-btn" id="toggle-btn">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+  <!--img sliding code  Start-->
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slider-item">
+        <img
+          src="https://verpex.com/assets/uploads/images/blog/How-To-Become-A-Freelance-Data-Analyst.webp?v=1711104899"
+          alt="Image 1" class="image">
+        <div class="text">
+          <h3 style="color: rgb(31, 3, 19);">Data Analyst 2025</h3>
+        </div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20250130150211015475/Top-15-python-libraries-for-data-analytics-2025.webp"
+          alt="Image 2" class="image">
+        <div class="text">Used for data cleaning, analysis, visualization, and machine learning.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.i2tutorials.com/wp-content/media/2020/05/R-PROGRAMMING-LANGUAGE-i2tutorials.jpg"
+          class="image">
+        <div class="text"> A powerful language for statistical analysis and data visualization.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://optim.tildacdn.one/tild6238-3035-4335-a333-306335373139/-/resize/824x/-/format/webp/IMG_3349.jpg.webp"
+          alt="Image 4" class="image">
+        <div class="text">Used to extract data from databases and write queries.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://it.liu.edu/wp-content/uploads/2016/09/Excel.jpg" alt="Image 5" class="image">
+        <div class="text">Used for analysis and reporting on small to medium datasets.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://miro.medium.com/v2/resize:fit:640/1*Qs650GJ4uDa65D0iFn4YBw.jpeg" alt="Image 6" class="image">
+        <div class="text">Used for creating dashboards and visualizing data.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.futureqtech.com/assets/img/course/Tableau.jpg" alt="Image 7" class="image">
+        <div class="text">Used for creating interactive visualizations and dashboards.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2sxw6o77heca8zo1y64f.jpg"
+          alt="Image 8" class="image">
+        <div class="text">Basic knowledge required for displaying data in web-based reporting tools.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.tutorialrepublic.com/lib/images/javascript-illustration.png" alt="Image 9" class="image">
+        <div class="text"> Used for data visualization (like charts) in web dashboards.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D12AQFyLZBgxb109A/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1678105450255?e=2147483647&v=beta&t=KDKOU2qRj_LkfpFyRGxcnogA0_AVuH-_ao13bnpEK7I"
+          alt="Image 10" class="image">
+        <div class="text">Used for data processing or automation on Linux systems.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://img-c.udemycdn.com/course/480x270/3352204_9c9a_20.jpg" alt="Image 10" class="image">
+        <div class="text">Used for code version control and collaborative projects.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.istockphoto.com/id/1401511554/photo/movie-clapper-the-end-text-on-cinema-scene-clapperboard-filmmaking-video-production-3d-render.jpg?b=1&s=612x612&w=0&k=20&c=pJPQC4yoFz-4d5-Z3HItFjnkusPHkBpMvmNo01T3vD8="
+          alt="Image 10" class="image">
+        <div class="text" style="color: rgb(25, 5, 24);">Data analysis involves processing raw data to extract valuable
+          insights and patterns.</div>
+      </div>
     </div>
- 
-    <div class="slider">
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://miro.medium.com/v2/resize:fit:1024/0*OmuboVJgMz7NzSzr.jpg" alt="Image 1">
-                <div class="slider-item-text">
-                    <h3>Frontend coding Language</h3>
-                    <p>Frontend is the part of a website that users directly see and interact with, including the design, layout, and user interface.</p>
-                </div>
-            </div>
-        </div>
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh5asydv3ruwy7x7pgreo.jpg" alt="Image 2">
-                <div class="slider-item-text">
-                    <h3>HTML and CSS</h3>
-                    <p>HTML creates the structure of a web page, while CSS styles and designs that structure.</p>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+  <!--img sliding code AND-->
 
-                </div>
-            </div>
-        </div>
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/typescript-vs-javascript.png" alt="Image 3">
-                <div class="slider-item-text">
-                    <h3>TS / JS</h3>
-                   
-                    <p>JavaScript is a lightweight scripting language that makes web pages interactive, while TypeScript is its upgraded version that adds static typing.</p>
-                </div> 
-               </div>         
-        </div>
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://unicorn.dev/wp-content/uploads/2023/01/react.png" alt="Image 3">
-                <div class="slider-item-text">
-                    <h3>React</h3>
-                    <p>React is a JavaScript library used for building fast and dynamic user interfaces, especially for single-page applications.</p>
-                </div>          
-        </div>
-    </div>
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://cdn-images-1.medium.com/max/800/0*dbCcdY_EnP4CmV7L" alt="Image 3">
-                <div class="slider-item-text">
-                    <h3>Angular</h3>
-                    <p>ngular is a powerful TypeScript-based framework developed by Google for building dynamic, single-page web applications.</p>
-
-                </div>                 
-        </div>
-        </div>
-        <div class="slider-item">
-            <div class="slider-item-content">
-                <img src="https://cdn.prod.website-files.com/60f8ffe4d3ddfa64654d6667/658434b6bfd2c1d3d548ee2b_what%20is%20vuejs.webp" alt="Image 3">
-                <div class="slider-item-text">
-                    <h3>Vue.js</h3>
-                    <p>Vue.js is a progressive JavaScript framework used for building user interfaces, known for its simplicity and flexibility in creating dynamic web applications.</p>
-
-                </div>                 
-        </div>
-    </div>
-</div>
-
-
-
-</div>
-<!--img sliding code AND-->
-
-<div class="image-frame">
+  <div class="image-frame">
     <div class="image-content">
       <h1>Welcome to PrimeProjects</h1>
       <div class="typewriter" id="typewriter-text"></div>
@@ -1063,228 +1248,250 @@ img{
     </div>
   </div>
 
-<div class="text">
+  <div class="text2">
     <h2>PrimeProjects</h2>
-    <p><strong style="color: red;">CodeWith_N.A </strong>is your one-stop destination for mastering programming. We provide comprehensive tutorials, real-world projects, and coding challenges designed for both <strong>beginners and experienced developers.</strong> Our platform covers a variety of programming languages, helping you enhance your skills and build practical solutions. With interactive tools and a supportive community, you'll have everything you need to excel in coding. Start your programming journey with us today and unlock your full potential as a coder!</p>
-</div>
-
-
-<div class="language-marquee">
-<div class="marquee-container">
-  <!-- First Line - Right to Left -->
-  <div class="marquee-content">
-    <i class="fab fa-python"></i>
-    <i class="fab fa-js-square"></i>
-    <i class="fab fa-java"></i>
-    <i class="fab fa-html5"></i>
-    <i class="fab fa-css3-alt"></i>
-    <i class="fab fa-php"></i>
-    <i class="fab fa-node"></i>
-    <i class="fab fa-react"></i>
-    <i class="fab fa-angular"></i>
-    <i class="fab fa-github"></i>
-    <i class="fab fa-linux"></i>
+    <p><strong style="color: red;">CodeWith_N.A </strong>is your one-stop destination for mastering programming. We
+      provide comprehensive tutorials, real-world projects, and coding challenges designed for both <strong>beginners
+        and experienced developers.</strong> Our platform covers a variety of programming languages, helping you enhance
+      your skills and build practical solutions. With interactive tools and a supportive community, you'll have
+      everything you need to excel in coding. Start your programming journey with us today and unlock your full
+      potential as a coder!</p>
   </div>
 
-  <!-- Second Line - Left to Right -->
-  <div class="marquee-content-2">
-    <i class="fab fa-docker"></i>
-    <i class="fab fa-rust"></i>
-    <i class="fab fa-go"></i>
-    <i class="fab fa-swift"></i>
-    <i class="fab fa-kotlin"></i>
-    <i class="fab fa-vuejs"></i>
-    <i class="fab fa-angular"></i>
-    <i class="fab fa-sass"></i>
-    <i class="fab fa-typescript"></i>
-    <i class="fab fa-laravel"></i>
-    <i class="fab fa-bookmark"></i>
-  </div>
-</div>
-</div>
 
-<div class="text">
-<h2>Discover Projects to Boost Your Coding Expertise</h2>
-<p>At <strong style="color: red;">CodeWitg_N.A</strong>, we offer a variety of coding projects to enhance your development skills.<strong>Explore our task manager, full_stack, bill generation system</strong>, and other feature-rich applications that cover front-end, back-end, and database integration. These projects will give you practical experience in building dynamic and scalable web applications. Whether you're a beginner or an advanced developer, our projects are designed to take your coding skills to the next level. Start your journey with our hands-on projects today!
+  <div class="language-marquee">
+    <div class="marquee-container">
+      <!-- First Line - Right to Left -->
+      <div class="marquee-content">
+        <i class="fab fa-python"></i>
+        <i class="fab fa-js-square"></i>
+        <i class="fab fa-java"></i>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-php"></i>
+        <i class="fab fa-node"></i>
+        <i class="fab fa-react"></i>
+        <i class="fab fa-angular"></i>
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linux"></i>
+      </div>
+
+      <!-- Second Line - Left to Right -->
+      <div class="marquee-content-2">
+        <i class="fab fa-docker"></i>
+        <i class="fab fa-rust"></i>
+        <i class="fab fa-go"></i>
+        <i class="fab fa-swift"></i>
+        <i class="fab fa-kotlin"></i>
+        <i class="fab fa-vuejs"></i>
+        <i class="fab fa-angular"></i>
+        <i class="fab fa-sass"></i>
+        <i class="fab fa-typescript"></i>
+        <i class="fab fa-laravel"></i>
+        <i class="fab fa-bookmark"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="text2">
+    <h2>Discover Projects to Boost Your Coding Expertise</h2>
+    <p>At <strong style="color: red;">CodeWitg_N.A</strong>, we offer a variety of coding projects to enhance your
+      development skills.<strong>Explore our task manager, full_stack, bill generation system</strong>, and other
+      feature-rich applications that cover front-end, back-end, and database integration. These projects will give you
+      practical experience in building dynamic and scalable web applications. Whether you're a beginner or an advanced
+      developer, our projects are designed to take your coding skills to the next level. Start your journey with our
+      hands-on projects today!
     </p>
-</div>
-
-<!-- Feather Icons CDN -->
-<script src="https://unpkg.com/feather-icons"></script>
-
-<!-- Courses Section Start -->
-<section class="courses-section">
-  <div class="courses-header">
-    <h2>Courses</h2>
-    <p>Master Coding with Our Core Offerings</p>
   </div>
 
-  <div class="courses-grid">
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="smile"></i></div>
-      <h3>Beginner-Friendly</h3>
-      <p>Step-by-step courses designed for absolute beginners to kickstart your coding journey.</p>
+  <!-- Feather Icons CDN -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Courses Section Start -->
+  <section class="courses-section">
+    <div class="courses-header">
+      <h2>Courses</h2>
+      <p>Master Coding with Our Core Offerings</p>
     </div>
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="layers"></i></div>
-      <h3>Advanced Concepts</h3>
-      <p>Deep dive into advanced topics and frameworks to level up your skills.</p>
+
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="smile"></i></div>
+        <h3>Beginner-Friendly</h3>
+        <p>Step-by-step courses designed for absolute beginners to kickstart your coding journey.</p>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="layers"></i></div>
+        <h3>Advanced Concepts</h3>
+        <p>Deep dive into advanced topics and frameworks to level up your skills.</p>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="monitor"></i></div>
+        <h3>Real-World Projects</h3>
+        <p>Learn by building real-world projects and gain hands-on experience.</p>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="dollar-sign"></i></div>
+        <h3>Affordable Pricing</h3>
+        <p>Access premium courses at prices tailored for students and professionals.</p>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="folder"></i></div>
+        <h3>Comprehensive Resources</h3>
+        <p>Access templates, documentation, and code snippets to enhance your learning.</p>
+      </div>
+      <div class="course-card">
+        <div class="course-icon"><i data-feather="trending-up"></i></div>
+        <h3>Industry Insights</h3>
+        <p>Stay updated with the latest tech trends and insights to keep your skills relevant.</p>
+      </div>
     </div>
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="monitor"></i></div>
-      <h3>Real-World Projects</h3>
-      <p>Learn by building real-world projects and gain hands-on experience.</p>
+  </section>
+
+  <script>
+    feather.replace();
+  </script>
+  <!-- Courses Section End -->
+
+
+
+  <div class="row g-0 bg-body-secondary position-relative">
+    <div class="col-md-6 mb-md-0 p-md-4">
+      <img src="https://www.ntaskmanager.com/wp-content/uploads/2020/02/What-is-a-Project-1-scaled.jpg" class="w-100"
+        alt="...">
     </div>
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="dollar-sign"></i></div>
-      <h3>Affordable Pricing</h3>
-      <p>Access premium courses at prices tailored for students and professionals.</p>
-    </div>
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="folder"></i></div>
-      <h3>Comprehensive Resources</h3>
-      <p>Access templates, documentation, and code snippets to enhance your learning.</p>
-    </div>
-    <div class="course-card">
-      <div class="course-icon"><i data-feather="trending-up"></i></div>
-      <h3>Industry Insights</h3>
-      <p>Stay updated with the latest tech trends and insights to keep your skills relevant.</p>
+    <div class="col-md-6 p-4 ps-md-0">
+      <h5 class="mt-0">My real life Projects</h5>
+      <p>PrimeProjects – Real-Life Software Projects for Everyday Use
+        PrimeProjects offers a collection of practical projects designed to solve real-life problems.
+        Whether it's a billing software, a task management tool, or a platform to learn coding, you’ll find it here.
+        Each project is focused on usefulness, simplicity, and real-world application.
+        This platform is perfect for students and developers who want to build meaningful, everyday-use solutions.
+        At PrimeProjects, you don't just learn—you create something truly useful.</p>
+      <a href="https://primeprojects.netlify.app/explor.html" class="stretched-link">Go somewhere</a>
     </div>
   </div>
-</section>
+  </div>
 
-<script>
-  feather.replace();
-</script>
-<!-- Courses Section End -->
+  <section class="content">
 
-
-  
-    <div class="row g-0 bg-body-secondary position-relative">
-        <div class="col-md-6 mb-md-0 p-md-4">
-          <img src="https://www.ntaskmanager.com/wp-content/uploads/2020/02/What-is-a-Project-1-scaled.jpg" class="w-100" alt="...">
-        </div>
-        <div class="col-md-6 p-4 ps-md-0">
-          <h5 class="mt-0">My real life Projects</h5>
-          <p>PrimeProjects – Real-Life Software Projects for Everyday Use
-            PrimeProjects offers a collection of practical projects designed to solve real-life problems.
-            Whether it's a billing software, a task management tool, or a platform to learn coding, you’ll find it here.
-            Each project is focused on usefulness, simplicity, and real-world application.
-            This platform is perfect for students and developers who want to build meaningful, everyday-use solutions.
-            At PrimeProjects, you don't just learn—you create something truly useful.</p>
-          <a href="https://primeprojects.netlify.app/explor.html" class="stretched-link">Go somewhere</a>
-        </div>
-      </div>  
-    </div>
-
-    <section class="content">
-   
 
     <div class="content-box" onclick="Invoicify('pdf_to_img')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
-        <h3>Accounts Management</h3>
-        <p>
-            <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
-        </p><br>
-        <!--video youtub start-->
-        <link rel="stylesheet" href="youtub_video.css">
-        </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu"><div id="ico" class="fab fa-youtube"></div></a><br>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
+      <h3>Accounts Management</h3>
+      <p>
+        <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and
+        generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
+      </p><br>
+      <!--video youtub start-->
+      <link rel="stylesheet" href="youtub_video.css">
+      </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu">
+        <div id="ico" class="fab fa-youtube"></div>
+      </a><br>
 
       <!--video youtub end-->
-         </div>
+    </div>
 
-         <div class="content-box" onclick="window.location.href='bill.html'">
-            <img src="img/gst-bills.webp" alt="img">
-            <h3>Bill Generator</h3>
-            <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill carefully before making payment.</p>
-        </div>
-        <!--bujat trecar-->
-         <div class="content-box" onclick="window.location.href='bjat-trecar.html'">
-            <img src="https://i0.wp.com/proceipt.com/wp-content/uploads/2023/05/budget.jpg?resize=768%2C512&ssl=1" alt="img">
-            <h3>Budget Tracker</h3>
-            <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you achieve your financial goals.</p>
-        </div>
+    <div class="content-box" onclick="window.location.href='bill.html'">
+      <img src="img/gst-bills.webp" alt="img">
+      <h3>Bill Generator</h3>
+      <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill
+        carefully before making payment.</p>
+    </div>
+    <!--bujat trecar-->
+    <div class="content-box" onclick="window.location.href='bjat-trecar.html'">
+      <img src="https://i0.wp.com/proceipt.com/wp-content/uploads/2023/05/budget.jpg?resize=768%2C512&ssl=1" alt="img">
+      <h3>Budget Tracker</h3>
+      <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you
+        achieve your financial goals.</p>
+    </div>
 
-        <div class="content-box" onclick="window.location.href='product_list.html'">
-            <img src="img/Product List.png" alt="img">
-            <h3>Product Listener</h3>
-            <p>
-                <strong>Product Listener </strong>  is a project where you can create and manage a list of products, download it in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product management and document generation.
-              
-            </p>
-            </div>
+    <div class="content-box" onclick="window.location.href='product_list.html'">
+      <img src="img/Product List.png" alt="img">
+      <h3>Product Listener</h3>
+      <p>
+        <strong>Product Listener </strong> is a project where you can create and manage a list of products, download it
+        in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product
+        management and document generation.
 
-        <div class="content-box" onclick="window.location.href='Pocket_Expense.html'">
-            <img src="https://mgl.gogo.mn/newsn/thumbnail/1000/images/c/2020/01/-22012020-1579658269-1657156546-Gogo_medee_cover.jpg"alt="img">
-            <h3>Pocket Expense</h3>
-            <p>
-                <strong>Pocket Expense</strong>Pocket Expense helps you store all your expenses in one place, making it easier to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for quick access.
-              
-            </p>
-            </div>
+      </p>
+    </div>
 
-          
-</section>
+    <div class="content-box" onclick="window.location.href='Pocket_Expense.html'">
+      <img
+        src="https://mgl.gogo.mn/newsn/thumbnail/1000/images/c/2020/01/-22012020-1579658269-1657156546-Gogo_medee_cover.jpg"
+        alt="img">
+      <h3>Pocket Expense</h3>
+      <p>
+        <strong>Pocket Expense</strong>Pocket Expense helps you store all your expenses in one place, making it easier
+        to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for
+        quick access.
 
-<div class="marquee-wrapper">
-<div class="marquee-content">
-  <!-- First Div -->
-  <div class="marquee-item">
-   
+      </p>
+    </div>
+
+
+  </section>
+
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <!-- First Div -->
+      <div class="marquee-item">
+
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
         <div class="badge-title">Python</div>
         <div class="badge-stats">Projects: <span>10</span></div>
         <div class="badge-progress">
-            <div class="progress-bar" style="width: 80%;"></div>
+          <div class="progress-bar" style="width: 80%;"></div>
         </div>
-   
-  </div>
 
-  <!-- Second Div -->
-  <div class="marquee-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
-            <div class="badge-title">JavaScript</div>
-            <div class="badge-stats">Projects: <span>15</span></div>
-            <div class="badge-progress">
-                <div class="progress-bar" style="width: 65%;"></div>
-            </div>
-  </div>
+      </div>
 
-  <!-- Third Div -->
-  <div class="marquee-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
-            <div class="badge-title">HTML & CSS</div>
-            <div class="badge-stats">Projects: <span>20</span></div>
-            <div class="badge-progress">
-                <div class="progress-bar" style="width: 90%;"></div>
-            </div>
-  </div>
+      <!-- Second Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
+        <div class="badge-title">JavaScript</div>
+        <div class="badge-stats">Projects: <span>15</span></div>
+        <div class="badge-progress">
+          <div class="progress-bar" style="width: 65%;"></div>
+        </div>
+      </div>
 
-  <!-- Fourth Div -->
-  <div class="marquee-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo">
-            <div class="badge-title">C++</div>
-            <div class="badge-stats">Projects: <span>8</span></div>
-            <div class="badge-progress">
-                <div class="progress-bar" style="width: 50%;"></div>
-            </div>
+      <!-- Third Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
+        <div class="badge-title">HTML & CSS</div>
+        <div class="badge-stats">Projects: <span>20</span></div>
+        <div class="badge-progress">
+          <div class="progress-bar" style="width: 90%;"></div>
+        </div>
+      </div>
+
+      <!-- Fourth Div -->
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo">
+        <div class="badge-title">C++</div>
+        <div class="badge-stats">Projects: <span>8</span></div>
+        <div class="badge-progress">
+          <div class="progress-bar" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby Logo">
+        <div class="badge-title">Ruby</div>
+        <div class="badge-stats">Projects: <span>8</span></div>
+        <div class="badge-progress">
+          <div class="progress-bar" style="width: 90%;"></div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div class="marquee-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby Logo">
-    <div class="badge-title">Ruby</div>
-            <div class="badge-stats">Projects: <span>8</span></div>
-            <div class="badge-progress">
-                <div class="progress-bar" style="width: 90%;"></div>
-            </div>
- 
-  </div>
-</div>
-</div>
-<!-- Empower Section Start -->
-<section class="empower-section">
+  <!-- Empower Section Start -->
+  <section class="empower-section">
     <div class="empower-content">
       <h2>Empowering Aspiring Developers to Build Their Future in Tech!</h2>
-  
+
       <div class="stats">
         <div class="stat-block">
           <h3>6 months</h3>
@@ -1299,9 +1506,9 @@ img{
           <p>Total YouTube Views</p>
         </div>
       </div>
-  
+
       <h4 class="companies-title">Helped students achieve their dream job at</h4>
-  
+
       <div class="company-grid">
         <div class="company-card amazon">Amazon</div>
         <div class="company-card google">Google</div>
@@ -1317,7 +1524,7 @@ img{
         <div class="company-card deloitte">Deloitte</div>
         <div class="company-card more">+ many more</div>
       </div>
-      
+
     </div>
   </section>
   <!-- Empower Section End -->
@@ -1325,172 +1532,112 @@ img{
 
 
 
-<footer>
-<div class="footer-container">
+  <footer>
+    <div class="footer-container">
 
-    <!-- About Section -->
-    <div class="footer-section">
+      <!-- About Section -->
+      <div class="footer-section">
         <h3>About Us</h3>
-        <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.</p>
+        <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.
+        </p>
         <div class="social-icons">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="https://t.me/CodwithNA" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-linkedin-in"></a>
-            <a href="https://github.com/" class="fab fa-github"></a>
-            <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69" class="fab fa-youtube"></a> 
-            <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a> 
-           
-        </div>
-    </div>
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="https://t.me/CodwithNA" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-linkedin-in"></a>
+          <a href="https://github.com/" class="fab fa-github"></a>
+          <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69" class="fab fa-youtube"></a>
+          <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a>
 
-    <!-- Contact Section -->
-    <div class="footer-section">
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footer-section">
         <h3>Contact Us</h3>
         <p>Email: <a href="mailto:codewithna73@gmail.com">codewithna73@gmail.com</a></p>
         <p>Phone: <a href="tel:+919303546247">9303546247</a></p>
         <p>Address: mp balaghat katangi 481449</p>
-    </div>
+      </div>
 
-    <!-- Quick Links Section -->
-    <div class="footer-section footer-menu">
+      <!-- Quick Links Section -->
+      <div class="footer-section footer-menu">
         <h3>Quick Links</h3>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="About.html">About Us</a></li>
-            <li><a href="explor.html">Blogs</a></li>
-            <li><a href="contect.html">Contact</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="explor.html">Blogs</a></li>
+          <li><a href="contect.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
         </ul>
-    </div>
+      </div>
 
-    <!-- Newsletter Section -->
-    <div class="footer-section newsletter">
+      <!-- Newsletter Section -->
+      <div class="footer-section newsletter">
         <h3>Newsletter</h3>
         <p>Subscribe to our newsletter to get the latest updates directly to your inbox.</p>
         <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
-            <input  type="email" placeholder="Enter your email">
-            <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
-            <button type="submit">Subscribe</button>
+          <input type="email" placeholder="Enter your email">
+          <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+          <button type="submit">Subscribe</button>
         </form>
+      </div>
+
     </div>
 
-</div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="sarch.js"></script>
+  <script src="index_img_text.js"></script>
+  <script>
 
-<div class="footer-bottom">
-    <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
-</div>
-</footer>
-<script src="sarch.js"></script>
-<script src="index_img_text.js"></script>
-<script>
-  
-   
-      //sliding img strt
 
-        const slider = document.querySelector('.slider');
-        const dots = document.querySelectorAll('.dot'); // Dots for slide indicator
-        let currentIndex = 0;
-        const items = document.querySelectorAll('.slider-item');
-        const totalItems = items.length;
+    //sliding img strt
 
-        // Clone the first item and append it to the end of the slider for infinite loop
-        const firstItem = items[0].cloneNode(true);
-        slider.appendChild(firstItem);
+    let currentIndex = 0;
+    const slider = document.getElementById('slider');
+    const sliderItems = document.querySelectorAll('.slider-item');
 
-        // Function to move the slider
-        function moveSlider() {
-            const offset = -currentIndex * 100;
-            slider.style.transform = `translateX(${offset}%)`;
+    const getItemWidth = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 769) {
+        return sliderItems[0].offsetWidth * 3; // 3 items visible
+      } else {
+        return sliderItems[0].offsetWidth; // 1 item visible
+      }
+    };
 
-            // Update active dot
-            updateActiveDot();
-        }
+    function moveSlide(step) {
+      const totalItems = sliderItems.length;
+      const screenWidth = window.innerWidth;
+      const visibleItems = screenWidth >= 769 ? 3 : 1;
+      const maxIndex = Math.ceil(totalItems / visibleItems) - 1;
 
-        // Function to update active dot
-        function updateActiveDot() {
-            // Remove active class from all dots
-            dots.forEach(dot => dot.classList.remove('active-dot'));
+      if ((step === 1 && currentIndex >= maxIndex) || (step === -1 && currentIndex <= 0)) {
+        return; // Don't go beyond first/last
+      }
 
-            // Add active class to the current dot
-            dots[currentIndex].classList.add('active-dot');
-        }
+      currentIndex += step;
 
-        // Handle touch or mouse swipe
-        let startX = 0;
-        let endX = 0;
-        slider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
+      const itemWidth = getItemWidth();
+      slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
 
-        slider.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            if (startX > endX) {
-                // Swipe left (next slide)
-                currentIndex = (currentIndex + 1) % (totalItems + 1);
-                moveSlider();
-            } else if (startX < endX) {
-                // Swipe right (previous slide)
-                currentIndex = (currentIndex - 1 + totalItems + 1) % (totalItems + 1);
-                moveSlider();
-            }
-        });
+    window.addEventListener('resize', () => {
+      const itemWidth = getItemWidth();
+      slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    });
+  </script>
 
-        // Handle mouse drag (for desktop users)
-        let isDragging = false;
-        slider.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX;
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                endX = e.clientX;
-            }
-        });
-
-        slider.addEventListener('mouseup', () => {
-            if (isDragging) {
-                if (startX > endX) {
-                    // Drag left (next slide)
-                    currentIndex = (currentIndex + 1) % (totalItems + 1);
-                    moveSlider();
-                } else if (startX < endX) {
-                    // Drag right (previous slide)
-                    currentIndex = (currentIndex - 1 + totalItems + 1) % (totalItems + 1);
-                    moveSlider();
-                }
-                isDragging = false;
-            }
-        });
-
-        // Automatic Slider without reversing
-        function autoSlide() {
-            currentIndex = (currentIndex + 1) % (totalItems + 1);
-            moveSlider();
-
-            if (currentIndex === totalItems) {
-                setTimeout(() => {
-                    slider.style.transition = 'none';
-                    slider.style.transform = `translateX(0%)`;
-                    currentIndex = 0;
-                    setTimeout(() => {
-                        slider.style.transition = 'transform 1s ease';
-                    }, 50);
-                }, 1000);
-            }
-        }
-
-        // Set interval for automatic sliding
-        setInterval(autoSlide, 5000); // Slide every 3 seconds
-
-        // Initially update the active dot
-        updateActiveDot();
-
-</script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+    integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
