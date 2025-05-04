@@ -14,482 +14,480 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate Budget Tracker - User Accounts</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="number"], input[type="search"] {
-            width: 100%;
-            max-width: 48%;
-            padding: 12px;
-            font-size: 1.2em;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #007bff;
-            color: white;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .account-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .account-card {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .account-card:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .account-card.selected {
-            border: 3px solid #007bff;
-            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
-        }
-
-        .account-card h3 {
-            margin: 0;
-            color: #333;
-        }
-
-        .account-card .balance {
-            font-size: 1.5em;
-            margin-top: 10px;
-            color: #28a745;
-        }
-
-        .progress-bar {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            height: 20px;
-            margin-top: 10px;
-        }
-
-        .progress-bar .progress {
-            height: 100%;
-            border-radius: 10px;
-        }
-
-        .expense-list {
-            margin-top: 40px;
-            font-size: 1.1em;
-            overflow-x: scroll;
-        }
-
-        .expense-list h3 {
-            margin-bottom: 15px;
-        }
-
-        .expense-item {
-            background-color: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .expense-item span {
-            font-weight: bold;
-        }
-
-        .expense-item small {
-            color: #888;
-        }
-
-        .expense-item .amount {
-            color: #dc3545;
-        }
-
-        .expense-item .description {
-            flex-grow: 1;
-            padding-left: 15px;
-        }
-
-        .expense-item .time {
-            font-size: 0.9em;
-            color: #888;
-        }
-
-        .search-bar {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        input[type="search"] {
-            width: 60%;
-            max-width: 400px;
-            padding: 10px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            border: 2px solid #ddd;
-        }
-
-        .expense-record {
-    display: flex;
-    flex-direction: column;  /* Make all items stack vertically */
-}
-
-.action-btns {
-    display: flex;
-    flex-direction: column;  /* Place buttons in a vertical stack */
-    margin-top: 10px;
-}
-
-.action-btns button {
-    margin-bottom: 5px; /* Add some space between buttons */
-}
-
-
+    <title>Smart Budget Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .summary p {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    .delete-btn, .update-btn {
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+    .delete-btn {
+      background: red;
+    }
+    .update-btn {
+      background: #007BFF;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+     
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+     
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    #pdfBtn {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 12px;
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #budgetLabel {
+      font-size: 18px;
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+    #userIcon {
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 50%;
+      padding: 10px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+    #userMenu {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    #userMenu p {
+      margin: 0 0 10px;
+      font-weight: bold;
+    }
+    #userMenu button {
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+    .tb{
+      height: 50vh;
+      overflow-y: scroll;
       
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .input-group input,
-            .action-btns button {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+    }
+    
+    /* Mobile Layout for small screens */
+@media (max-width: 480px) {
+  #userIcon {
+    top: 20px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
 
-            .search-bar input {
-                width: 80%;
-            }
-        }
+  #userMenu {
+    top: 50px;
+    right: 10px;
+    width: 160px;
+    font-size: 13px;
+    padding: 8px;
+  }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
+  #userMenu button {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
 
-            .container {
-                padding: 20px;
-            }
+/* Mobile Layout for larger phones */
+@media (max-width: 768px) {
+  #userIcon {
+    top: 20px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 
-            .account-card h3 {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+  #userMenu {
+    top: 60px;
+    right: 15px;
+    width: 180px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #userMenu button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* For large mobile screens/tablets */
+@media (max-width: 1024px) {
+  #userIcon {
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  #userMenu {
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  #userMenu button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+  </style>
+</head>
+
 </head>
 <body>
      <!--sin in-->
      <script src="sin.js"></script>
 
-    <div class="container">
-        <h1> Budget Tracker </h1>
-    
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="search" id="searchAccount" placeholder="Search Accounts" oninput="filterAccounts()">
+     <div class="container" id="content">
+        <h1>Budget Management System</h1>
+      
+        <div class="form-group" id="emailSection">
+          <label>Enter Your Email:</label>
+          <input type="email" id="userEmail" placeholder="Enter your email">
         </div>
-    
-        <!-- Budget and Account Creation Form -->
-        <div class="input-group">
-            <input type="text" id="accountName" placeholder="Account Name" />
-            <input type="number" id="initialBudget" placeholder="Set Initial Budget (₹)" />
+      
+        <div class="form-group">
+          <label>Enter Your Budget:</label>
+          <input type="number" id="budgetInput" placeholder="Enter total budget (₹)">
+          <button onclick="setBudget()">Set Budget</button>
+          <button onclick="deleteBudget()">Delete Budget</button>
+          <p id="budgetLabel"></p>
+          <p id="setDate"></p>
         </div>
-        <button onclick="createAccount()">Create Account</button>
-    
-        <!-- Account List -->
-        <div class="account-list" id="accountList">
-            <h3>Accounts</h3>
+      
+        <hr>
+      
+        <h3>Add Transaction</h3>
+        <div class="form-group">
+          <input type="text" id="description" placeholder="Description (e.g., Rent, Food)">
+          <input type="number" id="amount" placeholder="Amount (₹)">
+          <button onclick="addTransaction()">Add</button>
         </div>
-    
-        <!-- Expense List -->
-        <div class="expense-list" id="expenseList">
-            <h3>Expense Records</h3>
+        <div class="tb">
+      
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Description</th>
+              <th>Amount (₹)</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable"></tbody>
+        </table>
+      </div>
+        <div class="summary">
+          <p id="budgetLine">Total Budget: ₹<span id="budgetValue">0.00</span></p>
+          <p id="expenseLine">Total Expenses: ₹<span id="totalDebit">0.00</span></p>
+          <p id="balanceLine">Remaining Balance: ₹<span id="balance">0.00</span></p>
         </div>
+     
+        <button id="pdfBtn" onclick="downloadPDF()">Download PDF</button>
+        <button onclick="deleteAllTransactions()">Delete All Transactions</button>
+      </div>
+      
+      <!-- User Icon and Menu -->
+      <div id="userIcon" onclick="toggleUserMenu()" style="display: none;">
+        <span id="userInitial"></span>
+      </div>
+      <div id="userMenu">
+        <p id="userEmailDisplay"></p>
+        <button onclick="logout()">Logout</button>
+      </div>
+      
+      <!-- jsPDF -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+      
+      <script>
+        let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+        let budgetAmount = parseFloat(localStorage.getItem("budgetAmount")) || 0;
+        let userEmail = localStorage.getItem("userEmail");
+        let budgetSetDate = localStorage.getItem("budgetSetDate");
+      
+        document.addEventListener("DOMContentLoaded", () => {
+          if (userEmail) {
+            document.getElementById("emailSection").style.display = "none";
+            showUserIcon(userEmail);
+          }
+          document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
+          document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
+          document.getElementById("setDate").innerText = budgetSetDate ? `Budget set on: ${budgetSetDate}` : '';
+          updateTable();
+          updateSummary();
+        });
+      
+        function setBudget() {
+          const input = document.getElementById("budgetInput").value;
+          const emailInput = document.getElementById("userEmail").value;
+      
+          if (!userEmail && !emailInput) {
+            alert("Please enter your email.");
+            return;
+          }
+      
+          if (!input || input <= 0) {
+            alert("Please enter a valid budget.");
+            return;
+          }
+      
+          if (!userEmail) {
+            userEmail = emailInput;
+            localStorage.setItem("userEmail", userEmail);
+            showUserIcon(userEmail);
+            document.getElementById("emailSection").style.display = "none";
+          }
+      
+          budgetAmount = parseFloat(input);
+          localStorage.setItem("budgetAmount", budgetAmount);
+          budgetSetDate = new Date().toLocaleDateString();
+          localStorage.setItem("budgetSetDate", budgetSetDate);
+          document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
+          document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
+          document.getElementById("setDate").innerText = `Budget set on: ${budgetSetDate}`;
+          updateSummary();
+          sendEmail(`Budget set to ₹${budgetAmount.toFixed(2)} on ${budgetSetDate}`);
+        }
+      
+        function deleteBudget() {
+          localStorage.removeItem("budgetAmount");
+          localStorage.removeItem("budgetSetDate");
+          budgetAmount = 0;
+          budgetSetDate = null;
+          document.getElementById("budgetLabel").innerText = "Your Budget: ₹0.00";
+          document.getElementById("budgetValue").innerText = "0.00";
+          document.getElementById("setDate").innerText = '';
+          updateSummary();
+          sendEmail(`Budget has been deleted.`);
+        }
+      
+        function showUserIcon(email) {
+          const initial = email.charAt(0).toUpperCase();
+          document.getElementById("userInitial").innerText = initial;
+          document.getElementById("userEmailDisplay").innerText = email;
+          document.getElementById("userIcon").style.display = "flex";
+        }
+      
+        function toggleUserMenu() {
+          const menu = document.getElementById("userMenu");
+          menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+      
+        function logout() {
+          localStorage.clear();
+          location.reload();
+        }
+      
+        function addTransaction() {
+        const desc = document.getElementById("description").value;
+        const amt = parseFloat(document.getElementById("amount").value);
     
-        <!-- Expense Input -->
-        <div class="input-group">
-            <input type="number" id="expenseAmount" placeholder="Add Expense (₹)" />
-            <input type="text" id="expenseDescription" placeholder="Expense Description" />
-        </div>
-        <button onclick="addExpense()">Add Expense</button>
-
-    </div>
-    <script>
-        let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
-        let selectedAccountIndex = -1;
-    
-        // Create Account Function
-        function createAccount() {
-            let accountName = document.getElementById('accountName').value;
-            let initialBudget = parseFloat(document.getElementById('initialBudget').value);
-    
-            if (accountName && initialBudget) {
-                let account = {
-                    name: accountName,
-                    budget: initialBudget,
-                    expenses: []
-                };
-                accounts.push(account);
-                updateLocalStorage();
-                renderAccountList();
-                document.getElementById('accountName').value = '';
-                document.getElementById('initialBudget').value = '';
-            } else {
-                alert("Please enter valid account name and initial budget.");
-            }
+        if (!desc || !amt || amt <= 0 || !userEmail) {
+            alert("Please fill all transaction details including email.");
+            return;
         }
     
-        // Render Account List with Improvements
-        function renderAccountList() {
-            let accountList = document.getElementById('accountList');
-            accountList.innerHTML = '';
-            accounts.forEach((account, index) => {
-                let totalExpenses = getTotalExpenses(account);
-                let remainingBudget = account.budget - totalExpenses;
+        const date = new Date().toLocaleDateString();
+        transactions.push({ desc, amt, date });
+        localStorage.setItem("transactions", JSON.stringify(transactions));
+        updateTable();
+        updateSummary();
+        clearInputs();
     
-                // Calculate progress as a percentage, avoiding invalid or negative values
-                let progress = account.budget > 0 ? Math.max(0, (remainingBudget / account.budget) * 100) : 0;
+        // Calculate the total expenses and remaining balance
+        const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+        const balance = budgetAmount - totalDebit;
     
-                // Calculate spent amount to show on hover
-                let spentAmount = totalExpenses.toFixed(2);
+        sendEmail(`Added transaction: ₹${amt.toFixed(2)} for "${desc}" on ${date}
+        
+        Total Budget: ₹${budgetAmount.toFixed(2)}
+        Total Expenses: ₹${totalDebit.toFixed(2)}
+        Remaining Balance: ₹${balance.toFixed(2)}`);
+    }
     
-                let accountCard = document.createElement('div');
-                accountCard.className = 'account-card';
-                accountCard.innerHTML = `
-                    <h3>${account.name}</h3>
-                    <div class="balance">Budget: ₹${account.budget}</div>
-                    <div class="progress-bar" title="Spent: ₹${spentAmount} / Total: ₹${account.budget}">
-                        <div class="progress" style="width: ${progress}%; background: ${getProgressBarColor(progress)}; transition: width 0.5s;"></div>
-                    </div>
-                    <div class="action-btns">
-                        <button onclick="deleteAccount(${index})">Delete</button>
-                        <button onclick="updateAccount(${index})">Update</button>
-                    </div>
-                `;
-                accountCard.onclick = () => selectAccount(index);
-                accountList.appendChild(accountCard);
-            });
+      
+        function clearInputs() {
+          document.getElementById("description").value = '';
+          document.getElementById("amount").value = '';
         }
-    
-        // Function to get color based on progress percentage
-        function getProgressBarColor(progress) {
-            if (progress >= 50) {
-                return `linear-gradient(90deg, #28a745, #85e085)`; // Green gradient for >50%
-            } else if (progress > 0) {
-                return `linear-gradient(90deg, #ffc107, #ffe680)`; // Yellow gradient for 1% - 50%
-            } else {
-                return `linear-gradient(90deg, #dc3545, #f08080)`; // Red gradient for 0%
-            }
+      
+        function deleteTransaction(index) {
+          const txn = transactions[index];
+          transactions.splice(index, 1);
+          localStorage.setItem("transactions", JSON.stringify(transactions));
+          updateTable();
+          updateSummary();
+          sendEmail(`Deleted transaction: ₹${txn.amt.toFixed(2)} for "${txn.desc}" on ${txn.date}`);
         }
-    
-        // Auto-refresh mechanism to update the progress bar whenever there's a change
-        setInterval(function() {
-            renderAccountList(); // Automatically refreshes every 5 seconds
-        }, 5000); // Refresh every 5 seconds
-    
-        // Function to update the progress bar immediately when there's a change
-        function updateProgressOnChange() {
-            renderAccountList(); // Call this function every time an account is added, updated, or deleted
+      
+        function deleteAllTransactions() {
+          if (confirm("Are you sure you want to delete all transactions?")) {
+            transactions = [];
+            localStorage.setItem("transactions", JSON.stringify(transactions));
+            updateTable();
+            updateSummary();
+            sendEmail(`All transactions have been deleted.`);
+          }
         }
-    
-        // Dummy function for getting total expenses (Replace with actual implementation)
-        function getTotalExpenses(account) {
-            // Placeholder logic for calculating total expenses
-            return account.expenses.reduce((total, expense) => total + expense.amount, 0);
-        }
-    
-        // Example: Add expense and immediately update the progress bar
-        function addExpenseToAccount(accountIndex, expenseAmount) {
-            accounts[accountIndex].expenses.push({ amount: expenseAmount });
-            updateProgressOnChange(); // Update the progress bar after adding an expense
-        }
-    
-        // Example: Delete expense and immediately update the progress bar
-        function deleteAccount(accountIndex) {
-            accounts.splice(accountIndex, 1);
-            updateProgressOnChange(); // Update the progress bar after deleting an account
-        }
-    
-        // Example: Update expense and immediately update the progress bar
-        function updateAccount(accountIndex, newExpenseAmount) {
-            accounts[accountIndex].expenses[0].amount = newExpenseAmount; // Example for updating the first expense
-            updateProgressOnChange(); // Update the progress bar after updating an account
-        }
-    
-        // Select Account and Show Details
-        function selectAccount(index) {
-            selectedAccountIndex = index;
-            let account = accounts[selectedAccountIndex];
-            let expenseList = document.getElementById('expenseList');
-            expenseList.innerHTML = `<h3>Expense Records for ${account.name}</h3>`;
-    
-            account.expenses.forEach((expense, expIndex) => {
-                let expenseItem = document.createElement('div');
-                expenseItem.className = 'expense-item';
-                expenseItem.innerHTML = `
-                    <span class="amount">₹${expense.amount}</span>
-                    <span class="description">${expense.description}</span>
-                    <span class="time">${expense.time}</span>
-                    <div class="action-btns">
-                        <button onclick="deleteExpense(${index}, ${expIndex})">Delete</button>
-                        <button onclick="updateExpense(${index}, ${expIndex})">Update</button>
-                    </div>
-                `;
-                expenseList.appendChild(expenseItem);
-            });
-    
-            let totalExpenses = getTotalExpenses(account);
-            let balance = account.budget - totalExpenses;
-            let balanceColor = balance >= 0 ? '#28a745' : '#dc3545';
-    
-            expenseList.innerHTML += `
-                <div class="balance" style="color: ${balanceColor};">
-                    Total Expenses: ₹${totalExpenses}<br>Remaining: ₹${balance}
-                </div>
+      
+        function updateTable() {
+          const tbody = document.getElementById("transactionTable");
+          tbody.innerHTML = "";
+          transactions.forEach((txn, index) => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${index + 1}</td>
+                <td>${txn.desc}</td>
+                <td>₹${txn.amt.toFixed(2)}</td>
+                <td>${txn.date}</td>
+                <td><button class="delete-btn" onclick="deleteTransaction(${index})">Delete</button></td>
+              </tr>
             `;
+          });
         }
-    
-        // Add Expense Function
-        function addExpense() {
-            if (selectedAccountIndex !== -1) {
-                let expenseAmount = parseFloat(document.getElementById('expenseAmount').value);
-                let expenseDescription = document.getElementById('expenseDescription').value;
-    
-                if (expenseAmount && expenseDescription) {
-                    let expense = {
-                        amount: expenseAmount,
-                        description: expenseDescription,
-                        time: new Date().toLocaleString()
-                    };
-    
-                    accounts[selectedAccountIndex].expenses.push(expense);
-                    updateLocalStorage();
-                    selectAccount(selectedAccountIndex);
-    
-                    document.getElementById('expenseAmount').value = '';
-                    document.getElementById('expenseDescription').value = '';
-                } else {
-                    alert("Please enter valid expense amount and description.");
-                }
-            } else {
-                alert("Please select an account first.");
-            }
+      
+        function updateSummary() {
+          const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+          const balance = budgetAmount - totalDebit;
+      
+          document.getElementById("totalDebit").innerText = totalDebit.toFixed(2);
+          document.getElementById("balance").innerText = balance.toFixed(2);
+      
+          // Alert if balance is less than 35% of budget
+          const threshold = budgetAmount * 0.25;
+          const budgetLine = document.getElementById("budgetLine");
+          const expenseLine = document.getElementById("expenseLine");
+          const balanceLine = document.getElementById("balanceLine");
+      
+          if (balance < threshold) {
+            budgetLine.style.color = "red";
+            expenseLine.style.color = "red";
+            balanceLine.style.color = "red";
+      
+            sendEmail(`Alert: Remaining balance:⚠️ Alert: Remaining balance ₹${balance.toFixed(2)} is less than 35% of your budget ₹${budgetAmount.toFixed(2)}.`);
+          } else {
+            budgetLine.style.color = "black";
+            expenseLine.style.color = "black";
+            balanceLine.style.color = "black";
+          }
         }
-    
-        // Delete Expense Function
-        function deleteExpense(accountIndex, expenseIndex) {
-            accounts[accountIndex].expenses.splice(expenseIndex, 1);
-            updateLocalStorage();
-            selectAccount(accountIndex);
+      
+        async function sendEmail(message) {
+          if (!userEmail) return;
+      
+          const formData = new FormData();
+          formData.append("email", userEmail);
+          formData.append("message", message);
+      
+          await fetch("https://formsubmit.co/ajax/" + userEmail, {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: formData
+          });
         }
-    
-        // Delete Account Function
-        function deleteAccount(accountIndex) {
-            accounts.splice(accountIndex, 1);
-            updateLocalStorage();
-            renderAccountList();
+      
+        function downloadPDF() {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+          doc.text("Budget Summary", 14, 10);
+          doc.autoTable({
+            head: [['No', 'Description', 'Amount', 'Date']],
+            body: transactions.map((t, index) => [index + 1, t.desc, `${t.amt.toFixed(2)}`, t.date])
+          });
+          doc.text(`Total Budget: ${budgetAmount.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 10);
+          const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+          const balance = budgetAmount - totalDebit;
+          doc.text(`Total Expenses: ${totalDebit.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 20);
+          doc.text(`Remaining Balance: ${balance.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 30);
+          doc.save("budget_summary.pdf");
+      
+          sendEmail(`Downloaded PDF Summary:
+          Total Budget: ₹${budgetAmount.toFixed(2)}
+          Total Expenses: ₹${totalDebit.toFixed(2)}
+          Remaining Balance: ₹${balance.toFixed(2)}`);
         }
-    
-        // Update Account Function
-        function updateAccount(accountIndex) {
-            let newBudget = prompt("Enter new budget:", accounts[accountIndex].budget);
-            if (newBudget !== null && !isNaN(newBudget)) {
-                accounts[accountIndex].budget = parseFloat(newBudget);
-                updateLocalStorage();
-                renderAccountList();
-            }
-        }
-    
-        // Update Expense Function
-        function updateExpense(accountIndex, expenseIndex) {
-            let newAmount = prompt("Enter new expense amount:", accounts[accountIndex].expenses[expenseIndex].amount);
-            let newDescription = prompt("Enter new expense description:", accounts[accountIndex].expenses[expenseIndex].description);
-    
-            if (newAmount !== null && !isNaN(newAmount) && newDescription !== null) {
-                accounts[accountIndex].expenses[expenseIndex].amount = parseFloat(newAmount);
-                accounts[accountIndex].expenses[expenseIndex].description = newDescription;
-                updateLocalStorage();
-                selectAccount(accountIndex);
-            }
-        }
-    
-        // Update Local Storage
-        function updateLocalStorage() {
-            localStorage.setItem('accounts', JSON.stringify(accounts));
-        }
-    
-        // Filter Accounts by Search
-        function filterAccounts() {
-            let searchValue = document.getElementById('searchAccount').value.toLowerCase();
-            let accountList = document.getElementById('accountList');
-            let filteredAccounts = accounts.filter(account => account.name.toLowerCase().includes(searchValue));
-            accountList.innerHTML = '';
-            filteredAccounts.forEach((account, index) => {
-                let accountCard = document.createElement('div');
-                accountCard.className = 'account-card';
-                accountCard.innerHTML = `
-                    <h3>${account.name}</h3>
-                    <div class="balance">Budget: ₹${account.budget}</div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: ${(Math.max(0, (account.budget - getTotalExpenses(account)) / account.budget * 100))}%"></div>
-                    </div>
-                    <div class="action-btns">
-                        <button onclick="deleteAccount(${index})">Delete</button>
-                        <button onclick="updateAccount(${index})">Update</button>
-                    </div>
-                `;
-                accountCard.onclick = () => selectAccount(accounts.indexOf(account));
-                accountList.appendChild(accountCard);
-            });
-        }
-    
-        // Initial Render
-        renderAccountList();
-    </script>
-    
-</body>
-</html>
+      </script>
+      
+      </body>
+      
