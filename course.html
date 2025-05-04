@@ -230,20 +230,6 @@
   </style>
 </head>
 <body>
-<<<<<<< HEAD
-     <!-- Loader Wrapper strat -->
- <link rel="stylesheet" href="loder.css">
- <script src="loder.js"></script>
- <div id="load-screen">
-    <div class="circle-animation"></div>
-    <div class="loading-text">primeprojects...</div>
-  </div>
-<!-- Loader Wrapper and -->
-  <!--sin in-->
-  <script src="sin.js"></script>
-      
-  
-=======
     <!-- Loader Wrapper strat -->
 <link rel="stylesheet" href="loder.css">
 <script src="loder.js"></script>
@@ -255,7 +241,6 @@
 <!--sin in-->
 <script src="sin.js"></script>
 
->>>>>>> d8fed08 (corses file update)
 <!-- Header -->
 <div class="header">
   <h1>Coding All Courses</h1>
@@ -341,8 +326,8 @@
   </div>
   <div class="card">
     <i class="fab fa-js-square"></i>
-    <h2>08 JS Object P,M,D,C</h2>
-    <p>JavaScript Object Properties,Object Methods,Object Display ,Object Constructors.</p>
+    <h2>JS-obj-P-M-D-C-08</h2>
+    <p>JavaScript Object Properties, Methods,Display, Constructors</p>
     <div>
       <button onclick="window.location.href='https://drive.google.com/file/d/1QjPIqwJlTJYDuYsuHu1U2MqzRoL1TBpt/view?usp=drive_link'" class="btn">Downlode</button>
     </div>
@@ -373,131 +358,6 @@
        
       </ul>
     </div>
-<<<<<<< HEAD
-  </footer>
- 
-<script>
-    const courses = [
-        {
-            title: "01 JS Introduction",
-            description: "JavaScript is a lightweight, interpreted, and object-oriented programming language.",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1w3UhSgoclsyS16Fr5wd8Q_7q5Yya13Fh/view?usp=sharing",
-        },
-        {
-            title: "02 JS syntax",
-            description: "JavaScript syntax refers to the set of rules that define how JavaScript code is structured and written.",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/13x0gbchkl3I66GWKEG0GOV3qHpcXUQOF/view?usp=sharing",
-        },
-        {
-            title: "03 JS to declare variables ",
-            description: "In JavaScript, variables are declared using var, let, or const.",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1Dsbe0M5Z1X0SeGqUlhN3oBlRLE1m9bb7/view?usp=sharing",
-        },
-        {
-            title: "04 JavaScript operators ",
-            description: "JavaScript operators are symbols used to perform operations on variables and values. ",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1Y5xRuSNq50EFnJpb2d3GX2C6UJmk1MK2/view?usp=sharing",
-        },
-       
-        {
-            title: "05 JS Data Types",
-            description: "A Data Type defines the type of data that a variable can hold. ",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1y6PWugxchgnEZt7V6qObVW8QnFwn1KFO/view?usp=sharing",
-        },
-       
-        {
-            title: "06 js Function",
-            description: "A function in JavaScript is a block of code designed to perform a specific task. ",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1vXi3zYrorIoZIquh97hfnB5fhU3bzee7/view?usp=drive_link",
-        },
-        {
-            title: "07 js Objects",
-            description: "A JavaScript Object is a container that stores data in the form of key-value pairs.",
-            icon: "fab fa-js",
-            url: "https://drive.google.com/file/d/1SVJOfaJQJVkEsPCT3yBAzSmV53Q_onYN/view?usp=sharing",
-        },
-       
-      
-    ];
-   
-
-    function loadCourses() {
-        let grid = document.getElementById('coursesGrid');
-        courses.forEach(course => {
-            let card = document.createElement('div');
-            card.classList.add('card');
-            card.innerHTML = `
-                <i class="${course.icon}"></i>
-                <h2>${course.title}</h2>
-                <p>${course.description}</p>
-                <button class="btn" onclick="downloadFile('${course.url}')">Download</button>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    function downloadFile(courseUrl) {
-    // Show Downloading Message
-    const downloadingMsg = document.createElement('div');
-    downloadingMsg.innerText = "Downloading... Please wait.";
-    downloadingMsg.style.position = 'fixed';
-    downloadingMsg.style.top = '20px';
-    downloadingMsg.style.left = '50%';
-    downloadingMsg.style.transform = 'translateX(-50%)';
-    downloadingMsg.style.background = '#00bcd4';
-    downloadingMsg.style.color = 'white';
-    downloadingMsg.style.padding = '10px 20px';
-    downloadingMsg.style.borderRadius = '30px';
-    downloadingMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-    downloadingMsg.style.fontSize = '16px';
-    downloadingMsg.style.zIndex = '1000';
-    document.body.appendChild(downloadingMsg);
-
-    // Remove message after 3 seconds
-    setTimeout(() => {
-        downloadingMsg.remove();
-    }, 2000);
-
-    // Create a temporary link for download
-    const link = document.createElement('a');
-    link.href = courseUrl;
-    link.download = '';
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-
-    function searchCourses() {
-        let input = document.getElementById('searchInput');
-        let filter = input.value.toUpperCase();
-        let grid = document.getElementById("coursesGrid");
-        let cards = grid.getElementsByClassName('card');
-
-        for (let i = 0; i < cards.length; i++) {
-            let h2 = cards[i].getElementsByTagName("h2")[0];
-            let txtValue = h2.textContent || h2.innerText;
-            cards[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
-        }
-    }
-
-    
-    window.onload = loadCourses;
-
-
-
-  </script>
-  
-
-
-=======
 
     <!-- Social Media Section -->
     <div class="footer-section social">
@@ -531,7 +391,6 @@
     });
   });
 </script>
->>>>>>> d8fed08 (corses file update)
 
 
 </body>
