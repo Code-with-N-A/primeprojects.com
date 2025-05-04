@@ -35,7 +35,6 @@ const pages = [
     {name: "Pocket Expense", url: "Pocket_Expense.html"},
     {name: "Unicode Character", url: "Unicode_Character.html"},
     {name: "Aaj Ka Suvichar Hindi", url: "Suvichar.html"},
-    {name: "Aaj Ka Suvichar English", url: "Suvichar1.html"},
 
 
 
