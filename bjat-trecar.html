@@ -1,79 +1,126 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-6N0JHLBDCE');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Budget Manager</title>
+    gtag('config', 'G-6N0JHLBDCE');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Budget Manager</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f5f5f5;
-      padding: 20px;
+
     }
+
     .container {
       max-width: 900px;
       margin: auto;
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
       text-align: center;
       color: #333;
+      margin-top: 20px;
+
+
     }
-    input, select, button {
+
+    input,
+    select {
       padding: 10px;
       margin: 5px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
-      width: 100%;
+      width: 90%;
+
     }
+
+    button {
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 93%;
+      background-color: #007BFF;
+      color: whitesmoke;
+
+    }
+
     .form-group {
       margin-bottom: 10px;
     }
+
     .summary p {
       margin: 8px 0;
       font-weight: bold;
     }
-    .delete-btn, .update-btn {
+
+    .delete-btn,
+    .update-btn {
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
       border: none;
       color: white;
     }
+
     .delete-btn {
       background: red;
     }
+
     .update-btn {
       background: #007BFF;
     }
+
     table {
       width: 100%;
       margin-top: 20px;
       border-collapse: collapse;
-     
+
     }
-    table, th, td {
+
+    .del {
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    table,
+    th,
+    td {
       border: 1px solid #ccc;
-     
+
     }
-    th, td {
+
+    th,
+    td {
       padding: 10px;
       text-align: center;
     }
+
     #pdfBtn {
       background-color: #2c3e50;
       color: white;
@@ -84,29 +131,33 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     #budgetLabel {
       font-size: 18px;
       margin-top: 10px;
       color: green;
       font-weight: bold;
     }
+
     #userIcon {
       cursor: pointer;
       background-color: #007BFF;
       color: white;
       border-radius: 50%;
       padding: 10px;
-      position: fixed;
+      position: absolute;
       top: 10px;
       right: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 20px;
+      height: 20px;
       font-size: 18px;
     }
+
     #userMenu {
+
       position: absolute;
       top: 60px;
       right: 10px;
@@ -115,13 +166,15 @@
       padding: 10px;
       display: none;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       z-index: 10;
     }
+
     #userMenu p {
       margin: 0 0 10px;
       font-weight: bold;
     }
+
     #userMenu button {
       background-color: red;
       color: white;
@@ -130,290 +183,348 @@
       padding: 8px 16px;
       border-radius: 5px;
     }
-    .tb{
+
+    .tb {
       height: 50vh;
       overflow-y: scroll;
-      
+
     }
-    
+
     /* Mobile Layout for small screens */
-@media (max-width: 480px) {
-  #userIcon {
-    top: 20px;
-    right: 10px;
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
+    @media (max-width: 480px) {
+      #userIcon {
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+      }
 
-  #userMenu {
-    top: 50px;
-    right: 10px;
-    width: 160px;
-    font-size: 13px;
-    padding: 8px;
-  }
+      #userMenu {
+        top: 50px;
+        right: 10px;
+        width: 160px;
+        font-size: 13px;
+        padding: 8px;
+      }
 
-  #userMenu button {
-    font-size: 12px;
-    padding: 6px;
-  }
-}
+      #userMenu button {
+        font-size: 12px;
+        padding: 6px;
+      }
 
-/* Mobile Layout for larger phones */
-@media (max-width: 768px) {
-  #userIcon {
-    top: 20px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 97%;
+        background-color: #007BFF;
+        color: whitesmoke;
 
-  #userMenu {
-    top: 60px;
-    right: 15px;
-    width: 180px;
-    font-size: 14px;
-    padding: 10px;
-  }
+      }
 
-  #userMenu button {
-    font-size: 14px;
-    padding: 8px;
-  }
-}
+      h1 {
+        font-size: 30px;
+        padding: 25px;
+      }
+    }
 
-/* For large mobile screens/tablets */
-@media (max-width: 1024px) {
-  #userIcon {
-    top: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 22px;
-  }
+    /* Mobile Layout for larger phones */
+    @media (max-width: 768px) {
+      #userIcon {
+        top: 5px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
 
-  #userMenu {
-    top: 70px;
-    right: 20px;
-    width: 200px;
-    font-size: 15px;
-    padding: 12px;
-  }
+      #userMenu {
+        top: 60px;
+        right: 15px;
+        width: 180px;
+        font-size: 14px;
+        padding: 10px;
+      }
 
-  #userMenu button {
-    font-size: 15px;
-    padding: 10px;
-  }
-}
+      #userMenu button {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 97%;
+        background-color: #007BFF;
+        color: whitesmoke;
+
+      }
+
+      h1 {
+        font-size: 30px;
+        padding: 25px;
+      }
+    }
+
+    /* For large mobile screens/tablets */
+    @media (max-width: 1024px) {
+      #userIcon {
+        top: 5px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        font-size: 22px;
+      }
+
+      #userMenu {
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      #userMenu button {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 97%;
+        background-color: #007BFF;
+        color: whitesmoke;
+
+      }
+
+      h1 {
+        font-size: 30px;
+        padding: 25px;
+      }
+    }
   </style>
 </head>
 
 </head>
-<body>
-     <!--sin in-->
-     <script src="sin.js"></script>
 
-     <div class="container" id="content">
-        <h1>Budget Management System</h1>
-      
-        <div class="form-group" id="emailSection">
-          <label>Enter Your Email:</label>
-          <input type="email" id="userEmail" placeholder="Enter your email">
-        </div>
-      
-        <div class="form-group">
-          <label>Enter Your Budget:</label>
-          <input type="number" id="budgetInput" placeholder="Enter total budget (₹)">
-          <button onclick="setBudget()">Set Budget</button>
-          <button onclick="deleteBudget()">Delete Budget</button>
-          <p id="budgetLabel"></p>
-          <p id="setDate"></p>
-        </div>
-      
-        <hr>
-      
-        <h3>Add Transaction</h3>
-        <div class="form-group">
-          <input type="text" id="description" placeholder="Description (e.g., Rent, Food)">
-          <input type="number" id="amount" placeholder="Amount (₹)">
-          <button onclick="addTransaction()">Add</button>
-        </div>
-        <div class="tb">
-      
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Description</th>
-              <th>Amount (₹)</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="transactionTable"></tbody>
-        </table>
-      </div>
-        <div class="summary">
-          <p id="budgetLine">Total Budget: ₹<span id="budgetValue">0.00</span></p>
-          <p id="expenseLine">Total Expenses: ₹<span id="totalDebit">0.00</span></p>
-          <p id="balanceLine">Remaining Balance: ₹<span id="balance">0.00</span></p>
-        </div>
-     
-        <button id="pdfBtn" onclick="downloadPDF()">Download PDF</button>
-        <button onclick="deleteAllTransactions()">Delete All Transactions</button>
-      </div>
-      
-      <!-- User Icon and Menu -->
-      <div id="userIcon" onclick="toggleUserMenu()" style="display: none;">
-        <span id="userInitial"></span>
-      </div>
-      <div id="userMenu">
-        <p id="userEmailDisplay"></p>
-        <button onclick="logout()">Logout</button>
-      </div>
-      
-      <!-- jsPDF -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-      
-      <script>
-        let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
-        let budgetAmount = parseFloat(localStorage.getItem("budgetAmount")) || 0;
-        let userEmail = localStorage.getItem("userEmail");
-        let budgetSetDate = localStorage.getItem("budgetSetDate");
-      
-        document.addEventListener("DOMContentLoaded", () => {
-          if (userEmail) {
-            document.getElementById("emailSection").style.display = "none";
-            showUserIcon(userEmail);
-          }
-          document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
-          document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
-          document.getElementById("setDate").innerText = budgetSetDate ? `Budget set on: ${budgetSetDate}` : '';
-          updateTable();
-          updateSummary();
-        });
-      
-        function setBudget() {
-          const input = document.getElementById("budgetInput").value;
-          const emailInput = document.getElementById("userEmail").value;
-      
-          if (!userEmail && !emailInput) {
-            alert("Please enter your email.");
-            return;
-          }
-      
-          if (!input || input <= 0) {
-            alert("Please enter a valid budget.");
-            return;
-          }
-      
-          if (!userEmail) {
-            userEmail = emailInput;
-            localStorage.setItem("userEmail", userEmail);
-            showUserIcon(userEmail);
-            document.getElementById("emailSection").style.display = "none";
-          }
-      
-          budgetAmount = parseFloat(input);
-          localStorage.setItem("budgetAmount", budgetAmount);
-          budgetSetDate = new Date().toLocaleDateString();
-          localStorage.setItem("budgetSetDate", budgetSetDate);
-          document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
-          document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
-          document.getElementById("setDate").innerText = `Budget set on: ${budgetSetDate}`;
-          updateSummary();
-          sendEmail(`Budget set to ₹${budgetAmount.toFixed(2)} on ${budgetSetDate}`);
-        }
-      
-        function deleteBudget() {
-          localStorage.removeItem("budgetAmount");
-          localStorage.removeItem("budgetSetDate");
-          budgetAmount = 0;
-          budgetSetDate = null;
-          document.getElementById("budgetLabel").innerText = "Your Budget: ₹0.00";
-          document.getElementById("budgetValue").innerText = "0.00";
-          document.getElementById("setDate").innerText = '';
-          updateSummary();
-          sendEmail(`Budget has been deleted.`);
-        }
-      
-        function showUserIcon(email) {
-          const initial = email.charAt(0).toUpperCase();
-          document.getElementById("userInitial").innerText = initial;
-          document.getElementById("userEmailDisplay").innerText = email;
-          document.getElementById("userIcon").style.display = "flex";
-        }
-      
-        function toggleUserMenu() {
-          const menu = document.getElementById("userMenu");
-          menu.style.display = (menu.style.display === "block") ? "none" : "block";
-        }
-      
-        function logout() {
-          localStorage.clear();
-          location.reload();
-        }
-      
-        function addTransaction() {
-        const desc = document.getElementById("description").value;
-        const amt = parseFloat(document.getElementById("amount").value);
-    
-        if (!desc || !amt || amt <= 0 || !userEmail) {
-            alert("Please fill all transaction details including email.");
-            return;
-        }
-    
-        const date = new Date().toLocaleDateString();
-        transactions.push({ desc, amt, date });
-        localStorage.setItem("transactions", JSON.stringify(transactions));
-        updateTable();
-        updateSummary();
-        clearInputs();
-    
-        // Calculate the total expenses and remaining balance
-        const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
-        const balance = budgetAmount - totalDebit;
-    
-        sendEmail(`Added transaction: ₹${amt.toFixed(2)} for "${desc}" on ${date}
+<body>
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css" />
+  <script src="loder.js"></script>
+  <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
+  <!-- Loader Wrapper and -->
+  <!--sin in-->
+  <script src="sin.js"></script>
+
+  <div class="container" id="content">
+    <h1>Budget Management System</h1>
+
+    <div class="form-group" id="emailSection">
+      <label>Enter Your Email:</label>
+      <input type="email" id="userEmail" placeholder="Enter your email">
+    </div>
+
+    <div class="form-group">
+      <label>Enter Your Budget:</label>
+      <input type="number" id="budgetInput" placeholder="Enter total budget (₹)">
+      <button onclick="setBudget()">Set Budget</button>
+      <button onclick="deleteBudget()">Delete Budget</button>
+      <p id="budgetLabel"></p>
+      <p id="setDate"></p>
+    </div>
+
+    <hr>
+
+    <h3>Add Transaction</h3>
+    <div class="form-group">
+      <input type="text" id="description" placeholder="Description (e.g., Rent, Food)">
+      <input type="number" id="amount" placeholder="Amount (₹)">
+      <button onclick="addTransaction()">Add</button>
+    </div>
+    <div class="tb">
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Description</th>
+            <th>Amount (₹)</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTable"></tbody>
+      </table>
+    </div>
+    <div class="summary">
+      <p id="budgetLine">Total Budget: ₹<span id="budgetValue">0.00</span></p>
+      <p id="expenseLine">Total Expenses: ₹<span id="totalDebit">0.00</span></p>
+      <p id="balanceLine">Remaining Balance: ₹<span id="balance">0.00</span></p>
+    </div>
+
+    <button id="pdfBtn" onclick="downloadPDF()">Download PDF</button>
+    <button class="del" onclick="deleteAllTransactions()">Delete All Transactions</button>
+  </div>
+
+  <!-- User Icon and Menu -->
+  <div id="userIcon" onclick="toggleUserMenu()" style="display: none;">
+    <span id="userInitial"></span>
+  </div>
+  <div id="userMenu">
+    <p id="userEmailDisplay"></p>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    let budgetAmount = parseFloat(localStorage.getItem("budgetAmount")) || 0;
+    let userEmail = localStorage.getItem("userEmail");
+    let budgetSetDate = localStorage.getItem("budgetSetDate");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (userEmail) {
+        document.getElementById("emailSection").style.display = "none";
+        showUserIcon(userEmail);
+      }
+      document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
+      document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
+      document.getElementById("setDate").innerText = budgetSetDate ? `Budget set on: ${budgetSetDate}` : '';
+      updateTable();
+      updateSummary();
+    });
+
+    function setBudget() {
+      const input = document.getElementById("budgetInput").value;
+      const emailInput = document.getElementById("userEmail").value;
+
+      if (!userEmail && !emailInput) {
+        alert("Please enter your email.");
+        return;
+      }
+
+      if (!input || input <= 0) {
+        alert("Please enter a valid budget.");
+        return;
+      }
+
+      if (!userEmail) {
+        userEmail = emailInput;
+        localStorage.setItem("userEmail", userEmail);
+        showUserIcon(userEmail);
+        document.getElementById("emailSection").style.display = "none";
+      }
+
+      budgetAmount = parseFloat(input);
+      localStorage.setItem("budgetAmount", budgetAmount);
+      budgetSetDate = new Date().toLocaleDateString();
+      localStorage.setItem("budgetSetDate", budgetSetDate);
+      document.getElementById("budgetLabel").innerText = "Your Budget: ₹" + budgetAmount.toFixed(2);
+      document.getElementById("budgetValue").innerText = budgetAmount.toFixed(2);
+      document.getElementById("setDate").innerText = `Budget set on: ${budgetSetDate}`;
+      updateSummary();
+      sendEmail(`Budget set to ₹${budgetAmount.toFixed(2)} on ${budgetSetDate}`);
+    }
+
+    function deleteBudget() {
+      localStorage.removeItem("budgetAmount");
+      localStorage.removeItem("budgetSetDate");
+      budgetAmount = 0;
+      budgetSetDate = null;
+      document.getElementById("budgetLabel").innerText = "Your Budget: ₹0.00";
+      document.getElementById("budgetValue").innerText = "0.00";
+      document.getElementById("setDate").innerText = '';
+      updateSummary();
+      sendEmail(`Budget has been deleted.`);
+    }
+
+    function showUserIcon(email) {
+      const initial = email.charAt(0).toUpperCase();
+      document.getElementById("userInitial").innerText = initial;
+      document.getElementById("userEmailDisplay").innerText = email;
+      document.getElementById("userIcon").style.display = "flex";
+    }
+
+    function toggleUserMenu() {
+      const menu = document.getElementById("userMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    function logout() {
+      localStorage.clear();
+      location.reload();
+    }
+
+    function addTransaction() {
+      const desc = document.getElementById("description").value;
+      const amt = parseFloat(document.getElementById("amount").value);
+
+      if (!desc || !amt || amt <= 0 || !userEmail) {
+        alert("Please fill all transaction details including email.");
+        return;
+      }
+
+      const date = new Date().toLocaleDateString();
+      transactions.push({ desc, amt, date });
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+      updateTable();
+      updateSummary();
+      clearInputs();
+
+      // Calculate the total expenses and remaining balance
+      const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+      const balance = budgetAmount - totalDebit;
+
+      sendEmail(`Added transaction: ₹${amt.toFixed(2)} for "${desc}" on ${date}
         
         Total Budget: ₹${budgetAmount.toFixed(2)}
         Total Expenses: ₹${totalDebit.toFixed(2)}
         Remaining Balance: ₹${balance.toFixed(2)}`);
     }
-    
-      
-        function clearInputs() {
-          document.getElementById("description").value = '';
-          document.getElementById("amount").value = '';
-        }
-      
-        function deleteTransaction(index) {
-          const txn = transactions[index];
-          transactions.splice(index, 1);
-          localStorage.setItem("transactions", JSON.stringify(transactions));
-          updateTable();
-          updateSummary();
-          sendEmail(`Deleted transaction: ₹${txn.amt.toFixed(2)} for "${txn.desc}" on ${txn.date}`);
-        }
-      
-        function deleteAllTransactions() {
-          if (confirm("Are you sure you want to delete all transactions?")) {
-            transactions = [];
-            localStorage.setItem("transactions", JSON.stringify(transactions));
-            updateTable();
-            updateSummary();
-            sendEmail(`All transactions have been deleted.`);
-          }
-        }
-      
-        function updateTable() {
-          const tbody = document.getElementById("transactionTable");
-          tbody.innerHTML = "";
-          transactions.forEach((txn, index) => {
-            tbody.innerHTML += `
+
+
+    function clearInputs() {
+      document.getElementById("description").value = '';
+      document.getElementById("amount").value = '';
+    }
+
+    function deleteTransaction(index) {
+      const txn = transactions[index];
+      transactions.splice(index, 1);
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+      updateTable();
+      updateSummary();
+      sendEmail(`Deleted transaction: ₹${txn.amt.toFixed(2)} for "${txn.desc}" on ${txn.date}`);
+    }
+
+    function deleteAllTransactions() {
+      if (confirm("Are you sure you want to delete all transactions?")) {
+        transactions = [];
+        localStorage.setItem("transactions", JSON.stringify(transactions));
+        updateTable();
+        updateSummary();
+        sendEmail(`All transactions have been deleted.`);
+      }
+    }
+
+    function updateTable() {
+      const tbody = document.getElementById("transactionTable");
+      tbody.innerHTML = "";
+      transactions.forEach((txn, index) => {
+        tbody.innerHTML += `
               <tr>
                 <td>${index + 1}</td>
                 <td>${txn.desc}</td>
@@ -422,72 +533,71 @@
                 <td><button class="delete-btn" onclick="deleteTransaction(${index})">Delete</button></td>
               </tr>
             `;
-          });
-        }
-      
-        function updateSummary() {
-          const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
-          const balance = budgetAmount - totalDebit;
-      
-          document.getElementById("totalDebit").innerText = totalDebit.toFixed(2);
-          document.getElementById("balance").innerText = balance.toFixed(2);
-      
-          // Alert if balance is less than 35% of budget
-          const threshold = budgetAmount * 0.25;
-          const budgetLine = document.getElementById("budgetLine");
-          const expenseLine = document.getElementById("expenseLine");
-          const balanceLine = document.getElementById("balanceLine");
-      
-          if (balance < threshold) {
-            budgetLine.style.color = "red";
-            expenseLine.style.color = "red";
-            balanceLine.style.color = "red";
-      
-            sendEmail(`Alert: Remaining balance:⚠️ Alert: Remaining balance ₹${balance.toFixed(2)} is less than 35% of your budget ₹${budgetAmount.toFixed(2)}.`);
-          } else {
-            budgetLine.style.color = "black";
-            expenseLine.style.color = "black";
-            balanceLine.style.color = "black";
-          }
-        }
-      
-        async function sendEmail(message) {
-          if (!userEmail) return;
-      
-          const formData = new FormData();
-          formData.append("email", userEmail);
-          formData.append("message", message);
-      
-          await fetch("https://formsubmit.co/ajax/" + userEmail, {
-            method: "POST",
-            headers: {
-              'Accept': 'application/json'
-            },
-            body: formData
-          });
-        }
-      
-        function downloadPDF() {
-          const { jsPDF } = window.jspdf;
-          const doc = new jsPDF();
-          doc.text("Budget Summary", 14, 10);
-          doc.autoTable({
-            head: [['No', 'Description', 'Amount', 'Date']],
-            body: transactions.map((t, index) => [index + 1, t.desc, `${t.amt.toFixed(2)}`, t.date])
-          });
-          doc.text(`Total Budget: ${budgetAmount.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 10);
-          const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
-          const balance = budgetAmount - totalDebit;
-          doc.text(`Total Expenses: ${totalDebit.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 20);
-          doc.text(`Remaining Balance: ${balance.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 30);
-          doc.save("budget_summary.pdf");
-      
-          sendEmail(`Downloaded PDF Summary:
+      });
+    }
+
+    function updateSummary() {
+      const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+      const balance = budgetAmount - totalDebit;
+
+      document.getElementById("totalDebit").innerText = totalDebit.toFixed(2);
+      document.getElementById("balance").innerText = balance.toFixed(2);
+
+      // Alert if balance is less than 35% of budget
+      const threshold = budgetAmount * 0.25;
+      const budgetLine = document.getElementById("budgetLine");
+      const expenseLine = document.getElementById("expenseLine");
+      const balanceLine = document.getElementById("balanceLine");
+
+      if (balance < threshold) {
+        budgetLine.style.color = "red";
+        expenseLine.style.color = "red";
+        balanceLine.style.color = "red";
+
+        sendEmail(`Alert: Remaining balance:⚠️ Alert: Remaining balance ₹${balance.toFixed(2)} is less than 35% of your budget ₹${budgetAmount.toFixed(2)}.`);
+      } else {
+        budgetLine.style.color = "black";
+        expenseLine.style.color = "black";
+        balanceLine.style.color = "black";
+      }
+    }
+
+    async function sendEmail(message) {
+      if (!userEmail) return;
+
+      const formData = new FormData();
+      formData.append("email", userEmail);
+      formData.append("message", message);
+
+      await fetch("https://formsubmit.co/ajax/" + userEmail, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+    }
+
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text("Budget Summary", 14, 10);
+      doc.autoTable({
+        head: [['No', 'Description', 'Amount', 'Date']],
+        body: transactions.map((t, index) => [index + 1, t.desc, `${t.amt.toFixed(2)}`, t.date])
+      });
+      doc.text(`Total Budget: ${budgetAmount.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 10);
+      const totalDebit = transactions.reduce((sum, t) => sum + t.amt, 0);
+      const balance = budgetAmount - totalDebit;
+      doc.text(`Total Expenses: ${totalDebit.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 20);
+      doc.text(`Remaining Balance: ${balance.toFixed(2)}`, 14, doc.autoTable.previous.finalY + 30);
+      doc.save("budget_summary.pdf");
+
+      sendEmail(`Downloaded PDF Summary:
           Total Budget: ₹${budgetAmount.toFixed(2)}
           Total Expenses: ₹${totalDebit.toFixed(2)}
           Remaining Balance: ₹${balance.toFixed(2)}`);
-        }
-      </script>
-      
-      </body>
-      
+    }
+  </script>
+
+</body>
