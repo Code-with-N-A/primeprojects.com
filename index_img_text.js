@@ -3,7 +3,18 @@ const texts = [
     "Build your billing system.",
     "Manage daily tasks easily.",
     "full stack web development.",
-    "Automate your routines."
+    "Learn by doing real projects.",
+    "Master coding with practical projects.",
+    "Track your personal finances effectively.",
+    "Easily manage product feedback.",
+    "Effortlessly organize and manage tasks.",
+    "Manage tasks and deadlines efficiently.",
+    "Get inspired with a daily thought.",
+    "Track and manage your expenses smartly.",
+    "Keep your financial records organized.",
+    "Create and download QR codes in your preferred format.",
+    "Manage and track your accounts efficiently."    
+   
   ];
 
   let count = 0;
