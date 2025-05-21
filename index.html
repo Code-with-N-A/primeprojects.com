@@ -231,84 +231,6 @@
       }
     }
 
-
-
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      color: #66fcf1;
-
-
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .hero h1 {
-      z-index: 1;
-      font-size: 4rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      animation: fadeInDown 1s ease forwards;
-    }
-
-    .hero p {
-      z-index: 1;
-      font-size: 1.5rem;
-      margin-top: 20px;
-      animation: fadeInUp 1.2s ease forwards;
-    }
-
-    /* Main Content Section */
-    .content {
-      padding: 100px 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-
-      background-color: whitesmoke;
-      color: #000000;
-      /* Light text */
-
-
-    }
-
-    .content-box {
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      color: #000000;
-    }
-
-    .content-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 50px rgba(70, 147, 211, 0.7);
-
-    }
-
-    .content-box h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .content-box p {
-      font-size: 1rem;
-      color: #000000;
-    }
-
     /* Footer */
 
 
@@ -768,9 +690,8 @@
     .image-frame::before {
       content: "";
       position: absolute;
-      inset: 0;
       background-color: rgba(29, 1, 23, 0.25);
-      backdrop-filter: blur(2px);
+      inset: -0;
       z-index: 1;
     }
 
@@ -1107,8 +1028,7 @@
 
   </div>
 
-
-  <!--img sliding code  Start-->
+   <!--img sliding code  Start-->
   <div class="slider-container">
     <div class="slider" id="slider">
       <div class="slider-item">
@@ -1320,64 +1240,7 @@
   </div>
   </div>
 
-  <section class="content">
-
-    <div class="content-box" onclick="window.location.href='https://primeprojects.netlify.app/worck.html'">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSys7YlGMhorxRBgpepMWmq73efSrj4TBpTJA&s" alt="img">
-      <h3>Accounts Management</h3>
-      <p>
-        <strong>Accounts Management</strong> is a simple billing system for managing bills, tracking payments, and
-        generating invoices. It offers real-time updates and easy PDF downloads for a smooth experience.
-      </p><br>
-      <!--video youtub start-->
-      <link rel="stylesheet" href="youtub_video.css">
-      </p><a href="https://youtu.be/Z-2HTG8cx0U?si=CWOS833HyPT5tscu">
-        <div id="ico" class="fab fa-youtube"></div>
-      </a><br>
-
-      <!--video youtub end-->
-    </div>
-
-    <div class="content-box" onclick="window.location.href='bill.html'">
-      <img src="img/gst-bills.webp" alt="img">
-      <h3>Bill Generator</h3>
-      <p>The details in a bill ensure transparency and clarity for both parties in a transaction. Always review the bill
-        carefully before making payment.</p>
-    </div>
-    <!--bujat trecar-->
-    <div class="content-box" onclick="window.location.href='bjat-trecar.html'">
-      <img src="https://i0.wp.com/proceipt.com/wp-content/uploads/2023/05/budget.jpg?resize=768%2C512&ssl=1" alt="img">
-      <h3>Budget Tracker</h3>
-      <p>Budget Tracker is an easy way to track all your expenses and manage your budget effectively, helping you
-        achieve your financial goals.</p>
-    </div>
-
-    <div class="content-box" onclick="window.location.href='product_list.html'">
-      <img src="img/Product List.png" alt="img">
-      <h3>Product Listener</h3>
-      <p>
-        <strong>Product Listener </strong> is a project where you can create and manage a list of products, download it
-        in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product
-        management and document generation.
-
-      </p>
-    </div>
-
-    <div class="content-box" onclick="window.location.href='Pocket_Expense.html'">
-      <img
-        src="https://mgl.gogo.mn/newsn/thumbnail/1000/images/c/2020/01/-22012020-1579658269-1657156546-Gogo_medee_cover.jpg"
-        alt="img">
-      <h3>Pocket Expense</h3>
-      <p>
-        <strong>Pocket Expense</strong>Pocket Expense helps you store all your expenses in one place, making it easier
-        to track and manage your finances. Whenever needed, you can instantly download your expense report as a PDF for
-        quick access.
-
-      </p>
-    </div>
-
-
-  </section>
+ 
 
   <div class="marquee-wrapper">
     <div class="marquee-content">
