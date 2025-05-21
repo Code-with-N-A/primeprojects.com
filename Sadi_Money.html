@@ -1,73 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
- <!-- Charset and Viewport -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Charset and Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Title and Description -->
-<title>Wedding Payment Records | CodeWith_N.A</title>
-<meta name="description" content="Easily manage and access dowry payment records online. Securely keep track of your dowry payment data with CodeWith_N.A.">
-<meta name="keywords" content="dowry payment records, dowry payments, payment data, online dowry records, CodeWith_N.A">
-<meta name="author" content="CodeWith_N.A">
-<meta name="title" content="Donors Archive | Honoring Contributors - CodeWith_N.A">
-<meta name="description" content="A timeless digital archive by CodeWith_N.A to honor and remember all those who contributed financially. Names, villages, and donation details preserved for future generations.">
+  <!-- Title and Description -->
+  <title>Wedding Payment Records | CodeWith_N.A</title>
+  <meta name="description"
+    content="Easily manage and access dowry payment records online. Securely keep track of your dowry payment data with CodeWith_N.A." />
+  <meta name="keywords"
+    content="dowry payment records, dowry payments, payment data, online dowry records, CodeWith_N.A" />
+  <meta name="author" content="CodeWith_N.A" />
+  <meta name="title" content="Donors Archive | Honoring Contributors - CodeWith_N.A" />
+  <meta name="description"
+    content="A timeless digital archive by CodeWith_N.A to honor and remember all those who contributed financially. Names, villages, and donation details preserved for future generations." />
 
-<!-- Keywords -->
-<meta name="keywords" content="Donors Archive, Historical Donors, Digital Memorial, Long-term Record, CodeWith_N.A, Philanthropy, Generational Tribute, Donation History, Honoring Donors">
+  <!-- Keywords -->
+  <meta name="keywords"
+    content="Donors Archive, Historical Donors, Digital Memorial, Long-term Record, CodeWith_N.A, Philanthropy, Generational Tribute, Donation History, Honoring Donors" />
 
-<!-- Author -->
-<meta name="author" content="CodeWith_N.A">
+  <!-- Author -->
+  <meta name="author" content="CodeWith_N.A" />
 
-<!-- Language and Robots -->
-<meta name="language" content="en">
-<meta name="robots" content="index, follow">
+  <!-- Language and Robots -->
+  <meta name="language" content="en" />
+  <meta name="robots" content="index, follow" />
 
-<!-- Cache Control -->
-<meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://yourwebsite.com/donors">
-<meta property="og:title" content="Honoring Generous Donors | CodeWith_N.A">
-<meta property="og:description" content="Explore the legacy of generosity. This archive honors individuals who supported our cause with donations.">
-<meta property="og:image" content="https://yourwebsite.com/assets/donor-tribute-cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://yourwebsite.com/donors">
-<meta name="twitter:title" content="Honoring Generous Donors | CodeWith_N.A">
-<meta name="twitter:description" content="View the names of those whose donations helped build history. Preserved by CodeWith_N.A.">
-<meta name="twitter:image" content="https://yourwebsite.com/assets/donor-tribute-cover.jpg">
-<link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon">
-<link rel="canonical" href="https://yourwebsite.com/donors">
+  <!-- Cache Control -->
+  <meta http-equiv="Cache-Control" content="max-age=31536000, immutable" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourwebsite.com/donors" />
+  <meta property="og:title" content="Honoring Generous Donors | CodeWith_N.A" />
+  <meta property="og:description"
+    content="Explore the legacy of generosity. This archive honors individuals who supported our cause with donations." />
+  <meta property="og:image" content="https://yourwebsite.com/assets/donor-tribute-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://yourwebsite.com/donors" />
+  <meta name="twitter:title" content="Honoring Generous Donors | CodeWith_N.A" />
+  <meta name="twitter:description"
+    content="View the names of those whose donations helped build history. Preserved by CodeWith_N.A." />
+  <meta name="twitter:image" content="https://yourwebsite.com/assets/donor-tribute-cover.jpg" />
+  <link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://yourwebsite.com/donors" />
 
   <!--meta khatam -->
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.28/dist/jspdf.plugin.autotable.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="sadi_QR.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body class="bg-gray-100 min-h-screen p-4 flex flex-col items-center">
-   <!-- Loader Wrapper strat -->
-   <link rel="stylesheet" href="loder.css">
-   <script src="loder.js"></script>
-   <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css" />
+  <script src="loder.js"></script>
+  <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
   <!-- Loader Wrapper and -->
-   <!--sin in-->
-   <script src="sin.js"></script>
+  <!--sin in-->
+  <script src="sin.js"></script>
+
+  <!--online pyment QR start-->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+
+      <p id="statusMsg"></p>
+
+      <input type="email" id="emailInput" placeholder="Enter your email" />
+      <button id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button id="verifyOtpBtn" onclick="verifyOTP()">Verify OTP</button>
+
+      <input type="file" id="fileInput" style="display: none" accept="image/*" />
+
+      <div class="qr-container" id="qrContainer">
+        <img id="preview" />
+      </div>
+
+      <button id="deleteImageBtn" style="display: none" onclick="deleteImage()">
+        Delete Image
+      </button>
+    </div>
+  </div>
+
+  <!--online pyment QR and-->
 
   <div class="max-w-5xl w-full bg-white p-6 rounded-xl shadow-md">
-    <h1 class="text-2xl font-bold text-center mb-6 text-blue-800">Wedding Money Records</h1>
+    <h1 class="text-2xl font-bold text-center mb-6 text-blue-800" style="color: black">
+      Wedding Money Records
+    </h1>
 
     <!-- Heading Input -->
     <div class="mb-6 flex flex-col md:flex-row md:items-center md:gap-4">
-      <input id="headingInput" type="text" placeholder="Enter heading" class="flex-1 border p-2 rounded mb-3 md:mb-0"/>
-      <button onclick="updateHeading()" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">Add Heading</button>
+      <input id="headingInput" type="text" placeholder="Enter heading" class="flex-1 border p-2 rounded mb-3 md:mb-0" />
+      <button onclick="updateHeading()" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+        Add Heading
+      </button>
+
+      <button id="openPopupBtn"><i class="fa-solid fa-qrcode" style="font-size: 38px; color: #000000;"></i></button>
+
     </div>
 
-    <h2 id="headingText" class="text-2xl font-bold text-center mb-6 text-blue-800">Donation List</h2>
+    <h2 id="headingText" class="text-2xl font-bold text-center mb-6 text-blue-800">
+      Donation List
+    </h2>
 
     <!-- Entry Form -->
-    <form id="entryForm" class="grid grid-cols-1 sm:grid-cols-5 gap-4 mb-6 items-center" onsubmit="event.preventDefault(); addEntry();">
+    <form id="entryForm" class="grid grid-cols-1 sm:grid-cols-5 gap-4 mb-6 items-center"
+      onsubmit="event.preventDefault(); addEntry();">
       <input id="name" type="text" placeholder="Name" class="border p-2 rounded" required />
       <input id="gaav" type="text" placeholder="Gaav" class="border p-2 rounded" required />
       <input id="rupay" type="number" min="1" placeholder="₹ Rupay" class="border p-2 rounded" required />
@@ -75,7 +122,9 @@
         <option value="Cash">Cash</option>
         <option value="Online">Online</option>
       </select>
-      <button type="submit" class="bg-green-600 text-white rounded px-5 py-2 hover:bg-green-700 transition">Add</button>
+      <button type="submit" class="bg-green-600 text-white rounded px-5 py-2 hover:bg-green-700 transition">
+        Add
+      </button>
     </form>
 
     <!-- Active Records Table -->
@@ -105,13 +154,28 @@
 
     <!-- Action Buttons -->
     <div class="mt-6 flex justify-center gap-4 flex-wrap">
-      <button onclick="generatePDF()" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800 transition">Download PDF</button>
-      <button onclick="deleteAll()" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">Delete All</button>
-      <button onclick="window.location.href='sadi_dhej.html'" style="padding: 5px; background-color: rgb(85, 85, 245); color: whitesmoke; font-size: medium; border-radius: 5px;">GO Dowry</button>
+      <button onclick="generatePDF()" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800 transition">
+        Download PDF
+      </button>
+      <button onclick="deleteAll()" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">
+        Delete All
+      </button>
+      <button onclick="window.location.href='sadi_dhej.html'" style="
+            padding: 5px;
+            background-color: rgb(85, 85, 245);
+            color: whitesmoke;
+            font-size: medium;
+            border-radius: 5px;
+          ">
+        GO Dowry
+      </button>
+
     </div>
 
     <!-- Deleted Records -->
-    <h2 class="text-xl font-bold text-red-700 mt-10 text-center">Deleted Records</h2>
+    <h2 class="text-xl font-bold text-red-700 mt-10 text-center">
+      Deleted Records
+    </h2>
     <div class="overflow-x-auto mt-4">
       <table class="table-auto w-full min-w-[800px] border border-red-300 text-center">
         <thead class="bg-red-100 text-red-900 font-semibold">
@@ -126,73 +190,76 @@
         <tbody id="deletedBody" class="text-gray-700"></tbody>
       </table>
     </div>
-
   </div>
 
-<script>
-  const tableBody = document.getElementById("tableBody");
-  const deletedBody = document.getElementById("deletedBody");
-  const headingText = document.getElementById("headingText");
-  const datetimeEl = document.getElementById("datetime");
+  <script>
+    const tableBody = document.getElementById("tableBody");
+    const deletedBody = document.getElementById("deletedBody");
+    const headingText = document.getElementById("headingText");
+    const datetimeEl = document.getElementById("datetime");
 
-  let data = [];
-  let deletedData = [];
-  let heading = "";
+    let data = [];
+    let deletedData = [];
+    let heading = "";
 
-  window.onload = () => {
-    heading = localStorage.getItem("heading") || "Donation List";
-    headingText.innerText = heading;
-    document.getElementById("headingInput").value = heading;
+    window.onload = () => {
+      heading = localStorage.getItem("heading") || "Donation List";
+      headingText.innerText = heading;
+      document.getElementById("headingInput").value = heading;
 
-    const storedData = localStorage.getItem("donationData");
-    const deletedStored = localStorage.getItem("deletedData");
+      const storedData = localStorage.getItem("donationData");
+      const deletedStored = localStorage.getItem("deletedData");
 
-    if (storedData) data = JSON.parse(storedData);
-    if (deletedStored) deletedData = JSON.parse(deletedStored);
+      if (storedData) data = JSON.parse(storedData);
+      if (deletedStored) deletedData = JSON.parse(deletedStored);
 
-    renderTable();
-    renderDeleted();
-  };
+      renderTable();
+      renderDeleted();
+    };
 
-  function updateHeading() {
-    heading = document.getElementById("headingInput").value.trim() || "Donation List";
-    headingText.innerText = heading;
-    localStorage.setItem("heading", heading);
-  }
+    function updateHeading() {
+      heading =
+        document.getElementById("headingInput").value.trim() ||
+        "Donation List";
+      headingText.innerText = heading;
+      localStorage.setItem("heading", heading);
+    }
 
-  function addEntry() {
-    const name = document.getElementById("name").value.trim();
-    const gaav = document.getElementById("gaav").value.trim();
-    const rupay = parseInt(document.getElementById("rupay").value);
-    const type = document.getElementById("type").value;
+    function addEntry() {
+      const name = document.getElementById("name").value.trim();
+      const gaav = document.getElementById("gaav").value.trim();
+      const rupay = parseInt(document.getElementById("rupay").value);
+      const type = document.getElementById("type").value;
 
-    if (!name || !gaav || !rupay || rupay <= 0) return;
+      if (!name || !gaav || !rupay || rupay <= 0) return;
 
-    data.push({ name, gaav, rupay, type });
-    localStorage.setItem("donationData", JSON.stringify(data));
-    renderTable();
-    clearInputs();
-  }
+      data.push({ name, gaav, rupay, type });
+      localStorage.setItem("donationData", JSON.stringify(data));
+      renderTable();
+      clearInputs();
+    }
 
-  function clearInputs() {
-    document.getElementById("name").value = "";
-    document.getElementById("gaav").value = "";
-    document.getElementById("rupay").value = "";
-    document.getElementById("type").value = "Cash";
-    document.getElementById("name").focus();
-  }
+    function clearInputs() {
+      document.getElementById("name").value = "";
+      document.getElementById("gaav").value = "";
+      document.getElementById("rupay").value = "";
+      document.getElementById("type").value = "Cash";
+      document.getElementById("name").focus();
+    }
 
-  function renderTable() {
-    tableBody.innerHTML = "";
-    let total = 0, cash = 0, online = 0;
+    function renderTable() {
+      tableBody.innerHTML = "";
+      let total = 0,
+        cash = 0,
+        online = 0;
 
-    data.forEach((entry, index) => {
-      total += entry.rupay;
-      if (entry.type === "Cash") cash += entry.rupay;
-      else online += entry.rupay;
+      data.forEach((entry, index) => {
+        total += entry.rupay;
+        if (entry.type === "Cash") cash += entry.rupay;
+        else online += entry.rupay;
 
-      const row = document.createElement("tr");
-      row.innerHTML = `
+        const row = document.createElement("tr");
+        row.innerHTML = `
         <td class="border px-3 py-2">${index + 1}</td>
         <td class="border px-3 py-2">${entry.name}</td>
         <td class="border px-3 py-2">${entry.gaav}</td>
@@ -202,191 +269,214 @@
           <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-sm" onclick="deleteRow(${index})">Delete</button>
         </td>
       `;
-      tableBody.appendChild(row);
-    });
+        tableBody.appendChild(row);
+      });
 
-    updateSummary(total, cash, online);
-  }
+      updateSummary(total, cash, online);
+    }
 
-  function renderDeleted() {
-    deletedBody.innerHTML = "";
-    deletedData.forEach((entry, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
+    function renderDeleted() {
+      deletedBody.innerHTML = "";
+      deletedData.forEach((entry, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
         <td class="border px-3 py-2">${index + 1}</td>
         <td class="border px-3 py-2">${entry.name}</td>
         <td class="border px-3 py-2">${entry.gaav}</td>
         <td class="border px-3 py-2">₹${entry.rupay}</td>
         <td class="border px-3 py-2">${entry.type}</td>
       `;
-      deletedBody.appendChild(row);
-    });
-  }
+        deletedBody.appendChild(row);
+      });
+    }
 
-  function updateSummary(total = 0, cash = 0, online = 0) {
-    document.getElementById("total").innerText = total;
-    document.getElementById("cash").innerText = cash;
-    document.getElementById("online").innerText = online;
-    const now = new Date();
-    datetimeEl.innerText = now.toLocaleString();
-  }
+    function updateSummary(total = 0, cash = 0, online = 0) {
+      document.getElementById("total").innerText = total;
+      document.getElementById("cash").innerText = cash;
+      document.getElementById("online").innerText = online;
+      const now = new Date();
+      datetimeEl.innerText = now.toLocaleString();
+    }
 
-  function deleteRow(index) {
-    const deleted = data.splice(index, 1)[0];
-    deletedData.push(deleted);
-    localStorage.setItem("donationData", JSON.stringify(data));
-    localStorage.setItem("deletedData", JSON.stringify(deletedData));
-    renderTable();
-    renderDeleted();
-  }
-
-  function deleteAll() {
-    if (confirm("Are you sure you want to delete all entries?")) {
-      // Clear both data and deletedData to clear everything
-      data = [];
-      deletedData = [];
+    function deleteRow(index) {
+      const deleted = data.splice(index, 1)[0];
+      deletedData.push(deleted);
       localStorage.setItem("donationData", JSON.stringify(data));
       localStorage.setItem("deletedData", JSON.stringify(deletedData));
       renderTable();
       renderDeleted();
     }
-  }
 
-  function capitalizeWords(str) {
-  return str
-    .split(' ')
-    .filter(Boolean)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
-}
-  function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF('p', 'pt', 'a4');
-    const pageWidth = doc.internal.pageSize.getWidth();
-
-    const marginLeft = 20;
-    const marginRight = 20;
-    const usablePageWidth = pageWidth - marginLeft - marginRight;
-
-    doc.setFont("helvetica");
-
-    // Title
-    doc.setFontSize(18);
-    doc.setTextColor("#1E3A8A");
-    doc.text(heading || "Donation List", pageWidth / 2, 40, { align: "center" });
-
-    // Date & Time
-    const now = new Date();
-    doc.setFontSize(10);
-    doc.setTextColor("#374151");
-    doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, { align: "center" });
-
-    const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
-    const tableRows = [];
-
-    const chunkSize = 31;
-    const totalChunks = Math.ceil(data.length / chunkSize);
-
-    for (let i = 0; i < totalChunks; i++) {
-      const chunkData = data.slice(i * chunkSize, (i + 1) * chunkSize);
-      const chunkRows = [];
-
-      chunkData.forEach((item, index) => {
-        const rowIndex = i * chunkSize + index;
-        chunkRows.push([
-          rowIndex + 1,
-          capitalizeWords(item.name),
-          capitalizeWords(item.gaav),
-          item.rupay,
-          item.type,
-        ]);
-      });
-
-      const columnStyles = {
-        0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
-        1: { cellWidth: usablePageWidth * 0.28, halign: "left" },
-        2: { cellWidth: usablePageWidth * 0.25, halign: "left" },
-        3: { cellWidth: usablePageWidth * 0.16, halign: "center", overflow: "linebreak" },
-        4: { cellWidth: usablePageWidth * 0.23, halign: "center" }
-      };
-
-      doc.autoTable({
-        startY: i === 0 ? 75 : 40,
-        head: [tableColumn],
-        body: chunkRows,
-        margin: { left: marginLeft, right: marginRight },
-        styles: {
-          fontSize: 10,
-          font: "helvetica",
-          textColor: "#000000",
-          halign: "left",
-          valign: "middle",
-          fillColor: false,
-          lineWidth: 0.1,
-          lineColor: "#DDDDDD",
-          cellWidth: 'wrap',
-          overflow: 'linebreak'
-        },
-        headStyles: {
-          fillColor: "#3B82F6",
-          textColor: "#FFFFFF",
-          fontStyle: "bold",
-          lineWidth: 0.1,
-          lineColor: "#DDDDDD",
-          halign: "center"
-        },
-        bodyStyles: {
-          fillColor: false,
-          textColor: "#000000",
-          lineColor: "#DDDDDD",
-        },
-        alternateRowStyles: {
-          fillColor: false
-        },
-        columnStyles: columnStyles,
-        didDrawCell: (data) => {
-          const { cell } = data;
-          doc.setDrawColor("#DDDDDD");
-          doc.setLineWidth(0.1);
-          doc.rect(cell.x, cell.y, cell.width, cell.height);
-        },
-      });
-
-      if (i < totalChunks - 1) {
-        doc.addPage();
+    function deleteAll() {
+      if (confirm("Are you sure you want to delete all entries?")) {
+        // Clear both data and deletedData to clear everything
+        data = [];
+        deletedData = [];
+        localStorage.setItem("donationData", JSON.stringify(data));
+        localStorage.setItem("deletedData", JSON.stringify(deletedData));
+        renderTable();
+        renderDeleted();
       }
     }
 
-    // Summary Section
-    let total = 0, cash = 0, online = 0;
-    data.forEach((item) => {
-      total += item.rupay;
-      if (item.type === "Cash") cash += item.rupay;
-      else online += item.rupay;
-    });
+    function capitalizeWords(str) {
+      return str
+        .split(" ")
+        .filter(Boolean)
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join(" ");
+    }
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF("p", "pt", "a4");
+      const pageWidth = doc.internal.pageSize.getWidth();
 
-    const finalY = doc.lastAutoTable.finalY || 90;
-    const summaryX = marginLeft;
-    const summaryStartY = finalY + 30;
-    const lineHeight = 22;
+      const marginLeft = 20;
+      const marginRight = 20;
+      const usablePageWidth = pageWidth - marginLeft - marginRight;
 
-    doc.setFontSize(13);
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor("#000000");
-    doc.text(`Total:  ${total}`, summaryX, summaryStartY);
-    doc.text(`Cash:  ${cash}`, summaryX, summaryStartY + lineHeight);
-    doc.text(`Online:  ${online}`, summaryX, summaryStartY + 2 * lineHeight);
+      doc.setFont("helvetica");
 
-    // Generated On
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Generated on: ${now.toLocaleString()}`, summaryX, summaryStartY + 3 * lineHeight + 5);
+      // Title
+      doc.setFontSize(18);
+      doc.setTextColor("#1E3A8A");
+      doc.text(heading || "Donation List", pageWidth / 2, 40, {
+        align: "center",
+      });
 
-    // Save
-    const filename = (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
-    doc.save(filename);
-  }
-</script>
+      // Date & Time
+      const now = new Date();
+      doc.setFontSize(10);
+      doc.setTextColor("#374151");
+      doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, {
+        align: "center",
+      });
 
+      const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
+      const tableRows = [];
+
+      const chunkSize = 31;
+      const totalChunks = Math.ceil(data.length / chunkSize);
+
+      for (let i = 0; i < totalChunks; i++) {
+        const chunkData = data.slice(i * chunkSize, (i + 1) * chunkSize);
+        const chunkRows = [];
+
+        chunkData.forEach((item, index) => {
+          const rowIndex = i * chunkSize + index;
+          chunkRows.push([
+            rowIndex + 1,
+            capitalizeWords(item.name),
+            capitalizeWords(item.gaav),
+            item.rupay,
+            item.type,
+          ]);
+        });
+
+        const columnStyles = {
+          0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
+          1: { cellWidth: usablePageWidth * 0.28, halign: "left" },
+          2: { cellWidth: usablePageWidth * 0.25, halign: "left" },
+          3: {
+            cellWidth: usablePageWidth * 0.16,
+            halign: "center",
+            overflow: "linebreak",
+          },
+          4: { cellWidth: usablePageWidth * 0.23, halign: "center" },
+        };
+
+        doc.autoTable({
+          startY: i === 0 ? 75 : 40,
+          head: [tableColumn],
+          body: chunkRows,
+          margin: { left: marginLeft, right: marginRight },
+          styles: {
+            fontSize: 10,
+            font: "helvetica",
+            textColor: "#000000",
+            halign: "left",
+            valign: "middle",
+            fillColor: false,
+            lineWidth: 0.1,
+            lineColor: "#DDDDDD",
+            cellWidth: "wrap",
+            overflow: "linebreak",
+          },
+          headStyles: {
+            fillColor: "#3B82F6",
+            textColor: "#FFFFFF",
+            fontStyle: "bold",
+            lineWidth: 0.1,
+            lineColor: "#DDDDDD",
+            halign: "center",
+          },
+          bodyStyles: {
+            fillColor: false,
+            textColor: "#000000",
+            lineColor: "#DDDDDD",
+          },
+          alternateRowStyles: {
+            fillColor: false,
+          },
+          columnStyles: columnStyles,
+          didDrawCell: (data) => {
+            const { cell } = data;
+            doc.setDrawColor("#DDDDDD");
+            doc.setLineWidth(0.1);
+            doc.rect(cell.x, cell.y, cell.width, cell.height);
+          },
+        });
+
+        if (i < totalChunks - 1) {
+          doc.addPage();
+        }
+      }
+
+      // Summary Section
+      let total = 0,
+        cash = 0,
+        online = 0;
+      data.forEach((item) => {
+        total += item.rupay;
+        if (item.type === "Cash") cash += item.rupay;
+        else online += item.rupay;
+      });
+
+      const finalY = doc.lastAutoTable.finalY || 90;
+      const summaryX = marginLeft;
+      const summaryStartY = finalY + 30;
+      const lineHeight = 22;
+
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor("#000000");
+      doc.text(`Total:  ${total}`, summaryX, summaryStartY);
+      doc.text(`Cash:  ${cash}`, summaryX, summaryStartY + lineHeight);
+      doc.text(
+        `Online:  ${online}`,
+        summaryX,
+        summaryStartY + 2 * lineHeight
+      );
+
+      // Generated On
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(
+        `Generated on: ${now.toLocaleString()}`,
+        summaryX,
+        summaryStartY + 3 * lineHeight + 5
+      );
+
+      // Save
+      const filename =
+        (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
+      doc.save(filename);
+    }
+  </script>
+  <script src="sadi_QR.js"></script>
+  <!--online pyment QR and-->
 </body>
+
 </html>
