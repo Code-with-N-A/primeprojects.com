@@ -68,7 +68,7 @@
       display: none;
       justify-content: center;
       align-items: center;
-      height: 200px;
+      height: 400px;
       border: 2px dashed #ccc;
       border-radius: 10px;
       background: #f9f9f9;
@@ -76,8 +76,9 @@
     }
 
     .qr-container img {
-      max-width: 190px;
-      max-height: 190px;
+      max-width: 350px;
+      max-height: 350px;
+      
       object-fit: contain;
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
