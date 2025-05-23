@@ -1,91 +1,109 @@
- #openPopupBtn {
-     padding: 10px 30px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-     
-    }
+ 
 
-    .popup-overlay {
+   .popup-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.5);
       display: none;
       justify-content: center;
       align-items: center;
       z-index: 999;
+    
     }
 
-    .popup-content {
+   .popup-content {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      position: relative;
-      width: 320px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      padding: 25px 30px 40px 30px; /* Added more bottom padding */
+      border-radius: 12px;
+      width: 350px; /* Slightly wider */
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      position: relative;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 20px;
+      color: gray;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .popup-content input, .popup-content button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      box-sizing: border-box;
     }
 
     .popup-content input {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      border-radius: 5px;
       border: 1px solid #ccc;
     }
 
     .popup-content button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      background-color: #28a745;
       border: none;
+      background-color: #28a745;
       color: white;
-      font-size: 14px;
-      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-
-    .popup-content .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
+    .popup-content button:hover {
+      background-color: #218838;
     }
 
     #statusMsg {
+      font-size: 14px;
+      margin-top: 10px;
       font-weight: bold;
-      margin-bottom: 10px;
+      min-height: 18px;
+      color: #000; /* Darker for visibility */
     }
 
-    .qr-container {
+    #qrCanvas {
+      margin-top: 20px;
       display: none;
-      justify-content: center;
-      align-items: center;
-      height: 400px;
-      border: 2px dashed #ccc;
-      border-radius: 10px;
-      background: #f9f9f9;
+      text-align: center;
+    }
+
+    #primeTitle {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .blue {
+      color: #007bff;
+    }
+
+    .green {
+      color: #28a745;
+    }
+
+    #receiverName, #upiDisplay {
+      font-size: 15px;
+      color: #333;
+      margin-top: 6px;
+      word-break: break-word;
+    }
+
+    #deleteQRBtn {
       margin-top: 15px;
-    }
-
-    .qr-container img {
-      max-width: 350px;
-      max-height: 350px;
-      
-      object-fit: contain;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-    }
-
-    #deleteImageBtn {
       background-color: #dc3545;
-      margin-top: 15px;
     }
+
+    #downloadPopupBtn {
+      margin-top: 15px;
+      background-color: #007bff;
+      display: none;
+    }
+    #receiverName { 
+  margin-bottom: 15px;
+}
