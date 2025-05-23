@@ -14,9 +14,9 @@
 
    .popup-content {
       background: white;
-      padding: 25px 30px 40px 30px; /* Added more bottom padding */
+      padding: 10px 20px 10px 20px; /* Added more bottom padding */
       border-radius: 12px;
-      width: 350px; /* Slightly wider */
+      width: 330px; /* Slightly wider */
       text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       position: relative;
