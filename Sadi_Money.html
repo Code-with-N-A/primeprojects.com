@@ -282,19 +282,20 @@
     }
 
     function renderDeleted() {
-      deletedBody.innerHTML = "";
-      deletedData.forEach((entry, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-        <td class="border px-3 py-2">${index + 1}</td>
-        <td class="border px-3 py-2">${entry.name}</td>
-        <td class="border px-3 py-2">${entry.gaav}</td>
-        <td class="border px-3 py-2">₹${entry.rupay}</td>
-        <td class="border px-3 py-2">${entry.type}</td>
-      `;
-        deletedBody.appendChild(row);
-      });
-    }
+  deletedBody.innerHTML = "";
+  deletedData.forEach((entry) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="border px-3 py-2">${entry.originalIndex || "-"}</td>
+      <td class="border px-3 py-2">${entry.name}</td>
+      <td class="border px-3 py-2">${entry.gaav}</td>
+      <td class="border px-3 py-2">₹${entry.rupay}</td>
+      <td class="border px-3 py-2">${entry.type}</td>
+    `;
+    deletedBody.appendChild(row);
+  });
+}
+
 
     function updateSummary(total = 0, cash = 0, online = 0) {
       document.getElementById("total").innerText = total;
@@ -304,14 +305,16 @@
       datetimeEl.innerText = now.toLocaleString();
     }
 
-    function deleteRow(index) {
-      const deleted = data.splice(index, 1)[0];
-      deletedData.push(deleted);
-      localStorage.setItem("donationData", JSON.stringify(data));
-      localStorage.setItem("deletedData", JSON.stringify(deletedData));
-      renderTable();
-      renderDeleted();
-    }
+   function deleteRow(index) {
+  const deleted = data.splice(index, 1)[0];
+  deleted.originalIndex = index + 1; // Save original index (1-based)
+  deletedData.push(deleted);
+  localStorage.setItem("donationData", JSON.stringify(data));
+  localStorage.setItem("deletedData", JSON.stringify(deletedData));
+  renderTable();
+  renderDeleted();
+}
+
 
     function deleteAll() {
       if (confirm("Are you sure you want to delete all entries?")) {
@@ -334,152 +337,179 @@
         )
         .join(" ");
     }
-    function generatePDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF("p", "pt", "a4");
-      const pageWidth = doc.internal.pageSize.getWidth();
+   function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF("p", "pt", "a4");
+  const pageWidth = doc.internal.pageSize.getWidth();
 
-      const marginLeft = 20;
-      const marginRight = 20;
-      const usablePageWidth = pageWidth - marginLeft - marginRight;
+  const marginLeft = 20;
+  const marginRight = 20;
+  const usablePageWidth = pageWidth - marginLeft - marginRight;
 
-      doc.setFont("helvetica");
+  doc.setFont("helvetica");
 
-      // Title
-      doc.setFontSize(18);
-      doc.setTextColor("#1E3A8A");
-      doc.text(heading || "Donation List", pageWidth / 2, 40, {
-        align: "center",
-      });
+  // Title
+  doc.setFontSize(18);
+  doc.setTextColor("#1E3A8A");
+  doc.text(heading || "Donation List", pageWidth / 2, 40, { align: "center" });
 
-      // Date & Time
-      const now = new Date();
-      doc.setFontSize(10);
-      doc.setTextColor("#374151");
-      doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, {
-        align: "center",
-      });
+  // Date & Time
+  const now = new Date();
+  doc.setFontSize(10);
+  doc.setTextColor("#374151");
+  doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, {
+    align: "center",
+  });
 
-      const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
-      const tableRows = [];
+  const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
+  const chunkSize = 30;
 
-      const chunkSize = 31;
-      const totalChunks = Math.ceil(data.length / chunkSize);
-
-      for (let i = 0; i < totalChunks; i++) {
-        const chunkData = data.slice(i * chunkSize, (i + 1) * chunkSize);
-        const chunkRows = [];
-
-        chunkData.forEach((item, index) => {
-          const rowIndex = i * chunkSize + index;
-          chunkRows.push([
-            rowIndex + 1,
-            capitalizeWords(item.name),
-            capitalizeWords(item.gaav),
-            item.rupay,
-            item.type,
-          ]);
-        });
-
-        const columnStyles = {
-          0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
-          1: { cellWidth: usablePageWidth * 0.28, halign: "left" },
-          2: { cellWidth: usablePageWidth * 0.25, halign: "left" },
-          3: {
-            cellWidth: usablePageWidth * 0.16,
-            halign: "center",
-            overflow: "linebreak",
-          },
-          4: { cellWidth: usablePageWidth * 0.23, halign: "center" },
-        };
-
-        doc.autoTable({
-          startY: i === 0 ? 75 : 40,
-          head: [tableColumn],
-          body: chunkRows,
-          margin: { left: marginLeft, right: marginRight },
-          styles: {
-            fontSize: 10,
-            font: "helvetica",
-            textColor: "#000000",
-            halign: "left",
-            valign: "middle",
-            fillColor: false,
-            lineWidth: 0.1,
-            lineColor: "#DDDDDD",
-            cellWidth: "wrap",
-            overflow: "linebreak",
-          },
-          headStyles: {
-            fillColor: "#3B82F6",
-            textColor: "#FFFFFF",
-            fontStyle: "bold",
-            lineWidth: 0.1,
-            lineColor: "#DDDDDD",
-            halign: "center",
-          },
-          bodyStyles: {
-            fillColor: false,
-            textColor: "#000000",
-            lineColor: "#DDDDDD",
-          },
-          alternateRowStyles: {
-            fillColor: false,
-          },
-          columnStyles: columnStyles,
-          didDrawCell: (data) => {
-            const { cell } = data;
-            doc.setDrawColor("#DDDDDD");
-            doc.setLineWidth(0.1);
-            doc.rect(cell.x, cell.y, cell.width, cell.height);
-          },
-        });
-
-        if (i < totalChunks - 1) {
-          doc.addPage();
-        }
-      }
-
-      // Summary Section
-      let total = 0,
-        cash = 0,
-        online = 0;
-      data.forEach((item) => {
-        total += item.rupay;
-        if (item.type === "Cash") cash += item.rupay;
-        else online += item.rupay;
-      });
-
-      const finalY = doc.lastAutoTable.finalY || 90;
-      const summaryX = marginLeft;
-      const summaryStartY = finalY + 30;
-      const lineHeight = 22;
-
-      doc.setFontSize(13);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor("#000000");
-      doc.text(`Total:  ${total}`, summaryX, summaryStartY);
-      doc.text(`Cash:  ${cash}`, summaryX, summaryStartY + lineHeight);
-      doc.text(
-        `Online:  ${online}`,
-        summaryX,
-        summaryStartY + 2 * lineHeight
-      );
-
-      // Generated On
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "normal");
-      doc.text(
-        `Generated on: ${now.toLocaleString()}`,
-        summaryX,
-        summaryStartY + 3 * lineHeight + 5
-      );
-
-      // Save
-      const filename =
-        (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
-      doc.save(filename);
+  // Function to build autoTable
+  function buildTable(doc, startY, rows, columnStyles, headStyles, title = null) {
+    if (title) {
+      doc.setFontSize(16);
+      doc.setTextColor("#B91C1C");
+      doc.text(title, pageWidth / 2, startY, { align: "center" });
+      startY += 20;
     }
+
+    doc.autoTable({
+      startY,
+      head: [tableColumn],
+      body: rows,
+      margin: { left: marginLeft, right: marginRight },
+      styles: {
+        fontSize: 10,
+        font: "helvetica",
+        textColor: "#000000",
+        halign: "left",
+        valign: "middle",
+        fillColor: false,
+        lineWidth: 0.1,
+        lineColor: "#DDDDDD",
+        cellWidth: "wrap",
+        overflow: "linebreak",
+      },
+      headStyles,
+      bodyStyles: {
+        fillColor: false,
+        textColor: "#000000",
+        lineColor: "#DDDDDD",
+      },
+      alternateRowStyles: {
+        fillColor: false,
+      },
+      columnStyles,
+      didDrawCell: (data) => {
+        const { cell } = data;
+        doc.setDrawColor("#DDDDDD");
+        doc.setLineWidth(0.1);
+        doc.rect(cell.x, cell.y, cell.width, cell.height);
+      },
+    });
+
+    return doc.lastAutoTable.finalY;
+  }
+
+  // Normal Data Table
+  const columnStyles = {
+    0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
+    1: { cellWidth: usablePageWidth * 0.28 },
+    2: { cellWidth: usablePageWidth * 0.25 },
+    3: { cellWidth: usablePageWidth * 0.16, halign: "center" },
+    4: { cellWidth: usablePageWidth * 0.23, halign: "center" },
+  };
+
+  const headStyles = {
+    fillColor: "#3B82F6",
+    textColor: "#FFFFFF",
+    fontStyle: "bold",
+    halign: "center",
+  };
+
+  let total = 0, cash = 0, online = 0;
+  for (let i = 0; i < data.length; i += chunkSize) {
+    const chunk = data.slice(i, i + chunkSize);
+    const rows = chunk.map((item, index) => {
+      const rowIndex = i + index;
+      total += item.rupay;
+      if (item.type === "Cash") cash += item.rupay;
+      else online += item.rupay;
+      return [
+        rowIndex + 1,
+        capitalizeWords(item.name),
+        capitalizeWords(item.gaav),
+        item.rupay,
+        item.type,
+      ];
+    });
+
+    const startY = i === 0 ? 75 : 40;
+    buildTable(doc, startY, rows, columnStyles, headStyles);
+
+    if (i + chunkSize < data.length) {
+      doc.addPage();
+    }
+  }
+
+  let currentY = doc.lastAutoTable.finalY + 30;
+  doc.setFontSize(13);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor("#000000");
+  doc.text(`Total (Active):  ${total}`, marginLeft, currentY);
+  doc.text(`Cash (Active):  ${cash}`, marginLeft, currentY + 22);
+  doc.text(`Online (Active):  ${online}`, marginLeft, currentY + 44);
+
+  // Deleted Records
+  if (deletedData.length > 0) {
+    let deletedTotal = 0, deletedCash = 0, deletedOnline = 0;
+    const deletedHeadStyles = {
+      fillColor: "#DC2626",
+      textColor: "#FFFFFF",
+      fontStyle: "bold",
+      halign: "center",
+    };
+
+    for (let i = 0; i < deletedData.length; i += chunkSize) {
+      const chunk = deletedData.slice(i, i + chunkSize);
+      const rows = chunk.map((item) => {
+        deletedTotal += item.rupay;
+        if (item.type === "Cash") deletedCash += item.rupay;
+        else deletedOnline += item.rupay;
+        return [
+          item.originalIndex,
+          capitalizeWords(item.name),
+          capitalizeWords(item.gaav),
+          item.rupay,
+          item.type,
+        ];
+      });
+
+      doc.addPage();
+      const startY = 40;
+      const title = i === 0 ? "Deleted Records" : null;
+      buildTable(doc, startY, rows, columnStyles, deletedHeadStyles, title);
+    }
+
+    const deletedY = doc.lastAutoTable.finalY + 30;
+    doc.setFontSize(13);
+    doc.setTextColor("#000000");
+    doc.setFont("helvetica", "bold");
+    doc.text(`Total (Deleted):  ${deletedTotal}`, marginLeft, deletedY);
+    doc.text(`Cash (Deleted):  ${deletedCash}`, marginLeft, deletedY + 22);
+    doc.text(`Online (Deleted):  ${deletedOnline}`, marginLeft, deletedY + 44);
+  }
+
+  // Timestamp
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  const endY = doc.lastAutoTable.finalY + 90;
+  doc.text(`Generated on: ${now.toLocaleString()}`, marginLeft, endY);
+
+  const filename = (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
+  doc.save(filename);
+}
+
   </script>
    <!--online pyment QR start-->
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
