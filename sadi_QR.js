@@ -187,7 +187,7 @@
     clone.style.position = "fixed";
     clone.style.top = "-9999px";
     clone.style.left = "-9999px";
-    clone.style.width = "350px"; // fixed width for clarity
+    clone.style.width = "250px"; // fixed width for clarity
     clone.style.padding = "25px 30px 40px 30px";
     document.body.appendChild(clone);
 
