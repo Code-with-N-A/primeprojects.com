@@ -86,357 +86,176 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4faff;
-            color: #2c3e50;
-            margin: 0;
-            padding: 0;
-        }
-
-        .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background-color: #e0f7fa;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 2px solid #b2ebf2;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #00796b;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-
-        .article-section {
-            flex: 0 1 65%;
-            background-color: #ffffff;
-            padding: 30px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .article-section h2 {
-            font-size: 2.5rem;
-            color: #0288d1;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #b3e5fc;
-            padding-bottom: 10px;
-        }
-
-        .article-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #37474f;
-            margin-bottom: 30px;
-        }
-
-        .feature-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            color: #37474f;
-        }
-
-        .feature-list li::before {
-            content: "•";
-            color: #00796b;
-            font-weight: bold;
-            font-size: 1.8rem;
-            padding-right: 10px;
-        }
-
-        .image-section {
-            flex: 0 1 30%;
-            background-color: #e3f2fd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .image-section h3 {
-            font-size: 2rem;
-            color: #0288d1;
-            margin-bottom: 15px;
-        }
-
-        .image-section img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .side-section {
-            margin-top: 30px;
-            background-color: #e1f5fe;
-            padding: 20px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .side-section h3 {
-            font-size: 1.5rem;
-            color: #00796b;
-            margin-bottom: 20px;
-        }
-
-        /* Button for submitting to a website */
-        .submit-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #0288d1;
-            color: white;
-            text-align: center;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #0277bd;
-        }
-
-        footer {
-    background-color: #111;
-    color: #fff;
-    padding: 40px 0;
-    text-align: left;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap; /* Responsive behavior ke liye */
-    justify-content: space-between; /* Space ko achhe se distribute karne ke liye */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Extra padding for responsiveness */
-    box-sizing: border-box;
-}
-
-.footer-section {
-    flex: 1;
-    padding: 20px;
-    min-width: 250px; /* Small screens ke liye minimum width */
-    box-sizing: border-box;
-}
-
-.footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #f1c40f;
-}
-
-.footer-section p,
-.footer-section ul {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #bbb;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-    color: #f1c40f;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    justify-content: center; /* Center the icons */
-    gap: 15px; /* Space between icons */
-}
-
-.footer-section .social-icons a {
-    font-size: 1.5rem;
-    color: #fff;
-    transition: color 0.3s ease;
-}
-
-.footer-section .social-icons a:hover {
-    color: #f1c40f;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-}
-
-/* Media Queries for Responsive Design */
-
-/* Large Tablets and Smaller Desktops */
-@media (max-width: 1024px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
+    /* Existing styles omitted for brevity... Keep your styles as is */
+     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      margin: 0; padding: 40px 20px;
+      color: #202124;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 0.2em;
+      user-select: none;
+    }
+    p.subtitle {
+      color: #5f6368;
+      margin-bottom: 2em;
+      max-width: 520px;
+      user-select: none;
+      font-size: 1.1rem;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgb(32 33 36 / 0.28);
+      max-width: 720px;
+      width: 100%;
+      padding: 32px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #imageInput {
+      padding: 14px 20px;
+      border: 2.5px dashed #dfe1e5;
+      border-radius: 12px;
+      background: #fafafa;
+      cursor: pointer;
+      font-weight: 600;
+      color: #3c4043;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      outline-offset: 4px;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    #imageInput:hover {
+      border-color: #1a73e8;
+      background-color: #f1f3f4;
+      color: #1a73e8;
+    }
+    #preview {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      overflow-x: auto;
+      max-width: 100%;
+      gap: 16px;
+      margin-bottom: 30px;
+      padding-bottom: 8px;
+      user-select: none;
+    }
+    .img-wrap {
+      flex: 0 0 auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgb(60 64 67 / 0.15);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      cursor: default;
+      transition: transform 0.25s ease;
+    }
+    .img-wrap:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 16px rgb(26 115 232 / 0.35);
+      z-index: 10;
+    }
+    .img-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      user-select: none;
+    }
+    .and-separator {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #5f6368;
+      user-select: none;
+      padding: 0 10px;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      flex: 0 0 auto;
+    }
+    #generateBtn {
+      background: #1a73e8;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 16px 48px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgb(26 115 232 / 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      margin-top: 10px;
+    }
+    #generateBtn:disabled {
+      background: #a8c0f0;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    #generateBtn:hover:not(:disabled) {
+      background: #155ab6;
+      box-shadow: 0 6px 20px rgb(21 90 182 / 0.6);
+    }
+    #pdfPreview {
+      margin-top: 40px;
+      border: 1px solid #ddd;
+      width: 100%;
+      max-width: 720px;
+      height: 540px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgb(32 33 36 / 0.15);
+      display: none;
+      overflow: auto;
     }
 
-    .footer-section {
-        margin-bottom: 20px;
-        max-width: 100%;
-        text-align: center; /* Center text on smaller screens */
+    /* Spinner styles */
+    .loader-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255,255,255,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
-    .footer-section h3 {
-        font-size: 1.3rem;
+    .loader-overlay.show {
+      opacity: 1;
+      pointer-events: all;
     }
 
-    .footer-section ul li a {
-        font-size: 0.95rem;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-    .footer-section {
-        min-width: 100%; /* Full width for small screens */
-        text-align: center; /* Center text on small screens */
+    .spinner {
+      border: 6px solid #dfe1e5;
+      border-top: 6px solid #1a73e8;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
     }
 
-    .footer-section h3 {
-        font-size: 1.2rem;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
-
-    .footer-section ul li a {
-        font-size: 0.9rem;
-    }
-
-    .footer-section .social-icons a {
-        margin: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        padding: 20px 0;
-    }
-
-    .footer-section h3 {
-        font-size: 1.1rem;
-    }
-
-    .footer-section ul li a {
-        font-size: 0.85rem;
-    }
-
-    .footer-bottom {
-        font-size: 0.8rem;
-    }
-}
-
-
-        /* Responsive Design */
-        @media screen and (max-width: 1024px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .article-section h2 {
-                font-size: 2rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 1.1rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .article-section, .image-section {
-                flex: 0 1 100%;
-                margin-bottom: 20px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .article-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 1rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .header h1 {
-                font-size: 1.5rem;
-                padding: 20px;
-            }
-
-            .article-section h2 {
-                font-size: 1.6rem;
-            }
-
-            .article-section p, .feature-list li {
-                font-size: 0.9rem;
-            }
-
-            .image-section h3 {
-                font-size: 1.4rem;
-            }
-
-            .submit-btn {
-                font-size: 1rem;
-                padding: 12px 25px;
-            }
-        }
-    </style>
+  </style>
 </head>
 
 <body>
@@ -450,91 +269,231 @@
   </div>
 <!-- Loader Wrapper and -->
    
-    <div class="wrapper">
-        <!-- Header -->
-        <div class="header">
-            <h1>Images 5G PDF - Convert Multiple Images to PDF</h1>
-        </div>
+   <h1>Image to PDF Generator</h1>
+  <p class="subtitle">Upload images, preview, generate PDF with heading, compact gaps and brightness boost.</p>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Left Content (Article) -->
-            <div class="article-section">
-                <h2>Images 5G PDF - Your Ultimate Image to PDF Converter</h2>
-                <p>
-                    Images 5G PDF is your go-to tool for converting multiple images into a single, organized PDF. 
-                    With its easy-to-use interface, it helps you manage and share your images in a professional PDF format.
-                </p>                
-                
-                <h2>Top Features of Images 5G PDF:</h2>
-                <ul class="feature-list">
-                    <li>Quick Conversion: Convert multiple images into a single PDF in just a few clicks.</li>
-                    <li>Easy Organization: Automatically organize images into a professional PDF layout.</li>
-                    <li>Fast Processing: Experience swift conversion without compromising on quality.</li>
-                    <li>Multiple Image Support: Supports various image formats for seamless conversion.</li>
-                    <li>User-Friendly Interface: Simple and intuitive design for effortless use.</li>
-                </ul>
-                
-            
-                <!-- Submit Button -->
-                <a href="https://code-with-n-a.github.io/img-to-pdf/" class="submit-btn">Explore More</a>
-            </div>
-            
+  <div class="container">
+    <input type="file" id="imageInput" accept="image/*" multiple aria-label="Upload images" />
+    <div id="preview" aria-live="polite"></div>
+    <button id="generateBtn" disabled>Generate PDF</button>
+    <iframe id="pdfPreview" title="PDF Preview" sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
 
-           <!-- Right Content (Image Section) -->
-<div class="image-section">
-    <h3>Images 5G PDF - Convert Images to PDF Anytime</h3>
-    <img src="img/img to pdf 3.png" alt="Exam Papers Collection">
-    <div class="side-section">
-        <h3>Additional Features</h3>
-        <p>
-            Images 5G PDF allows quick and easy conversion of multiple images into a single PDF. 
-            It supports various image formats and ensures high-quality PDF output. 
-            The platform is designed to be user-friendly, fast, and compatible across different devices and browsers.
-        </p>
-        
-    </div>
+  <!-- Loader Overlay -->
+  <div class="loader-overlay" id="loader">
+    <div class="spinner"></div>
+  </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ <script>
+  const { jsPDF } = window.jspdf;
+  const imageInput = document.getElementById('imageInput');
+  const preview = document.getElementById('preview');
+  const generateBtn = document.getElementById('generateBtn');
+  const loader = document.getElementById('loader');
 
-            </div>
-        </div>
-    </div>
+  let imageFiles = [];
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section about">
-                    <h3>About Us</h3>
-                    <p>
-                        Welcome to our  website. We are dedicated to providing quality education and fostering a learning environment that helps students excel in their careers.
-                    </p>
-                </div>
-                <div class="footer-section links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="About.html">About Us</a></li>
-                        <li><a href="explor.html">Projects</a></li>
-                        <li><a href="contect.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="https://t.me/CodwithNA"><i class="fab fa-telegram"></i></a>
-                        <a href="https://youtube.com/@codewith.n.a.73?si=It2wUQbQQHYMel69"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/codewith_n.a?igsh=NDRveWJsMGR2M3E3"><i class="fab fa-instagram"></i></a>
-                        <a href="https://github.com/"><i class="fab fa-github"></i></a>
-                        <a href="map.html"> <i class="fas fa-map-marker-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 CodeWith_N.A. All rights reserved.</p>
-            </div>
-        </footer>
-   
+  function showLoader() {
+    loader.classList.add('show');
+  }
+
+  function hideLoader() {
+    loader.classList.remove('show');
+  }
+
+  imageInput.addEventListener('change', async () => {
+    preview.innerHTML = '';
+    imageFiles = Array.from(imageInput.files);
+    generateBtn.disabled = imageFiles.length === 0;
+
+    if (imageFiles.length === 0) return;
+
+    showLoader();
+    for (let i = 0; i < imageFiles.length; i++) {
+      const file = imageFiles[i];
+      const wrap = document.createElement('div');
+      wrap.classList.add('img-wrap');
+
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.alt = `Image preview ${i + 1}`;
+      wrap.appendChild(img);
+      preview.appendChild(wrap);
+
+      if (i < imageFiles.length - 1) {
+        const andDiv = document.createElement('div');
+        andDiv.classList.add('and-separator');
+        andDiv.textContent = 'AND';
+        preview.appendChild(andDiv);
+      }
+    }
+    hideLoader();
+  });
+
+  generateBtn.addEventListener('click', async () => {
+    if (imageFiles.length === 0) {
+      alert('Please select at least one image.');
+      return;
+    }
+
+    showLoader();
+
+    const pxToMm = 0.264583;
+    const maxPageWidth = 210;
+    let totalHeight = 10;
+    const marginBetween = 10; // Extra space between images
+    const topMargin = 10;
+    const numberFontSize = 12;
+    const sideMargin = 10;
+
+    const imgs = [];
+    let avgColor = [250, 250, 250];
+
+    for (let i = 0; i < imageFiles.length; i++) {
+      const file = imageFiles[i];
+      const dataUrl = await fileToDataURL(file);
+      const img = await loadImage(dataUrl);
+      const brightDataUrl = await enhanceBrightnessAndContrast(img, 1.9, 1.1);
+      const brightImg = await loadImage(brightDataUrl);
+
+      if (i === 0) {
+        avgColor = await getAverageColor(brightImg);
+      }
+
+      let imgWidth = brightImg.width * pxToMm;
+      let imgHeight = brightImg.height * pxToMm;
+
+      if (imgWidth > maxPageWidth - 2 * sideMargin) {
+        const ratio = (maxPageWidth - 2 * sideMargin) / imgWidth;
+        imgWidth *= ratio;
+        imgHeight *= ratio;
+      }
+
+      imgs.push({ img: brightImg, width: imgWidth, height: imgHeight });
+      totalHeight += imgHeight + marginBetween;
+    }
+
+    totalHeight += topMargin;
+
+    const pdf = new jsPDF({
+      unit: 'mm',
+      format: [maxPageWidth, totalHeight],
+      compress: true,
+    });
+
+    pdf.setFillColor(...avgColor);
+    pdf.rect(0, 0, maxPageWidth, totalHeight, 'F');
+
+    const textColor = getContrastTextColor(avgColor);
+    let currentY = topMargin;
+
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(numberFontSize);
+    pdf.setTextColor(...textColor);
+
+    for (let i = 0; i < imgs.length; i++) {
+      const { img, width, height } = imgs[i];
+
+      const xImg = (maxPageWidth - width) / 2;
+      pdf.addImage(img, 'JPEG', xImg, currentY, width, height);
+
+      const label = `${i + 1}`;
+      const rightTextX = maxPageWidth - 12;
+      const numberY = currentY + 6;
+      pdf.text(label, rightTextX, numberY, { align: 'right' });
+
+      currentY += height + marginBetween;
+    }
+
+    const pdfBlob = pdf.output('blob');
+    const url = URL.createObjectURL(pdfBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'converted_images.pdf';
+    a.click();
+
+    hideLoader();
+  });
+
+  function fileToDataURL(file) {
+    return new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function loadImage(src) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.src = src;
+    });
+  }
+
+  function enhanceBrightnessAndContrast(img, brightnessFactor = 1.9, contrastFactor = 1.1) {
+    return new Promise(resolve => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      ctx.drawImage(img, 0, 0);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        let r = data[i] * brightnessFactor;
+        let g = data[i + 1] * brightnessFactor;
+        let b = data[i + 2] * brightnessFactor;
+
+        r = (((r / 300 - 0.5) * contrastFactor) + 0.5) * 255;
+        g = (((g / 300 - 0.5) * contrastFactor) + 0.5) * 255;
+        b = (((b / 300 - 0.5) * contrastFactor) + 0.5) * 255;
+
+        data[i] = Math.min(255, Math.max(0, r));
+        data[i + 1] = Math.min(255, Math.max(0, g));
+        data[i + 2] = Math.min(255, Math.max(0, b));
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+      resolve(canvas.toDataURL('image/jpeg', 0.85));
+    });
+  }
+
+  function getAverageColor(img) {
+    return new Promise(resolve => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+      let r = 0, g = 0, b = 0, count = 0;
+
+      for (let i = 0; i < data.length; i += 4) {
+        r += data[i];
+        g += data[i + 1];
+        b += data[i + 2];
+        count++;
+      }
+
+      resolve([
+        Math.round(r / count),
+        Math.round(g / count),
+        Math.round(b / count)
+      ]);
+    });
+  }
+
+  function getContrastTextColor([r, g, b]) {
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b);
+    return luminance > 160 ? [30, 30, 30] : [255, 255, 255];
+  }
+</script>
 
 </body>
-
 </html>
