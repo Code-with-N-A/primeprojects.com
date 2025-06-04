@@ -199,61 +199,60 @@
         width: 100%;
         margin: 5px 0;
       }
+
+      th,
+      td {
+        font-size: 0.8rem;
+        padding: 6px;
+      }
+
+      .tb {
+        width: 100%;
+        overflow-x: auto;
+      }
     }
 
-    /* Scroll wrapper for responsive layout */
-  .tb {
-    width: 100%;
-    overflow-x: auto;
-    margin: 20px auto;
-    padding: 20px;
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.3rem;
+      }
 
-  }
-
-  table {
-    border-collapse: collapse;
-    background-color: white;
-    table-layout: auto;
-    min-width: 1300px; /* Table will scroll on small devices if screen < 600px */
-    margin: 0 auto;   /* Center the table on larger screens */
-  }
-
-  th,
-  td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-
-  th {
-    background-color: #4caf50;
-    color: white;
-  }
-
-  tfoot td {
-    background-color: #eaeaea;
-    font-weight: bold;
-  }
-
-  .heading-row td {
-    background-color: #ffe6e6;
-    color: #cc0000;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  /* Optional: Style scrollbar */
-  .tb-container::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  /* Hide scrollbar on wide screens (not necessary, just cleaner) */
-  @media (min-width: 768px) {
-    .tb-container {
-      overflow-x: hidden;
+      th,
+      td {
+        font-size: 0.75rem;
+      }
     }
-  }
+
+    .active-store {
+      font-weight: bold;
+      background-color: #d0eaff;
+      cursor: pointer;
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    #storesList li {
+      cursor: pointer;
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    .new-store-btn {
+      width: 100%;
+      padding: 8px 5px;
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .new-store-btn:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 
@@ -321,7 +320,7 @@
     Add Heading
   </button>
 
-   <div class="tb">
+  <div class="tb">
     <table>
       <thead>
         <tr>
@@ -358,6 +357,7 @@
   <button onclick="downloadExcel()" class="download-btn" style="background-color: orange; color: white">
     Download Excel
   </button>
+
   <script>
   let activeStore = localStorage.getItem("activeStore") || "defaultStore";
   let sidebarVisible = false;
