@@ -54,6 +54,16 @@
 
     }
 
+    h1 {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #220349;
+      width: 90%;
+      margin: 5px auto;
+
+      text-align: center;
+    }
+
 
 
     /* ===== Layout ===== */
@@ -151,7 +161,11 @@
       font-size: 15px;
       cursor: pointer;
       color: white;
-      box-shadow: 0 0 20px 0px orange;
+      box-shadow: 0 0 90px 0px orange;
+      width: 100%;
+      text-align: center;
+      justify-content: left;
+
 
     }
 
@@ -162,7 +176,7 @@
 
 
     #accountsList button.accountBtn span.nameInitial {
-      background-color: #033b88;
+      background-color: #02214e;
       border-radius: 50%;
       width: 28px;
       height: 28px;
@@ -242,7 +256,7 @@
       text-align: center;
       margin-bottom: 15px;
       margin: 0;
-      padding:0;
+      padding: 0;
     }
 
     #userInfo h2 {
@@ -287,13 +301,13 @@
 
     /* Table header */
     thead tr {
-      background: #02559e;
+      background-color: #02214e;
       color: white;
     }
 
     thead th {
       padding: 10px 8px;
-      border: 3px solid #0d47a1;
+      background-color: #02214e;
       font-weight: 700;
       text-align: center;
     }
@@ -331,7 +345,7 @@
     }
 
     button.attendanceBtn {
-      background-color: #42a5f5;
+      background: #02559e;
       color: white;
       transition: background-color 0.3s;
     }
@@ -431,7 +445,8 @@
     }
 
     #bottomBtns button#downloadPdfBtn {
-      background: #1e88e5;
+      background-color: #044a84;
+
     }
 
     #bottomBtns button#downloadPdfBtn:hover {
@@ -494,7 +509,7 @@
 
     <!-- Sidebar -->
     <aside id="sidebar" class="hide" aria-label="Accounts Sidebar">
-      <h2 style="box-shadow: 0 0 1px 1px #25272b; background-color: #25272b;">Accounts</h2>
+      <h1>Accounts</h1>
       <form id="newAccountForm" aria-label="Create New Account">
         <input type="text" id="accountName" placeholder="Name" required autocomplete="off" />
         <input type="email" id="accountEmail" placeholder="Email" required autocomplete="off" />
@@ -667,18 +682,39 @@
         }
       }
 
-      // Update UI Accounts list
+      // Fixed color palette for initials backgrounds (added)
+      const initialsColorPalette = [
+        "#D32F2F", "#1976D2", "#388E3C", "#FBC02D",
+        "#7B1FA2", "#F57C00", "#0097A7", "#5D4037",
+        "#455A64", "#C2185B", "#00796B", "#512DA8"
+      ];
+
+      // Update UI Accounts list with colored initials
       function renderAccountsList() {
         accountsList.innerHTML = "";
-        accounts.forEach((acc) => {
+        accounts.forEach((acc, idx) => {
           const btn = document.createElement("button");
           btn.className = "accountBtn";
           if (acc.id === currentAccountId) btn.classList.add("active");
           btn.setAttribute("type", "button");
           btn.setAttribute("aria-label", `Switch to account ${acc.name}`);
-          btn.innerHTML = `<span class="nameInitial">${getInitials(
-            acc.name
-          )}</span>${acc.name}`;
+
+          // Assign color from palette based on index
+          const color = initialsColorPalette[idx % initialsColorPalette.length];
+
+          btn.innerHTML = `<span class="nameInitial" style="
+      background-color: ${color};
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      height: 28px;
+      font-weight: 700;
+      margin-right: 10px;
+    ">${getInitials(acc.name)}</span>${acc.name}`;
+
           btn.onclick = () => {
             currentAccountId = acc.id;
             saveState();
@@ -689,7 +725,28 @@
         });
       }
 
-      // Render current account data
+      // Helper to get current date in yyyy-mm-dd format
+      function getCurrentDate() {
+        const d = new Date();
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        return `${yyyy}-${mm}-${dd}`;
+      }
+
+      // Mark entry as paid + set paidDate
+      function markPaid(entry) {
+        entry.status = "paid";
+        entry.paidDate = getCurrentDate();
+      }
+
+      // Mark entry as unpaid + clear paidDate
+      function markUnpaid(entry) {
+        entry.status = "unpaid";
+        entry.paidDate = "";
+      }
+
+      // Updated render function with colored initials for current account
       function renderCurrentAccount() {
         if (!currentAccountId) {
           userNameDisplay.textContent = "No Account Selected";
@@ -699,37 +756,57 @@
             "<span>Total Attendance: 0 days</span> <span>Paid Entries: 0, Amount: ₹0</span> <span>Unpaid Entries: 0, Amount: ₹0</span>";
           return;
         }
+
         const acc = accounts.find((a) => a.id === currentAccountId);
         if (!acc) return;
-        userNameDisplay.textContent = capitalizeWords(acc.name);
+
+        // Display colored initials before name
+        const nameParts = acc.name.trim().split(" ");
+        const initials =
+          (nameParts[0]?.[0] || "") +
+          (nameParts[1]?.[0] || nameParts[0]?.[1] || "");
+        const index = accounts.findIndex((a) => a.id === acc.id);
+        const color = initialsColorPalette[index % initialsColorPalette.length];
+
+        userNameDisplay.innerHTML = `
+    <span style="
+      background-color: ${color};
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      height: 28px;
+      font-weight: 700;
+      margin-right: 10px;
+    ">${initials.toUpperCase()}</span>
+    ${capitalizeWords(acc.name)}
+  `;
+
         userEmailDisplay.textContent = acc.email;
 
-        // Render attendance rows
+        // Render attendance entries rows
         attendanceTableBody.innerHTML = "";
         acc.entries.forEach((entry, idx) => {
           const tr = document.createElement("tr");
 
-          // S.No
           const tdSno = document.createElement("td");
           tdSno.textContent = idx + 1;
           tr.appendChild(tdSno);
 
-          // Name (auto from account)
           const tdName = document.createElement("td");
           tdName.textContent = capitalizeWords(acc.name);
           tr.appendChild(tdName);
 
-          // Days
           const tdDays = document.createElement("td");
           tdDays.textContent = entry.days;
           tr.appendChild(tdDays);
 
-          // Amount
           const tdAmount = document.createElement("td");
           tdAmount.textContent = entry.amount.toFixed(2);
           tr.appendChild(tdAmount);
 
-          // Status (button toggle paid/unpaid)
           const tdStatus = document.createElement("td");
           const statusBtn = document.createElement("button");
           statusBtn.className = "attendanceBtn";
@@ -737,51 +814,44 @@
           if (entry.status === "paid") statusBtn.classList.add("paid");
           statusBtn.setAttribute(
             "aria-label",
-            `Mark entry ${idx + 1} as ${entry.status === "paid" ? "Unpaid" : "Paid"
-            }`
+            `Mark entry ${idx + 1} as ${entry.status === "paid" ? "Unpaid" : "Paid"}`
           );
           statusBtn.onclick = () => {
-            entry.status = entry.status === "paid" ? "unpaid" : "paid";
+            if (entry.status === "paid") {
+              markUnpaid(entry);
+            } else {
+              markPaid(entry);
+            }
             saveState();
             renderCurrentAccount();
             sendEmail(
               acc.email,
               `Attendance Entry Updated`,
-              `Entry #${idx + 1
-              } status changed to ${entry.status.toUpperCase()}.\n\nDetails:\nDays: ${entry.days
-              }\nAmount: ₹${entry.amount.toFixed(2)}\nTime: ${entry.time}`
+              `Entry #${idx + 1} status changed to ${entry.status.toUpperCase()}.\n\nDetails:\nDays: ${entry.days}\nAmount: ₹${entry.amount.toFixed(2)}\nTime: ${entry.time}\nPaid Date: ${entry.paidDate || "-"}`
             );
           };
           tdStatus.appendChild(statusBtn);
           tr.appendChild(tdStatus);
 
-          // Delete button
           const tdDelete = document.createElement("td");
           const delBtn = document.createElement("button");
           delBtn.className = "deleteEntryBtn";
           delBtn.textContent = "Delete";
           delBtn.setAttribute("aria-label", `Delete entry ${idx + 1}`);
           delBtn.onclick = () => {
-            if (
-              !confirm(`Are you sure you want to delete entry #${idx + 1}?`)
-            )
-              return;
+            if (!confirm(`Are you sure you want to delete entry #${idx + 1}?`)) return;
             acc.entries.splice(idx, 1);
             saveState();
             renderCurrentAccount();
             sendEmail(
               acc.email,
               `Attendance Entry Deleted`,
-              `Entry #${idx + 1} has been deleted.\n\nDetails:\nDays: ${entry.days
-              }\nAmount: ₹${entry.amount.toFixed(
-                2
-              )}\nStatus: ${entry.status.toUpperCase()}\nTime: ${entry.time}`
+              `Entry #${idx + 1} has been deleted.\n\nDetails:\nDays: ${entry.days}\nAmount: ₹${entry.amount.toFixed(2)}\nStatus: ${entry.status.toUpperCase()}\nTime: ${entry.time}\nPaid Date: ${entry.paidDate || "-"}`
             );
           };
           tdDelete.appendChild(delBtn);
           tr.appendChild(tdDelete);
 
-          // Time
           const tdTime = document.createElement("td");
           tdTime.textContent = entry.time;
           tr.appendChild(tdTime);
@@ -789,24 +859,20 @@
           attendanceTableBody.appendChild(tr);
         });
 
-        // Update totals
         const totalDays = acc.entries.reduce((sum, e) => sum + e.days, 0);
         const paidEntries = acc.entries.filter((e) => e.status === "paid");
-        const unpaidEntries = acc.entries.filter(
-          (e) => e.status === "unpaid"
-        );
+        const unpaidEntries = acc.entries.filter((e) => e.status === "unpaid");
         const paidAmount = paidEntries.reduce((sum, e) => sum + e.amount, 0);
-        const unpaidAmount = unpaidEntries.reduce(
-          (sum, e) => sum + e.amount,
-          0
-        );
+        const unpaidAmount = unpaidEntries.reduce((sum, e) => sum + e.amount, 0);
 
         totalsDiv.innerHTML = `<span>Total Attendance: ${totalDays} days</span>
-        <span>Paid Entries: ${paidEntries.length
-          }, Amount: ₹${paidAmount.toFixed(2)}</span>
-        <span>Unpaid Entries: ${unpaidEntries.length
-          }, Amount: ₹${unpaidAmount.toFixed(2)}</span>`;
+    <span>Paid Entries: ${paidEntries.length}, Amount: ₹${paidAmount.toFixed(2)}</span>
+    <span>Unpaid Entries: ${unpaidEntries.length}, Amount: ₹${unpaidAmount.toFixed(2)}</span>`;
       }
+
+
+      // Global accounts array and current account id assumed declared somewhere
+      // Example entry structure: {id, days, amount, status, time, paidDate}
 
       // Add new attendance entry
       function addNewEntry() {
@@ -837,11 +903,31 @@
         const acc = accounts.find((a) => a.id === currentAccountId);
         if (!acc) return;
 
+        // Logic to keep the first paidDate if this entry was previously paid
+        let existingPaidDate = "";
+        if (status === "paid") {
+          // Find if this exact entry was previously paid
+          // We'll assume entries are unique by combination of days + amount + time? 
+          // But since time changes, we'll check for last unpaid -> paid changes on the same entry
+          // Safer: Check if any existing entry matches days and amount and has a paidDate
+          // This depends on how you identify "same entry" - here I'll assume if days & amount matches, take existing paidDate if any
+
+          const previousEntry = acc.entries.find(
+            (e) => e.days === days && e.amount === amount && e.paidDate
+          );
+          if (previousEntry) {
+            existingPaidDate = previousEntry.paidDate;
+          } else {
+            existingPaidDate = getCurrentDate();
+          }
+        }
+
         acc.entries.push({
           days,
           amount,
           status,
           time: formatDateTime(),
+          paidDate: status === "paid" ? existingPaidDate : "",
         });
 
         saveState();
@@ -863,6 +949,15 @@
           }`;
 
         sendEmail(acc.email, "New Attendance Entry Added", summary);
+      }
+
+      // Helper to get current date in "dd/mm/yyyy" format (you can customize)
+      function getCurrentDate() {
+        const d = new Date();
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
+        const year = d.getFullYear();
+        return `${day}/${month}/${year}`;
       }
 
       // Create new account
@@ -953,7 +1048,7 @@ Paid Entries: ${paidEntries.length}, Amount: ₹${paidAmount.toFixed(2)}
 Unpaid Entries: ${unpaidEntries.length}, Amount: ₹${unpaidAmount.toFixed(2)}
 
 Thank you.
-        `;
+      `;
           sendEmail(
             acc.email,
             "Account Deleted with Attendance Summary",
@@ -983,21 +1078,23 @@ Thank you.
         });
       }
 
-      // The main PDF download function
+      // Mark an entry as Paid and set paidDate
+      function markPaid(entry) {
+        entry.status = "paid";
+        entry.paidDate = getCurrentDate();
+      }
+
+      // Mark an entry as Unpaid and clear paidDate
+      function markUnpaid(entry) {
+        entry.status = "unpaid";
+        entry.paidDate = "";
+      }
+
       function downloadPdf() {
-        if (!currentAccountId) {
-          alert("No account selected to download PDF.");
-          return;
-        }
+        if (!currentAccountId) return alert("No account selected to download PDF.");
         const acc = accounts.find((a) => a.id === currentAccountId);
-        if (!acc) {
-          alert("Selected account not found.");
-          return;
-        }
-        if (acc.entries.length === 0) {
-          alert("No attendance entries to generate PDF.");
-          return;
-        }
+        if (!acc) return alert("Selected account not found.");
+        if (acc.entries.length === 0) return alert("No entries to generate PDF.");
 
         const doc = new jsPDF({ unit: "pt", format: "a4" });
         const pageWidth = doc.internal.pageSize.getWidth();
@@ -1005,165 +1102,130 @@ Thank you.
         const marginTop = 40;
         let startY = marginTop;
 
+        // Headers and widths (Time and Paid Date columns widened)
         const headers = [
-          "S.No",
-          "Name",
-          "Days",
-          "Day",
-          "Amount",
-          "Status",
-          "Time",
+          "S.No", "Name", "Days", "Day", "Amount", "Status", "Time", "Paid Date"
         ];
-        const colWidths = [40, 110, 40, 60, 70, 60, 130];
+        const colWidths = [35, 80, 35, 60, 60, 55, 130, 90];
         const tableWidth = colWidths.reduce((a, b) => a + b, 0);
         const startX = (pageWidth - tableWidth) / 2;
 
-        doc.setFontSize(20);
-        doc.setTextColor("#1565c0");
+        // Header Title
+        doc.setFontSize(18);
+        doc.setTextColor("#0d47a1");
         doc.setFont(undefined, "bold");
-        doc.text(
-          `Payroll Record - ${capitalizeWords(acc.name)}`,
-          pageWidth / 2,
-          startY,
-          { align: "center" }
-        );
-        startY += 35;
+        doc.text(`Payroll Record  - ${capitalizeWords(acc.name)}`, pageWidth / 2, startY, { align: "center" });
+        startY += 30;
 
+        // Email & Date info
         doc.setFontSize(12);
         doc.setTextColor("#333");
         doc.setFont(undefined, "normal");
         doc.text(`Email: ${acc.email}`, startX, startY);
         startY += 18;
-        doc.text(`Date: ${formatDateTime()}`, startX, startY);
-        startY += 30;
+        doc.text(`Date: ${new Date().toLocaleString()}`, startX, startY);
+        startY += 28;
 
+        // Draw table header function
         function drawTableHeader() {
-          doc.setFillColor("#1565c0");
-          doc.setDrawColor("#0d47a1");
-          doc.setLineWidth(1.5);
+          doc.setFillColor("#1976d2");
+          doc.setDrawColor("#1565c0");
+          doc.setLineWidth(1.2);
           doc.rect(startX, startY - 15, tableWidth, 24, "F");
           doc.setTextColor("#fff");
           doc.setFont(undefined, "bold");
-          let currX = startX;
-          headers.forEach((head, i) => {
-            doc.text(head, currX + 5, startY);
-            currX += colWidths[i];
+          let x = startX;
+          headers.forEach((h, i) => {
+            doc.text(h, x + 4, startY);
+            x += colWidths[i];
           });
-          startY += 24;
-          doc.setTextColor("#222");
+          startY += 22;
           doc.setFont(undefined, "normal");
+          doc.setTextColor("#000");
         }
 
         drawTableHeader();
 
-        function getDayName(timeStr) {
-          let dateObj;
-          if (timeStr) {
-            const datePart = timeStr.slice(0, 10);
-            dateObj = new Date(datePart);
-            if (isNaN(dateObj)) dateObj = new Date();
-          } else {
-            dateObj = new Date();
+        // Loop entries & print rows with dynamic height and vertical centering
+        acc.entries.forEach((entry, i) => {
+          if (i > 0 && i % 20 === 0) {
+            doc.addPage();
+            startY = marginTop;
+            drawTableHeader();
           }
-          const days = [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-          ];
-          return days[dateObj.getDay()];
-        }
-
-        acc.entries.forEach((entry, idx) => {
-          if (idx > 0 && idx % 25 === 0) {
+          if (startY > pageHeight - 60) {
             doc.addPage();
             startY = marginTop;
             drawTableHeader();
           }
 
-          if (startY > pageHeight - 50) {
-            doc.addPage();
-            startY = marginTop;
-            drawTableHeader();
-          }
+          const dayName = new Date(entry.time).toLocaleDateString("en-US", { weekday: "long" });
+          const paidDate = (entry.status.toLowerCase() === "paid" && entry.paidDate) ? entry.paidDate : "-";
 
-          let currX = startX;
-          const dayName = getDayName(entry.time);
           const rowData = [
-            (idx + 1).toString(),
+            (i + 1).toString(),
             capitalizeWords(acc.name),
             entry.days.toString(),
             dayName,
             entry.amount.toFixed(2),
             entry.status.toUpperCase(),
             entry.time,
+            paidDate
           ];
 
-          rowData.forEach((text, i) => {
-            doc.setDrawColor("#aaa");
-            doc.setLineWidth(0.7);
-            doc.rect(currX, startY - 14, colWidths[i], 24);
+          // Wrap text and calculate max lines to adjust row height
+          const wrappedTexts = rowData.map((text, j) => doc.splitTextToSize(text, colWidths[j] - 8));
+          const maxLines = Math.max(...wrappedTexts.map(lines => lines.length));
+          const rowHeight = maxLines * 12 + 8; // line height * lines + padding
 
-            // Paid status green
-            if (i === 5 && entry.status.toLowerCase() === "paid") {
-              doc.setTextColor("#00aa00");
+          let x = startX;
+          rowData.forEach((text, j) => {
+            doc.setDrawColor("#bbb");
+            doc.setLineWidth(0.5);
+            doc.rect(x, startY - 12, colWidths[j], rowHeight);
+
+            // Paid status in green color
+            if (j === 5 && entry.status.toLowerCase() === "paid") {
+              doc.setTextColor("#1b5e20");
             } else {
-              doc.setTextColor("#222");
+              doc.setTextColor("#000");
             }
 
-            doc.text(text, currX + 3, startY + 7);
-            currX += colWidths[i];
+            // Vertically center text block
+            const lines = wrappedTexts[j];
+            const textHeight = lines.length * 12;
+            const textStartY = startY - 12 + (rowHeight - textHeight) / 2 + 10;
+
+            doc.text(lines, x + 4, textStartY);
+            x += colWidths[j];
           });
 
-          startY += 24;
+          startY += rowHeight;
         });
 
         // Summary Section
-        startY += 25;
-        const totalDays = acc.entries.reduce((sum, e) => sum + e.days, 0);
-        const paidEntries = acc.entries.filter(
-          (e) => e.status.toLowerCase() === "paid"
-        );
-        const unpaidEntries = acc.entries.filter(
-          (e) => e.status.toLowerCase() === "unpaid"
-        );
-        const paidAmount = paidEntries.reduce((sum, e) => sum + e.amount, 0);
-        const unpaidAmount = unpaidEntries.reduce(
-          (sum, e) => sum + e.amount,
-          0
-        );
+        startY += 20;
+        const totalDays = acc.entries.reduce((s, e) => s + e.days, 0);
+        const paidEntries = acc.entries.filter(e => e.status.toLowerCase() === "paid");
+        const unpaidEntries = acc.entries.filter(e => e.status.toLowerCase() === "unpaid");
+        const paidAmount = paidEntries.reduce((s, e) => s + e.amount, 0);
+        const unpaidAmount = unpaidEntries.reduce((s, e) => s + e.amount, 0);
 
         doc.setFont(undefined, "bold");
         doc.setTextColor("#1565c0");
         doc.text("Summary:", startX, startY);
-        startY += 20;
+        startY += 18;
 
         doc.setFont(undefined, "normal");
-        doc.setTextColor("#222");
+        doc.setTextColor("#000");
         doc.text(`Total Attendance: ${totalDays} days`, startX + 10, startY);
-        startY += 18;
-        doc.text(
-          `Paid Entries: ${paidEntries.length}, Amount: ${paidAmount.toFixed(
-            2
-          )}`,
-          startX + 10,
-          startY
-        );
-        startY += 18;
-        doc.text(
-          `Unpaid Entries: ${unpaidEntries.length
-          }, Amount: ${unpaidAmount.toFixed(2)}`,
-          startX + 10,
-          startY
-        );
+        startY += 16;
+        doc.text(`Paid Entries: ${paidEntries.length}, Amount: ${paidAmount.toFixed(2)}`, startX + 10, startY);
+        startY += 16;
+        doc.text(`Unpaid Entries: ${unpaidEntries.length}, Amount: ${unpaidAmount.toFixed(2)}`, startX + 10, startY);
 
-        const filename = `Payroll Record_${capitalizeWords(acc.name).replace(
-          /\s+/g,
-          "_"
-        )}.pdf`;
+        // Save the PDF file
+        const filename = `Payroll Record _${capitalizeWords(acc.name).replace(/\s+/g, "_")}.pdf`;
         doc.save(filename);
       }
 
@@ -1221,8 +1283,6 @@ Thank you.
       // Already handled by taking account name from account data
     })();
   </script>
-
-
 </body>
 
 </html>
