@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic SEO Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payroll Record - Track Attendance and Wages | PrimeProjects</title>
+  <meta name="description"
+    content="Manage and track daily labor attendance, wages, and payments with PrimeProjects Payroll Record. Create multiple accounts, download reports, and more." />
+  <meta name="keywords"
+    content="Payroll Record, Labor Attendance Tracker, Wage Tracker, PrimeProjects, Majduri Record, Daily Wage App, Attendance PDF, Payment Tracker, Workers Payment App" />
+  <meta name="author" content="PrimeProjects" />
+
+  <!-- Open Graph Tags for Social Sharing -->
+  <meta property="og:title" content="Payroll Record - PrimeProjects" />
+  <meta property="og:description"
+    content="Track labor attendance and payments with ease using the Payroll Record tool from PrimeProjects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://primeprojects.netlify.app/" />
+  <meta property="og:image" content="https://primeprojects.netlify.app/logo.png" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Payroll Record - PrimeProjects" />
+  <meta name="twitter:description"
+    content="Track daily labor attendance and wages with PrimeProjects' Payroll Record web tool." />
+  <meta name="twitter:image" content="https://primeprojects.netlify.app/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/favicon.ico" type="image/x-icon" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://primeprojects.netlify.app/" />
+
+  <style>
+    /* ===== Reset and basics ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: ivory;
+      color: #222;
+      height: 100vh;
+      overflow-x: hidden;
+
+
+    }
+
+
+
+    /* ===== Layout ===== */
+    #container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+
+    }
+
+    /* SIDEBAR — hidden on small screens, always visible on large screens */
+    #sidebar {
+      background-color: #ffcc33;
+      width: 230px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      height: 100vh;
+    }
+
+    /* Always visible on desktop/laptop */
+    @media (min-width: 769px) {
+      #sidebar {
+        transform: translateX(0) !important;
+        position: relative;
+      }
+
+      #toggleSidebarBtn {
+        display: none !important;
+      }
+
+      #mainContent {
+        margin-left: 230px;
+      }
+    }
+
+    /* On mobile: sidebar hidden by default */
+    @media (max-width: 768px) {
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        max-width: 80%;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+        height: 100vh;
+        background-color: #ffcc33;
+      }
+
+      #sidebar.show {
+        transform: translateX(0);
+      }
+
+      #mainContent {
+        margin-left: 0;
+      }
+
+      #toggleSidebarBtn {
+        display: flex;
+      }
+    }
+
+    #sidebar.hide {
+      transform: translateX(-100%);
+    }
+
+    #sidebar h2 {
+      margin: 15px;
+      font-weight: 700;
+      font-size: 22px;
+      text-align: center;
+      user-select: none;
+    }
+
+    #accountsList {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin: 10px 15px;
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+    }
+
+    #accountsList button.accountBtn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 0 20px 0px orange;
+
+    }
+
+    #accountsList button.accountBtn.active,
+    #accountsList button.accountBtn:hover {
+      background: #e1960a;
+    }
+
+
+    #accountsList button.accountBtn span.nameInitial {
+      background-color: #033b88;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      margin-right: 10px;
+      user-select: none;
+
+    }
+
+    #newAccountForm {
+      padding: 15px;
+      background-color: #ffcc33;
+
+    }
+
+    #newAccountForm input[type="text"],
+    #newAccountForm input[type="email"] {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 15px;
+
+    }
+
+    #newAccountForm button {
+      width: 100%;
+      padding: 10px 0;
+      font-weight: 700;
+      background-color: #f87f05;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    #newAccountForm button:hover {
+      background: #78bdf5;
+    }
+
+    /* Main content */
+    #mainContent {
+      flex-grow: 1;
+      padding: 15px 20px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Toggle button */
+    #toggleSidebarBtn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #f6f6e8;
+      border: none;
+      color: rgb(0, 0, 0);
+      font-size: 25px;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* User info at top */
+    #userInfo {
+      text-align: center;
+      margin-bottom: 15px;
+      margin: 0;
+      padding:0;
+    }
+
+    #userInfo h2 {
+      margin: 5px 0;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    #userInfo p {
+      margin: 2px 0 0 0;
+      font-size: 16px;
+      color: #000000;
+    }
+
+    /* Attendance table */
+    /* Table wrapper for horizontal and vertical scroll with hidden scrollbar */
+    #tableWrapper {
+      width: 100%;
+      max-height: 400px;
+      /* Enough height for approx. 10 rows */
+      overflow-y: auto;
+      overflow-x: auto;
+
+      /* Scrollbar hide - Firefox, IE, Chrome, Safari */
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE 10+ */
+    }
+
+    #tableWrapper::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari */
+    }
+
+    /* Attendance table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    /* Table header */
+    thead tr {
+      background: #02559e;
+      color: white;
+    }
+
+    thead th {
+      padding: 10px 8px;
+      border: 3px solid #0d47a1;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Table body */
+    tbody td {
+      border: 2px solid #1565c0;
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    tbody tr:nth-child(even) {
+      background: transparent;
+    }
+
+    /* Optional: smooth scroll and mobile friendliness */
+    #tableWrapper::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    #tableWrapper::-webkit-scrollbar-thumb {
+      background-color: #ffcc33;
+      border-radius: 4px;
+    }
+
+    /* Buttons inside table */
+    button.attendanceBtn,
+    button.deleteEntryBtn {
+      padding: 6px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button.attendanceBtn {
+      background-color: #42a5f5;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button.attendanceBtn.paid {
+      background-color: #388e3c;
+    }
+
+    button.attendanceBtn:hover {
+      opacity: 0.85;
+    }
+
+    button.deleteEntryBtn {
+      background-color: #e53935;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button.deleteEntryBtn:hover {
+      opacity: 0.85;
+    }
+
+    /* New entry input row */
+    #newEntryRow {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    #newEntryRow input[type="number"],
+    #newEntryRow select {
+      padding: 7px 10px;
+      font-size: 15px;
+      border-radius: 5px;
+      border: 1.5px solid #ccc;
+      flex-grow: 1;
+      min-width: 120px;
+    }
+
+    #newEntryRow button#addEntryBtn {
+      padding: 9px 18px;
+      background: #d1440c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      min-width: 120px;
+      transition: background-color 0.3s;
+    }
+
+    #newEntryRow button#addEntryBtn:hover {
+      background: #1565c0;
+    }
+
+    /* Total section */
+    #totals {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 20px;
+
+    }
+
+    #totals span {
+      margin-right: 25px;
+      color: #000000;
+      display: grid;
+    }
+
+    /* Bottom buttons */
+    #bottomBtns {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    #bottomBtns button {
+      flex-grow: 1;
+      min-width: 130px;
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 17px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    #bottomBtns button#deleteAccountBtn {
+      background: #e53935;
+    }
+
+    #bottomBtns button#deleteAccountBtn:hover {
+      background: #b71c1c;
+    }
+
+    #bottomBtns button#downloadPdfBtn {
+      background: #1e88e5;
+    }
+
+    #bottomBtns button#downloadPdfBtn:hover {
+      background: #1565c0;
+    }
+
+    /* ===== 📱 Mobile View ===== */
+    @media (max-width: 768px) {
+      #container {
+        flex-direction: column;
+      }
+
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        max-width: 80%;
+        transform: translateX(-100%);
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #sidebar.show {
+        transform: translateX(0);
+      }
+
+      #mainContent {
+        margin-left: 0;
+        padding-top: 60px;
+      }
+
+      #toggleSidebarBtn {
+        display: flex !important;
+      }
+    }
+
+    /* ===== 💻 Desktop View ===== */
+    @media (min-width: 769px) {
+      #sidebar {
+        transform: translateX(0) !important;
+        position: relative;
+      }
+
+      #toggleSidebarBtn {
+        display: none !important;
+      }
+
+      #mainContent {
+        margin-left: 0px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="container">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="hide" aria-label="Accounts Sidebar">
+      <h2 style="box-shadow: 0 0 1px 1px #25272b; background-color: #25272b;">Accounts</h2>
+      <form id="newAccountForm" aria-label="Create New Account">
+        <input type="text" id="accountName" placeholder="Name" required autocomplete="off" />
+        <input type="email" id="accountEmail" placeholder="Email" required autocomplete="off" />
+        <button type="submit" aria-label="Create New Account Button">
+          Create Account
+        </button>
+      </form>
+      <div id="accountsList" aria-live="polite" aria-relevant="additions removals"></div>
+
+    </aside>
+
+    <!-- Main content -->
+    <main id="mainContent" tabindex="-1">
+      <button id="toggleSidebarBtn" aria-label="Toggle Accounts Sidebar">
+        ☰
+      </button>
+      <section id="userInfo" aria-live="polite" aria-atomic="true" aria-relevant="text">
+        <h2 id="userNameDisplay">No Account Selected</h2>
+        <p id="userEmailDisplay"></p>
+      </section>
+
+      <!-- New Entry Row -->
+      <div id="newEntryRow" aria-label="Add Attendance Entry">
+        <input type="number" id="entryDays" placeholder="Days Worked" min="1" required aria-required="true" />
+        <input type="number" id="entryAmount" placeholder="Amount" min="0" required aria-required="true" />
+        <select id="entryStatus" aria-required="true">
+          <option value="unpaid">Unpaid</option>
+          <option value="paid">Paid</option>
+        </select>
+        <button id="addEntryBtn" aria-label="Add Attendance Entry Button">
+          Add Entry
+        </button>
+      </div>
+      <!-- Attendance table -->
+      <!-- Attendance table -->
+      <div id="tableWrapper">
+        <table id="attendanceTable" aria-label="Attendance Records Table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Days</th>
+              <th>Amount (₹)</th>
+              <th>Status</th>
+              <th>Delete</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceBody"></tbody>
+        </table>
+      </div><br>
+
+      <!-- Totals display -->
+      <div id="totals" aria-live="polite" aria-atomic="true">
+        <span>Total Attendance: 0 days</span>
+        <span>Paid Entries: 0, Amount: ₹0</span>
+        <span>Unpaid Entries: 0, Amount: ₹0</span>
+      </div>
+
+      <!-- Bottom Buttons -->
+      <div id="bottomBtns">
+        <button id="downloadPdfBtn" aria-label="Download PDF of Attendance Record">
+          Download PDF
+        </button>
+        <button id="deleteAccountBtn" aria-label="Delete Current Account">
+          Delete Account
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- jsPDF Library CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+  <script>
+    (function () {
+      const { jsPDF } = window.jspdf;
+
+      // Elements
+      const sidebar = document.getElementById("sidebar");
+      const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
+      const accountsList = document.getElementById("accountsList");
+      const newAccountForm = document.getElementById("newAccountForm");
+      const accountNameInput = document.getElementById("accountName");
+      const accountEmailInput = document.getElementById("accountEmail");
+      const userNameDisplay = document.getElementById("userNameDisplay");
+      const userEmailDisplay = document.getElementById("userEmailDisplay");
+      const attendanceTableBody = document.getElementById("attendanceBody");
+      const entryDaysInput = document.getElementById("entryDays");
+      const entryAmountInput = document.getElementById("entryAmount");
+      const entryStatusSelect = document.getElementById("entryStatus");
+      const addEntryBtn = document.getElementById("addEntryBtn");
+      const totalsDiv = document.getElementById("totals");
+      const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+      const deleteAccountBtn = document.getElementById("deleteAccountBtn");
+
+      toggleSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+      });
+
+      // Outside click to close sidebar on mobile
+      document.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          if (
+            !sidebar.contains(e.target) &&
+            !toggleSidebarBtn.contains(e.target)
+          ) {
+            sidebar.classList.remove("show");
+          }
+        }
+      });
+
+      // State
+      let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+      let currentAccountId = localStorage.getItem("currentAccountId") || null;
+
+      // Helper: Capitalize first letter of each word (for names)
+      function capitalizeWords(str) {
+        return str.replace(/\b\w/g, (c) => c.toUpperCase());
+      }
+
+      // Helper: Save accounts & current selection in localStorage
+      function saveState() {
+        localStorage.setItem("accounts", JSON.stringify(accounts));
+        localStorage.setItem("currentAccountId", currentAccountId);
+      }
+
+      // Create account ID
+      function createAccountId() {
+        return "acc_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
+      }
+
+      // Format date-time string
+      function formatDateTime(date = new Date()) {
+        return date.toLocaleString();
+      }
+
+      // Create initials from name
+      function getInitials(name) {
+        return name
+          .split(" ")
+          .filter(Boolean)
+          .map((n) => n[0].toUpperCase())
+          .slice(0, 2)
+          .join("");
+      }
+
+      // Send Email via FormSubmit
+      async function sendEmail(email, subject, body) {
+        try {
+          const response = await fetch(
+            `https://formsubmit.co/ajax/${email}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                _subject: subject,
+                message: body,
+              }),
+            }
+          );
+          if (!response.ok) throw new Error("Email send failed");
+          // console.log('Email sent successfully');
+        } catch (err) {
+          console.error("Email send error:", err);
+        }
+      }
+
+      // Update UI Accounts list
+      function renderAccountsList() {
+        accountsList.innerHTML = "";
+        accounts.forEach((acc) => {
+          const btn = document.createElement("button");
+          btn.className = "accountBtn";
+          if (acc.id === currentAccountId) btn.classList.add("active");
+          btn.setAttribute("type", "button");
+          btn.setAttribute("aria-label", `Switch to account ${acc.name}`);
+          btn.innerHTML = `<span class="nameInitial">${getInitials(
+            acc.name
+          )}</span>${acc.name}`;
+          btn.onclick = () => {
+            currentAccountId = acc.id;
+            saveState();
+            renderAccountsList();
+            renderCurrentAccount();
+          };
+          accountsList.appendChild(btn);
+        });
+      }
+
+      // Render current account data
+      function renderCurrentAccount() {
+        if (!currentAccountId) {
+          userNameDisplay.textContent = "No Account Selected";
+          userEmailDisplay.textContent = "";
+          attendanceTableBody.innerHTML = "";
+          totalsDiv.innerHTML =
+            "<span>Total Attendance: 0 days</span> <span>Paid Entries: 0, Amount: ₹0</span> <span>Unpaid Entries: 0, Amount: ₹0</span>";
+          return;
+        }
+        const acc = accounts.find((a) => a.id === currentAccountId);
+        if (!acc) return;
+        userNameDisplay.textContent = capitalizeWords(acc.name);
+        userEmailDisplay.textContent = acc.email;
+
+        // Render attendance rows
+        attendanceTableBody.innerHTML = "";
+        acc.entries.forEach((entry, idx) => {
+          const tr = document.createElement("tr");
+
+          // S.No
+          const tdSno = document.createElement("td");
+          tdSno.textContent = idx + 1;
+          tr.appendChild(tdSno);
+
+          // Name (auto from account)
+          const tdName = document.createElement("td");
+          tdName.textContent = capitalizeWords(acc.name);
+          tr.appendChild(tdName);
+
+          // Days
+          const tdDays = document.createElement("td");
+          tdDays.textContent = entry.days;
+          tr.appendChild(tdDays);
+
+          // Amount
+          const tdAmount = document.createElement("td");
+          tdAmount.textContent = entry.amount.toFixed(2);
+          tr.appendChild(tdAmount);
+
+          // Status (button toggle paid/unpaid)
+          const tdStatus = document.createElement("td");
+          const statusBtn = document.createElement("button");
+          statusBtn.className = "attendanceBtn";
+          statusBtn.textContent = entry.status === "paid" ? "Paid" : "Unpaid";
+          if (entry.status === "paid") statusBtn.classList.add("paid");
+          statusBtn.setAttribute(
+            "aria-label",
+            `Mark entry ${idx + 1} as ${entry.status === "paid" ? "Unpaid" : "Paid"
+            }`
+          );
+          statusBtn.onclick = () => {
+            entry.status = entry.status === "paid" ? "unpaid" : "paid";
+            saveState();
+            renderCurrentAccount();
+            sendEmail(
+              acc.email,
+              `Attendance Entry Updated`,
+              `Entry #${idx + 1
+              } status changed to ${entry.status.toUpperCase()}.\n\nDetails:\nDays: ${entry.days
+              }\nAmount: ₹${entry.amount.toFixed(2)}\nTime: ${entry.time}`
+            );
+          };
+          tdStatus.appendChild(statusBtn);
+          tr.appendChild(tdStatus);
+
+          // Delete button
+          const tdDelete = document.createElement("td");
+          const delBtn = document.createElement("button");
+          delBtn.className = "deleteEntryBtn";
+          delBtn.textContent = "Delete";
+          delBtn.setAttribute("aria-label", `Delete entry ${idx + 1}`);
+          delBtn.onclick = () => {
+            if (
+              !confirm(`Are you sure you want to delete entry #${idx + 1}?`)
+            )
+              return;
+            acc.entries.splice(idx, 1);
+            saveState();
+            renderCurrentAccount();
+            sendEmail(
+              acc.email,
+              `Attendance Entry Deleted`,
+              `Entry #${idx + 1} has been deleted.\n\nDetails:\nDays: ${entry.days
+              }\nAmount: ₹${entry.amount.toFixed(
+                2
+              )}\nStatus: ${entry.status.toUpperCase()}\nTime: ${entry.time}`
+            );
+          };
+          tdDelete.appendChild(delBtn);
+          tr.appendChild(tdDelete);
+
+          // Time
+          const tdTime = document.createElement("td");
+          tdTime.textContent = entry.time;
+          tr.appendChild(tdTime);
+
+          attendanceTableBody.appendChild(tr);
+        });
+
+        // Update totals
+        const totalDays = acc.entries.reduce((sum, e) => sum + e.days, 0);
+        const paidEntries = acc.entries.filter((e) => e.status === "paid");
+        const unpaidEntries = acc.entries.filter(
+          (e) => e.status === "unpaid"
+        );
+        const paidAmount = paidEntries.reduce((sum, e) => sum + e.amount, 0);
+        const unpaidAmount = unpaidEntries.reduce(
+          (sum, e) => sum + e.amount,
+          0
+        );
+
+        totalsDiv.innerHTML = `<span>Total Attendance: ${totalDays} days</span>
+        <span>Paid Entries: ${paidEntries.length
+          }, Amount: ₹${paidAmount.toFixed(2)}</span>
+        <span>Unpaid Entries: ${unpaidEntries.length
+          }, Amount: ₹${unpaidAmount.toFixed(2)}</span>`;
+      }
+
+      // Add new attendance entry
+      function addNewEntry() {
+        if (!currentAccountId) {
+          alert("Please select or create an account first.");
+          return;
+        }
+        const days = parseInt(entryDaysInput.value);
+        const amount = parseFloat(entryAmountInput.value);
+        const status = entryStatusSelect.value;
+
+        if (!days || days <= 0) {
+          alert("Please enter valid Days worked.");
+          entryDaysInput.focus();
+          return;
+        }
+        if (isNaN(amount) || amount < 0) {
+          alert("Please enter valid Amount.");
+          entryAmountInput.focus();
+          return;
+        }
+        if (!status) {
+          alert("Please select a Status.");
+          entryStatusSelect.focus();
+          return;
+        }
+
+        const acc = accounts.find((a) => a.id === currentAccountId);
+        if (!acc) return;
+
+        acc.entries.push({
+          days,
+          amount,
+          status,
+          time: formatDateTime(),
+        });
+
+        saveState();
+        renderCurrentAccount();
+
+        // Clear inputs but keep name autofill (which is fixed)
+        entryDaysInput.value = "";
+        entryAmountInput.value = "";
+        entryStatusSelect.value = "unpaid";
+
+        // Send email notification with summary
+        const summary = `New attendance entry added:\nDays: ${days}\nAmount: ₹${amount.toFixed(
+          2
+        )}\nStatus: ${status.toUpperCase()}\nTime: ${formatDateTime()}\n\nTotal Attendance: ${acc.entries.reduce(
+          (s, e) => s + e.days,
+          0
+        )} days\nPaid Entries: ${acc.entries.filter((e) => e.status === "paid").length
+          }\nUnpaid Entries: ${acc.entries.filter((e) => e.status === "unpaid").length
+          }`;
+
+        sendEmail(acc.email, "New Attendance Entry Added", summary);
+      }
+
+      // Create new account
+      newAccountForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nameRaw = accountNameInput.value.trim();
+        const emailRaw = accountEmailInput.value.trim();
+
+        if (!nameRaw || !emailRaw) {
+          alert("Please enter both Name and Email.");
+          return;
+        }
+
+        // Capitalize name words
+        const name = capitalizeWords(nameRaw);
+
+        // Check if email already exists
+        if (
+          accounts.some(
+            (a) => a.email.toLowerCase() === emailRaw.toLowerCase()
+          )
+        ) {
+          alert("This email is already registered.");
+          return;
+        }
+
+        const newAcc = {
+          id: createAccountId(),
+          name,
+          email: emailRaw.toLowerCase(),
+          entries: [],
+        };
+
+        accounts.push(newAcc);
+        currentAccountId = newAcc.id;
+        saveState();
+        renderAccountsList();
+        renderCurrentAccount();
+
+        // Clear form inputs
+        accountNameInput.value = "";
+        accountEmailInput.value = "";
+
+        // Hide sidebar on mobile (optional)
+        if (window.innerWidth < 900) {
+          sidebar.classList.add("hide");
+        }
+      });
+
+      // Delete current account
+      deleteAccountBtn.onclick = () => {
+        if (!currentAccountId) {
+          alert("No account selected to delete.");
+          return;
+        }
+        if (
+          !confirm(
+            "Are you sure you want to delete this account? This action cannot be undone."
+          )
+        )
+          return;
+
+        // Before deletion: Download PDF automatically
+        downloadPdf();
+
+        // Send email summary before deletion
+        const acc = accounts.find((a) => a.id === currentAccountId);
+        if (acc) {
+          const totalDays = acc.entries.reduce((sum, e) => sum + e.days, 0);
+          const paidEntries = acc.entries.filter((e) => e.status === "paid");
+          const unpaidEntries = acc.entries.filter(
+            (e) => e.status === "unpaid"
+          );
+          const paidAmount = paidEntries.reduce(
+            (sum, e) => sum + e.amount,
+            0
+          );
+          const unpaidAmount = unpaidEntries.reduce(
+            (sum, e) => sum + e.amount,
+            0
+          );
+          const emailBody = `
+Account "${acc.name}" (${acc.email}) has been deleted.
+
+Summary before deletion:
+Total Attendance: ${totalDays} days
+Paid Entries: ${paidEntries.length}, Amount: ₹${paidAmount.toFixed(2)}
+Unpaid Entries: ${unpaidEntries.length}, Amount: ₹${unpaidAmount.toFixed(2)}
+
+Thank you.
+        `;
+          sendEmail(
+            acc.email,
+            "Account Deleted with Attendance Summary",
+            emailBody
+          );
+        }
+
+        // Remove from accounts
+        accounts = accounts.filter((a) => a.id !== currentAccountId);
+        currentAccountId = accounts.length > 0 ? accounts[0].id : null;
+        saveState();
+        renderAccountsList();
+        renderCurrentAccount();
+      };
+
+      // Capitalize words helper
+      function capitalizeWords(str) {
+        return str.replace(/\b\w/g, (c) => c.toUpperCase());
+      }
+
+      // Format current date and time helper
+      function formatDateTime() {
+        const d = new Date();
+        return d.toLocaleString("en-IN", {
+          dateStyle: "medium",
+          timeStyle: "short",
+        });
+      }
+
+      // The main PDF download function
+      function downloadPdf() {
+        if (!currentAccountId) {
+          alert("No account selected to download PDF.");
+          return;
+        }
+        const acc = accounts.find((a) => a.id === currentAccountId);
+        if (!acc) {
+          alert("Selected account not found.");
+          return;
+        }
+        if (acc.entries.length === 0) {
+          alert("No attendance entries to generate PDF.");
+          return;
+        }
+
+        const doc = new jsPDF({ unit: "pt", format: "a4" });
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const marginTop = 40;
+        let startY = marginTop;
+
+        const headers = [
+          "S.No",
+          "Name",
+          "Days",
+          "Day",
+          "Amount",
+          "Status",
+          "Time",
+        ];
+        const colWidths = [40, 110, 40, 60, 70, 60, 130];
+        const tableWidth = colWidths.reduce((a, b) => a + b, 0);
+        const startX = (pageWidth - tableWidth) / 2;
+
+        doc.setFontSize(20);
+        doc.setTextColor("#1565c0");
+        doc.setFont(undefined, "bold");
+        doc.text(
+          `Payroll Record - ${capitalizeWords(acc.name)}`,
+          pageWidth / 2,
+          startY,
+          { align: "center" }
+        );
+        startY += 35;
+
+        doc.setFontSize(12);
+        doc.setTextColor("#333");
+        doc.setFont(undefined, "normal");
+        doc.text(`Email: ${acc.email}`, startX, startY);
+        startY += 18;
+        doc.text(`Date: ${formatDateTime()}`, startX, startY);
+        startY += 30;
+
+        function drawTableHeader() {
+          doc.setFillColor("#1565c0");
+          doc.setDrawColor("#0d47a1");
+          doc.setLineWidth(1.5);
+          doc.rect(startX, startY - 15, tableWidth, 24, "F");
+          doc.setTextColor("#fff");
+          doc.setFont(undefined, "bold");
+          let currX = startX;
+          headers.forEach((head, i) => {
+            doc.text(head, currX + 5, startY);
+            currX += colWidths[i];
+          });
+          startY += 24;
+          doc.setTextColor("#222");
+          doc.setFont(undefined, "normal");
+        }
+
+        drawTableHeader();
+
+        function getDayName(timeStr) {
+          let dateObj;
+          if (timeStr) {
+            const datePart = timeStr.slice(0, 10);
+            dateObj = new Date(datePart);
+            if (isNaN(dateObj)) dateObj = new Date();
+          } else {
+            dateObj = new Date();
+          }
+          const days = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ];
+          return days[dateObj.getDay()];
+        }
+
+        acc.entries.forEach((entry, idx) => {
+          if (idx > 0 && idx % 25 === 0) {
+            doc.addPage();
+            startY = marginTop;
+            drawTableHeader();
+          }
+
+          if (startY > pageHeight - 50) {
+            doc.addPage();
+            startY = marginTop;
+            drawTableHeader();
+          }
+
+          let currX = startX;
+          const dayName = getDayName(entry.time);
+          const rowData = [
+            (idx + 1).toString(),
+            capitalizeWords(acc.name),
+            entry.days.toString(),
+            dayName,
+            entry.amount.toFixed(2),
+            entry.status.toUpperCase(),
+            entry.time,
+          ];
+
+          rowData.forEach((text, i) => {
+            doc.setDrawColor("#aaa");
+            doc.setLineWidth(0.7);
+            doc.rect(currX, startY - 14, colWidths[i], 24);
+
+            // Paid status green
+            if (i === 5 && entry.status.toLowerCase() === "paid") {
+              doc.setTextColor("#00aa00");
+            } else {
+              doc.setTextColor("#222");
+            }
+
+            doc.text(text, currX + 3, startY + 7);
+            currX += colWidths[i];
+          });
+
+          startY += 24;
+        });
+
+        // Summary Section
+        startY += 25;
+        const totalDays = acc.entries.reduce((sum, e) => sum + e.days, 0);
+        const paidEntries = acc.entries.filter(
+          (e) => e.status.toLowerCase() === "paid"
+        );
+        const unpaidEntries = acc.entries.filter(
+          (e) => e.status.toLowerCase() === "unpaid"
+        );
+        const paidAmount = paidEntries.reduce((sum, e) => sum + e.amount, 0);
+        const unpaidAmount = unpaidEntries.reduce(
+          (sum, e) => sum + e.amount,
+          0
+        );
+
+        doc.setFont(undefined, "bold");
+        doc.setTextColor("#1565c0");
+        doc.text("Summary:", startX, startY);
+        startY += 20;
+
+        doc.setFont(undefined, "normal");
+        doc.setTextColor("#222");
+        doc.text(`Total Attendance: ${totalDays} days`, startX + 10, startY);
+        startY += 18;
+        doc.text(
+          `Paid Entries: ${paidEntries.length}, Amount: ${paidAmount.toFixed(
+            2
+          )}`,
+          startX + 10,
+          startY
+        );
+        startY += 18;
+        doc.text(
+          `Unpaid Entries: ${unpaidEntries.length
+          }, Amount: ${unpaidAmount.toFixed(2)}`,
+          startX + 10,
+          startY
+        );
+
+        const filename = `Payroll Record_${capitalizeWords(acc.name).replace(
+          /\s+/g,
+          "_"
+        )}.pdf`;
+        doc.save(filename);
+      }
+
+      // Add event listener to button (ensure this runs after DOM loaded)
+      document
+        .getElementById("downloadPdfBtn")
+        .addEventListener("click", downloadPdf);
+
+      // Sidebar toggle logic
+      toggleSidebarBtn.onclick = () => {
+        sidebar.classList.toggle("hide");
+      };
+
+      // Click outside sidebar to close it (only on small screens)
+      document.addEventListener("click", (e) => {
+        if (window.innerWidth >= 900) return;
+        if (
+          !sidebar.classList.contains("hide") &&
+          !sidebar.contains(e.target) &&
+          e.target !== toggleSidebarBtn
+        ) {
+          sidebar.classList.add("hide");
+        }
+      });
+
+      // Add entry button click
+      addEntryBtn.onclick = (e) => {
+        e.preventDefault();
+        addNewEntry();
+      };
+
+      // Add entry on Enter key press on inputs/select
+      [entryDaysInput, entryAmountInput, entryStatusSelect].forEach((el) => {
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            addNewEntry();
+          }
+        });
+      });
+
+      // Initial render
+      renderAccountsList();
+      renderCurrentAccount();
+
+      // Accessibility: focus main content when account selected
+      accountsList.addEventListener("click", () => {
+        userNameDisplay.parentElement.focus();
+      });
+
+      // Focus on name input when new account form visible
+      newAccountForm.accountNameInput?.focus();
+
+      // Autofill user name in entries (display only, in table)
+      // Already handled by taking account name from account data
+    })();
+  </script>
+
+
+</body>
+
+</html>
