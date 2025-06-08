@@ -1,710 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-6N0JHLBDCE");
-  </script>
-  <meta name="description"
-    content="Pocket Expense helps you store all your expenses in one place, making it easier to track and manage your finances. Download your expense report as a PDF whenever needed." />
-  <meta name="keywords"
-    content="Pocket Expense, expense tracker, finance manager, budget tracker, expense PDF download, personal finance" />
-  <meta name="author" content="Your Name or Company Name" />
-  <meta property="og:title" content="Pocket Expense - Manage Your Finances Effortlessly" />
-  <meta property="og:description"
-    content="Track, manage, and store your expenses with Pocket Expense. Download your financial reports as PDFs anytime." />
-
-  <meta name="description"
-    content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources." />
-
-  <!-- Keywords for SEO -->
-  <meta name="keywords"
-    content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects" />
-
-  <!-- Author -->
-  <meta name="author" content="Prime Projects" />
-
-  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
-  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects" />
-  <meta property="og:description"
-    content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more." />
-  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png" />
-  <!-- This image is your logo -->
-  <meta property="og:url" content="https://primeprojects.netlify.app/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects" />
-  <meta name="twitter:description"
-    content="Learn programming for free with various courses and tools, including task management and salary record tracking." />
-  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png" />
-  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" />
-
-  <!-- Additional SEO Meta Tags -->
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png" />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://primeprojects.netlify.app/" />
-
-  <!-- Schema Markup (Structured Data for SEO) -->
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Prime Projects",
-        "url": "https://primeprojects.netlify.app/",
-        "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
-        "sameAs": [
-          "https://www.facebook.com/primeprojects",
-          "https://twitter.com/primeprojects",
-          "https://www.linkedin.com/company/primeprojects"
-        ],
-        "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pocket Expense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
-    </script>
-  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Free Programming Courses",
-        "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Prime Projects",
-          "url": "https://primeprojects.netlify.app/"
+
+      body {
+        background-color: #fdf6ee;
+        font-family: "Segoe UI", sans-serif;
+        min-height: 100vh;
+        transition: padding-left 0.3s ease;
+        overflow: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+      }
+
+      h2 {
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 28px;
+        color: #02386f;
+      }
+
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #011443;
+        box-shadow: 2px 0 8px rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        overflow-y: auto;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        color: whitesmoke;
+        overflow: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+      }
+
+      @media (max-width: 768px) {
+        #sidebar {
+          transform: translateX(-270px);
+        }
+        #sidebar.open {
+          transform: translateX(0);
         }
       }
-    </script>
-  <title>Pocket Expense</title>
 
-  <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: red;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
-    .input-box {
-      padding: 10px;
-      margin: 5px;
-      border: 1px solid gray;
-      border-radius: 5px;
-      width: 90%;
-      max-width: 300px;
-    }
-
-    button {
-      margin: 10px 5px;
-      padding: 10px 15px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .delete-btn {
-      background-color: red;
-      color: white;
-    }
-
-    .download-btn {
-      background-color: #008cba;
-      color: white;
-    }
-
-    .tb {
-      max-height: 1500px;
-      overflow-x: auto;
-      margin: 20px auto;
-      width: 95%;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      table-layout: auto;
-    }
-
-    th,
-    td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    th {
-      background-color: #4caf50;
-      color: white;
-    }
-
-    tfoot td {
-      background-color: #eaeaea;
-      font-weight: bold;
-    }
-
-    .heading-row td {
-      background-color: #ffe6e6;
-      color: #cc0000;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    /* ✅ Responsive Design */
-    @media (max-width: 768px) {
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .input-box {
-        width: 100%;
-      }
-
-      button {
-        width: 100%;
-        margin: 5px 0;
-      }
-
-      th,
-      td {
-        font-size: 0.8rem;
-        padding: 6px;
-      }
-
-      .tb {
-        width: 100%;
-        overflow-x: auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 1.3rem;
-      }
-
-      th,
-      td {
-        font-size: 0.75rem;
-      }
-    }
-
-    .active-store {
-      font-weight: bold;
-      background-color: #d0eaff;
-      cursor: pointer;
-      padding: 5px;
-      margin-bottom: 5px;
-      border-radius: 4px;
-    }
-
-    #storesList li {
-      cursor: pointer;
-      padding: 5px;
-      margin-bottom: 5px;
-      border-radius: 4px;
-    }
-
-    .new-store-btn {
-      width: 100%;
-      padding: 8px 5px;
-      margin-top: 10px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .new-store-btn:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Loader Wrapper strat -->
-  <link rel="stylesheet" href="loder.css" />
-  <script src="loder.js"></script>
-  <div id="load-screen">
-    <div class="circle-animation"></div>
-    <div class="loading-text">primeprojects...</div>
-  </div>
-  <!-- Loader Wrapper and -->
-  <script src="sin.js"></script>
-
-  <h2>Pocket Expense</h2>
-  <!-- Toggle Button -->
-  <button id="toggleBtn" onclick="toggleSidebar()" style="
+      #toggleBtn {
+        display: none;
         position: fixed;
         left: 10px;
         top: 10px;
         font-size: 24px;
-        z-index: 1000;
-        background: none;
+        z-index: 1100;
+        background: #2c3e50;
+        color: white;
         border: none;
+        border-radius: 6px;
+        padding: 8px 14px;
         cursor: pointer;
-      ">
-    ☰
-  </button>
+      }
 
-  <!-- Sidebar container -->
-  <div id="sidebar" style="
-        position: fixed;
-        top: 0;
-        left: -250px; /* hidden by default */
-        width: 250px;
-        height: 100%;
-        background: #f1f1f1;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        overflow-y: auto;
-        transition: left 0.3s ease;
-        z-index: 999;
-      ">
-    <ul id="storesList" style="list-style: none; padding: 0; margin: 0"></ul>
-  </div>
+      @media (max-width: 768px) {
+        #toggleBtn {
+          display: block;
+        }
+      }
 
-  <!-- Existing product input form etc. -->
+      .input-box {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
 
-  <input type="text" id="productName" class="input-box" placeholder="Product Name" />
-  <input type="number" id="productPrice" class="input-box" placeholder="Price" />
-  <br />
+      .sidebar-btn {
+        width: 100%;
+        background-color: #469cf8;
+        color: white;
+        border: none;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+      }
 
-  <select id="transactionType" class="input-box">
-    <option value="credit">Credit</option>
-    <option value="debit">Debit</option>
-  </select>
-  <button onclick="addProduct()" style="background-color: green; color: white">
-    Add Product
-  </button>
+      #storesList {
+        list-style: none;
+        padding: 0;
+      }
 
-  <br />
+      .store-item {
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 5px 1px rgba(255, 255, 255, 0.1);
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
 
-  <input type="text" id="customHeading" class="input-box" placeholder="Add Custom Heading" />
-  <button onclick="addHeading()" style="background-color: blue; color: white">
-    Add Heading
-  </button>
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 8px;
+        flex-shrink: 0;
+      }
 
-  <div class="tb">
-    <table>
-      <thead>
-        <tr>
-          <th>S.No</th>
-          <th>Expense Name</th>
-          <th>Price (₹)</th>
-          <th>Total (₹)</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="productTable"></tbody>
-      <tfoot>
-        <tr>
-          <td colspan="3">Total Credit</td>
-          <td colspan="4" id="totalCredit">₹0</td>
-        </tr>
-        <tr>
-          <td colspan="3">Total Debit</td>
-          <td colspan="4" id="totalDebit">₹0</td>
-        </tr>
-        <tr>
-          <td colspan="3">Total Balance</td>
-          <td colspan="4" id="totalBalance">₹0</td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
+      .store-item.active-store {
+        background-color: #5504b8;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+      }
 
-  <button onclick="deleteAllProducts()" class="delete-btn">Delete All</button>
-  <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
-  <!-- New Excel download button -->
-  <button onclick="downloadExcel()" class="download-btn" style="background-color: orange; color: white">
-    Download Excel
-  </button>
+      .input-box,
+      select,
+      button {
+        max-width: 900px;
+        display: block;
+        margin: 10px auto;
+      }
 
-  <script>
-  let activeStore = localStorage.getItem("activeStore") || "defaultStore";
-  let sidebarVisible = false;
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebarVisible = !sidebarVisible;
-    sidebar.style.left = sidebarVisible ? "0" : "-250px";
-  }
+      .tb {
+        max-width: 1000px;
+        margin: 20px auto;
+        overflow-x: auto; /* horizontal scroll (पहले से है) */
 
-  function toTitleCase(str) {
-    return str
-      .toLowerCase()
-      .split(" ")
-      .filter(word => word.trim() !== "")
-      .map(word => word[0].toUpperCase() + word.slice(1))
-      .join(" ");
-  }
+        max-height: 400px; /* अपनी मनपसंद height सेट करो */
+        overflow-y: auto; /* vertical scroll जोड़ो */
+        border: 1px solid #ccc; /* optional: border दिखाने के लिए */
+        background: white;
+        overflow: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+      }
 
-  function loadStores() {
-    let stores = JSON.parse(localStorage.getItem("stores")) || [];
-    let storesList = document.getElementById("storesList");
-    storesList.innerHTML = "";
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgb(249, 255, 228);
+        overflow: hidden;
+      }
 
-    stores.forEach((store) => {
-      let displayName = toTitleCase(store);
-      let activeClass = store === activeStore ? "active-store" : "";
-      let li = document.createElement("li");
-      li.textContent = displayName;
-      li.className = activeClass;
-      li.onclick = () => {
-        setActiveStore(store);
-        toggleSidebar();
+      th,
+      td {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid black;
+      }
+
+      thead th {
+        background-color: #1c014f;
+        color: white;
+      }
+
+      tfoot td {
+        background: #ecf0f1;
+        font-weight: bold;
+      }
+      @media (min-width: 769px) {
+        #toggleBtn {
+          display: none !important;
+        }
+        #sidebar {
+          transform: translateX(0) !important;
+        }
+        .content {
+          margin-left: 270px;
+          transition: margin-left 0.3s ease;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          margin-left: 0;
+          transition: margin-left 0.3s ease;
+        }
+        body.sidebar-open .content {
+          margin-left: 250px;
+        }
+      }
+
+      /* ✅ Responsive row layout for inputs/buttons */
+      .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 12px;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 10px;
+      }
+
+      .form-actions input,
+      .form-actions select,
+      .form-actions button {
+        flex: 1 1 180px;
+        min-width: 150px;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+        background: rgb(255, 255, 255);
+        transition: 0.2s;
+        max-width: 100%;
+        box-sizing: border-box;
+       
+      }
+
+      /* मोबाइल पर छोटे करें */
+      @media (max-width: 600px) {
+        .form-actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+          padding: 0 10px;
+        }
+
+        .form-actions input,
+        .form-actions select,
+        .form-actions button {
+          min-width: auto;
+          flex-basis: auto;
+          width: 100%;
+          font-size: 14px; /* थोड़ा छोटा font */
+          padding: 8px 12px; /* padding भी थोड़ा कम */
+        }
+      }
+      .delete-btn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #d9363e;
+}
+
+    </style>
+  </head>
+  <body>
+      <!-- Loader Wrapper strat -->
+   <link rel="stylesheet" href="loder.css">
+   <script src="loder.js"></script>
+   <div id="load-screen">
+      <div class="circle-animation"></div>
+      <div class="loading-text">primeprojects...</div>
+    </div>
+  <!-- Loader Wrapper and -->
+   <!--sin in-->
+   <script src="sin.js"></script>
+
+
+    <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
+
+    <div id="sidebar">
+      <input
+        type="text"
+        id="newAccountName"
+        class="input-box"
+        placeholder="Enter Account Name"
+      />
+      <button class="sidebar-btn" onclick="createNewStore()">
+        ➕ Add Account
+      </button>
+
+      <input
+        type="text"
+        id="customHeading"
+        class="input-box"
+        placeholder="Add Custom Heading"
+      />
+      <button
+        class="sidebar-btn"
+        style="background-color: #cd0303"
+        onclick="addHeading()"
+      >
+        ➕ Add Heading
+      </button>
+
+      <ul id="storesList"></ul>
+    </div>
+
+    <div class="content">
+      <h2 id="heading">Pocket Expense</h2>
+
+      <div class="form-actions">
+        <input
+          type="text"
+          id="productName"
+          class="input-box"
+          placeholder="Product Name"
+        />
+        <input
+          type="number"
+          id="productPrice"
+          class="input-box"
+          placeholder="Price"
+        />
+        <select id="transactionType" class="input-box">
+          <option value="credit">Credit</option>
+          <option value="debit">Debit</option>
+        </select>
+        <button
+          onclick="addProduct()"
+          style="background-color: #1c014f; color: white"
+        >
+          Add Product
+        </button>
+      </div>
+      <div class="tb">
+        <table>
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Type</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Total Credit</td>
+              <td colspan="4" id="totalCredit">₹0</td>
+            </tr>
+            <tr>
+              <td colspan="3">Total Debit</td>
+              <td colspan="4" id="totalDebit">₹0</td>
+            </tr>
+            <tr>
+              <td colspan="3">Total Balance</td>
+              <td colspan="4" id="totalBalance">₹0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="form-actions">
+        <button
+          style="background-color: #f39c12; color: #ffffff"
+          onclick="downloadPDF()"
+          class="download-btn"
+        >
+          Download PDF
+        </button>
+        <button
+          onclick="downloadExcel()"
+          class="download-btn"
+          style="background-color: #035206; color: whitesmoke"
+        >
+          Download Excel
+        </button>
+        <button
+          style="background-color: rgb(217, 10, 10); color: whitesmoke"
+          onclick="deleteAllProducts()"
+          class="delete-btn"
+        >
+          Delete All
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // ✅ Global variable so every function can access and modify it
+      var activeStore = localStorage.getItem("activeStore") || "defaultStore";
+      let sidebarVisible = window.innerWidth > 768; // for responsive toggle
+
+      const toggleBtn = document.getElementById("toggleBtn");
+      const sidebar = document.getElementById("sidebar");
+
+      // 🔁 Sidebar Toggle
+      function toggleSidebar() {
+        sidebar.classList.toggle("open");
+        sidebar.classList.toggle("closed");
+      }
+
+      // ✅ Auto-close sidebar on small screens when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !sidebar.contains(e.target) &&
+          !toggleBtn.contains(e.target) &&
+          sidebar.classList.contains("open") &&
+          window.innerWidth <= 768
+        ) {
+          toggleSidebar();
+        }
+      });
+
+      // 🔠 Convert string to Title Case
+      function toTitleCase(str) {
+        return str
+          .toLowerCase()
+          .split(" ")
+          .filter((word) => word.trim() !== "")
+          .map((word) => word[0].toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+
+      // 🎨 Fixed palette of colors for avatars
+      const colors = [
+        "#f44336",
+        "#e91e63",
+        "#9c27b0",
+        "#3f51b5",
+        "#2196f3",
+        "#009688",
+        "#4caf50",
+        "#ff9800",
+        "#795548",
+      ];
+
+      // 🟢 Get initials (first letter of first and last word)
+      function getInitials(name) {
+        const parts = name.trim().split(" ");
+        const first = parts[0]?.[0] || "";
+        const second = parts[1]?.[0] || "";
+        return (first + second).toUpperCase();
+      }
+
+      // 🧠 Load sidebar store list
+      function loadStores() {
+        let stores = JSON.parse(localStorage.getItem("stores")) || [];
+        let storesList = document.getElementById("storesList");
+        storesList.innerHTML = "";
+
+        stores.forEach((store, i) => {
+          let displayName = toTitleCase(store);
+          let isActive = store === activeStore;
+
+          let li = document.createElement("li");
+          li.className = "store-item" + (isActive ? " active-store" : "");
+          li.onclick = () => {
+            setActiveStore(store);
+            if (window.innerWidth <= 768) toggleSidebar();
+          };
+
+          const avatar = document.createElement("div");
+          avatar.className = "avatar";
+          avatar.textContent = getInitials(store);
+          avatar.style.backgroundColor = colors[i % colors.length];
+
+          const name = document.createElement("div");
+          name.className = "store-name";
+          name.textContent = displayName;
+
+          li.appendChild(avatar);
+          li.appendChild(name);
+          storesList.appendChild(li);
+        });
+      }
+
+      // ✅ Set selected store and reload data
+      function setActiveStore(store) {
+        activeStore = store;
+        localStorage.setItem("activeStore", activeStore);
+        loadStores();
+        loadProducts(); // Make sure this function is defined elsewhere
+      }
+
+      // ➕ Prompt user to create new store
+      function createNewStore() {
+        let input = document.getElementById("newAccountName");
+        let newStoreName = input.value.trim();
+
+        if (!newStoreName) {
+          alert("Please enter a store name.");
+          return;
+        }
+
+        newStoreName = toTitleCase(newStoreName);
+        let stores = JSON.parse(localStorage.getItem("stores")) || [];
+
+        if (stores.includes(newStoreName)) {
+          alert("Store name already exists! Choose a different name.");
+          return;
+        }
+
+        stores.push(newStoreName);
+        localStorage.setItem("stores", JSON.stringify(stores));
+        localStorage.setItem(newStoreName, JSON.stringify([]));
+
+        input.value = ""; // Clear the input box after creation
+        setActiveStore(newStoreName); // Also calls loadStores() + loadProducts()
+      }
+
+      function addProduct() {
+        let name = toTitleCase(
+          document.getElementById("productName").value.trim()
+        );
+        let price = document.getElementById("productPrice").value;
+        let type = document.getElementById("transactionType").value;
+        let date = new Date().toLocaleDateString();
+
+        if (!name || !price) {
+          alert("Please enter both product name and price.");
+          return;
+        }
+
+        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+        products.push({ name, price, type, date });
+        localStorage.setItem(activeStore, JSON.stringify(products));
+
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        loadProducts();
+      }
+
+      function loadProducts() {
+        const tbody = document.getElementById("productTableBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = "";
+
+        const products = JSON.parse(localStorage.getItem(activeStore)) || [];
+
+        let sn = 1;
+        let totalCredit = 0;
+        let totalDebit = 0;
+        let runningBalance = 0; // चलती बैलेंस
+
+        products.forEach((product, index) => {
+          if (product.isHeading) {
+            // हेडिंग के लिए अलग row बनाएँ
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td colspan="7" style="font-weight:bold; background:#eee; text-align:center;">${product.heading}</td>`;
+            tbody.appendChild(tr);
+            return; // हेडिंग के बाद अगली आइटम पर जाएं
+          }
+
+          const tr = document.createElement("tr");
+          const price = parseFloat(product.price);
+
+          if (product.type === "credit") {
+            totalCredit += price;
+            runningBalance += price; // बैलेंस में जोड़ना
+          } else {
+            totalDebit += price;
+            runningBalance -= price; // बैलेंस में घटाना
+          }
+
+       tr.innerHTML = `
+  <td>${sn++}</td>
+  <td>${product.name}</td>
+  <td>${price.toFixed(2)}</td>
+  <td>${runningBalance.toFixed(2)}</td>
+  <td style="color:${product.type === "credit" ? "green" : "red"}">
+    ${product.type}
+  </td>
+  <td>${product.date}</td>
+  <td>
+    <button class="delete-btn" onclick="deleteProduct(${index})">Delet</button>
+  </td>
+`;
+
+
+          tbody.appendChild(tr);
+        });
+
+        // Summary अपडेट करें (अगर DOM में मौजूद हों)
+        if (document.getElementById("totalCredit"))
+          document.getElementById("totalCredit").innerText =
+            totalCredit.toFixed(2);
+        if (document.getElementById("totalDebit"))
+          document.getElementById("totalDebit").innerText =
+            totalDebit.toFixed(2);
+        if (document.getElementById("totalBalance"))
+          document.getElementById("totalBalance").innerText =
+            runningBalance.toFixed(2);
+      }
+
+      window.onload = () => {
+        loadStores();
+        loadProducts();
       };
-      storesList.appendChild(li);
-    });
 
-    let newStoreBtn = document.createElement("button");
-    newStoreBtn.textContent = "➕ New Store";
-    newStoreBtn.className = "new-store-btn";
-    newStoreBtn.onclick = () => {
-      createNewStore();
-      toggleSidebar();
-    };
-    storesList.appendChild(newStoreBtn);
-  }
-
-  function setActiveStore(store) {
-    activeStore = store;
-    localStorage.setItem("activeStore", activeStore);
-    loadStores();
-    loadProducts();
-  }
-
-  function createNewStore() {
-    let newStoreName = prompt("Enter new store name:");
-    if (!newStoreName) return;
-
-    newStoreName = toTitleCase(newStoreName);
-    let stores = JSON.parse(localStorage.getItem("stores")) || [];
-
-    if (stores.includes(newStoreName)) {
-      alert("Store name already exists! Choose a different name.");
-      return;
-    }
-
-    stores.push(newStoreName);
-    localStorage.setItem("stores", JSON.stringify(stores));
-    localStorage.setItem(newStoreName, JSON.stringify([]));
-
-    setActiveStore(newStoreName);
-  }
-
-  function loadProducts() {
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    let table = document.getElementById("productTable");
-    table.innerHTML = "";
-
-    let totalCredit = 0,
-      totalDebit = 0,
-      sn = 1;
-    let cumulativeCredit = 0,
-      cumulativeDebit = 0;
-
-    products.forEach((product, index) => {
-      if (product.isHeading) {
-        let headingText = toTitleCase(product.heading);
-        table.innerHTML += `
-          <tr class="heading-row">
-            <td colspan="6">${headingText}</td>
-            <td><button class="delete-btn" onclick="deleteProduct(${index})">Delete</button></td>
-          </tr>`;
-      } else {
-        let color = product.type === "credit" ? "green" : "red";
-        let price = parseFloat(product.price);
-
-        if (product.type === "credit") {
-          totalCredit += price;
-          cumulativeCredit += price;
-        } else {
-          totalDebit += price;
-          cumulativeDebit += price;
+      function addHeading() {
+        let heading = toTitleCase(
+          document.getElementById("customHeading").value.trim()
+        );
+        if (!heading) {
+          alert("Please enter a heading.");
+          return;
         }
 
-        let totalCell =
-          product.type === "credit"
-            ? `${cumulativeCredit.toFixed(2)}`
-            : `${cumulativeDebit.toFixed(2)}`;
+        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+        products.push({ isHeading: true, heading });
+        localStorage.setItem(activeStore, JSON.stringify(products));
 
-        table.innerHTML += `
-          <tr>
-            <td>${sn++}</td>
-            <td>${toTitleCase(product.name)}</td>
-            <td style="color:${color}; font-weight:bold;">${product.price}</td>
-            <td>${totalCell}</td>
-            <td style="color:${color}; font-weight:bold;">${product.type}</td>
-            <td>${product.date}</td>
-            <td><button class="delete-btn" onclick="deleteProduct(${index})">Delete</button></td>
-          </tr>`;
-      }
-    });
-
-    document.getElementById("totalCredit").innerText = totalCredit.toFixed(2);
-    document.getElementById("totalDebit").innerText = totalDebit.toFixed(2);
-    document.getElementById("totalBalance").innerText = (
-      totalCredit - totalDebit
-    ).toFixed(2);
-  }
-
-  function addProduct() {
-    let name = toTitleCase(document.getElementById("productName").value.trim());
-    let price = document.getElementById("productPrice").value;
-    let type = document.getElementById("transactionType").value;
-    let date = new Date().toLocaleDateString();
-
-    if (!name || !price) {
-      alert("Please enter both product name and price.");
-      return;
-    }
-
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    products.push({ name, price, type, date });
-    localStorage.setItem(activeStore, JSON.stringify(products));
-
-    document.getElementById("productName").value = "";
-    document.getElementById("productPrice").value = "";
-    loadProducts();
-  }
-
-  function addHeading() {
-    let heading = toTitleCase(document.getElementById("customHeading").value.trim());
-    if (!heading) {
-      alert("Please enter a heading.");
-      return;
-    }
-
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    products.push({ isHeading: true, heading });
-    localStorage.setItem(activeStore, JSON.stringify(products));
-
-    document.getElementById("customHeading").value = "";
-    loadProducts();
-  }
-
-  function deleteProduct(index) {
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    products.splice(index, 1);
-    localStorage.setItem(activeStore, JSON.stringify(products));
-    loadProducts();
-  }
-
-  function deleteAllProducts() {
-    if (
-      confirm(`Are you sure you want to delete the entire store "${toTitleCase(activeStore)}"?`)
-    ) {
-      localStorage.removeItem(activeStore);
-      let stores = JSON.parse(localStorage.getItem("stores")) || [];
-      stores = stores.filter((store) => store !== activeStore);
-      localStorage.setItem("stores", JSON.stringify(stores));
-
-      if (stores.length > 0) {
-        activeStore = stores[0];
-        localStorage.setItem("activeStore", activeStore);
-      } else {
-        activeStore = "defaultStore";
-        localStorage.setItem("activeStore", activeStore);
-        localStorage.setItem("stores", JSON.stringify([activeStore]));
-        localStorage.setItem(activeStore, JSON.stringify([]));
+        document.getElementById("customHeading").value = "";
+        loadProducts();
       }
 
-      loadStores();
-      loadProducts();
-      alert("Store deleted successfully.");
-    }
-  }
+      function deleteProduct(index) {
+        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+        products.splice(index, 1);
+        localStorage.setItem(activeStore, JSON.stringify(products));
+        loadProducts();
+      }
 
-  function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    let doc = new jsPDF();
-    doc.setFontSize(18);
-    doc.text(`Pocket Expense - ${toTitleCase(activeStore)}`, 70, 15);
+      // Store और उसके products को पूरी तरह delete करने का function
+      function deleteAllProducts() {
+        if (
+          confirm(
+            `Are you sure you want to delete the entire store "${toTitleCase(
+              activeStore
+            )}"?`
+          )
+        ) {
+          // Store की items localStorage से हटाएं
+          localStorage.removeItem(activeStore);
 
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    let totalCredit = document.getElementById("totalCredit").innerText;
-    let totalDebit = document.getElementById("totalDebit").innerText;
-    let totalBalance = document.getElementById("totalBalance").innerText;
+          // Stores की list में से current store हटा दें
+          let stores = JSON.parse(localStorage.getItem("stores")) || [];
+          stores = stores.filter((store) => store !== activeStore);
+          localStorage.setItem("stores", JSON.stringify(stores));
 
-    let tableData = [];
-    let displayIndex = 1;
-    let cumulativeCredit = 0,
-      cumulativeDebit = 0;
+          // Active store update करें या नया बनाएं
+          if (stores.length > 0) {
+            activeStore = stores[0];
+            localStorage.setItem("activeStore", activeStore);
+          } else {
+            activeStore = "defaultStore";
+            localStorage.setItem("activeStore", activeStore);
+            localStorage.setItem("stores", JSON.stringify([activeStore]));
+            localStorage.setItem(activeStore, JSON.stringify([]));
+          }
 
-    products.forEach((product) => {
-      if (product.isHeading) {
+          loadStores();
+          loadProducts();
+          alert("Store deleted successfully.");
+        }
+      }
+
+      // PDF डाउनलोड करने का function (jsPDF + autotable इस्तेमाल)
+      function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        let doc = new jsPDF();
+        doc.setFontSize(18);
+        doc.text(`Pocket Expense - ${toTitleCase(activeStore)}`, 70, 15);
+
+        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+        let totalCredit =
+          document.getElementById("totalCredit").innerText || "0.00";
+        let totalDebit =
+          document.getElementById("totalDebit").innerText || "0.00";
+        let totalBalance =
+          document.getElementById("totalBalance").innerText || "0.00";
+
+        let tableData = [];
+        let displayIndex = 1;
+        let cumulativeCredit = 0,
+          cumulativeDebit = 0;
+
+        products.forEach((product) => {
+          if (product.isHeading) {
+            tableData.push([
+              {
+                content: toTitleCase(product.heading),
+                colSpan: 6,
+                styles: {
+                  halign: "center",
+                  fontStyle: "bold",
+                  fillColor: [230, 230, 230],
+                },
+              },
+            ]);
+          } else {
+            let color = product.type === "credit" ? [0, 128, 0] : [255, 0, 0];
+            let price = parseFloat(product.price);
+            let totalCell = "";
+
+            if (product.type === "credit") {
+              cumulativeCredit += price;
+              totalCell = cumulativeCredit.toFixed(2);
+            } else {
+              cumulativeDebit += price;
+              totalCell = cumulativeDebit.toFixed(2);
+            }
+
+            tableData.push([
+              displayIndex++,
+              toTitleCase(product.name),
+              { content: price.toFixed(2), styles: { textColor: color } },
+              totalCell,
+              {
+                content:
+                  product.type.charAt(0).toUpperCase() + product.type.slice(1),
+                styles: { textColor: color },
+              },
+              product.date,
+            ]);
+          }
+        });
+
+        doc.autoTable({
+          head: [["S.No", "Name", "Price", "Total", "Type", "Date"]],
+          body: tableData,
+          theme: "grid",
+          startY: 20,
+          styles: { fontSize: 10 },
+          headStyles: { fillColor: [100, 149, 237], textColor: 255 },
+        });
+
+        let finalY = doc.lastAutoTable.finalY + 10;
+        doc.setFontSize(12);
+        doc.text(`Total Credit: ${totalCredit}`, 14, finalY);
+        doc.text(`Total Debit: ${totalDebit}`, 14, finalY + 8);
+        doc.text(`Total Balance: ${totalBalance}`, 14, finalY + 16);
+
+        doc.save(`Pocket_Expense_${toTitleCase(activeStore)}.pdf`);
+      }
+
+      function setActiveStore(store) {
+        activeStore = store;
+        localStorage.setItem("activeStore", activeStore);
+        loadStores();
+        loadProducts();
+
+        // ✅ Heading भी update कर दो:
+        const headingEl = document.getElementById("heading");
+        headingEl.textContent = `${toTitleCase(activeStore)}`;
+      }
+
+      // Excel डाउनलोड करने का function (SheetJS/XLSX)
+      function downloadExcel() {
+        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+        let tableData = [];
+        let sn = 1;
+        let cumulativeCredit = 0,
+          cumulativeDebit = 0;
+
+        // हेडर
         tableData.push([
-          {
-            content: toTitleCase(product.heading),
-            colSpan: 6,
-            styles: {
-              halign: "center",
-              fontStyle: "bold",
-              fillColor: [230, 230, 230],
-            },
-          },
+          "S.No",
+          "Expense Name",
+          "Price",
+          "Total",
+          "Type",
+          "Date",
         ]);
-      } else {
-        let color = product.type === "credit" ? [0, 128, 0] : [255, 0, 0];
-        let price = parseFloat(product.price);
-        let totalCell = "";
 
-        if (product.type === "credit") {
-          cumulativeCredit += price;
-          totalCell = `${cumulativeCredit.toFixed(2)}`;
-        } else {
-          cumulativeDebit += price;
-          totalCell = `${cumulativeDebit.toFixed(2)}`;
-        }
+        products.forEach((product) => {
+          if (product.isHeading) {
+            // Heading को पूरा एक कॉलम में डालें
+            tableData.push([toTitleCase(product.heading), "", "", "", "", ""]);
+          } else {
+            let price = parseFloat(product.price);
+            let totalCell = "";
 
-        tableData.push([
-          displayIndex++,
-          toTitleCase(product.name),
-          { content: `${product.price}`, styles: { textColor: color } },
-          totalCell,
-          {
-            content:
+            if (product.type === "credit") {
+              cumulativeCredit += price;
+              totalCell = cumulativeCredit.toFixed(2);
+            } else {
+              cumulativeDebit += price;
+              totalCell = cumulativeDebit.toFixed(2);
+            }
+
+            tableData.push([
+              sn++,
+              toTitleCase(product.name),
+              price.toFixed(2),
+              totalCell,
               product.type.charAt(0).toUpperCase() + product.type.slice(1),
-            styles: { textColor: color },
-          },
-          product.date,
-        ]);
+              product.date,
+            ]);
+          }
+        });
+
+        let totalCredit = cumulativeCredit.toFixed(2);
+        let totalDebit = cumulativeDebit.toFixed(2);
+        let totalBalance = (cumulativeCredit - cumulativeDebit).toFixed(2);
+
+        tableData.push([]);
+        tableData.push(["Total Credit", totalCredit]);
+        tableData.push(["Total Debit", totalDebit]);
+        tableData.push(["Total Balance", totalBalance]);
+
+        let ws = XLSX.utils.aoa_to_sheet(tableData);
+        let wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Pocket Expense");
+        XLSX.writeFile(wb, `Pocket_Expense_${toTitleCase(activeStore)}.xlsx`);
       }
-    });
 
-    doc.autoTable({
-      head: [["S.No", "Name", "Price", "Total", "Type", "Date"]],
-      body: tableData,
-      theme: "grid",
-      startY: 20,
-      styles: { fontSize: 10 },
-      headStyles: { fillColor: [100, 149, 237], textColor: 255 },
-    });
-
-    let finalY = doc.lastAutoTable.finalY + 10;
-    doc.setFontSize(12);
-    doc.text(`Total Credit: ${totalCredit}`, 14, finalY);
-    doc.text(`Total Debit: ${totalDebit}`, 14, finalY + 8);
-    doc.text(`Total Balance: ${totalBalance}`, 14, finalY + 16);
-
-    doc.save(`Pocket_Expense_${toTitleCase(activeStore)}.pdf`);
-  }
-
-  function downloadExcel() {
-    let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-    let tableData = [];
-    let sn = 1;
-    let cumulativeCredit = 0,
-      cumulativeDebit = 0;
-
-    tableData.push([
-      "S.No",
-      "Expense Name",
-      "Price",
-      "Total",
-      "Type",
-      "Date",
-    ]);
-
-    products.forEach((product) => {
-      if (product.isHeading) {
-        tableData.push([toTitleCase(product.heading), "", "", "", "", ""]);
-      } else {
-        let price = parseFloat(product.price);
-        let totalCell = "";
-
-        if (product.type === "credit") {
-          cumulativeCredit += price;
-          totalCell = cumulativeCredit.toFixed(2);
+      // पेज लोड होते ही चेक करें और लोड करें
+      window.onload = function () {
+        let stores = JSON.parse(localStorage.getItem("stores")) || [];
+        if (stores.length === 0) {
+          stores = ["defaultStore"];
+          localStorage.setItem("stores", JSON.stringify(stores));
+          localStorage.setItem("defaultStore", JSON.stringify([]));
+          localStorage.setItem("activeStore", "defaultStore");
+          activeStore = "defaultStore";
         } else {
-          cumulativeDebit += price;
-          totalCell = cumulativeDebit.toFixed(2);
+          activeStore = localStorage.getItem("activeStore") || stores[0];
+          localStorage.setItem("activeStore", activeStore);
         }
 
-        tableData.push([
-          sn++,
-          toTitleCase(product.name),
-          price,
-          totalCell,
-          product.type.charAt(0).toUpperCase() + product.type.slice(1),
-          product.date,
-        ]);
-      }
-    });
-
-    let totalCredit = cumulativeCredit.toFixed(2);
-    let totalDebit = cumulativeDebit.toFixed(2);
-    let totalBalance = (cumulativeCredit - cumulativeDebit).toFixed(2);
-
-    tableData.push([]);
-    tableData.push(["Total Credit", totalCredit]);
-    tableData.push(["Total Debit", totalDebit]);
-    tableData.push(["Total Balance", totalBalance]);
-
-    let ws = XLSX.utils.aoa_to_sheet(tableData);
-    let wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Pocket Expense");
-    XLSX.writeFile(wb, `Pocket_Expense_${toTitleCase(activeStore)}.xlsx`);
-  }
-
-  window.onload = function () {
-    let stores = JSON.parse(localStorage.getItem("stores")) || [];
-    if (stores.length === 0) {
-      stores = ["defaultStore"];
-      localStorage.setItem("stores", JSON.stringify(stores));
-      localStorage.setItem("defaultStore", JSON.stringify([]));
-      localStorage.setItem("activeStore", "defaultStore");
-      activeStore = "defaultStore";
-    }
-
-    loadStores();
-    loadProducts();
-  };
-</script>
-
-
-  <!-- Include XLSX library for Excel export -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <!--sin in-->
-</body>
-
+        loadStores();
+        loadProducts();
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  </body>
 </html>
