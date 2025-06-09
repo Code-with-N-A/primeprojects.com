@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PrimeProjects Messaging Panel</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f2f5;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* OTP Screen */
+      #otpScreen {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      #otpBox {
+        background: #fff;
+        padding: 30px 25px;
+        border-radius: 12px;
+        max-width: 360px;
+        width: 90%;
+        box-shadow: 0 6px 20px rgb(0 0 0 / 0.2);
+        text-align: center;
+      }
+      #otpBox h2 {
+        margin-bottom: 15px;
+        color: #1976d2;
+      }
+      #otpBox p {
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      #otpInput {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: 1.5px solid #1976d2;
+        outline-offset: 2px;
+      }
+      #verifyBtn {
+        margin-top: 18px;
+        width: 100%;
+        background: #1976d2;
+        color: white;
+        border: none;
+        padding: 12px 0;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #verifyBtn:hover {
+        background: #135ba1;
+      }
+      #otpStatus {
+        margin-top: 12px;
+        min-height: 22px;
+        font-weight: 600;
+        color: #d32f2f;
+      }
+
+      /* Main Layout */
+      #appLayout {
+        display: none;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        height: 52px;
+        background: #1565c0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        color: white;
+        position: relative;
+      }
+      #profileIcon {
+        position: fixed;
+        top: 7px;
+        right: 60px; /* toggle button se thoda left me */
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #0d47a1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+        z-index: 1000;
+      }
+
+      #profileDropdown {
+        position: absolute;
+        top: 52px;
+        right: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        padding: 15px 20px;
+        min-width: 220px;
+        display: none;
+        z-index: 100;
+        color: #111;
+      }
+      #profileDropdown p {
+        margin: 0 0 12px 0;
+        font-weight: 600;
+        word-break: break-word;
+      }
+      #logoutBtn {
+        background: #d32f2f;
+        color: white;
+        border: none;
+        width: 100%;
+        padding: 10px 0;
+        font-weight: 600;
+        font-size: 16px;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #logoutBtn:hover {
+        background: #9a2424;
+      }
+
+      /* Toggle Button for small screens */
+      #sidebarToggleBtn {
+        display: none;
+        width: 38px;
+        height: 38px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-right: 10px;
+        padding: 10px;
+        background-color: #09012f;
+        color: whitesmoke;
+        border-radius: 5px;
+      }
+
+      .mainContent {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+      }
+
+      /* Sidebar Left */
+      .sidebar {
+        width: 260px;
+        background: #e3f2fd;
+        padding: 20px 15px;
+        overflow-y: auto;
+        border-right: 1px solid #ccc;
+        transition: transform 0.3s ease;
+      }
+      .sidebar.hidden {
+        transform: translateX(-100%);
+      }
+      .sidebar h3 {
+        margin-top: 0;
+        color: #1565c0;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      .userRow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: nowrap;
+      }
+      .userIcon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+      }
+      .userEmail {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        max-width: 190px;
+      }
+
+      /* Content Center */
+      .contentArea {
+        flex: 1;
+        padding: 30px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .contentArea h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #1565c0;
+        font-weight: 700;
+      }
+      #messageBox {
+        resize: none;
+        height: 140px;
+        padding: 14px 15px;
+        font-size: 17px;
+        border-radius: 9px;
+        border: 1.8px solid #1976d2;
+        outline-offset: 2px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      #sendBtn {
+        margin-top: 20px;
+        width: 160px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        padding: 13px 0;
+        font-size: 17px;
+        font-weight: 700;
+        border-radius: 9px;
+        cursor: pointer;
+        align-self: flex-start;
+        transition: background-color 0.3s ease;
+      }
+      #sendBtn:hover {
+        background: #135ba1;
+      }
+      #msgStatus {
+        margin-top: 12px;
+        font-weight: 600;
+        min-height: 22px;
+        color: #2e7d32;
+      }
+
+      /* Scrollbar */
+      .sidebar::-webkit-scrollbar {
+        width: 7px;
+      }
+      .sidebar::-webkit-scrollbar-thumb {
+        background: #90caf9;
+        border-radius: 10px;
+      }
+      .sidebar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header {
+          justify-content: flex-start;
+        }
+        #sidebarToggleBtn {
+          display: block;
+        }
+        .mainContent {
+          flex-direction: column;
+        }
+        .sidebar {
+          position: fixed;
+          top: 52px;
+          left: 0;
+          height: calc(100vh - 52px);
+          z-index: 1000;
+          width: 260px;
+          box-shadow: 2px 0 12px rgb(0 0 0 / 0.2);
+          background: #e3f2fd;
+          border-right: none;
+          padding: 20px 15px;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+        }
+        .sidebar.visible {
+          transform: translateX(0);
+        }
+        .mainContent > .contentArea {
+          padding: 15px 15px;
+          margin-top: 10px;
+        }
+        #messageBox {
+          height: 120px;
+          font-size: 15px;
+        }
+        #sendBtn {
+          width: 100%;
+        }
+      }
+      .sidebarToggleBtn {
+        padding: 10px;
+        background-color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- OTP Screen -->
+    <div id="otpScreen" aria-label="OTP Verification">
+      <div
+        id="otpBox"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="otpTitle"
+      >
+        <h2 id="otpTitle">Enter OTP</h2>
+        <p>OTP sent to <b>primeprojects.dev@gmail.com</b></p>
+        <input
+          id="otpInput"
+          type="text"
+          maxlength="6"
+          placeholder="6-digit OTP"
+          autocomplete="one-time-code"
+          inputmode="numeric"
+        />
+        <button id="verifyBtn" onclick="verifyOtp()">Verify OTP</button>
+        <p id="otpStatus" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="appLayout" role="main" aria-label="PrimeProjects Messaging Panel">
+      <header>
+        <button
+          class="togo"
+          id="sidebarToggleBtn"
+          aria-expanded="false"
+          aria-controls="userList"
+          onclick="toggleSidebar()"
+        >
+          ☰
+        </button>
+        <div
+          id="profileIcon"
+          tabindex="0"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label="User profile menu"
+          onclick="toggleProfile()"
+        >
+          P
+        </div>
+        <div id="profileDropdown" role="menu" aria-hidden="true">
+          <p>primeprojects.dev@gmail.com</p>
+          <button id="logoutBtn" onclick="logout()">Logout</button>
+        </div>
+      </header>
+
+      <div class="mainContent">
+        <aside
+          class="sidebar"
+          aria-label="User emails list"
+          id="userList"
+          role="list"
+        >
+          <h3>Users</h3>
+          <!-- Users injected here -->
+        </aside>
+
+        <section class="contentArea">
+          <h3>Send Important Update</h3>
+          <textarea
+            id="messageBox"
+            placeholder="Type your important topic here..."
+            aria-label="Message input"
+          ></textarea>
+          <button id="sendBtn" onclick="sendMessage()">Send Message</button>
+          <p id="msgStatus" aria-live="polite"></p>
+        </section>
+      </div>
+    </div>
+    <script>
+      const permanentEmail = "primeprojects.dev@gmail.com"; // ye aapka reply-to email rahega
+      const users = [
+        "codewithna73@gmail.com",
+        "niteshamule74@gmail.com",
+        "aanchaluke421@gmail.com",
+        "websitemy76@gmail.com",
+      ];
+      const colors = [
+        "#ef5350",
+        "#42a5f5",
+        "#66bb6a",
+        "#ab47bc",
+        "#ff7043",
+        "#ffca28",
+      ];
+
+      let generatedOtp = "";
+
+      const otpScreen = document.getElementById("otpScreen");
+      const appLayout = document.getElementById("appLayout");
+      const otpStatus = document.getElementById("otpStatus");
+      const otpInput = document.getElementById("otpInput");
+
+      const userList = document.getElementById("userList");
+      const messageBox = document.getElementById("messageBox");
+      const msgStatus = document.getElementById("msgStatus");
+
+      const profileIcon = document.getElementById("profileIcon");
+      const profileDropdown = document.getElementById("profileDropdown");
+
+      const sidebarToggleBtn = document.getElementById("sidebarToggleBtn");
+
+      function randomOtp() {
+        return Math.floor(100000 + Math.random() * 900000).toString();
+      }
+
+      async function sendOtp() {
+        generatedOtp = randomOtp();
+        otpStatus.style.color = "#1976d2";
+        otpStatus.textContent = "OTP sending... processing...";
+        try {
+          // OTP will be sent ONLY to permanentEmail once
+          const formSubmitAPI = `https://formsubmit.co/ajax/${permanentEmail}`;
+          await fetch(formSubmitAPI, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              _subject: "PrimeProjects OTP Code",
+              message: `Your OTP is: ${generatedOtp}`,
+            }),
+          });
+          otpStatus.style.color = "green";
+          otpStatus.textContent = "OTP sent successfully!";
+        } catch (e) {
+          otpStatus.style.color = "red";
+          otpStatus.textContent = "Failed to send OTP. Refresh and try again.";
+          console.error(e);
+        }
+      }
+
+      function verifyOtp() {
+        const val = otpInput.value.trim();
+        if (val.length !== 6 || isNaN(val)) {
+          otpStatus.style.color = "red";
+          otpStatus.textContent = "Please enter a valid 6-digit OTP!";
+          return;
+        }
+        if (val === generatedOtp) {
+          localStorage.setItem("otpVerified", "true");
+          otpScreen.style.display = "none";
+          appLayout.style.display = "flex";
+          loadUsers();
+        } else {
+          otpStatus.style.color = "red";
+          otpStatus.textContent = "Incorrect OTP! Try again.";
+        }
+      }
+
+      function loadUsers() {
+        userList.innerHTML = "<h3>Users</h3>"; // reset
+        users.forEach((email, i) => {
+          const userRow = document.createElement("div");
+          userRow.className = "userRow";
+          // user icon with fixed size & bg color
+          const icon = document.createElement("div");
+          icon.className = "userIcon";
+          icon.style.backgroundColor = colors[i % colors.length];
+          icon.textContent = email.charAt(0).toUpperCase();
+
+          // email span with nowrap
+          const emailSpan = document.createElement("span");
+          emailSpan.className = "userEmail";
+          emailSpan.title = email;
+          emailSpan.textContent = email;
+
+          userRow.appendChild(icon);
+          userRow.appendChild(emailSpan);
+          userList.appendChild(userRow);
+        });
+      }
+
+      async function sendMessage() {
+        const inputMsg = messageBox.value.trim();
+        if (!inputMsg) {
+          msgStatus.style.color = "red";
+          msgStatus.textContent = "Please enter your important topic message!";
+          return;
+        }
+
+        // Compose default permanent update message + input
+        const defaultUpdate = "📢 PrimeProjects Important Update\n\n";
+        const importantTopic = `✅ Important Topic:\n${inputMsg}\n\n- PrimeProjects Team`;
+
+        const finalMessage = `${defaultUpdate}${importantTopic}`;
+
+        msgStatus.style.color = "#1976d2";
+        msgStatus.textContent = "Message sending... processing...";
+
+        try {
+          // Send message to EACH user email SEPARATELY using their own formSubmit endpoint
+          await Promise.all(
+            users.map((email) => {
+              const formSubmitAPI = `https://formsubmit.co/ajax/${email}`;
+              return fetch(formSubmitAPI, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+                body: JSON.stringify({
+                  _subject: `PrimeProjects Update for ${email}`,
+                  _replyto: permanentEmail,
+                  message: `Dear ${email},\n\n${finalMessage}\n\n`,
+                }),
+              });
+            })
+          );
+
+          msgStatus.style.color = "green";
+          msgStatus.textContent = "Message sent successfully to all users!";
+          messageBox.value = "";
+        } catch (err) {
+          msgStatus.style.color = "red";
+          msgStatus.textContent = "Failed to send message. Try again.";
+          console.error(err);
+        }
+      }
+
+      function toggleProfile() {
+        const shown = profileDropdown.style.display === "block";
+        profileDropdown.style.display = shown ? "none" : "block";
+        profileIcon.setAttribute("aria-expanded", !shown);
+      }
+
+      function logout() {
+        localStorage.removeItem("otpVerified");
+        location.reload();
+      }
+
+      function toggleSidebar() {
+        const isVisible = userList.classList.toggle("visible");
+        sidebarToggleBtn.setAttribute("aria-expanded", isVisible);
+      }
+
+      // INIT
+      window.addEventListener("load", () => {
+        if (localStorage.getItem("otpVerified") === "true") {
+          otpScreen.style.display = "none";
+          appLayout.style.display = "flex";
+          loadUsers();
+        } else {
+          sendOtp();
+          otpScreen.style.display = "flex";
+        }
+      });
+
+      // Accessibility: close profile dropdown on outside click
+      window.addEventListener("click", (e) => {
+        if (!profileDropdown.contains(e.target) && e.target !== profileIcon) {
+          profileDropdown.style.display = "none";
+          profileIcon.setAttribute("aria-expanded", false);
+        }
+        // Also hide sidebar on outside click (for small screens)
+        if (window.innerWidth <= 768) {
+          if (!userList.contains(e.target) && e.target !== sidebarToggleBtn) {
+            userList.classList.remove("visible");
+            sidebarToggleBtn.setAttribute("aria-expanded", false);
+          }
+        }
+      });
+
+      // Accessibility: Enter key triggers verify OTP on input focus
+      otpInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") verifyOtp();
+      });
+
+      // Accessibility: Enter key triggers send message when focused on textarea
+      messageBox.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    </script>
+  </body>
+</html>

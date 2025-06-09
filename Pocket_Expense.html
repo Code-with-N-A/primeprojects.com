@@ -274,18 +274,6 @@
     </style>
   </head>
   <body>
-      <!-- Loader Wrapper strat -->
-   <link rel="stylesheet" href="loder.css">
-   <script src="loder.js"></script>
-   <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
-  <!-- Loader Wrapper and -->
-   <!--sin in-->
-   <script src="sin.js"></script>
-
-
     <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
     <div id="sidebar">
@@ -521,153 +509,144 @@
         setActiveStore(newStoreName); // Also calls loadStores() + loadProducts()
       }
 
-      function addProduct() {
-        let name = toTitleCase(
-          document.getElementById("productName").value.trim()
-        );
-        let price = document.getElementById("productPrice").value;
-        let type = document.getElementById("transactionType").value;
-        let date = new Date().toLocaleDateString();
+    function addProduct() {
+  let name = toTitleCase(
+    document.getElementById("productName").value.trim()
+  );
+  let price = document.getElementById("productPrice").value;
+  let type = document.getElementById("transactionType").value;
+  let date = new Date().toLocaleDateString();
 
-        if (!name || !price) {
-          alert("Please enter both product name and price.");
-          return;
-        }
+  if (!name || !price) {
+    alert("Please enter both product name and price.");
+    return;
+  }
 
-        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-        products.push({ name, price, type, date });
-        localStorage.setItem(activeStore, JSON.stringify(products));
+  let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+  products.push({ name, price, type, date });
+  localStorage.setItem(activeStore, JSON.stringify(products));
 
-        document.getElementById("productName").value = "";
-        document.getElementById("productPrice").value = "";
-        loadProducts();
-      }
+  document.getElementById("productName").value = "";
+  document.getElementById("productPrice").value = "";
+  loadProducts();
+}
 
-      function loadProducts() {
-        const tbody = document.getElementById("productTableBody");
-        if (!tbody) return;
+function loadProducts() {
+  const tbody = document.getElementById("productTableBody");
+  if (!tbody) return;
 
-        tbody.innerHTML = "";
+  tbody.innerHTML = "";
 
-        const products = JSON.parse(localStorage.getItem(activeStore)) || [];
+  const products = JSON.parse(localStorage.getItem(activeStore)) || [];
 
-        let sn = 1;
-        let totalCredit = 0;
-        let totalDebit = 0;
-        let runningBalance = 0; // चलती बैलेंस
+  let sn = 1;
+  let totalCredit = 0;
+  let totalDebit = 0;
 
-        products.forEach((product, index) => {
-          if (product.isHeading) {
-            // हेडिंग के लिए अलग row बनाएँ
-            const tr = document.createElement("tr");
-            tr.innerHTML = `<td colspan="7" style="font-weight:bold; background:#eee; text-align:center;">${product.heading}</td>`;
-            tbody.appendChild(tr);
-            return; // हेडिंग के बाद अगली आइटम पर जाएं
-          }
+  products.forEach((product, index) => {
+    if (product.isHeading) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td colspan="7" style="font-weight:bold; background:#eee; text-align:center;">${product.heading}</td>`;
+      tbody.appendChild(tr);
+      return;
+    }
 
-          const tr = document.createElement("tr");
-          const price = parseFloat(product.price);
+    const tr = document.createElement("tr");
+    const price = parseFloat(product.price);
+    let showTotal = 0;
 
-          if (product.type === "credit") {
-            totalCredit += price;
-            runningBalance += price; // बैलेंस में जोड़ना
-          } else {
-            totalDebit += price;
-            runningBalance -= price; // बैलेंस में घटाना
-          }
+    if (product.type === "credit") {
+      totalCredit += price;
+      showTotal = totalCredit;
+    } else {
+      totalDebit += price;
+      showTotal = totalDebit;
+    }
 
-       tr.innerHTML = `
-  <td>${sn++}</td>
-  <td>${product.name}</td>
-  <td>${price.toFixed(2)}</td>
-  <td>${runningBalance.toFixed(2)}</td>
-  <td style="color:${product.type === "credit" ? "green" : "red"}">
-    ${product.type}
-  </td>
-  <td>${product.date}</td>
-  <td>
-    <button class="delete-btn" onclick="deleteProduct(${index})">Delet</button>
-  </td>
-`;
+    tr.innerHTML = `
+      <td>${sn++}</td>
+      <td>${product.name}</td>
+      <td>${price.toFixed(2)}</td>
+      <td>${showTotal.toFixed(2)}</td>
+      <td style="color:${product.type === "credit" ? "green" : "red"}">
+        ${product.type}
+      </td>
+      <td>${product.date}</td>
+      <td>
+        <button class="delete-btn" onclick="deleteProduct(${index})">Delet</button>
+      </td>
+    `;
 
+    tbody.appendChild(tr);
+  });
 
-          tbody.appendChild(tr);
-        });
+  if (document.getElementById("totalCredit"))
+    document.getElementById("totalCredit").innerText = totalCredit.toFixed(2);
+  if (document.getElementById("totalDebit"))
+    document.getElementById("totalDebit").innerText = totalDebit.toFixed(2);
+  if (document.getElementById("totalBalance"))
+    document.getElementById("totalBalance").innerText = (totalCredit - totalDebit).toFixed(2);
+}
 
-        // Summary अपडेट करें (अगर DOM में मौजूद हों)
-        if (document.getElementById("totalCredit"))
-          document.getElementById("totalCredit").innerText =
-            totalCredit.toFixed(2);
-        if (document.getElementById("totalDebit"))
-          document.getElementById("totalDebit").innerText =
-            totalDebit.toFixed(2);
-        if (document.getElementById("totalBalance"))
-          document.getElementById("totalBalance").innerText =
-            runningBalance.toFixed(2);
-      }
+window.onload = () => {
+  loadStores();
+  loadProducts();
+};
 
-      window.onload = () => {
-        loadStores();
-        loadProducts();
-      };
+function addHeading() {
+  let heading = toTitleCase(
+    document.getElementById("customHeading").value.trim()
+  );
+  if (!heading) {
+    alert("Please enter a heading.");
+    return;
+  }
 
-      function addHeading() {
-        let heading = toTitleCase(
-          document.getElementById("customHeading").value.trim()
-        );
-        if (!heading) {
-          alert("Please enter a heading.");
-          return;
-        }
+  let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+  products.push({ isHeading: true, heading });
+  localStorage.setItem(activeStore, JSON.stringify(products));
 
-        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-        products.push({ isHeading: true, heading });
-        localStorage.setItem(activeStore, JSON.stringify(products));
+  document.getElementById("customHeading").value = "";
+  loadProducts();
+}
 
-        document.getElementById("customHeading").value = "";
-        loadProducts();
-      }
+function deleteProduct(index) {
+  let products = JSON.parse(localStorage.getItem(activeStore)) || [];
+  products.splice(index, 1);
+  localStorage.setItem(activeStore, JSON.stringify(products));
+  loadProducts();
+}
 
-      function deleteProduct(index) {
-        let products = JSON.parse(localStorage.getItem(activeStore)) || [];
-        products.splice(index, 1);
-        localStorage.setItem(activeStore, JSON.stringify(products));
-        loadProducts();
-      }
+function deleteAllProducts() {
+  if (
+    confirm(
+      `Are you sure you want to delete the entire store "${toTitleCase(
+        activeStore
+      )}"?`
+    )
+  ) {
+    localStorage.removeItem(activeStore);
 
-      // Store और उसके products को पूरी तरह delete करने का function
-      function deleteAllProducts() {
-        if (
-          confirm(
-            `Are you sure you want to delete the entire store "${toTitleCase(
-              activeStore
-            )}"?`
-          )
-        ) {
-          // Store की items localStorage से हटाएं
-          localStorage.removeItem(activeStore);
+    let stores = JSON.parse(localStorage.getItem("stores")) || [];
+    stores = stores.filter((store) => store !== activeStore);
+    localStorage.setItem("stores", JSON.stringify(stores));
 
-          // Stores की list में से current store हटा दें
-          let stores = JSON.parse(localStorage.getItem("stores")) || [];
-          stores = stores.filter((store) => store !== activeStore);
-          localStorage.setItem("stores", JSON.stringify(stores));
+    if (stores.length > 0) {
+      activeStore = stores[0];
+      localStorage.setItem("activeStore", activeStore);
+    } else {
+      activeStore = "defaultStore";
+      localStorage.setItem("activeStore", activeStore);
+      localStorage.setItem("stores", JSON.stringify([activeStore]));
+      localStorage.setItem(activeStore, JSON.stringify([]));
+    }
 
-          // Active store update करें या नया बनाएं
-          if (stores.length > 0) {
-            activeStore = stores[0];
-            localStorage.setItem("activeStore", activeStore);
-          } else {
-            activeStore = "defaultStore";
-            localStorage.setItem("activeStore", activeStore);
-            localStorage.setItem("stores", JSON.stringify([activeStore]));
-            localStorage.setItem(activeStore, JSON.stringify([]));
-          }
+    loadStores();
+    loadProducts();
+    alert("Store deleted successfully.");
+  }
+}
 
-          loadStores();
-          loadProducts();
-          alert("Store deleted successfully.");
-        }
-      }
 
       // PDF डाउनलोड करने का function (jsPDF + autotable इस्तेमाल)
       function downloadPDF() {
