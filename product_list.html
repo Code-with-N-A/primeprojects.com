@@ -1,255 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Basic Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="PrimeProjects" />
+<meta name="language" content="en" />
+<meta name="revisit-after" content="7 days" />
 
-  gtag('config', 'G-6N0JHLBDCE');
-</script>
+<!-- SEO Title and Description -->
+<title>Product List – PrimeProjects</title>
+<meta name="description" content="Product List is a smart inventory and expense tracker by PrimeProjects. Track your items, payments, and generate PDFs instantly – all in one responsive tool." />
+<meta name="keywords" content="Product List, PrimeProjects, Expense Tracker, Inventory Manager, PDF Generator, Free Web Tools, JavaScript Project, Netlify App, Product Tracker" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Product List is a project where you can create and manage a list of products, download it in PDF format, and store payment details securely. It provides an easy-to-use interface for efficient product management and document generation.">
-    <meta name="keywords" content="Product List, product management, PDF download, payment details, product inventory">
-    <meta name="author" content="Your Name or Company Name">
+<!-- Open Graph for Social Media -->
+<meta property="og:title" content="Product List – Track Products & Payments with PrimeProjects" />
+<meta property="og:description" content="Manage your product list, payments, and inventory with ease. PDF export and real-time tracking in one smart web app." />
+<meta property="og:url" content="https://primeprojects.netlify.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://primeprojects.netlify.app/product-list-thumbnail.jpg" /> <!-- Replace with actual image if available -->
 
-    <title>Pruduct Listener with Payment and PDF Export</title>
-    <meta name="description" content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources.">
+<!-- Favicon -->
+<link rel="icon" href="https://primeprojects.netlify.app/favicon.ico" type="image/x-icon" />
+
+<style>
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #007bff;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.new-account-input {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.new-account-btn {
+  padding: 10px;
+  background-color: #ffc002;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+.new-account-btn:hover {
+  background-color: #218838;
+}
+.account-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.account-item {
+  padding: 10px;
+  background: #0056b3;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.account-item.active {
+  background: #0ba8eb;
+  font-weight: 700;
+}
+.account-initial {
+  background: #004085;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: white;
+}
+h1 {
+  margin: 0 0 20px 120px;
+  font-weight: 700;
+  color: #220150;
   
-  <!-- Keywords for SEO -->
-  <meta name="keywords" content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects">
-  
-  <!-- Author -->
-  <meta name="author" content="Prime Projects">
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+form input {
+  flex: 1 1 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button {
+  padding: 10px 20px;
+  background-color: #022d5b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+form button:hover {
+  background-color: #2b05b0;
+}
 
-  <!-- Open Graph Meta Tags (For Social Media Sharing) -->
-  <meta property="og:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta property="og:description" content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more.">
-  <meta property="og:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png"> <!-- This image is your logo -->
-  <meta property="og:url" content="https://primeprojects.netlify.app/">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prime Projects - Free Coding Courses and Projects">
-  <meta name="twitter:description" content="Learn programming for free with various courses and tools, including task management and salary record tracking.">
-  <meta name="twitter:image" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 350px;
+  margin-bottom: 20px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px;
+}
+th, td {
+ 
+  border: 1px solid #022a55;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 15px;
+}
+th {
+  background-color: #022a55;
+  color: white;
+  font-weight: 700;
+}
+.redo-button {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.redo-button.active {
+  background-color: #28a745;
+  color: white;
+}
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="msapplication-TileImage" content="https://primeprojects.netlify.app/img/favicon-32x32.png">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://primeprojects.netlify.app/">
 
-  <!-- Schema Markup (Structured Data for SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Prime Projects",
-    "url": "https://primeprojects.netlify.app/",
-    "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
-    "sameAs": [
-      "https://www.facebook.com/primeprojects",
-      "https://twitter.com/primeprojects",
-      "https://www.linkedin.com/company/primeprojects"
-    ],
-    "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
+.payment-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.payment-section input, .payment-section select, .payment-section button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.payment-section button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.payment-section button:hover {
+  background-color: #0056b3;
+}
+.totals {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.totals div {
+  margin-bottom: 6px;
+}
+#currentDateTime {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Toggle Button */
+#toggleSidebarBtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 8px 12px;
+  font-size: 22px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  z-index: 1100;
+  display: none;
+  cursor: pointer;
+}
+#toggleSidebarBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Sidebar Toggle */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
   }
-  </script>
-
-  <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Free Programming Courses",
-    "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Prime Projects",
-      "url": "https://primeprojects.netlify.app/"
-    }
+  .sidebar.open {
+    transform: translateX(0);
   }
-  </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
+  #toggleSidebarBtn {
+    display: block;
+  }
+}
 
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
+@media (max-width: 480px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .main-content {
+    padding: 15px;
+  }
+  .payment-section {
+    flex-direction: column;
+  }
+  .payment-section input,
+  .payment-section select,
+  .payment-section button {
+    width: 100%;
+  }
+}
+.account-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #0056b3;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+.account-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+.account-item button:hover {
+  color: #ffac07;
+}
+.account-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
 
-        }
-        form input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        form button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        form button:hover {
-            background-color: #218838;
-        }
-       
-        table {
-            overflow-y:scroll ;
-            min-width: 600px; /* Set a minimum width */
-            width: 100%;
-            margin-bottom: 20px;
-            border-collapse: collapse;
-        }
-      
-        table, th, td {
-            border: 1px solid #ddd;
 
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-        }
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        .pdf-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-        .pdf-button:hover {
-            background-color: #0056b3;
-        }
-        .total {
-            font-size: 15px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: rgb(0, 0, 0);
-        }
-        .payment-section {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 20px;
-        }
-        .redo-button {
-            background-color: #ffc107;
-            color: black;
-            border: none;
-            padding: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .redo-button.active {
-            background-color: #28a745;
-            color: white;
-        }
-        .delete-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .update-price {
-            background-color: #17a2b8;
-            color: white;
-            border: none;
-            padding: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .update-price:hover {
-            background-color: #138496;
-        }
-    
-        /* Media queries for responsiveness */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            form input, form button {
-                font-size: 14px;
-            }
-            th, td {
-                font-size: 14px;
-            }
-            .pdf-button {
-                font-size: 14px;
-            }
-        }
-    
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 20px;
-            }
-            form input, form button {
-                font-size: 12px;
-            }
-            th, td {
-                font-size: 12px;
-            }
-            .pdf-button {
-                font-size: 12px;
-            }
-        }
-        .tb{
-            overflow-y: scroll;
-        }
-       
-    </style>
-    
-    
+</style>
 </head>
 <body>
-     <!-- Loader Wrapper strat -->
+    <!-- Loader Wrapper strat -->
    <link rel="stylesheet" href="loder.css">
    <script src="loder.js"></script>
    <div id="load-screen">
@@ -259,223 +325,450 @@
   <!-- Loader Wrapper and -->
    <!--sin in-->
    <script src="sin.js"></script>
-    <div class="container">
-        <h1><input type="text" id="listHeading" placeholder="Product List Heading" style="width: 90%; padding: 10px; font-size: 18px;"></h1>
-        <form id="samanForm">
-            <input type="text" id="samanName" placeholder="Product Name" required>
-            <input type="number" id="samanQuantity" placeholder="Quantity" required>
-            <input type="number" id="samanPrice" placeholder="Price" required>
-            <button type="submit">Add Product</button>
-        </form>
+<!-- Toggle Button for small screens -->
+  <button id="toggleSidebarBtn" style="position:fixed;top:10px;left:10px;padding:8px 12px;font-size:22px;z-index:1001;display:none;">☰</button>
 
-        <div class="tb">
-            <table id="samanTable">
-                <thead>
-                    <tr>
-                        <th>S. No.</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total Price</th>
-                        <th>Product Found?</th>
-                        <th>Update Price</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Items will be added here dynamically -->
-                </tbody>
-            </table>
-        </div>
+  <div class="app-container">
 
-        <div class="payment-section">
-            <input type="number" id="paymentAmount" placeholder="Enter Amount Paid" required>
-            <select id="paymentMethod">
-                <option value="UPI">UPI</option>
-                <option value="PhonePe">PhonePe</option>
-                <option value="Google Pay">Google Pay</option>
-                <option value="Paytm">Paytm</option>
-                <option value="Cash">Cash</option>
-            </select>
-            <button id="payButton">Pay Now</button>
-        </div>
-
-        <div class="total">
-            <div>Total Price: ₹<span id="totalPrice">0</span></div>
-        </div>
-
-        <div class="total">
-            <div>Amount Paid: ₹<span id="paidAmount">0</span></div>
-            <div>Remaining Balance: ₹<span id="remainingAmount">0</span></div>
-            <div id="paymentMethodDisplay"></div>
-        </div>
-
-        <div>
-            <strong>Date and Time: </strong><span id="currentDateTime"></span>
-        </div><br>
-
-        <button class="pdf-button" onclick="downloadPDF()">Download PDF</button>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h2>Accounts</h2>
+      <input type="text" id="newAccountName" class="new-account-input" placeholder="New Account Name" />
+      <button id="addAccountBtn" class="new-account-btn">Add Account</button>
+      <div class="account-list" id="accountList"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.21/jspdf.plugin.autotable.min.js"></script>
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1 id="headingTitle">Product List</h1>
 
-    <script>
-        let samanList = JSON.parse(localStorage.getItem('samanList')) || [];
-        let totalQuantity = 0;
-        let totalPrice = 0;
-    
-        document.addEventListener('DOMContentLoaded', function () {
-            updateTable();
-            document.getElementById('listHeading').value = localStorage.getItem('listHeading') || '';
-            displayCurrentDateTime();
-        });
-    
-        document.getElementById('listHeading').addEventListener('input', function () {
-            localStorage.setItem('listHeading', this.value);
-        });
-    
-        document.getElementById('samanForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-    
-            const name = document.getElementById('samanName').value;
-            const quantity = parseInt(document.getElementById('samanQuantity').value);
-            const price = parseFloat(document.getElementById('samanPrice').value);
-    
-            if (name && quantity && price) {
-                samanList.push({ name, quantity, price, gotItem: false });
-                updateTable();
-                saveToLocalStorage();
-                document.getElementById('samanForm').reset();
+      <form id="productForm">
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <input type="number" id="productQuantity" placeholder="Quantity" min="1" required />
+        <input type="number" id="productPrice" placeholder="Price" min="0.01" step="0.01" required />
+        <button type="submit">Add Product</button>
+      </form>
+
+      <div class="table-wrapper">
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price (₹)</th>
+              <th>Total Price (₹)</th>
+              <th>Status</th>
+             
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="payment-section">
+        <input type="number" id="paymentAmount" placeholder="Amount Paid" min="0" step="0.01" />
+        <select id="paymentMethod">
+          <option value="UPI">UPI</option>
+          <option value="PhonePe">PhonePe</option>
+          <option value="Google Pay">Google Pay</option>
+          <option value="Paytm">Paytm</option>
+          <option value="Cash">Cash</option>
+        </select>
+        <button id="payButton">Pay Now</button>
+      </div>
+
+      <div class="totals">
+        <div>Total Price: ₹<span id="totalPrice">0.00</span></div>
+        <div>Amount Paid: ₹<span id="paidAmount">0.00</span></div>
+        <div>Remaining Balance: ₹<span id="remainingAmount">0.00</span></div>
+        <div id="paymentMethodDisplay"></div>
+      </div>
+
+      <div>
+        <strong>Date and Time: </strong><span id="currentDateTime"></span>
+      </div>
+
+      <button class="new-account-btn" id="downloadPdfBtn" style="background:#014864; width: 100%;">Download PDF</button>
+    </div>
+  </div>
+
+<!-- jsPDF & autotable -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+  // Declare globally
+  let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+  let activeAccount = localStorage.getItem('activeAccount') || null;
+  let paymentData = JSON.parse(localStorage.getItem('paymentData')) || {};
+  let samanList = [];
+
+  // Elements
+  const accountListEl = document.getElementById('accountList');
+  const newAccountInput = document.getElementById('newAccountName');
+  const addAccountBtn = document.getElementById('addAccountBtn');
+  const headingTitleEl = document.getElementById('headingTitle');
+  const productForm = document.getElementById('productForm');
+  const productNameEl = document.getElementById('productName');
+  const productQuantityEl = document.getElementById('productQuantity');
+  const productPriceEl = document.getElementById('productPrice');
+  const productTableBody = document.querySelector('#productTable tbody');
+  const paymentAmountEl = document.getElementById('paymentAmount');
+  const paymentMethodEl = document.getElementById('paymentMethod');
+  const payButton = document.getElementById('payButton');
+  const totalPriceEl = document.getElementById('totalPrice');
+  const paidAmountEl = document.getElementById('paidAmount');
+  const remainingAmountEl = document.getElementById('remainingAmount');
+  const paymentMethodDisplayEl = document.getElementById('paymentMethodDisplay');
+  const currentDateTimeEl = document.getElementById('currentDateTime');
+  const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+
+
+  const toggleBtn = document.getElementById('toggleSidebarBtn');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Show toggle button only on small screens
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    function handleMediaQuery(e) {
+      toggleBtn.style.display = e.matches ? 'block' : 'none';
+      if (!e.matches) sidebar.classList.remove('open');
+    }
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
+
+  function saveAccounts() {
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+  }
+  function saveActiveAccount() {
+    localStorage.setItem('activeAccount', activeAccount);
+  }
+  function savePaymentData() {
+    localStorage.setItem('paymentData', JSON.stringify(paymentData));
+  }
+  function saveCurrentProducts() {
+    if (!activeAccount) return;
+    const accIndex = accounts.findIndex(a => a.name === activeAccount);
+    if (accIndex === -1) return;
+    accounts[accIndex].products = samanList.slice();
+    saveAccounts();
+  }
+  function saveCurrentPayment() {
+    if (!activeAccount) return;
+    const amount = parseFloat(paymentAmountEl.value) || 0;
+    const method = paymentMethodEl.value;
+    paymentData[activeAccount] = { paidAmount: amount, paymentMethod: method };
+    savePaymentData();
+  }
+
+ function renderAccounts() {
+  accountListEl.innerHTML = '';
+  accounts.forEach((acc, index) => {
+    const div = document.createElement('div');
+    div.classList.add('account-item');
+    if (acc.name === activeAccount) div.classList.add('active');
+
+    const initial = document.createElement('div');
+    initial.classList.add('account-initial');
+    initial.textContent = acc.name.charAt(0).toUpperCase();
+
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = acc.name;
+    nameSpan.style.flex = '1';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.title = 'Delete account';
+    deleteBtn.style.background = 'red';
+    deleteBtn.style.border = 'none';
+    deleteBtn.style.color = 'white';
+    deleteBtn.style.cursor = 'pointer';
+    deleteBtn.style.padding = '4px 8px';
+    deleteBtn.style.borderRadius = '4px';
+    deleteBtn.style.marginLeft = 'auto';
+
+    deleteBtn.onclick = (e) => {
+      e.stopPropagation();
+      const confirmDelete = confirm(`Delete account "${acc.name}"? All data will be lost.`);
+      if (!confirmDelete) return;
+
+      if (activeAccount === acc.name) {
+        activeAccount = null;
+        localStorage.removeItem('activeAccount');
+      }
+
+      accounts.splice(index, 1);
+      delete paymentData[acc.name];
+      saveAccounts();
+      savePaymentData();
+      renderAccounts();
+      loadActiveAccountData();
+    };
+
+    div.onclick = () => {
+      saveCurrentProducts();
+      saveCurrentPayment();
+      activeAccount = acc.name;
+      saveActiveAccount();
+      loadActiveAccountData();
+      renderAccounts();
+    };
+
+    div.appendChild(initial);
+    div.appendChild(nameSpan);
+    div.appendChild(deleteBtn);
+    accountListEl.appendChild(div);
+  });
+}
+
+
+
+  function loadActiveAccountData() {
+    if (!activeAccount) return;
+    const acc = accounts.find(a => a.name === activeAccount);
+    samanList = acc?.products || [];
+    headingTitleEl.textContent = ` ${activeAccount}`;
+    if (!paymentData[activeAccount]) {
+      paymentData[activeAccount] = { paidAmount: 0, paymentMethod: '' };
+    }
+    updateTable();
+    updatePaymentUI();
+  }
+
+  function updatePaymentUI() {
+    const payInfo = paymentData[activeAccount] || { paidAmount: 0, paymentMethod: '' };
+    paymentAmountEl.value = payInfo.paidAmount.toFixed(2);
+    paymentMethodEl.value = payInfo.paymentMethod || 'UPI';
+    paidAmountEl.textContent = payInfo.paidAmount.toFixed(2);
+    const total = samanList.reduce((sum, p) => p.gotItem ? sum + p.quantity * p.price : sum, 0);
+    const remaining = total - payInfo.paidAmount;
+    remainingAmountEl.textContent = remaining.toFixed(2);
+    paymentMethodDisplayEl.textContent = payInfo.paymentMethod ? `Paid via ${payInfo.paymentMethod}` : '';
+  }
+
+function updateTable() {
+  productTableBody.innerHTML = '';
+  let total = 0;
+  samanList.forEach((item, i) => {
+    const totalPrice = item.quantity * item.price;
+    if (item.gotItem) total += totalPrice;
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${item.quantity}</td>
+      <td>
+        <input type="number" step="0.01" class="price-input" data-index="${i}" value="${item.price}" style="width: 80px;" />
+      </td>
+      <td>₹${totalPrice.toFixed(2)}</td>
+      <td><button class="redo-button ${item.gotItem ? 'active' : ''}" data-index="${i}">
+        ${item.gotItem ? 'Found' : 'Pending'}</button></td>
+      <td><button class="delete-button" data-index="${i}">Delete</button></td>`;
+    productTableBody.appendChild(row);
+  });
+  totalPriceEl.textContent = total.toFixed(2);
+
+  // 🟢 Call after table is built
+  setTimeout(attachTableButtonListeners, 0);
+}
+
+
+function attachTableButtonListeners() {
+  document.querySelectorAll('.redo-button').forEach(btn => {
+    btn.onclick = () => {
+      const i = btn.dataset.index;
+      samanList[i].gotItem = !samanList[i].gotItem;
+      updateTable();
+      saveCurrentProducts();
+    };
+  });
+
+  document.querySelectorAll('.delete-button').forEach(btn => {
+    btn.onclick = () => {
+      const i = btn.dataset.index;
+      if (confirm('Delete this item?')) {
+        samanList.splice(i, 1);
+        updateTable();
+        saveCurrentProducts();
+      }
+    };
+  });
+
+  document.querySelectorAll('.price-input').forEach(input => {
+    let timeout = null;
+
+    input.addEventListener('input', () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const i = input.dataset.index;
+        const newPrice = parseFloat(input.value);
+        if (!isNaN(newPrice) && newPrice >= 0) {
+          samanList[i].price = newPrice;
+          saveCurrentProducts();
+          // 🟡 Don't update full table — avoid cursor reset
+          updateTotalOnly(); 
+        }
+      }, 30);
+    });
+
+    input.addEventListener('blur', () => {
+      clearTimeout(timeout);
+      const i = input.dataset.index;
+      const newPrice = parseFloat(input.value);
+      if (!isNaN(newPrice) && newPrice >= 0) {
+        samanList[i].price = newPrice;
+        saveCurrentProducts();
+        updateTable(); // ✅ Full refresh allowed after user leaves input
+      }
+    });
+  });
+}
+
+
+
+  productForm.onsubmit = e => {
+    e.preventDefault();
+    if (!activeAccount) return alert("Please select an account first.");
+    const name = productNameEl.value.trim();
+    const qty = parseInt(productQuantityEl.value);
+    const price = parseFloat(productPriceEl.value);
+    if (!name || qty <= 0 || isNaN(price) || price < 0) return alert("Invalid product.");
+    samanList.push({ name, quantity: qty, price, gotItem: false });
+    updateTable();
+    saveCurrentProducts();
+    productForm.reset();
+  };
+
+  addAccountBtn.onclick = () => {
+    const name = newAccountInput.value.trim();
+    if (!name) return alert("Enter name");
+    if (accounts.some(acc => acc.name.toLowerCase() === name.toLowerCase()))
+      return alert("Account already exists.");
+    accounts.push({ name, products: [] });
+    paymentData[name] = { paidAmount: 0, paymentMethod: '' };
+    activeAccount = name;
+    saveAccounts(); savePaymentData(); saveActiveAccount();
+    newAccountInput.value = '';
+    renderAccounts();
+    loadActiveAccountData();
+  };
+
+  payButton.onclick = () => {
+    if (!activeAccount) return alert("Select an account first.");
+    saveCurrentPayment();
+    updatePaymentUI();
+  };
+
+ downloadPdfBtn.onclick = () => {
+  if (!activeAccount) return alert("Please select account first.");
+  saveCurrentProducts();
+  saveCurrentPayment();
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const rowsPerPage = 26;
+
+  // Title
+  doc.setFont("helvetica", "bold").setFontSize(16).setTextColor(40, 40, 40)
+    .text(`Product List - ${activeAccount}`, 14, 20);
+  doc.setFontSize(10).setTextColor(100)
+    .text(`Generated on: ${new Date().toLocaleString()}`, 14, 28);
+
+  // Prepare table rows
+  const allRows = samanList.map((p, i) => ([
+    i + 1,
+    p.name,
+    p.quantity,
+    `${p.price.toFixed(2)}`,
+    `${(p.quantity * p.price).toFixed(2)}`,
+    p.gotItem ? 'Found' : 'Pending'
+  ]));
+
+  const pages = [];
+  for (let i = 0; i < allRows.length; i += rowsPerPage) {
+    pages.push(allRows.slice(i, i + rowsPerPage));
+  }
+
+  let startY = 35;
+
+  pages.forEach((rows, pageIndex) => {
+    if (pageIndex > 0) {
+      doc.addPage();
+      startY = 20;
+      doc.setFontSize(16).setTextColor(40, 40, 40).setFont("helvetica", "bold")
+        .text(`Product List - ${activeAccount} (Contd.)`, 14, 14);
+    }
+
+    doc.autoTable({
+      startY,
+      head: [["S.No", "Name", "Qty", "Price", "Total", "Status"]],
+      body: rows,
+      theme: 'grid',
+      styles: {
+        fontSize: 12,
+        textColor: [0, 0, 0], // default black for all body cells
+        font: 'helvetica',
+      },
+      headStyles: {
+        fillColor: [0, 123, 255],
+        textColor: [255, 255, 255],
+        fontStyle: 'bold'
+      },
+      didParseCell: function (data) {
+        if (data.section === 'body') {
+          if (data.column.index === 5) {
+            const status = data.cell.raw;
+            if (status === 'Pending') {
+              data.cell.styles.textColor = [255, 0, 0]; // Red for Pending
+              data.cell.styles.fontStyle = 'bold';
+            } else {
+              data.cell.styles.textColor = [50, 50, 50]; // Black for Found
+              data.cell.styles.fontStyle = 'bold';
             }
-        });
-    
-        function updateTable() {
-            const tableBody = document.querySelector('#samanTable tbody');
-            tableBody.innerHTML = '';
-            totalQuantity = 0;
-            totalPrice = 0;
-    
-            samanList.forEach((item, index) => {
-                const totalProductPrice = item.quantity * item.price;  // Total Price calculation
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${item.name}</td>
-                    <td>${item.quantity}</td>
-                    <td>₹${item.price}</td>
-                    <td>₹${totalProductPrice.toFixed(2)}</td>
-                    <td>
-                        <button class="redo-button ${item.gotItem ? 'active' : ''}" onclick="toggleGotItem(${index})">
-                            ${item.gotItem ? 'Product found' : 'Pending'}
-                        </button>
-                    </td>
-                    <td>
-                        <button class="update-price" onclick="updatePrice(${index})">Update Price</button>
-                    </td>
-                    <td>
-                        <button class="delete-button" onclick="deleteItem(${index})">Delete</button>
-                    </td>
-                `;
-                tableBody.appendChild(newRow);
-    
-                if (item.gotItem) {
-                    totalQuantity += item.quantity;
-                    totalPrice += totalProductPrice;
-                }
-            });
-    
-            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+          } else {
+            data.cell.styles.textColor = [30, 30, 30]; // All other body cells black
+          }
         }
-    
-        function saveToLocalStorage() {
-            localStorage.setItem('samanList', JSON.stringify(samanList));
-        }
-    
-        function toggleGotItem(index) {
-            samanList[index].gotItem = !samanList[index].gotItem;
-            updateTable();
-            saveToLocalStorage();
-        }
-    
-        function deleteItem(index) {
-            samanList.splice(index, 1);
-            updateTable();
-            saveToLocalStorage();
-        }
-    
-        function updatePrice(index) {
-            const newPrice = prompt("Enter new price:");
-            if (newPrice && !isNaN(newPrice)) {
-                samanList[index].price = parseFloat(newPrice);
-                updateTable();
-                saveToLocalStorage();
-            }
-        }
-    
-        document.getElementById('payButton').addEventListener('click', function () {
-            const paidAmount = parseFloat(document.getElementById('paymentAmount').value);
-            const paymentMethod = document.getElementById('paymentMethod').value;
-            document.getElementById('paidAmount').textContent = paidAmount.toFixed(2);
-    
-            const remaining = totalPrice - paidAmount;
-            document.getElementById('remainingAmount').textContent = remaining.toFixed(2);
-            document.getElementById('paymentMethodDisplay').textContent = `Paid via ${paymentMethod}`;
-        });
-    
-        function displayCurrentDateTime() {
-            const now = new Date();
-            const dateTimeString = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
-            document.getElementById('currentDateTime').textContent = dateTimeString;
-        }
-    
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+      }
+    });
+  });
 
-            doc.text(localStorage.getItem('listHeading') || 'Product List', 10, 10);
+  // Summary on last page
+  const lastY = doc.lastAutoTable.finalY + 10;
+  const pay = paymentData[activeAccount];
+  const total = samanList.reduce((t, p) => p.gotItem ? t + p.quantity * p.price : t, 0);
+  const remaining = total - (pay?.paidAmount || 0);
 
-            const samanData = samanList.map((item, index) => [
-                index + 1,
-                item.name,
-                item.quantity,
-                item.price.toFixed(2),
-                (item.quantity * item.price).toFixed(2),
-                item.gotItem ? 'Yes' : 'No'
-            ]);
+  doc.setFont("helvetica", "bold").setFontSize(12).setTextColor(0, 0, 0);
+  doc.text(`Total Price: ${total.toFixed(2)}`, 14, lastY);
+  doc.text(`Amount Paid: ${pay.paidAmount.toFixed(2)}`, 14, lastY + 8);
+  doc.text(`Remaining Balance: ${remaining.toFixed(2)}`, 14, lastY + 16);
+  doc.text(`Paid via ${pay.paymentMethod || 'UPI'}`, 14, lastY + 24);
 
-            doc.autoTable({
-                head: [['S. No.', 'Product Name', 'Quantity', 'Price', 'Total Price', 'Got Item?']],
-                body: samanData,
-                headStyles: {
-                    textColor: [255, 255, 255],  
-                },
-                styles: {
-                    lineWidth: 0.01,
-                    lineColor: [0, 0, 0],
-                },
-                didParseCell: function (data) {
-                    if (data.column.index === 5 && data.section === 'body') {
-                        const text = data.cell.text[0];
-                        if (text === 'Yes') {
-                            data.cell.styles.textColor = [0, 128, 0];
-                        } else if (text === 'No') {
-                            data.cell.styles.textColor = [255, 0, 0];
-                        }
-                    }
-                }
-            });
+  doc.save(`${activeAccount}_product_list.pdf`);
+};
 
-            const finalY = doc.lastAutoTable.finalY || 30;
 
-            doc.text(`Total Price: ${totalPrice.toFixed(2)}`, 10, finalY + 10);
-            doc.text(`Amount Paid: ${document.getElementById('paidAmount').textContent}`, 10, finalY + 20);
-            doc.text(`Remaining Balance: ${document.getElementById('remainingAmount').textContent}`, 10, finalY + 30);
-            doc.text(document.getElementById('paymentMethodDisplay').textContent, 10, finalY + 40);
-            doc.text(`Date and Time: ${document.getElementById('currentDateTime').textContent}`, 10, finalY + 50);
 
-            doc.save('Product_list.pdf');
-        }
-    </script>
+  function updateDateTime() {
+    const now = new Date();
+    currentDateTimeEl.textContent = now.toLocaleString();
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+
+  // On Load
+  renderAccounts();
+  if (activeAccount) loadActiveAccountData();
+</script>
+
+
 </body>
 </html>
