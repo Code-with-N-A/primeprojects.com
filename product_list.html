@@ -1,369 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="PrimeProjects" />
-    <meta name="language" content="en" />
-    <meta name="revisit-after" content="7 days" />
 
-    <!-- SEO Title and Description -->
-    <title>Product List – PrimeProjects</title>
-    <meta
-      name="description"
-      content="Product List is a smart inventory and expense tracker by PrimeProjects. Track your items, payments, and generate PDFs instantly – all in one responsive tool."
-    />
-    <meta
-      name="keywords"
-      content="Product List, PrimeProjects, Expense Tracker, Inventory Manager, PDF Generator, Free Web Tools, JavaScript Project, Netlify App, Product Tracker"
-    />
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="PrimeProjects" />
+  <meta name="language" content="en" />
+  <meta name="revisit-after" content="7 days" />
 
-    <!-- Open Graph for Social Media -->
-    <meta
-      property="og:title"
-      content="Product List – Track Products & Payments with PrimeProjects"
-    />
-    <meta
-      property="og:description"
-      content="Manage your product list, payments, and inventory with ease. PDF export and real-time tracking in one smart web app."
-    />
-    <meta property="og:url" content="https://primeprojects.netlify.app/" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://primeprojects.netlify.app/product-list-thumbnail.jpg"
-    />
-    <!-- Replace with actual image if available -->
+  <!-- SEO Title and Description -->
+  <title>Product List – PrimeProjects</title>
+  <meta name="description"
+    content="Product List is a smart inventory and expense tracker by PrimeProjects. Track your items, payments, and generate PDFs instantly – all in one responsive tool." />
+  <meta name="keywords"
+    content="Product List, PrimeProjects, Expense Tracker, Inventory Manager, PDF Generator, Free Web Tools, JavaScript Project, Netlify App, Product Tracker" />
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="https://primeprojects.netlify.app/favicon.ico"
-      type="image/x-icon"
-    />
+  <!-- Open Graph for Social Media -->
+  <meta property="og:title" content="Product List – Track Products & Payments with PrimeProjects" />
+  <meta property="og:description"
+    content="Manage your product list, payments, and inventory with ease. PDF export and real-time tracking in one smart web app." />
+  <meta property="og:url" content="https://primeprojects.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://primeprojects.netlify.app/product-list-thumbnail.jpg" />
+  <!-- Replace with actual image if available -->
 
-    <style>
-      /* Reset & base */
-      * {
-        box-sizing: border-box;
-      }
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        background-color: #ffffff;
-      }
-      .app-container {
-        display: flex;
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-      }
+  <!-- Favicon -->
+  <link rel="icon" href="https://primeprojects.netlify.app/favicon.ico" type="image/x-icon" />
 
-      /* Sidebar */
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+
+    .app-container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: #013746;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      margin-left: 60px;
+      font-weight: 600;
+    }
+
+    .new-account-input {
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .new-account-btn {
+      padding: 10px;
+      background-color: #ffc002;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: whitesmoke;
+    }
+
+    .new-account-btn:hover {
+      background-color: #218838;
+    }
+
+    .account-list {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .account-item {
+      padding: 10px;
+      background: #0056b3;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .account-item.active {
+      background: #0ba8eb;
+      font-weight: 700;
+    }
+
+    .account-initial {
+      background: #ff8000;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+      user-select: none;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    /* Main content */
+    .main-content {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+      background: rgb(255, 255, 255);
+      margin-top: 20px;
+    }
+
+    h1 {
+      text-align: center;
+
+      font-weight: 700;
+      color: #000000;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    form input {
+      flex: 1 1 150px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #022d5b;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    form button:hover {
+      background-color: #2b05b0;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      max-height: 350px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+    }
+
+    th,
+    td {
+      border: 1px solid #022a55;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    th {
+      background-color: #022a55;
+      color: white;
+      font-weight: 700;
+    }
+
+    .redo-button {
+      background-color: #ffc107;
+      color: black;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .redo-button.active {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .payment-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .payment-section input,
+    .payment-section select,
+    .payment-section button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .payment-section button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .payment-section button:hover {
+      background-color: #0056b3;
+    }
+
+    .totals {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .totals div {
+      margin-bottom: 6px;
+    }
+
+    #currentDateTime {
+      font-weight: 500;
+      color: #555;
+    }
+
+    /* Toggle Button */
+    #toggleSidebarBtn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      padding: 8px 12px;
+      font-size: 22px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      z-index: 1100;
+      display: none;
+      cursor: pointer;
+    }
+
+    #toggleSidebarBtn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Sidebar Toggle */
+    @media (max-width: 768px) {
       .sidebar {
-        width: 280px;
-        background: #013746;
-        color: white;
-        padding: 20px;
-        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      #toggleSidebarBtn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-container {
         flex-direction: column;
-        transition: transform 0.3s ease;
-        z-index: 1000;
-      }
-      .sidebar h2 {
-        margin-top: 0;
-        margin-bottom: 15px;
-        margin-left: 60px;
-        font-weight: 600;
-      }
-      .new-account-input {
-        padding: 10px;
-        border-radius: 4px;
-        border: none;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      .new-account-btn {
-        padding: 10px;
-        background-color: #ffc002;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 20px;
-        color: whitesmoke;
-      }
-      .new-account-btn:hover {
-        background-color: #218838;
-      }
-      .account-list {
-        flex-grow: 1;
-        overflow-y: auto;
-      }
-      .account-item {
-        padding: 10px;
-        background: #0056b3;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        user-select: none;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .account-item.active {
-        background: #0ba8eb;
-        font-weight: 700;
-      }
-      .account-initial {
-        background: #ff8000;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 700;
-        font-size: 18px;
-        user-select: none;
-        border: 1px solid rgb(255, 255, 255);
       }
 
-      /* Main content */
       .main-content {
-        flex-grow: 1;
-        overflow-y: auto;
-        padding: 10px;
-        background: rgb(255, 255, 255);
-        margin-top: 20px;
-      }
-      h1 {
-        text-align: center;
-
-        font-weight: 700;
-        color: #000000;
-      }
-      form {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      form input {
-        flex: 1 1 150px;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      form button {
-        padding: 10px 20px;
-        background-color: #022d5b;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-      }
-      form button:hover {
-        background-color: #2b05b0;
-      }
-
-      .table-wrapper {
-        overflow-x: auto;
-        max-height: 350px;
-        margin-bottom: 20px;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 600px;
-      }
-      th,
-      td {
-        border: 1px solid #022a55;
-        padding: 10px 8px;
-        text-align: center;
-        font-size: 15px;
-      }
-      th {
-        background-color: #022a55;
-        color: white;
-        font-weight: 700;
-      }
-      .redo-button {
-        background-color: #ffc107;
-        color: black;
-        border: none;
-        padding: 6px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-      .redo-button.active {
-        background-color: #28a745;
-        color: white;
-      }
-      .delete-button {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-        padding: 6px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
+        padding: 15px;
       }
 
       .payment-section {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 15px;
+        flex-direction: column;
       }
+
       .payment-section input,
       .payment-section select,
       .payment-section button {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
+        width: 100%;
       }
-      .payment-section button {
-        background-color: #007bff;
-        border: none;
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      .payment-section button:hover {
-        background-color: #0056b3;
-      }
-      .totals {
-        font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 15px;
-      }
-      .totals div {
-        margin-bottom: 6px;
-      }
-      #currentDateTime {
-        font-weight: 500;
-        color: #555;
-      }
+    }
 
-      /* Toggle Button */
-      #toggleSidebarBtn {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-        font-size: 22px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        z-index: 1100;
-        display: none;
-        cursor: pointer;
-      }
-      #toggleSidebarBtn:hover {
-        background-color: #0056b3;
-      }
+    .account-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: #0056b3;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+    }
 
-      /* Responsive Sidebar Toggle */
-      @media (max-width: 768px) {
-        .sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          transform: translateX(-100%);
-        }
-        .sidebar.open {
-          transform: translateX(0);
-        }
-        #toggleSidebarBtn {
-          display: block;
-        }
-      }
+    .account-item button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: white;
+    }
 
-      @media (max-width: 480px) {
-        .app-container {
-          flex-direction: column;
-        }
-        .main-content {
-          padding: 15px;
-        }
-        .payment-section {
-          flex-direction: column;
-        }
-        .payment-section input,
-        .payment-section select,
-        .payment-section button {
-          width: 100%;
-        }
-      }
-      .account-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px;
-        background: #0056b3;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        user-select: none;
-      }
-      .account-item button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        color: white;
-      }
-      .account-item button:hover {
-        color: #ffac07;
-      }
-      .account-list {
-        flex-grow: 1;
-        overflow-y: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Loader Wrapper strat -->
-    <link rel="stylesheet" href="loder.css" />
-    <script src="loder.js"></script>
-    <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
-    <!-- Loader Wrapper and -->
-    <!--sin in-->
-    <script src="sin.js"></script>
-    <!-- Toggle Button for small screens -->
-    <h1
-      id="headingTitle"
-      style="
+    .account-item button:hover {
+      color: #ffac07;
+    }
+
+    .account-list {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+    <!-- sarching css sadhi and js start -->
+  <link rel="stylesheet" href="sadi_sarch.css" />
+ 
+  <!-- Loader Wrapper strat -->
+  <link rel="stylesheet" href="loder.css" />
+  <script src="loder.js"></script>
+  <div id="load-screen">
+    <div class="circle-animation"></div>
+    <div class="loading-text">primeprojects...</div>
+  </div>
+  <!-- Loader Wrapper and -->
+  <!--sin in-->
+  <script src="sin.js"></script>
+  <!-- Toggle Button for small screens -->
+  <h1 id="headingTitle" style="
         background-color: #013c4b;
         color: rgb(255, 255, 255);
         padding: 20px;
         margin: 0;
-      "
-    >
-      Product List
-    </h1>
+      ">
+    Product List
+  </h1>
 
-    <button
-      id="toggleSidebarBtn"
-      style="
+  <button id="toggleSidebarBtn" style="
         position: fixed;
         top: 10px;
         left: 10px;
@@ -371,514 +392,600 @@
         font-size: 22px;
         z-index: 1001;
         display: none;
-      "
-    >
-      ☰
-    </button>
+      ">
+    ☰
+  </button>
 
-    <div class="app-container">
-      <!-- Sidebar -->
-      <div class="sidebar" id="sidebar">
-        <h2>Accounts</h2>
-        <input
-          type="text"
-          id="newAccountName"
-          class="new-account-input"
-          placeholder="New Account Name"
-        />
-        <button id="addAccountBtn" class="new-account-btn">Add Account</button>
-        <div class="account-list" id="accountList"></div>
-      </div>
-
-      <!-- Main Content -->
-      <div class="main-content">
-        <form id="productForm">
-          <input
-            type="text"
-            id="productName"
-            placeholder="Product Name"
-            required
-          />
-          <input
-            type="number"
-            id="productQuantity"
-            placeholder="Quantity"
-            min="1"
-            required
-          />
-          <input
-            type="number"
-            id="productPrice"
-            placeholder="Price"
-            min="0.01"
-            step="0.01"
-            required
-          />
-          <button type="submit">Add Product</button>
-        </form>
-
-        <div class="table-wrapper">
-          <table id="productTable">
-            <thead>
-              <tr>
-                <th>S. No.</th>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price (₹)</th>
-                <th>Total Price (₹)</th>
-                <th>Status</th>
-
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-
-        <div class="payment-section">
-          <input
-            type="number"
-            id="paymentAmount"
-            placeholder="Amount Paid"
-            min="0"
-            step="0.01"
-          />
-          <select id="paymentMethod">
-            <option value="UPI">UPI</option>
-            <option value="PhonePe">PhonePe</option>
-            <option value="Google Pay">Google Pay</option>
-            <option value="Paytm">Paytm</option>
-            <option value="Cash">Cash</option>
-          </select>
-          <button id="payButton">Pay Now</button>
-        </div>
-
-        <div class="totals">
-          <div>Total Price: ₹<span id="totalPrice">0.00</span></div>
-          <div>Amount Paid: ₹<span id="paidAmount">0.00</span></div>
-          <div>Remaining Balance: ₹<span id="remainingAmount">0.00</span></div>
-          <div id="paymentMethodDisplay"></div>
-        </div>
-
-        <div>
-          <strong>Date and Time: </strong><span id="currentDateTime"></span>
-        </div>
-
-        <button
-          class="new-account-btn"
-          id="downloadPdfBtn"
-          style="background: #014864; width: 100%"
-        >
-          Download PDF
-        </button>
-      </div>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h2>Accounts</h2>
+      <input type="text" id="newAccountName" class="new-account-input" placeholder="New Account Name" />
+      <button id="addAccountBtn" class="new-account-btn">Add Account</button>
+      <div class="account-list" id="accountList"></div>
     </div>
 
-    <!-- jsPDF & autotable -->
+   
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <!-- Main Content -->
+    <div class="main-content">
+    
+      <form id="productForm">
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <input type="number" id="productQuantity" placeholder="Quantity" min="1" required />
+        <input type="number" id="productPrice" placeholder="Price" min="0.01" step="0.01" required />
+        <button type="submit">Add Product</button>
+      </form>
 
-    <script>
-      // ========== Global Variables ==========
-      let allAccounts =
-        JSON.parse(localStorage.getItem("ppSaman_allAccounts")) || [];
-      let activeAccount =
-        localStorage.getItem("ppSaman_selectedAccount") || null;
-      let samanList = [];
-      let paymentInfo = { paidAmount: 0, paymentMethod: "" };
+        <!--sarch bar start -->
+    <div id="tableSearchBarContainer">
+  <div class="search-wrapper">
+    <span class="icon-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill="#999999" d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 
+          1.48-5.34C15.1 5.59 12.52 3 9.5 3S3.9 5.59 3.9 8.39c0 
+          2.8 2.58 5.39 5.6 5.39 1.61 0 3.06-.69 
+          4.06-1.78l.27.28v.79l5 5L20.49 19l-5-5zm-6 
+          0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 
+          5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </span>
+    <input
+      type="text"
+      id="tableSearchInput"
+      placeholder="Search..."
+      oninput="filterAndHighlightRows()"
+    >
+  </div>
+</div>
 
-      // ========== DOM Elements ==========
-      const accountListEl = document.getElementById("accountList");
-      const newAccountInput = document.getElementById("newAccountName");
-      const addAccountBtn = document.getElementById("addAccountBtn");
-      const headingTitleEl = document.getElementById("headingTitle");
-      const productForm = document.getElementById("productForm");
-      const productNameEl = document.getElementById("productName");
-      const productQuantityEl = document.getElementById("productQuantity");
-      const productPriceEl = document.getElementById("productPrice");
-      const productTableBody = document.querySelector("#productTable tbody");
-      const paymentAmountEl = document.getElementById("paymentAmount");
-      const paymentMethodEl = document.getElementById("paymentMethod");
-      const payButton = document.getElementById("payButton");
-      const totalPriceEl = document.getElementById("totalPrice");
-      const paidAmountEl = document.getElementById("paidAmount");
-      const remainingAmountEl = document.getElementById("remainingAmount");
-      const paymentMethodDisplayEl = document.getElementById(
-        "paymentMethodDisplay"
+     
+       <!--sarch bar and -->
+
+      <div class="table-wrapper" >
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price (₹)</th>
+              <th>Total Price (₹)</th>
+              <th>Status</th>
+
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="payment-section">
+        <input type="number" id="paymentAmount" placeholder="Amount Paid" min="0" step="0.01" />
+        <select id="paymentMethod">
+          <option value="UPI">UPI</option>
+          <option value="PhonePe">PhonePe</option>
+          <option value="Google Pay">Google Pay</option>
+          <option value="Paytm">Paytm</option>
+          <option value="Cash">Cash</option>
+        </select>
+        <button id="payButton">Pay Now</button>
+      </div>
+
+      <div class="totals">
+        <div>Total Price: ₹<span id="totalPrice">0.00</span></div>
+        <div>Amount Paid: ₹<span id="paidAmount">0.00</span></div>
+        <div>Remaining Balance: ₹<span id="remainingAmount">0.00</span></div>
+        <div id="paymentMethodDisplay"></div>
+      </div>
+
+      <div>
+        <strong>Date and Time: </strong><span id="currentDateTime"></span>
+      </div>
+
+      <button class="new-account-btn" id="downloadPdfBtn" style="background: #014864; width: 100%">
+        Download PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- jsPDF & autotable -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    // ========== Global Variables ==========
+    let allAccounts =
+      JSON.parse(localStorage.getItem("ppSaman_allAccounts")) || [];
+    let activeAccount =
+      localStorage.getItem("ppSaman_selectedAccount") || null;
+    let samanList = [];
+    let paymentInfo = { paidAmount: 0, paymentMethod: "" };
+
+    // ========== DOM Elements ==========
+    const accountListEl = document.getElementById("accountList");
+    const newAccountInput = document.getElementById("newAccountName");
+    const addAccountBtn = document.getElementById("addAccountBtn");
+    const headingTitleEl = document.getElementById("headingTitle");
+    const productForm = document.getElementById("productForm");
+    const productNameEl = document.getElementById("productName");
+    const productQuantityEl = document.getElementById("productQuantity");
+    const productPriceEl = document.getElementById("productPrice");
+    const productTableBody = document.querySelector("#productTable tbody");
+    const paymentAmountEl = document.getElementById("paymentAmount");
+    const paymentMethodEl = document.getElementById("paymentMethod");
+    const payButton = document.getElementById("payButton");
+    const totalPriceEl = document.getElementById("totalPrice");
+    const paidAmountEl = document.getElementById("paidAmount");
+    const remainingAmountEl = document.getElementById("remainingAmount");
+    const paymentMethodDisplayEl = document.getElementById(
+      "paymentMethodDisplay"
+    );
+    const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+    const toggleBtn = document.getElementById("toggleSidebarBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    // ========== Responsive Sidebar ==========
+    toggleBtn.addEventListener("click", () =>
+      sidebar.classList.toggle("open")
+    );
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    function handleMediaQuery(e) {
+      toggleBtn.style.display = e.matches ? "block" : "none";
+      if (!e.matches) sidebar.classList.remove("open");
+    }
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
+
+    // ========== Save Functions ==========
+    function saveAllAccounts() {
+      localStorage.setItem(
+        "ppSaman_allAccounts",
+        JSON.stringify(allAccounts)
       );
-      const downloadPdfBtn = document.getElementById("downloadPdfBtn");
-      const toggleBtn = document.getElementById("toggleSidebarBtn");
-      const sidebar = document.getElementById("sidebar");
-
-      // ========== Responsive Sidebar ==========
-      toggleBtn.addEventListener("click", () =>
-        sidebar.classList.toggle("open")
-      );
-      const mediaQuery = window.matchMedia("(max-width: 768px)");
-      function handleMediaQuery(e) {
-        toggleBtn.style.display = e.matches ? "block" : "none";
-        if (!e.matches) sidebar.classList.remove("open");
-      }
-      mediaQuery.addListener(handleMediaQuery);
-      handleMediaQuery(mediaQuery);
-
-      // ========== Save Functions ==========
-      function saveAllAccounts() {
+    }
+    function saveSelectedAccount() {
+      localStorage.setItem("ppSaman_selectedAccount", activeAccount);
+    }
+    function saveProducts() {
+      if (activeAccount) {
         localStorage.setItem(
-          "ppSaman_allAccounts",
-          JSON.stringify(allAccounts)
+          `ppSaman_${activeAccount}_products`,
+          JSON.stringify(samanList)
         );
       }
-      function saveSelectedAccount() {
-        localStorage.setItem("ppSaman_selectedAccount", activeAccount);
+    }
+    function savePaymentInfo() {
+      if (activeAccount) {
+        localStorage.setItem(
+          `ppSaman_${activeAccount}_payment`,
+          JSON.stringify(paymentInfo)
+        );
       }
-      function saveProducts() {
-        if (activeAccount) {
-          localStorage.setItem(
-            `ppSaman_${activeAccount}_products`,
-            JSON.stringify(samanList)
-          );
-        }
-      }
-      function savePaymentInfo() {
-        if (activeAccount) {
-          localStorage.setItem(
-            `ppSaman_${activeAccount}_payment`,
-            JSON.stringify(paymentInfo)
-          );
-        }
-      }
+    }
 
-      // ========== Account List Render ==========
-      function renderAccounts() {
-        accountListEl.innerHTML = "";
-        allAccounts.forEach((name, index) => {
-          const div = document.createElement("div");
-          div.classList.add("account-item");
-          if (name === activeAccount) div.classList.add("active");
+    // ========== Account List Render ==========
+    function renderAccounts() {
+      accountListEl.innerHTML = "";
+      allAccounts.forEach((name, index) => {
+        const div = document.createElement("div");
+        div.classList.add("account-item");
+        if (name === activeAccount) div.classList.add("active");
 
-          const initial = document.createElement("div");
-          initial.classList.add("account-initial");
-          initial.textContent = name.charAt(0).toUpperCase();
+        const initial = document.createElement("div");
+        initial.classList.add("account-initial");
+        initial.textContent = name.charAt(0).toUpperCase();
 
-          const nameSpan = document.createElement("span");
-          nameSpan.textContent = name;
-          nameSpan.style.flex = "1";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = name;
+        nameSpan.style.flex = "1";
 
-          const deleteBtn = document.createElement("button");
-          deleteBtn.textContent = "Delete";
-          Object.assign(deleteBtn.style, {
-            background: "red",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            marginLeft: "auto",
-            padding: "4px 8px",
-            cursor: "pointer",
-          });
-
-          deleteBtn.onclick = (e) => {
-            e.stopPropagation();
-            if (confirm(`Delete account "${name}"?`)) {
-              if (activeAccount === name) {
-                activeAccount = null;
-                localStorage.removeItem("ppSaman_selectedAccount");
-              }
-              allAccounts.splice(index, 1);
-              localStorage.removeItem(`ppSaman_${name}_products`);
-              localStorage.removeItem(`ppSaman_${name}_payment`);
-              saveAllAccounts();
-              renderAccounts();
-              loadActiveAccountData();
-            }
-          };
-
-          div.onclick = () => {
-            if (activeAccount !== name) {
-              saveProducts();
-              savePaymentInfo();
-              activeAccount = name;
-              saveSelectedAccount();
-              loadActiveAccountData();
-              renderAccounts();
-            }
-          };
-
-          div.appendChild(initial);
-          div.appendChild(nameSpan);
-          div.appendChild(deleteBtn);
-          accountListEl.appendChild(div);
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        Object.assign(deleteBtn.style, {
+          background: "red",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          marginLeft: "auto",
+          padding: "4px 8px",
+          cursor: "pointer",
         });
-      }
 
-      // ========== Load Account ==========
-      function loadActiveAccountData() {
-        if (!activeAccount) {
-          headingTitleEl.textContent = "No account selected";
-          samanList = [];
-          paymentInfo = { paidAmount: 0, paymentMethod: "" };
-          updateTable();
-          updatePaymentUI();
-          return;
-        }
+        deleteBtn.onclick = (e) => {
+          e.stopPropagation();
+          if (confirm(`Delete account "${name}"?`)) {
+            if (activeAccount === name) {
+              activeAccount = null;
+              localStorage.removeItem("ppSaman_selectedAccount");
+            }
+            allAccounts.splice(index, 1);
+            localStorage.removeItem(`ppSaman_${name}_products`);
+            localStorage.removeItem(`ppSaman_${name}_payment`);
+            saveAllAccounts();
+            renderAccounts();
+            loadActiveAccountData();
+          }
+        };
 
-        headingTitleEl.textContent = activeAccount;
-        samanList =
-          JSON.parse(
-            localStorage.getItem(`ppSaman_${activeAccount}_products`)
-          ) || [];
-        paymentInfo = JSON.parse(
-          localStorage.getItem(`ppSaman_${activeAccount}_payment`)
-        ) || { paidAmount: 0, paymentMethod: "" };
+        div.onclick = () => {
+          if (activeAccount !== name) {
+            saveProducts();
+            savePaymentInfo();
+            activeAccount = name;
+            saveSelectedAccount();
+            loadActiveAccountData();
+            renderAccounts();
+          }
+        };
+
+        div.appendChild(initial);
+        div.appendChild(nameSpan);
+        div.appendChild(deleteBtn);
+        accountListEl.appendChild(div);
+      });
+    }
+
+    // ========== Load Account ==========
+    function loadActiveAccountData() {
+      if (!activeAccount) {
+        headingTitleEl.textContent = "No account selected";
+        samanList = [];
+        paymentInfo = { paidAmount: 0, paymentMethod: "" };
         updateTable();
         updatePaymentUI();
+        return;
       }
 
-      // ========== Payment UI ==========
-      function updatePaymentUI() {
-        paymentAmountEl.value = paymentInfo.paidAmount.toFixed(2);
-        paymentMethodEl.value = paymentInfo.paymentMethod || "UPI";
-        paidAmountEl.textContent = paymentInfo.paidAmount.toFixed(2);
-        const total = samanList.reduce(
-          (sum, p) => (p.gotItem ? sum + p.quantity * p.price : sum),
-          0
-        );
-        remainingAmountEl.textContent = (
-          total - paymentInfo.paidAmount
-        ).toFixed(2);
-        paymentMethodDisplayEl.textContent = paymentInfo.paymentMethod
-          ? `Paid via ${paymentInfo.paymentMethod}`
-          : "";
-      }
+      headingTitleEl.textContent = activeAccount;
+      samanList =
+        JSON.parse(
+          localStorage.getItem(`ppSaman_${activeAccount}_products`)
+        ) || [];
+      paymentInfo = JSON.parse(
+        localStorage.getItem(`ppSaman_${activeAccount}_payment`)
+      ) || { paidAmount: 0, paymentMethod: "" };
+      updateTable();
+      updatePaymentUI();
+    }
 
-      // ========== Product Table ==========
-      function updateTable() {
-        productTableBody.innerHTML = "";
-        let total = 0;
-        samanList.forEach((item, i) => {
-          const itemTotal = item.quantity * item.price;
-          if (item.gotItem) total += itemTotal;
-          const row = document.createElement("tr");
-          row.innerHTML = `
+    // ========== Payment UI ==========
+    function updatePaymentUI() {
+      paymentAmountEl.value = paymentInfo.paidAmount.toFixed(2);
+      paymentMethodEl.value = paymentInfo.paymentMethod || "UPI";
+      paidAmountEl.textContent = paymentInfo.paidAmount.toFixed(2);
+      const total = samanList.reduce(
+        (sum, p) => (p.gotItem ? sum + p.quantity * p.price : sum),
+        0
+      );
+      remainingAmountEl.textContent = (
+        total - paymentInfo.paidAmount
+      ).toFixed(2);
+      paymentMethodDisplayEl.textContent = paymentInfo.paymentMethod
+        ? `Paid via ${paymentInfo.paymentMethod}`
+        : "";
+    }
+
+    // ========== Product Table ==========
+    function updateTable() {
+      productTableBody.innerHTML = "";
+      let total = 0;
+      samanList.forEach((item, i) => {
+        const itemTotal = item.quantity * item.price;
+        if (item.gotItem) total += itemTotal;
+        const row = document.createElement("tr");
+        row.innerHTML = `
         <td>${i + 1}</td>
         <td>${item.name}</td>
         <td>${item.quantity}</td>
-        <td><input type="number" step="0.01" class="price-input" data-index="${i}" value="${
-            item.price
+        <td><input type="number" step="0.01" class="price-input" data-index="${i}" value="${item.price
           }" style="width:80px;"></td>
         <td>₹${itemTotal.toFixed(2)}</td>
-        <td><button class="redo-button ${
-          item.gotItem ? "active" : ""
-        }" data-index="${i}">${item.gotItem ? "Found" : "Pending"}</button></td>
+        <td><button class="redo-button ${item.gotItem ? "active" : ""
+          }" data-index="${i}">${item.gotItem ? "Found" : "Pending"}</button></td>
         <td><button class="delete-button" data-index="${i}">Delete</button></td>`;
-          productTableBody.appendChild(row);
-        });
-        totalPriceEl.textContent = total.toFixed(2);
-        attachTableButtonListeners();
-      }
+        productTableBody.appendChild(row);
+      });
+      totalPriceEl.textContent = total.toFixed(2);
+      attachTableButtonListeners();
+    }
 
-      function attachTableButtonListeners() {
-        document.querySelectorAll(".redo-button").forEach((btn) => {
-          btn.onclick = () => {
-            const i = btn.dataset.index;
-            samanList[i].gotItem = !samanList[i].gotItem;
+    function attachTableButtonListeners() {
+      document.querySelectorAll(".redo-button").forEach((btn) => {
+        btn.onclick = () => {
+          const i = btn.dataset.index;
+          samanList[i].gotItem = !samanList[i].gotItem;
+          updateTable();
+          saveProducts();
+          updatePaymentUI();
+        };
+      });
+
+      document.querySelectorAll(".delete-button").forEach((btn) => {
+        btn.onclick = () => {
+          const i = btn.dataset.index;
+          if (confirm("Delete this item?")) {
+            samanList.splice(i, 1);
             updateTable();
             saveProducts();
             updatePaymentUI();
-          };
-        });
+          }
+        };
+      });
 
-        document.querySelectorAll(".delete-button").forEach((btn) => {
-          btn.onclick = () => {
-            const i = btn.dataset.index;
-            if (confirm("Delete this item?")) {
-              samanList.splice(i, 1);
-              updateTable();
-              saveProducts();
-              updatePaymentUI();
-            }
-          };
+      // ✅ Updated: Only update on blur (when user leaves input)
+      document.querySelectorAll(".price-input").forEach((input) => {
+        input.addEventListener("blur", () => {
+          const i = input.dataset.index;
+          const price = parseFloat(input.value);
+          if (!isNaN(price) && price >= 0) {
+            samanList[i].price = price;
+            saveProducts();
+            updateTable();
+            updatePaymentUI();
+          }
         });
+      });
+    }
 
-        // ✅ Updated: Only update on blur (when user leaves input)
-        document.querySelectorAll(".price-input").forEach((input) => {
-          input.addEventListener("blur", () => {
-            const i = input.dataset.index;
-            const price = parseFloat(input.value);
-            if (!isNaN(price) && price >= 0) {
-              samanList[i].price = price;
-              saveProducts();
-              updateTable();
-              updatePaymentUI();
-            }
-          });
-        });
+    // ========== Add Product ==========
+    productForm.onsubmit = (e) => {
+      e.preventDefault();
+      if (!activeAccount) return alert("Select an account first.");
+      const name = productNameEl.value.trim();
+      const qty = parseInt(productQuantityEl.value);
+      const price = parseFloat(productPriceEl.value);
+      if (!name || qty <= 0 || isNaN(price) || price < 0)
+        return alert("Invalid entry");
+      samanList.push({ name, quantity: qty, price, gotItem: false });
+      updateTable();
+      saveProducts();
+      productForm.reset();
+    };
+
+    // ========== Add Account ==========
+    addAccountBtn.onclick = () => {
+      const name = newAccountInput.value.trim();
+      if (!name) return alert("Enter name");
+      if (allAccounts.includes(name)) return alert("Account already exists");
+      allAccounts.push(name);
+      activeAccount = name;
+      paymentInfo = { paidAmount: 0, paymentMethod: "" };
+      samanList = [];
+      saveAllAccounts();
+      saveSelectedAccount();
+      saveProducts();
+      savePaymentInfo();
+      renderAccounts();
+      loadActiveAccountData();
+      newAccountInput.value = "";
+    };
+
+    // ========== Pay Button ==========
+    payButton.onclick = () => {
+      if (!activeAccount) return alert("Select account");
+      paymentInfo.paidAmount = parseFloat(paymentAmountEl.value) || 0;
+      paymentInfo.paymentMethod = paymentMethodEl.value || "";
+      savePaymentInfo();
+      updatePaymentUI();
+    };
+
+    // ========== Init ==========
+    renderAccounts();
+    if (activeAccount) loadActiveAccountData();
+
+    downloadPdfBtn.onclick = () => {
+      if (!activeAccount) return alert("Please select account first.");
+      saveProducts(); // ✅ Correct save function
+      savePaymentInfo(); // ✅ Correct save function
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const rowsPerPage = 26;
+
+      // Title
+      doc
+        .setFont("helvetica", "bold")
+        .setFontSize(16)
+        .setTextColor(40, 40, 40)
+        .text(`Product List - ${activeAccount}`, 14, 20);
+      doc
+        .setFontSize(10)
+        .setTextColor(100)
+        .text(`Generated on: ${new Date().toLocaleString()}`, 14, 28);
+
+      // Prepare table rows
+      const allRows = samanList.map((p, i) => [
+        i + 1,
+        p.name,
+        p.quantity,
+        `${p.price.toFixed(2)}`,
+        `${(p.quantity * p.price).toFixed(2)}`,
+        p.gotItem ? "Found" : "Pending",
+      ]);
+
+      const pages = [];
+      for (let i = 0; i < allRows.length; i += rowsPerPage) {
+        pages.push(allRows.slice(i, i + rowsPerPage));
       }
 
-      // ========== Add Product ==========
-      productForm.onsubmit = (e) => {
-        e.preventDefault();
-        if (!activeAccount) return alert("Select an account first.");
-        const name = productNameEl.value.trim();
-        const qty = parseInt(productQuantityEl.value);
-        const price = parseFloat(productPriceEl.value);
-        if (!name || qty <= 0 || isNaN(price) || price < 0)
-          return alert("Invalid entry");
-        samanList.push({ name, quantity: qty, price, gotItem: false });
-        updateTable();
-        saveProducts();
-        productForm.reset();
-      };
+      let startY = 35;
 
-      // ========== Add Account ==========
-      addAccountBtn.onclick = () => {
-        const name = newAccountInput.value.trim();
-        if (!name) return alert("Enter name");
-        if (allAccounts.includes(name)) return alert("Account already exists");
-        allAccounts.push(name);
-        activeAccount = name;
-        paymentInfo = { paidAmount: 0, paymentMethod: "" };
-        samanList = [];
-        saveAllAccounts();
-        saveSelectedAccount();
-        saveProducts();
-        savePaymentInfo();
-        renderAccounts();
-        loadActiveAccountData();
-        newAccountInput.value = "";
-      };
-
-      // ========== Pay Button ==========
-      payButton.onclick = () => {
-        if (!activeAccount) return alert("Select account");
-        paymentInfo.paidAmount = parseFloat(paymentAmountEl.value) || 0;
-        paymentInfo.paymentMethod = paymentMethodEl.value || "";
-        savePaymentInfo();
-        updatePaymentUI();
-      };
-
-      // ========== Init ==========
-      renderAccounts();
-      if (activeAccount) loadActiveAccountData();
-
-      downloadPdfBtn.onclick = () => {
-        if (!activeAccount) return alert("Please select account first.");
-        saveProducts(); // ✅ Correct save function
-        savePaymentInfo(); // ✅ Correct save function
-
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        const rowsPerPage = 26;
-
-        // Title
-        doc
-          .setFont("helvetica", "bold")
-          .setFontSize(16)
-          .setTextColor(40, 40, 40)
-          .text(`Product List - ${activeAccount}`, 14, 20);
-        doc
-          .setFontSize(10)
-          .setTextColor(100)
-          .text(`Generated on: ${new Date().toLocaleString()}`, 14, 28);
-
-        // Prepare table rows
-        const allRows = samanList.map((p, i) => [
-          i + 1,
-          p.name,
-          p.quantity,
-          `${p.price.toFixed(2)}`,
-          `${(p.quantity * p.price).toFixed(2)}`,
-          p.gotItem ? "Found" : "Pending",
-        ]);
-
-        const pages = [];
-        for (let i = 0; i < allRows.length; i += rowsPerPage) {
-          pages.push(allRows.slice(i, i + rowsPerPage));
+      pages.forEach((rows, pageIndex) => {
+        if (pageIndex > 0) {
+          doc.addPage();
+          startY = 20;
+          doc
+            .setFontSize(16)
+            .setTextColor(40, 40, 40)
+            .setFont("helvetica", "bold")
+            .text(`Product List - ${activeAccount} (Contd.)`, 14, 14);
         }
 
-        let startY = 35;
-
-        pages.forEach((rows, pageIndex) => {
-          if (pageIndex > 0) {
-            doc.addPage();
-            startY = 20;
-            doc
-              .setFontSize(16)
-              .setTextColor(40, 40, 40)
-              .setFont("helvetica", "bold")
-              .text(`Product List - ${activeAccount} (Contd.)`, 14, 14);
-          }
-
-          doc.autoTable({
-            startY,
-            head: [["S.No", "Name", "Qty", "Price", "Total", "Status"]],
-            body: rows,
-            theme: "grid",
-            styles: {
-              fontSize: 12,
-              textColor: [0, 0, 0],
-              font: "helvetica",
-            },
-            headStyles: {
-              fillColor: [0, 123, 255],
-              textColor: [255, 255, 255],
-              fontStyle: "bold",
-            },
-            didParseCell: function (data) {
-              if (data.section === "body") {
-                if (data.column.index === 5) {
-                  const status = data.cell.raw;
-                  if (status === "Pending") {
-                    data.cell.styles.textColor = [255, 0, 0];
-                    data.cell.styles.fontStyle = "bold";
-                  } else {
-                    data.cell.styles.textColor = [50, 50, 50];
-                    data.cell.styles.fontStyle = "bold";
-                  }
+        doc.autoTable({
+          startY,
+          head: [["S.No", "Name", "Qty", "Price", "Total", "Status"]],
+          body: rows,
+          theme: "grid",
+          styles: {
+            fontSize: 12,
+            textColor: [0, 0, 0],
+            font: "helvetica",
+          },
+          headStyles: {
+            fillColor: [0, 123, 255],
+            textColor: [255, 255, 255],
+            fontStyle: "bold",
+          },
+          didParseCell: function (data) {
+            if (data.section === "body") {
+              if (data.column.index === 5) {
+                const status = data.cell.raw;
+                if (status === "Pending") {
+                  data.cell.styles.textColor = [255, 0, 0];
+                  data.cell.styles.fontStyle = "bold";
                 } else {
-                  data.cell.styles.textColor = [30, 30, 30];
+                  data.cell.styles.textColor = [50, 50, 50];
+                  data.cell.styles.fontStyle = "bold";
                 }
+              } else {
+                data.cell.styles.textColor = [30, 30, 30];
               }
-            },
-          });
+            }
+          },
         });
+      });
 
-        // Summary on last page
-        const lastY = doc.lastAutoTable.finalY + 10;
-        const total = samanList.reduce(
-          (t, p) => (p.gotItem ? t + p.quantity * p.price : t),
-          0
-        );
-        const remaining = total - (paymentInfo?.paidAmount || 0);
+      // Summary on last page
+      const lastY = doc.lastAutoTable.finalY + 10;
+      const total = samanList.reduce(
+        (t, p) => (p.gotItem ? t + p.quantity * p.price : t),
+        0
+      );
+      const remaining = total - (paymentInfo?.paidAmount || 0);
 
-        doc.setFont("helvetica", "bold").setFontSize(12).setTextColor(0, 0, 0);
-        doc.text(`Total Price: ${total.toFixed(2)}`, 14, lastY);
-        doc.text(
-          `Amount Paid: ${paymentInfo.paidAmount.toFixed(2)}`,
-          14,
-          lastY + 8
-        );
-        doc.text(`Remaining Balance: ${remaining.toFixed(2)}`, 14, lastY + 16);
-        doc.text(
-          `Paid via ${paymentInfo.paymentMethod || "UPI"}`,
-          14,
-          lastY + 24
-        );
+      doc.setFont("helvetica", "bold").setFontSize(12).setTextColor(0, 0, 0);
+      doc.text(`Total Price: ${total.toFixed(2)}`, 14, lastY);
+      doc.text(
+        `Amount Paid: ${paymentInfo.paidAmount.toFixed(2)}`,
+        14,
+        lastY + 8
+      );
+      doc.text(`Remaining Balance: ${remaining.toFixed(2)}`, 14, lastY + 16);
+      doc.text(
+        `Paid via ${paymentInfo.paymentMethod || "UPI"}`,
+        14,
+        lastY + 24
+      );
 
-        doc.save(`${activeAccount}_product_list.pdf`);
-      };
+      doc.save(`${activeAccount}_product_list.pdf`);
+    };
 
-      function updateDateTime() {
-        const now = new Date();
-        currentDateTimeEl.textContent = now.toLocaleString();
+    function updateDateTime() {
+      const now = new Date();
+      currentDateTimeEl.textContent = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // On Load
+    renderAccounts();
+    if (activeAccount) loadActiveAccountData();
+
+    /* charch start js */
+
+ 
+function filterAndHighlightRows() {
+  const inputField = document.getElementById("tableSearchInput");
+  const input = inputField.value.trim().toLowerCase();
+  const tbody = document.querySelector("#productTable tbody");
+  const rows = tbody.getElementsByTagName("tr");
+  const container = document.querySelector(".table-wrapper");
+
+  // Remove old highlights
+  tbody.querySelectorAll(".search-highlight").forEach(span => {
+    const parent = span.parentNode;
+    if (parent) {
+      parent.replaceChild(document.createTextNode(span.textContent), span);
+      parent.normalize();
+    }
+  });
+
+  let firstMatch = null;
+  let matchCount = 0;
+
+  for (let row of rows) {
+    let matchFoundInRow = false;
+
+    for (let cell of row.cells) {
+      const text = cell.textContent.toLowerCase();
+      if (text.includes(input) && input !== "") {
+        matchFoundInRow = true;
+
+        // Highlight matching text
+        for (let node of Array.from(cell.childNodes)) {
+          if (node.nodeType === 3) {
+            const rawText = node.nodeValue;
+            const index = rawText.toLowerCase().indexOf(input);
+            if (index !== -1) {
+              const span = document.createElement("span");
+              span.className = "search-highlight";
+              span.textContent = rawText.substr(index, input.length);
+              span.style.background = "yellow";
+              span.style.color = "black";
+              span.style.fontWeight = "bold";
+
+              const after = node.splitText(index);
+              after.nodeValue = after.nodeValue.substring(input.length);
+              cell.insertBefore(span, after);
+
+              if (!firstMatch) firstMatch = span;
+              break;
+            }
+          }
+        }
       }
-      setInterval(updateDateTime, 1000);
-      updateDateTime();
+    }
 
-      // On Load
-      renderAccounts();
-      if (activeAccount) loadActiveAccountData();
-    </script>
-  </body>
+    if (input === "") {
+      row.style.display = "";
+    } else {
+      row.style.display = matchFoundInRow ? "" : "none";
+      if (matchFoundInRow) matchCount++;
+    }
+  }
+
+  // If no match found
+  if (input !== "" && matchCount === 0) {
+    inputField.value = "";
+    inputField.placeholder = "NOT FOUND RECORD";
+    inputField.classList.add("not-found");
+
+    setTimeout(() => {
+      inputField.placeholder = "Search table...";
+      inputField.classList.remove("not-found");
+
+      for (let row of rows) {
+        row.style.display = "";
+      }
+    }, 2000);
+  }
+
+  // Scroll to first match
+  if (firstMatch && container) {
+    const matchTop = firstMatch.getBoundingClientRect().top;
+    const containerTop = container.getBoundingClientRect().top;
+    const scrollOffset = matchTop - containerTop + container.scrollTop - 50;
+    container.scrollTo({ top: scrollOffset, behavior: "smooth" });
+  }
+}
+
+
+    /* charch and js */
+
+  </script>
+</body>
+
 </html>
