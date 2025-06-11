@@ -1,0 +1,75 @@
+/* Center container */
+#tableSearchInput.not-found {
+  border: 1px solid red !important;
+  color: red;
+}
+.search-highlight {
+  background-color: yellow;
+  font-weight: bold;
+  color: black;
+}
+#tableSearchBarContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Wrapper for icon + input */
+.search-wrapper {
+  position: relative;
+  width: 500px;
+}
+
+/* Icon wrapper for sizing */
+.icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* SVG icon size */
+.search-icon {
+  width: 200px;
+  height: 20px;
+  fill: #000000;
+  
+
+}
+
+/* Input field style */
+#tableSearchInput {
+  width: 100%;
+  padding: 8px 12px 8px 38px; /* space for icon */
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  transition: border 0.2s ease;
+  color: #333;
+}
+
+/* Placeholder color matches icon */
+#tableSearchInput::placeholder {
+  color: #898888;
+}
+
+/* On focus */
+#tableSearchInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* Highlight matched text */
+.search-highlight {
+  background: yellow;
+  color: black;
+  font-weight: bold;
+}

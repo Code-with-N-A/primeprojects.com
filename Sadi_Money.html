@@ -62,39 +62,49 @@
     <div class="loading-text">primeprojects...</div>
   </div>
   <!-- Loader Wrapper and -->
+
+  <!-- sarching css sadhi and js start -->
+  <link rel="stylesheet" href="sadi_sarch.css" />
+  <script src="sadi_sarch.js"></script>
+  <!-- sarching css sadhi OR js and -->
+
   <!--sin in-->
   <script src="sin.js"></script>
 
   <!--online pyment QR start-->
   <div class="popup-overlay" id="popup">
-    
-  <div class="popup-content" id="popupContent">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <div class="popup-content" id="popupContent">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
 
-    <p id="statusMsg"></p>
+      <p id="statusMsg"></p>
 
-    <input type="email" id="emailInput" placeholder="Enter your email"/>
-    <button onclick="sendOTP()">Send OTP</button>
+      <input type="email" id="emailInput" placeholder="Enter your email" />
+      <button onclick="sendOTP()">Send OTP</button>
 
-    <input type="text" id="otpInput" placeholder="Enter OTP"/>
-    <button onclick="verifyOTP()">Verify OTP</button>
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button onclick="verifyOTP()">Verify OTP</button>
 
-    <input type="text" id="upiInput" placeholder="Enter your UPI ID" style="display:none;"/>
-    <button onclick="generateQR()" id="generateQRBtn" style="display:none;">Generate QR</button>
+      <input type="text" id="upiInput" placeholder="Enter your UPI ID" style="display: none" />
+      <button onclick="generateQR()" id="generateQRBtn" style="display: none">
+        Generate QR
+      </button>
 
-    <div id="qrCanvas">
-      <div id="primeTitle">
-        <span class="blue">Prime</span><span class="green">Pay</span>
+      <div id="qrCanvas">
+        <div id="primeTitle">
+          <span class="blue">Prime</span><span class="green">Pay</span>
+        </div>
+        <div id="receiverName"></div>
+        <div id="qrImageBox"></div>
       </div>
-      <div id="receiverName"></div>
-      <div id="qrImageBox"></div>
+
+      <button id="deleteQRBtn" onclick="deleteQR()" style="display: none">
+        Delete QR
+      </button>
+      <button id="downloadPopupBtn" onclick="downloadPopupImage()">
+        Download Popup as Image
+      </button>
     </div>
-
-    <button id="deleteQRBtn" onclick="deleteQR()" style="display:none;">Delete QR</button>
-    <button id="downloadPopupBtn" onclick="downloadPopupImage()">Download Popup as Image</button>
   </div>
-</div>
-
 
   <!--online pyment QR and-->
 
@@ -110,8 +120,9 @@
         Add Heading
       </button>
 
-      <button id="openPopupBtn"><i class="fa-solid fa-qrcode" style="font-size: 38px; color: #000000;"></i></button>
-
+      <button id="openPopupBtn">
+        <i class="fa-solid fa-qrcode" style="font-size: 38px; color: #000000"></i>
+      </button>
     </div>
 
     <h2 id="headingText" class="text-2xl font-bold text-center mb-6 text-blue-800">
@@ -132,7 +143,31 @@
         Add
       </button>
     </form>
+   <!--sarch bar start -->
+    <div id="tableSearchBarContainer">
+  <div class="search-wrapper">
+    <span class="icon-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill="#999999" d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 
+          1.48-5.34C15.1 5.59 12.52 3 9.5 3S3.9 5.59 3.9 8.39c0 
+          2.8 2.58 5.39 5.6 5.39 1.61 0 3.06-.69 
+          4.06-1.78l.27.28v.79l5 5L20.49 19l-5-5zm-6 
+          0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 
+          5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </span>
+    <input
+      type="text"
+      id="tableSearchInput"
+      placeholder="Search..."
+      oninput="filterAndHighlightRows()"
+    >
+  </div>
+</div>
 
+     
+       <!--sarch bar and -->
     <!-- Active Records Table -->
     <div class="overflow-x-auto overflow-y-auto max-h-[70vh] w-full mb-5">
       <table class="table-auto w-full min-w-[800px] border border-gray-300 text-center">
@@ -175,7 +210,6 @@
           ">
         GO Dowry
       </button>
-
     </div>
 
     <!-- Deleted Records -->
@@ -282,20 +316,19 @@
     }
 
     function renderDeleted() {
-  deletedBody.innerHTML = "";
-  deletedData.forEach((entry) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
+      deletedBody.innerHTML = "";
+      deletedData.forEach((entry) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
       <td class="border px-3 py-2">${entry.originalIndex || "-"}</td>
       <td class="border px-3 py-2">${entry.name}</td>
       <td class="border px-3 py-2">${entry.gaav}</td>
       <td class="border px-3 py-2">₹${entry.rupay}</td>
       <td class="border px-3 py-2">${entry.type}</td>
     `;
-    deletedBody.appendChild(row);
-  });
-}
-
+        deletedBody.appendChild(row);
+      });
+    }
 
     function updateSummary(total = 0, cash = 0, online = 0) {
       document.getElementById("total").innerText = total;
@@ -305,16 +338,15 @@
       datetimeEl.innerText = now.toLocaleString();
     }
 
-   function deleteRow(index) {
-  const deleted = data.splice(index, 1)[0];
-  deleted.originalIndex = index + 1; // Save original index (1-based)
-  deletedData.push(deleted);
-  localStorage.setItem("donationData", JSON.stringify(data));
-  localStorage.setItem("deletedData", JSON.stringify(deletedData));
-  renderTable();
-  renderDeleted();
-}
-
+    function deleteRow(index) {
+      const deleted = data.splice(index, 1)[0];
+      deleted.originalIndex = index + 1; // Save original index (1-based)
+      deletedData.push(deleted);
+      localStorage.setItem("donationData", JSON.stringify(data));
+      localStorage.setItem("deletedData", JSON.stringify(deletedData));
+      renderTable();
+      renderDeleted();
+    }
 
     function deleteAll() {
       if (confirm("Are you sure you want to delete all entries?")) {
@@ -337,184 +369,212 @@
         )
         .join(" ");
     }
-   function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF("p", "pt", "a4");
-  const pageWidth = doc.internal.pageSize.getWidth();
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF("p", "pt", "a4");
+      const pageWidth = doc.internal.pageSize.getWidth();
 
-  const marginLeft = 20;
-  const marginRight = 20;
-  const usablePageWidth = pageWidth - marginLeft - marginRight;
+      const marginLeft = 20;
+      const marginRight = 20;
+      const usablePageWidth = pageWidth - marginLeft - marginRight;
 
-  doc.setFont("helvetica");
+      doc.setFont("helvetica");
 
-  // Title
-  doc.setFontSize(18);
-  doc.setTextColor("#1E3A8A");
-  doc.text(heading || "Donation List", pageWidth / 2, 40, { align: "center" });
-
-  // Date & Time
-  const now = new Date();
-  doc.setFontSize(10);
-  doc.setTextColor("#374151");
-  doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, {
-    align: "center",
-  });
-
-  const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
-  const chunkSize = 30;
-
-  // Function to build autoTable
-  function buildTable(doc, startY, rows, columnStyles, headStyles, title = null) {
-    if (title) {
-      doc.setFontSize(16);
-      doc.setTextColor("#B91C1C");
-      doc.text(title, pageWidth / 2, startY, { align: "center" });
-      startY += 20;
-    }
-
-    doc.autoTable({
-      startY,
-      head: [tableColumn],
-      body: rows,
-      margin: { left: marginLeft, right: marginRight },
-      styles: {
-        fontSize: 10,
-        font: "helvetica",
-        textColor: "#000000",
-        halign: "left",
-        valign: "middle",
-        fillColor: false,
-        lineWidth: 0.1,
-        lineColor: "#DDDDDD",
-        cellWidth: "wrap",
-        overflow: "linebreak",
-      },
-      headStyles,
-      bodyStyles: {
-        fillColor: false,
-        textColor: "#000000",
-        lineColor: "#DDDDDD",
-      },
-      alternateRowStyles: {
-        fillColor: false,
-      },
-      columnStyles,
-      didDrawCell: (data) => {
-        const { cell } = data;
-        doc.setDrawColor("#DDDDDD");
-        doc.setLineWidth(0.1);
-        doc.rect(cell.x, cell.y, cell.width, cell.height);
-      },
-    });
-
-    return doc.lastAutoTable.finalY;
-  }
-
-  // Normal Data Table
-  const columnStyles = {
-    0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
-    1: { cellWidth: usablePageWidth * 0.28 },
-    2: { cellWidth: usablePageWidth * 0.25 },
-    3: { cellWidth: usablePageWidth * 0.16, halign: "center" },
-    4: { cellWidth: usablePageWidth * 0.23, halign: "center" },
-  };
-
-  const headStyles = {
-    fillColor: "#3B82F6",
-    textColor: "#FFFFFF",
-    fontStyle: "bold",
-    halign: "center",
-  };
-
-  let total = 0, cash = 0, online = 0;
-  for (let i = 0; i < data.length; i += chunkSize) {
-    const chunk = data.slice(i, i + chunkSize);
-    const rows = chunk.map((item, index) => {
-      const rowIndex = i + index;
-      total += item.rupay;
-      if (item.type === "Cash") cash += item.rupay;
-      else online += item.rupay;
-      return [
-        rowIndex + 1,
-        capitalizeWords(item.name),
-        capitalizeWords(item.gaav),
-        item.rupay,
-        item.type,
-      ];
-    });
-
-    const startY = i === 0 ? 75 : 40;
-    buildTable(doc, startY, rows, columnStyles, headStyles);
-
-    if (i + chunkSize < data.length) {
-      doc.addPage();
-    }
-  }
-
-  let currentY = doc.lastAutoTable.finalY + 30;
-  doc.setFontSize(13);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor("#000000");
-  doc.text(`Total (Active):  ${total}`, marginLeft, currentY);
-  doc.text(`Cash (Active):  ${cash}`, marginLeft, currentY + 22);
-  doc.text(`Online (Active):  ${online}`, marginLeft, currentY + 44);
-
-  // Deleted Records
-  if (deletedData.length > 0) {
-    let deletedTotal = 0, deletedCash = 0, deletedOnline = 0;
-    const deletedHeadStyles = {
-      fillColor: "#DC2626",
-      textColor: "#FFFFFF",
-      fontStyle: "bold",
-      halign: "center",
-    };
-
-    for (let i = 0; i < deletedData.length; i += chunkSize) {
-      const chunk = deletedData.slice(i, i + chunkSize);
-      const rows = chunk.map((item) => {
-        deletedTotal += item.rupay;
-        if (item.type === "Cash") deletedCash += item.rupay;
-        else deletedOnline += item.rupay;
-        return [
-          item.originalIndex,
-          capitalizeWords(item.name),
-          capitalizeWords(item.gaav),
-          item.rupay,
-          item.type,
-        ];
+      // Title
+      doc.setFontSize(18);
+      doc.setTextColor("#1E3A8A");
+      doc.text(heading || "Donation List", pageWidth / 2, 40, {
+        align: "center",
       });
 
-      doc.addPage();
-      const startY = 40;
-      const title = i === 0 ? "Deleted Records" : null;
-      buildTable(doc, startY, rows, columnStyles, deletedHeadStyles, title);
+      // Date & Time
+      const now = new Date();
+      doc.setFontSize(10);
+      doc.setTextColor("#374151");
+      doc.text("Date & Time: " + now.toLocaleString(), pageWidth / 2, 60, {
+        align: "center",
+      });
+
+      const tableColumn = ["NO", "Name", "Village", "Money", "Type"];
+      const chunkSize = 30;
+
+      // Function to build autoTable
+      function buildTable(
+        doc,
+        startY,
+        rows,
+        columnStyles,
+        headStyles,
+        title = null
+      ) {
+        if (title) {
+          doc.setFontSize(16);
+          doc.setTextColor("#B91C1C");
+          doc.text(title, pageWidth / 2, startY, { align: "center" });
+          startY += 20;
+        }
+
+        doc.autoTable({
+          startY,
+          head: [tableColumn],
+          body: rows,
+          margin: { left: marginLeft, right: marginRight },
+          styles: {
+            fontSize: 10,
+            font: "helvetica",
+            textColor: "#000000",
+            halign: "left",
+            valign: "middle",
+            fillColor: false,
+            lineWidth: 0.1,
+            lineColor: "#DDDDDD",
+            cellWidth: "wrap",
+            overflow: "linebreak",
+          },
+          headStyles,
+          bodyStyles: {
+            fillColor: false,
+            textColor: "#000000",
+            lineColor: "#DDDDDD",
+          },
+          alternateRowStyles: {
+            fillColor: false,
+          },
+          columnStyles,
+          didDrawCell: (data) => {
+            const { cell } = data;
+            doc.setDrawColor("#DDDDDD");
+            doc.setLineWidth(0.1);
+            doc.rect(cell.x, cell.y, cell.width, cell.height);
+          },
+        });
+
+        return doc.lastAutoTable.finalY;
+      }
+
+      // Normal Data Table
+      const columnStyles = {
+        0: { cellWidth: usablePageWidth * 0.08, halign: "center" },
+        1: { cellWidth: usablePageWidth * 0.28 },
+        2: { cellWidth: usablePageWidth * 0.25 },
+        3: { cellWidth: usablePageWidth * 0.16, halign: "center" },
+        4: { cellWidth: usablePageWidth * 0.23, halign: "center" },
+      };
+
+      const headStyles = {
+        fillColor: "#3B82F6",
+        textColor: "#FFFFFF",
+        fontStyle: "bold",
+        halign: "center",
+      };
+
+      let total = 0,
+        cash = 0,
+        online = 0;
+      for (let i = 0; i < data.length; i += chunkSize) {
+        const chunk = data.slice(i, i + chunkSize);
+        const rows = chunk.map((item, index) => {
+          const rowIndex = i + index;
+          total += item.rupay;
+          if (item.type === "Cash") cash += item.rupay;
+          else online += item.rupay;
+          return [
+            rowIndex + 1,
+            capitalizeWords(item.name),
+            capitalizeWords(item.gaav),
+            item.rupay,
+            item.type,
+          ];
+        });
+
+        const startY = i === 0 ? 75 : 40;
+        buildTable(doc, startY, rows, columnStyles, headStyles);
+
+        if (i + chunkSize < data.length) {
+          doc.addPage();
+        }
+      }
+
+      let currentY = doc.lastAutoTable.finalY + 30;
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor("#000000");
+      doc.text(`Total (Active):  ${total}`, marginLeft, currentY);
+      doc.text(`Cash (Active):  ${cash}`, marginLeft, currentY + 22);
+      doc.text(`Online (Active):  ${online}`, marginLeft, currentY + 44);
+
+      // Deleted Records
+      if (deletedData.length > 0) {
+        let deletedTotal = 0,
+          deletedCash = 0,
+          deletedOnline = 0;
+        const deletedHeadStyles = {
+          fillColor: "#DC2626",
+          textColor: "#FFFFFF",
+          fontStyle: "bold",
+          halign: "center",
+        };
+
+        for (let i = 0; i < deletedData.length; i += chunkSize) {
+          const chunk = deletedData.slice(i, i + chunkSize);
+          const rows = chunk.map((item) => {
+            deletedTotal += item.rupay;
+            if (item.type === "Cash") deletedCash += item.rupay;
+            else deletedOnline += item.rupay;
+            return [
+              item.originalIndex,
+              capitalizeWords(item.name),
+              capitalizeWords(item.gaav),
+              item.rupay,
+              item.type,
+            ];
+          });
+
+          doc.addPage();
+          const startY = 40;
+          const title = i === 0 ? "Deleted Records" : null;
+          buildTable(
+            doc,
+            startY,
+            rows,
+            columnStyles,
+            deletedHeadStyles,
+            title
+          );
+        }
+
+        const deletedY = doc.lastAutoTable.finalY + 30;
+        doc.setFontSize(13);
+        doc.setTextColor("#000000");
+        doc.setFont("helvetica", "bold");
+        doc.text(`Total (Deleted):  ${deletedTotal}`, marginLeft, deletedY);
+        doc.text(
+          `Cash (Deleted):  ${deletedCash}`,
+          marginLeft,
+          deletedY + 22
+        );
+        doc.text(
+          `Online (Deleted):  ${deletedOnline}`,
+          marginLeft,
+          deletedY + 44
+        );
+      }
+
+      // Timestamp
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      const endY = doc.lastAutoTable.finalY + 90;
+      doc.text(`Generated on: ${now.toLocaleString()}`, marginLeft, endY);
+
+      const filename =
+        (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
+      doc.save(filename);
     }
-
-    const deletedY = doc.lastAutoTable.finalY + 30;
-    doc.setFontSize(13);
-    doc.setTextColor("#000000");
-    doc.setFont("helvetica", "bold");
-    doc.text(`Total (Deleted):  ${deletedTotal}`, marginLeft, deletedY);
-    doc.text(`Cash (Deleted):  ${deletedCash}`, marginLeft, deletedY + 22);
-    doc.text(`Online (Deleted):  ${deletedOnline}`, marginLeft, deletedY + 44);
-  }
-
-  // Timestamp
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  const endY = doc.lastAutoTable.finalY + 90;
-  doc.text(`Generated on: ${now.toLocaleString()}`, marginLeft, endY);
-
-  const filename = (heading || "Donation_List").replace(/\s+/g, "_") + ".pdf";
-  doc.save(filename);
-}
-
   </script>
-   <!--online pyment QR start-->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="sadi_QR.js"></script>
+  <!--online pyment QR start-->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="sadi_QR.js"></script>
   <!--online pyment QR and-->
   <!--online pyment QR and-->
 </body>
