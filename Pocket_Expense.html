@@ -274,6 +274,10 @@
     </style>
   </head>
   <body>
+     <!-- sarching css sadhi and js start -->
+  <link rel="stylesheet" href="sadi_sarch.css" />
+ 
+  <!-- sarching css sadhi OR js and -->
     <button id="toggleBtn" onclick="toggleSidebar()">☰</button>
 
     <div id="sidebar">
@@ -331,6 +335,31 @@
           Add Product
         </button>
       </div>
+      <!--sarch bar start -->
+    <div id="tableSearchBarContainer">
+  <div class="search-wrapper">
+    <span class="icon-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill="#999999" d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 
+          1.48-5.34C15.1 5.59 12.52 3 9.5 3S3.9 5.59 3.9 8.39c0 
+          2.8 2.58 5.39 5.6 5.39 1.61 0 3.06-.69 
+          4.06-1.78l.27.28v.79l5 5L20.49 19l-5-5zm-6 
+          0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 
+          5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </span>
+    <input
+      type="text"
+      id="tableSearchInput"
+      placeholder="Search..."
+      oninput="filterAndHighlightRows()"
+    >
+  </div>
+</div>
+
+     
+       <!--sarch bar and -->
       <div class="tb">
         <table>
           <thead>
@@ -815,6 +844,99 @@ function deleteAllProducts() {
         loadStores();
         loadProducts();
       };
+
+
+
+      /* srachbar script  start */
+      
+function filterAndHighlightRows() {
+  const inputField = document.getElementById("tableSearchInput");
+  const input = inputField.value.trim().toLowerCase();
+  const tbody = document.getElementById("productTableBody");
+  const rows = tbody.getElementsByTagName("tr");
+  const container = tbody.closest(".overflow-y-auto");
+
+  // Remove old highlights
+  tbody.querySelectorAll(".search-highlight").forEach(span => {
+    const parent = span.parentNode;
+    if (parent) {
+      parent.replaceChild(document.createTextNode(span.textContent), span);
+      parent.normalize();
+    }
+  });
+
+  let firstMatch = null;
+  let matchCount = 0;
+
+  for (let row of rows) {
+    let matchFoundInRow = false;
+
+    for (let cell of row.cells) {
+      const text = cell.textContent.toLowerCase();
+      if (text.includes(input) && input !== "") {
+        matchFoundInRow = true;
+
+        // Highlight matching text
+        for (let node of Array.from(cell.childNodes)) {
+          if (node.nodeType === 3) {
+            const rawText = node.nodeValue;
+            const index = rawText.toLowerCase().indexOf(input);
+            if (index !== -1) {
+              const span = document.createElement("span");
+              span.className = "search-highlight";
+              span.textContent = rawText.substr(index, input.length);
+              span.style.background = "yellow";
+              span.style.color = "black";
+              span.style.fontWeight = "bold";
+
+              const after = node.splitText(index);
+              after.nodeValue = after.nodeValue.substring(input.length);
+              cell.insertBefore(span, after);
+
+              if (!firstMatch) firstMatch = span;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if (input === "") {
+      row.style.display = "";
+    } else {
+      row.style.display = matchFoundInRow ? "" : "none";
+      if (matchFoundInRow) matchCount++;
+    }
+  }
+
+  // If no match found
+  if (input !== "" && matchCount === 0) {
+    inputField.value = "";
+    inputField.placeholder = "NOT FOUND RECORD";
+    inputField.classList.add("not-found");
+
+    setTimeout(() => {
+      inputField.placeholder = "Search table...";
+      inputField.classList.remove("not-found");
+
+      // Restore all rows
+      for (let row of rows) {
+        row.style.display = "";
+      }
+    }, 2000);
+  }
+
+  // Scroll first match into view
+  if (firstMatch && container) {
+    const matchTop = firstMatch.getBoundingClientRect().top;
+    const containerTop = container.getBoundingClientRect().top;
+    const scrollOffset = matchTop - containerTop + container.scrollTop - 50;
+    container.scrollTo({ top: scrollOffset, behavior: "smooth" });
+  }
+}
+      /* srachbar script  and*/
+
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
