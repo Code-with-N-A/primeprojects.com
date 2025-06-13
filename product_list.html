@@ -667,114 +667,166 @@
         ? `Paid via ${paymentInfo.paymentMethod}`
         : "";
     }
-
-    // ========== Product Table ==========
-    function updateTable() {
-      productTableBody.innerHTML = "";
-      let total = 0;
-      samanList.forEach((item, i) => {
-        const itemTotal = item.quantity * item.price;
-        if (item.gotItem) total += itemTotal;
-        const row = document.createElement("tr");
-        row.innerHTML = `
+// ========== Product Table ==========
+function updateTable() {
+  productTableBody.innerHTML = "";
+  let total = 0;
+  samanList.forEach((item, i) => {
+    const itemTotal = item.quantity * item.price;
+    if (item.gotItem) total += itemTotal;
+    const row = document.createElement("tr");
+    row.innerHTML = `
         <td>${i + 1}</td>
         <td>${item.name}</td>
-        <td>${item.quantity}</td>
+        <td><input type="number" class="quantity-input" data-index="${i}" value="${item.quantity}" style="width:60px;"></td>
         <td><input type="number" step="0.01" class="price-input" data-index="${i}" value="${item.price
-          }" style="width:80px;"></td>
+      }" style="width:80px;"></td>
         <td>₹${itemTotal.toFixed(2)}</td>
         <td><button class="redo-button ${item.gotItem ? "active" : ""
-          }" data-index="${i}">${item.gotItem ? "Found" : "Pending"}</button></td>
+      }" data-index="${i}">${item.gotItem ? "Found" : "Pending"}</button></td>
         <td><button class="delete-button" data-index="${i}">Delete</button></td>`;
-        productTableBody.appendChild(row);
-      });
-      totalPriceEl.textContent = total.toFixed(2);
-      attachTableButtonListeners();
-    }
+    productTableBody.appendChild(row);
+  });
+  totalPriceEl.textContent = total.toFixed(2);
+  attachTableButtonListeners();
+}
 
-    function attachTableButtonListeners() {
-      document.querySelectorAll(".redo-button").forEach((btn) => {
-        btn.onclick = () => {
-          const i = btn.dataset.index;
-          samanList[i].gotItem = !samanList[i].gotItem;
-          updateTable();
-          saveProducts();
-          updatePaymentUI();
-        };
-      });
+// ========== Product Table ==========
+function updateTable() {
+  productTableBody.innerHTML = "";
+  let total = 0;
+  samanList.forEach((item, i) => {
+    const itemTotal = item.quantity * item.price;
+    if (item.gotItem) total += itemTotal;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${item.name}</td>
+        <td><input type="number" class="quantity-input" data-index="${i}" value="${item.quantity}" style="width:60px;"></td>
+        <td><input type="number" step="0.01" class="price-input" data-index="${i}" value="${item.price
+      }" style="width:80px;"></td>
+        <td>₹${itemTotal.toFixed(2)}</td>
+        <td><button class="redo-button ${item.gotItem ? "active" : ""
+      }" data-index="${i}">${item.gotItem ? "Found" : "Pending"}</button></td>
+        <td><button class="delete-button" data-index="${i}">Delete</button></td>`;
+    productTableBody.appendChild(row);
+  });
+  totalPriceEl.textContent = total.toFixed(2);
+  attachTableButtonListeners();
+  updateRemainingBalance(); // ✅ Auto update
+}
 
-      document.querySelectorAll(".delete-button").forEach((btn) => {
-        btn.onclick = () => {
-          const i = btn.dataset.index;
-          if (confirm("Delete this item?")) {
-            samanList.splice(i, 1);
-            updateTable();
-            saveProducts();
-            updatePaymentUI();
-          }
-        };
-      });
-
-      // ✅ Updated: Only update on blur (when user leaves input)
-      document.querySelectorAll(".price-input").forEach((input) => {
-        input.addEventListener("blur", () => {
-          const i = input.dataset.index;
-          const price = parseFloat(input.value);
-          if (!isNaN(price) && price >= 0) {
-            samanList[i].price = price;
-            saveProducts();
-            updateTable();
-            updatePaymentUI();
-          }
-        });
-      });
-    }
-
-    // ========== Add Product ==========
-    productForm.onsubmit = (e) => {
-      e.preventDefault();
-      if (!activeAccount) return alert("Select an account first.");
-      const name = productNameEl.value.trim();
-      const qty = parseInt(productQuantityEl.value);
-      const price = parseFloat(productPriceEl.value);
-      if (!name || qty <= 0 || isNaN(price) || price < 0)
-        return alert("Invalid entry");
-      samanList.push({ name, quantity: qty, price, gotItem: false });
+function attachTableButtonListeners() {
+  document.querySelectorAll(".redo-button").forEach((btn) => {
+    btn.onclick = () => {
+      const i = btn.dataset.index;
+      samanList[i].gotItem = !samanList[i].gotItem;
       updateTable();
       saveProducts();
-      productForm.reset();
-    };
-
-    // ========== Add Account ==========
-    addAccountBtn.onclick = () => {
-      const name = newAccountInput.value.trim();
-      if (!name) return alert("Enter name");
-      if (allAccounts.includes(name)) return alert("Account already exists");
-      allAccounts.push(name);
-      activeAccount = name;
-      paymentInfo = { paidAmount: 0, paymentMethod: "" };
-      samanList = [];
-      saveAllAccounts();
-      saveSelectedAccount();
-      saveProducts();
-      savePaymentInfo();
-      renderAccounts();
-      loadActiveAccountData();
-      newAccountInput.value = "";
-    };
-
-    // ========== Pay Button ==========
-    payButton.onclick = () => {
-      if (!activeAccount) return alert("Select account");
-      paymentInfo.paidAmount = parseFloat(paymentAmountEl.value) || 0;
-      paymentInfo.paymentMethod = paymentMethodEl.value || "";
-      savePaymentInfo();
       updatePaymentUI();
     };
+  });
 
-    // ========== Init ==========
-    renderAccounts();
-    if (activeAccount) loadActiveAccountData();
+  document.querySelectorAll(".delete-button").forEach((btn) => {
+    btn.onclick = () => {
+      const i = btn.dataset.index;
+      if (confirm("Delete this item?")) {
+        samanList.splice(i, 1);
+        updateTable();
+        saveProducts();
+        updatePaymentUI();
+      }
+    };
+  });
+
+  // ✅ Updated: Only update on blur (when user leaves input)
+  document.querySelectorAll(".price-input").forEach((input) => {
+    input.addEventListener("blur", () => {
+      const i = input.dataset.index;
+      const price = parseFloat(input.value);
+      if (!isNaN(price) && price >= 0) {
+        samanList[i].price = price;
+        saveProducts();
+        updateTable();
+        updatePaymentUI();
+      }
+    });
+  });
+
+  // ✅ NEW: Quantity update on blur (same as price)
+  document.querySelectorAll(".quantity-input").forEach((input) => {
+    input.addEventListener("blur", () => {
+      const i = input.dataset.index;
+      const quantity = parseInt(input.value);
+      if (!isNaN(quantity) && quantity > 0) {
+        samanList[i].quantity = quantity;
+        saveProducts();
+        updateTable();
+        updatePaymentUI();
+      }
+    });
+  });
+}
+
+// ========== Add Product ==========
+productForm.onsubmit = (e) => {
+  e.preventDefault();
+  if (!activeAccount) return alert("Select an account first.");
+  const name = productNameEl.value.trim();
+  const qty = parseInt(productQuantityEl.value);
+  const price = parseFloat(productPriceEl.value);
+  if (!name || qty <= 0 || isNaN(price) || price < 0)
+    return alert("Invalid entry");
+  samanList.push({ name, quantity: qty, price, gotItem: false });
+  updateTable();
+  saveProducts();
+  productForm.reset();
+};
+
+// ========== Add Account ==========
+addAccountBtn.onclick = () => {
+  const name = newAccountInput.value.trim();
+  if (!name) return alert("Enter name");
+  if (allAccounts.includes(name)) return alert("Account already exists");
+  allAccounts.push(name);
+  activeAccount = name;
+  paymentInfo = { paidAmount: 0, paymentMethod: "" };
+  samanList = [];
+  saveAllAccounts();
+  saveSelectedAccount();
+  saveProducts();
+  savePaymentInfo();
+  renderAccounts();
+  loadActiveAccountData();
+  newAccountInput.value = "";
+};
+
+// ========== Pay Button ==========
+payButton.onclick = () => {
+  if (!activeAccount) return alert("Select account");
+  paymentInfo.paidAmount = parseFloat(paymentAmountEl.value) || 0;
+  paymentInfo.paymentMethod = paymentMethodEl.value || "";
+  savePaymentInfo();
+  updatePaymentUI();
+  updateRemainingBalance(); // ✅ Auto update after payment
+};
+
+// ========== Remaining Balance Update ==========
+function updateRemainingBalance() {
+  let total = 0;
+  samanList.forEach(item => {
+    if (item.gotItem) total += item.quantity * item.price;
+  });
+  const paid = paymentInfo?.paidAmount || 0;
+  const remaining = Math.max(paid - total, 0);
+  if (typeof remainingBalanceEl !== "undefined") {
+    remainingBalanceEl.textContent = `Remaining Balance: ₹${remaining.toFixed(2)}`;
+  }
+}
+
+// ========== Init ==========
+renderAccounts();
+if (activeAccount) loadActiveAccountData();
 
     downloadPdfBtn.onclick = () => {
       if (!activeAccount) return alert("Please select account first.");
