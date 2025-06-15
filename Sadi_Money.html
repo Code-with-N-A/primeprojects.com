@@ -65,47 +65,46 @@
 
   <!-- sarching css sadhi and js start -->
   <link rel="stylesheet" href="sadi_sarch.css" />
-  <script src="sadi_sarch.js"></script>
+
+ 
   <!-- sarching css sadhi OR js and -->
 
   <!--sin in-->
   <script src="sin.js"></script>
 
   <!--online pyment QR start-->
-  <div class="popup-overlay" id="popup">
-    <div class="popup-content" id="popupContent">
-      <span class="close-btn" onclick="closePopup()">&times;</span>
+<div id="primepay_overlay">
+  <div class="primepay_popup">
+    <button class="primepay_closeBtn" onclick="primepay_closePopup()">×</button>
 
-      <p id="statusMsg"></p>
+    <div id="primepay_inputSection">
+      <label>UPI ID:</label>
+      <input id="primepay_upiInput" class="primepay_input" placeholder="example@bank" />
+      <label>Amount (₹):</label>
+      <input id="primepay_amtInput" type="number" class="primepay_input" placeholder="Eg. 500" />
+      <button class="primepay_btn primepay_gen" onclick="primepay_generateQR()">Generate QR</button>
+    </div>
 
-      <input type="email" id="emailInput" placeholder="Enter your email" />
-      <button onclick="sendOTP()">Send OTP</button>
-
-      <input type="text" id="otpInput" placeholder="Enter OTP" />
-      <button onclick="verifyOTP()">Verify OTP</button>
-
-      <input type="text" id="upiInput" placeholder="Enter your UPI ID" style="display: none" />
-      <button onclick="generateQR()" id="generateQRBtn" style="display: none">
-        Generate QR
-      </button>
-
-      <div id="qrCanvas">
-        <div id="primeTitle">
-          <span class="blue">Prime</span><span class="green">Pay</span>
+    <div id="primepay_resultBox" style="display:none;">
+      <div id="primepay_qrWrap">
+        <div style="font-size: 40px; font-weight: bold; margin-bottom: 30px;">
+          <span style="color: orange;">Prime</span><span style="color: aqua;">Pay</span>
         </div>
-        <div id="receiverName"></div>
-        <div id="qrImageBox"></div>
+        <div id="primepay_canvas">
+          <div id="primepay_qrcode"></div>
+          <img id="primepay_logo" src="img/logo1.png" alt="PrimePay Logo" />
+        </div>
+        <div id="primepay_text" style="margin-top: 12px; white-space: pre-line;"></div>
+        <div class="primepay_note">Scan this QR using any UPI app to pay via PrimePay.</div>
       </div>
 
-      <button id="deleteQRBtn" onclick="deleteQR()" style="display: none">
-        Delete QR
-      </button>
-      <button id="downloadPopupBtn" onclick="downloadPopupImage()">
-        Download Popup as Image
-      </button>
+     
+      <input id="primepay_amtEdit" type="number" class="primepay_input" />
+      <button class="primepay_btn primepay_dwn" onclick="primepay_downloadQR()">Download QR</button>
+      <button class="primepay_btn primepay_del" onclick="primepay_deleteQR()">Delete</button>
     </div>
   </div>
-
+</div>
   <!--online pyment QR and-->
 
   <div class="max-w-5xl w-full bg-white p-6 rounded-xl shadow-md">
@@ -120,8 +119,8 @@
         Add Heading
       </button>
 
-      <button id="openPopupBtn">
-        <i class="fa-solid fa-qrcode" style="font-size: 38px; color: #000000"></i>
+      <button  onclick="primepay_showPopup()" >
+        <i  class="fa-solid fa-qrcode" style="font-size: 38px; color: #000000"></i>
       </button>
     </div>
 
@@ -231,6 +230,11 @@
       </table>
     </div>
   </div>
+   <!--online pyment QR start-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="sadi_QR.js"></script>
+  <!--online pyment QR and-->
 
   <script>
     const tableBody = document.getElementById("tableBody");
@@ -571,11 +575,7 @@
       doc.save(filename);
     }
   </script>
-  <!--online pyment QR start-->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="sadi_QR.js"></script>
-  <!--online pyment QR and-->
+ 
   <!--online pyment QR and-->
 </body>
 
