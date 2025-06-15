@@ -18,16 +18,12 @@
 .primepay_popup {
   background: #fff;
   border-radius: 16px;
-  padding: 16px;
-  width: 350px;
-  max-height: 90vh;  /* ✅ Limit height without scroll */
-  overflow: hidden;  /* ✅ Prevent scroll */
+  padding: 20px;
+  width: 360px;       /* Fixed width for uniform layout */
+  height: auto;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
+  overflow: visible;
 }
 
 .primepay_closeBtn {
@@ -45,8 +41,8 @@
 
 .primepay_input {
   width: 100%;
-  padding: 8px;
-  margin-top: 6px;
+  padding: 10px;
+  margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
@@ -54,8 +50,8 @@
 
 .primepay_btn {
   width: 100%;
-  margin-top: 8px;
-  padding: 8px;
+  margin-top: 12px;
+  padding: 10px;
   font-size: 15px;
   border: none;
   border-radius: 6px;
@@ -69,22 +65,23 @@
 #primepay_qrWrap {
   background: #1e2a78;
   color: white;
-  padding: 10px;
-  margin-top: 10px;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
   text-align: center;
 }
 
 #primepay_canvas {
   background: white;
-  padding: 10px;
+  padding: 15px;
   display: inline-block;
   position: relative;
 }
 
 #primepay_qrcode img {
-  width: 160px;
-  height: 160px;
-  padding: 10px;
+  width: 180px;
+  height: 180px;
+  padding: 12px;
   background: white;
   display: block;
   margin: 0 auto;
@@ -94,19 +91,21 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: white;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
- .primepay_note {
-      background: #ffecb3;
-      color: #333;
-      padding: 8px;
-      border-radius: 6px;
-      margin-top: 10px;
-      font-size: 12px;
-    }
+.primepay_note {
+  background: #ffecb3;
+  color: #333;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* ✅ REMOVE ALL MEDIA QUERIES FOR UNIFORM LAYOUT */
