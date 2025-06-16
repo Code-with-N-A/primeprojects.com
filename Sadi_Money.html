@@ -74,6 +74,7 @@
   <script src="sin.js"></script>
 
   <!--online pyment QR start-->
+<!-- QR Popup -->
 <div id="primepay_overlay">
   <div class="primepay_popup">
     <button class="primepay_closeBtn" onclick="primepay_closePopup()">×</button>
@@ -82,6 +83,8 @@
       <label>UPI ID:</label>
       <input id="primepay_upiInput" class="primepay_input" placeholder="example@bank" />
       <label>Amount (₹):</label>
+       
+
       <input id="primepay_amtInput" type="number" class="primepay_input" placeholder="Eg. 500" />
       <button class="primepay_btn primepay_gen" onclick="primepay_generateQR()">Generate QR</button>
     </div>
@@ -96,7 +99,21 @@
           <img id="primepay_logo" src="img/logo1.png" alt="PrimePay Logo" />
         </div>
         <div id="primepay_text" style="margin-top: 12px; white-space: pre-line;"></div>
-        <div class="primepay_note">Scan this QR using any UPI app to pay via PrimePay.</div>
+       
+        <div class="primepay_note"> <div class="primepay_icons">
+  <!-- Google Pay (works) -->
+  <img style="border-radius: 50%;"  src="img/google.svg" alt="Google Pay" title="Google Pay">
+
+  <!-- PhonePe (works) -->
+  <img style="border-radius: 50%;" src="img/phonepe.jpg" title="PhonePe">
+
+  <!-- Paytm (from Wikimedia Commons) -->
+  <img style="border-radius: 50%;" src="img/patyam.png" alt="Paytm" title="Paytm">
+
+  <!-- UPI (NPCI official logo) -->
+  <img src="img/UPI.webp" alt="UPI" title="UPI">
+</div>
+</div><br>
       </div>
 
      
