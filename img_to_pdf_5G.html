@@ -1,431 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-6N0JHLBDCE"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+ <!-- Basic Meta Tags -->
+<title>HD Image to PDF Converter | PrimeProjects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Convert HD Images to clean, high-quality PDF pages with consistent layout and brightness. Developed by PrimeProjects.">
+<meta name="keywords" content="Image to PDF, HD PDF Converter, PrimeProjects, Online PDF Generator, Brighten Images, Free Tool">
+<meta name="author" content="PrimeProjects">
 
-      gtag("config", "G-6N0JHLBDCE");
-    </script>
+<!-- Canonical Link -->
+<link rel="canonical" href="https://primeprojects.netlify.app/img_to_pdf" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>
-      Images 5G PDF - Convert & Optimize Images to PDF | PrimeProjects
-    </title>
-    <meta
-      name="description"
-      content="Prime Projects offers free coding courses in all programming languages, project management tools, task manager, salary records, PDF to image conversion, coding blogs, and more. Learn coding and manage tasks effectively with practical tools and resources."
-    />
+<!-- OpenGraph (for Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="HD Image to PDF Converter | PrimeProjects">
+<meta property="og:description" content="Convert your HD images into bright, professional-quality PDF documents. Perfect layout, compression & consistency. Built by PrimeProjects.">
+<meta property="og:image" content="https://primeprojects.netlify.app/assets/pdf-preview-banner.jpg">
+<meta property="og:url" content="https://primeprojects.netlify.app/img_to_pdf">
+<meta property="og:type" content="website">
 
-    <!-- Keywords for SEO -->
-    <meta
-      name="keywords"
-      content="coding courses, free coding projects, programming languages, bill management, task manager, PDF to image conversion, coding blogs, salary records, project management, task tracking, Prime Projects"
-    />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HD Image to PDF Converter | PrimeProjects">
+<meta name="twitter:description" content="Convert your HD images to PDF with perfect quality and layout using PrimeProjects.">
+<meta name="twitter:image" content="https://primeprojects.netlify.app/assets/pdf-preview-banner.jpg">
 
-    <!-- Author -->
-    <meta name="author" content="Prime Projects" />
+<!-- Favicon -->
+<link rel="icon" href="https://primeprojects.netlify.app/favicon.ico" type="image/x-icon">
 
-    <!-- Open Graph Meta Tags (For Social Media Sharing) -->
-    <meta
-      property="og:title"
-      content="Prime Projects - Free Coding Courses and Projects"
-    />
-    <meta
-      property="og:description"
-      content="Explore free coding courses, projects, and tools to enhance your productivity, including task managers, PDF converters, salary record management, and more."
-    />
-    <meta
-      property="og:image"
-      content="https://primeprojects.netlify.app/img/favicon-32x32.png"
-    />
-    <!-- This image is your logo -->
-    <meta property="og:url" content="https://primeprojects.netlify.app/" />
-    <meta property="og:type" content="website" />
+  <style>
+:root {
+  --primary: #0b5ed7;
+  --bg: #f8f9fa;
+  --text: #1c1c1e;
+  --white: #ffffff;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --radius: 12px;
+}
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Prime Projects - Free Coding Courses and Projects"
-    />
-    <meta
-      name="twitter:description"
-      content="Learn programming for free with various courses and tools, including task management and salary record tracking."
-    />
-    <meta
-      name="twitter:image"
-      content="https://primeprojects.netlify.app/img/favicon-32x32.png"
-    />
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.2s ease;
+}
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="https://primeprojects.netlify.app/img/favicon-32x32.png"
-      type="image/png"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="https://primeprojects.netlify.app/img/favicon-32x32.png"
-    />
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta
-      name="msapplication-TileImage"
-      content="https://primeprojects.netlify.app/img/favicon-32x32.png"
-    />
+header {
+  background: var(--white);
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://primeprojects.netlify.app/" />
+header h1 {
+  font-size: 28px;
+  margin: 0;
+  color: var(--primary);
+}
 
-    <!-- Schema Markup (Structured Data for SEO) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Prime Projects",
-        "url": "https://primeprojects.netlify.app/",
-        "logo": "https://primeprojects.netlify.app/img/favicon-32x32.png",
-        "sameAs": [
-          "https://www.facebook.com/primeprojects",
-          "https://twitter.com/primeprojects",
-          "https://www.linkedin.com/company/primeprojects"
-        ],
-        "description": "Prime Projects offers free coding courses in various languages, tools for project management, and more."
-      }
-    </script>
+header p {
+  margin-top: 8px;
+  color: #666;
+  font-size: 15px;
+}
 
-    <!-- Additional Structured Data (for Reviews, Courses, and Projects) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Free Programming Courses",
-        "description": "Learn coding with free courses in Python, JavaScript, HTML, and more at Prime Projects.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Prime Projects",
-          "url": "https://primeprojects.netlify.app/"
-        }
-      }
-    </script>
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+.upload-area {
+  border: 2px dashed #ccc;
+  padding: 60px 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  border-radius: var(--radius);
+  background: #f1f3f5;
+  cursor: pointer;
+}
 
-    <style>
-      /* Base Styles – Default for Desktop */
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: #f0f2f5;
-        margin: 0;
-        padding: 40px 20px;
-        color: #202124;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+.upload-area:hover {
+  background: #e9f3ff;
+  border-color: var(--primary);
+  color: var(--primary);
+}
 
-      h1 {
-        margin-top: 40px;
-        margin-bottom: 5px;
-        text-align: center;
-        font-size: 28px;
-        color: #1a73e8;
-        word-wrap: break-word;
-        user-select: none;
-      }
+.preview-section {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
 
-      .subtitle {
-        margin-top: 0;
-        margin-bottom: 15px;
-        text-align: center;
-        font-size: 18px;
-        color: #5f6368;
-        word-wrap: break-word;
-        user-select: none;
-      }
+.img-box {
+  width: 300px;
+  max-width: 100%;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+  text-align: center;
+}
 
-      .container {
-        background: #fff;
-        padding: 24px 20px;
-        border-radius: 8px;
-        max-width: 720px;
-        width: 100%;
-        box-shadow: 0 8px 24px rgba(32, 33, 36, 0.28);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
+.img-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  object-fit: contain;
+}
 
-      input[type="text"] {
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 1rem;
-        border: 2px solid #dfe1e5;
-        border-radius: 8px;
-        outline: none;
-        transition: border-color 0.3s ease;
-        box-sizing: border-box;
-      }
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-      input[type="text"]:focus {
-        border-color: #1a73e8;
-        box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
-      }
+input[type="text"]:focus {
+  border-color: var(--primary);
+  outline: none;
+}
 
-      #imageInput {
-        padding: 14px 20px;
-        border: 2.5px dashed #dfe1e5;
-        border-radius: 12px;
-        background: #fafafa;
-        cursor: pointer;
-        font-weight: 600;
-        color: #3c4043;
-        width: 90%;
-        text-align: center;
-        font-size: 1.1rem;
-        outline-offset: 4px;
-        transition: border-color 0.3s ease, background-color 0.3s ease;
-      }
+.btn-download {
+  display: block;
+  margin: 40px auto 20px;
+  padding: 15px 50px;
+  font-size: 17px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: auto;
+}
 
-      #imageInput:hover {
-        border-color: #1a73e8;
-        background-color: #f1f3f4;
-        color: #1a73e8;
-      }
+.btn-download:hover {
+  background-color: #084298;
+}
 
-      #preview {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-        overflow-x: auto;
-        max-width: 100%;
-        gap: 16px;
-        margin-bottom: 10px;
-        padding-bottom: 8px;
-        user-select: none;
-      }
+#loading {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
 
-      .img-wrap {
-        flex: 0 0 auto;
-        width: 130px;
-        height: 130px;
-        border-radius: 14px;
-        box-shadow: 0 4px 10px rgba(60, 64, 67, 0.15);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: white;
-        cursor: default;
-        transition: transform 0.25s ease;
-      }
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #fff;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
 
-      .img-wrap:hover {
-        transform: scale(1.07);
-        box-shadow: 0 8px 16px rgba(26, 115, 232, 0.35);
-        z-index: 10;
-      }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-      .img-wrap img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        user-select: none;
-      }
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .img-box {
+    width: 90%;
+  }
 
-      #generateBtn {
-        background: #1a73e8;
-        border: none;
-        color: white;
-        font-weight: 700;
-        font-size: 1.2rem;
-        padding: 14px 40px;
-        border-radius: 30px;
-        cursor: pointer;
-        box-shadow: 0 4px 14px rgba(26, 115, 232, 0.4);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        user-select: none;
-        margin-top: 5px;
-      }
+  .btn-download {
+    width: 90%;
+  }
 
-      #generateBtn:disabled {
-        background: #a8c0f0;
-        cursor: not-allowed;
-        box-shadow: none;
-      }
+  .container {
+    padding: 30px 20px;
+  }
 
-      #generateBtn:hover:not(:disabled) {
-        background: #155ab6;
-        box-shadow: 0 6px 20px rgba(21, 90, 182, 0.6);
-      }
+  header h1 {
+    font-size: 24px;
+  }
 
-      #pdfPreview {
-        margin-top: 30px;
-        border: 1px solid #ddd;
-        width: 100%;
-        max-width: 720px;
-        height: 540px;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(32, 33, 36, 0.15);
-        display: none;
-        overflow: auto;
-      }
+  .upload-area {
+    padding: 40px 20px;
+    font-size: 16px;
+  }
+}
+</style>
 
-      /* Loader */
-      .loader-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-
-      .loader-overlay.show {
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      .spinner {
-        border: 6px solid #dfe1e5;
-        border-top: 6px solid #1a73e8;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* ======================= */
-      /* 📱 Mobile < 480px       */
-      /* ======================= */
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 22px;
-        }
-
-        .subtitle {
-          font-size: 15px;
-        }
-
-        .container {
-          padding: 20px 14px;
-        }
-
-        input[type="text"],
-        #imageInput {
-          font-size: 1rem;
-          padding: 10px 14px;
-        }
-
-        #generateBtn {
-          font-size: 1rem;
-          padding: 12px 30px;
-        }
-
-        .img-wrap {
-          width: 100px;
-          height: 100px;
-        }
-
-        #pdfPreview {
-          height: 400px;
-        }
-      }
-
-      /* ======================= */
-      /* 📱 iPhone 6+ (375–428px) */
-      /* ======================= */
-      @media (min-width: 375px) and (max-width: 428px) {
-        h1 {
-          font-size: 24px;
-        }
-
-        .container {
-          padding: 18px;
-        }
-
-        .img-wrap {
-          width: 110px;
-          height: 110px;
-        }
-      }
-
-      /* ======================= */
-      /* 📱 Tablets (iPads) */
-      /* ======================= */
-      @media (min-width: 600px) and (max-width: 1024px) {
-        .container {
-          padding: 26px 32px;
-        }
-
-        h1 {
-          font-size: 26px;
-        }
-
-        .subtitle {
-          font-size: 16px;
-        }
-
-        #generateBtn {
-          font-size: 1.1rem;
-        }
-
-        #pdfPreview {
-          height: 480px;
-        }
-      }
-
-      /* ======================= */
-      /* 💻 Large Screens > 1200px */
-      /* ======================= */
-      @media (min-width: 1200px) {
-        .container {
-          max-width: 800px;
-        }
-
-        #pdfPreview {
-          height: 600px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <script src="sin.js"></script>
+</head>
+<body>
+   <script src="sin.js"></script>
     <link rel="stylesheet" href="loder.css" />
     <script src="loder.js"></script>
 
@@ -434,283 +221,183 @@
       <div class="circle-animation"></div>
       <div class="loading-text">primeprojects...</div>
     </div>
+  <header>
+    <h1>Pro Image to PDF Tool</h1>
+    <p>Convert your images into beautiful HD PDFs instantly</p>
+  </header>
 
-    <!-- Heading -->
-    <h1
-      style="
-        margin-top: 40px;
-        margin-bottom: 5px;
-        text-align: center;
-        font-size: 28px;
-        word-wrap: break-word;
-      "
-    >
-      Image to PDF Generator
-    </h1>
-    <p
-      class="subtitle"
-      style="
-        margin-top: 0px;
-        margin-bottom: 15px;
-        text-align: center;
-        font-size: 18px;
-        word-wrap: break-word;
-      "
-    >
-      Upload images, enter headings, preview, generate PDF.
-    </p>
+  <div class="container">
+    <div id="uploader" class="upload-area">📁 Click or Drag & Drop Images Here</div>
+    <div id="preview" class="preview-section"></div>
+  </div>
 
-    <div
-      class="container"
-      style="background: #fff; padding: 15px; border-radius: 8px"
-    >
-      <input type="text" id="heading1" placeholder="Enter Main Heading (H1)" />
-      <input type="text" id="heading3" placeholder="Enter Sub Heading (H3)" />
-      <input type="file" id="imageInput" accept="image/*" multiple />
-      <div id="preview"></div>
-      <button id="generateBtn" disabled>Generate PDF</button>
-      <iframe id="pdfPreview" title="PDF Preview"></iframe>
-    </div>
+  <button class="btn-download" onclick="generatePDF()">Download PDF</button>
 
-    <div class="loader-overlay" id="loader">
-      <div class="spinner"></div>
-    </div>
+  <div id="loading">
+    <div class="spinner"></div>
+    <div id="countdown">Generating PDF...</div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-      const { jsPDF } = window.jspdf;
-      const imageInput = document.getElementById("imageInput");
-      const preview = document.getElementById("preview");
-      const generateBtn = document.getElementById("generateBtn");
-      const loader = document.getElementById("loader");
-      const heading1Input = document.getElementById("heading1");
-      const heading3Input = document.getElementById("heading3");
 
-      let imageFiles = [];
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const uploader = document.getElementById("uploader");
+const preview = document.getElementById("preview");
+const loading = document.getElementById("loading");
+const countdown = document.getElementById("countdown");
+let imageData = [];
 
-      function showLoader() {
-        loader.classList.add("show");
-      }
+uploader.addEventListener("click", () => {
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "image/*";
+  input.multiple = true;
+  input.onchange = (e) => handleFiles(e.target.files);
+  input.click();
+});
 
-      function hideLoader() {
-        loader.classList.remove("show");
-      }
+uploader.addEventListener("dragover", e => {
+  e.preventDefault();
+  uploader.classList.add("hover");
+});
+uploader.addEventListener("dragleave", () => uploader.classList.remove("hover"));
+uploader.addEventListener("drop", e => {
+  e.preventDefault();
+  uploader.classList.remove("hover");
+  handleFiles(e.dataTransfer.files);
+});
 
-      imageInput.addEventListener("change", async () => {
-        preview.innerHTML = "";
-        imageFiles = Array.from(imageInput.files);
-        generateBtn.disabled = imageFiles.length === 0;
+async function handleFiles(files) {
+  for (let file of files) {
+    if (!file.type.startsWith("image/")) continue;
+    const reader = new FileReader();
+    await new Promise(resolve => {
+      reader.onload = (e) => {
+        const container = document.createElement("div");
+        container.className = "img-box";
 
-        if (imageFiles.length === 0) return;
+        const h1Input = document.createElement("input");
+        h1Input.type = "text";
+        h1Input.placeholder = "Heading (H1, max 24 chars)";
+        h1Input.maxLength = 24;
 
-        showLoader();
-        for (let i = 0; i < imageFiles.length; i++) {
-          const file = imageFiles[i];
-          const wrap = document.createElement("div");
-          wrap.classList.add("img-wrap");
+        const h4Input = document.createElement("input");
+        h4Input.type = "text";
+        h4Input.placeholder = "Subheading (H4, max 30 chars)";
+        h4Input.maxLength = 30;
 
-          const img = document.createElement("img");
-          img.src = URL.createObjectURL(file);
-          wrap.appendChild(img);
-          preview.appendChild(wrap);
-        }
-        hideLoader();
-      });
+        const img = document.createElement("img");
+        img.src = e.target.result;
 
-      generateBtn.addEventListener("click", async () => {
-        if (imageFiles.length === 0) {
-          alert("Please select at least one image.");
-          return;
-        }
+        container.appendChild(h1Input);
+        container.appendChild(h4Input);
+        container.appendChild(img);
+        preview.appendChild(container);
 
-        showLoader();
+        imageData.push({ src: e.target.result, h1: h1Input, h4: h4Input });
+        resolve();
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+}
 
-        const pxToMm = 0.264583;
-        const maxPageWidth = 210;
-        const usableTextWidth = maxPageWidth - 40; // 20mm margin on both sides
-        let totalHeight = 10;
-        const marginBetween = 10;
-        const topMargin = 15;
-        const numberFontSize = 12;
-        const headingGap = 10;
-        const sideMargin = 10;
+function loadImage(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.src = src;
+  });
+}
 
-        const heading1 = heading1Input.value.trim();
-        const heading3 = heading3Input.value.trim();
+async function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  let pdf;
 
-        const imgs = [];
-        let avgColor = [255, 255, 255];
+  loading.style.display = "flex";
+  countdown.innerText = "Preparing...";
 
-        for (let i = 0; i < imageFiles.length; i++) {
-          const file = imageFiles[i];
-          const dataUrl = await fileToDataURL(file);
-          const img = await loadImage(dataUrl);
-          const brightDataUrl = await enhanceBrightnessAndContrast(
-            img,
-            1.9,
-            1.1
-          );
-          const brightImg = await loadImage(brightDataUrl);
+  let estimatedSeconds = imageData.length * 2;
+  let sec = estimatedSeconds;
 
-          if (i === 0) {
-            avgColor = await getAverageColor(brightImg);
-          }
+  const interval = setInterval(() => {
+    countdown.innerText = `⏳ Downloading in ${sec--}...`;
+    if (sec < 0) clearInterval(interval);
+  }, 1000);
 
-          let imgWidth = brightImg.width * pxToMm;
-          let imgHeight = brightImg.height * pxToMm;
+  // Fixed width in points (A4 width approx 595pt with some margin)
+  const fixedPageWidth = 550; // adjust if needed for margins
+  const maxHeadingHeight = 80;
 
-          if (imgWidth > maxPageWidth - 2 * sideMargin) {
-            const ratio = (maxPageWidth - 2 * sideMargin) / imgWidth;
-            imgWidth *= ratio;
-            imgHeight *= ratio;
-          }
+  setTimeout(async () => {
+    for (let i = 0; i < imageData.length; i++) {
+      const { src, h1, h4 } = imageData[i];
+      const img = await loadImage(src);
 
-          imgs.push({ img: brightImg, width: imgWidth, height: imgHeight });
-          totalHeight += imgHeight + marginBetween;
-        }
+      // Calculate scaled height to keep aspect ratio
+      const scale = fixedPageWidth / img.width;
+      const scaledHeight = img.height * scale;
 
-        totalHeight += topMargin + headingGap * 2;
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext("2d");
 
-        const pdf = new jsPDF({
-          unit: "mm",
-          format: [maxPageWidth, totalHeight],
-          compress: true,
+      ctx.filter = "brightness(1.6) contrast(1.4)";
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      const imgData = canvas.toDataURL("image/jpeg", 1.0);
+
+      // Prepare headings
+      const h1TextRaw = (h1.value || "").trim().slice(0, 24);
+      const h4TextRaw = (h4.value || "").trim().slice(0, 30);
+
+      const headingHeight = (h1TextRaw || h4TextRaw) ? maxHeadingHeight : 0;
+
+      const pageHeight = scaledHeight + headingHeight;
+
+      if (i === 0) {
+        pdf = new jsPDF({
+          orientation: pageHeight > fixedPageWidth ? "portrait" : "landscape",
+          unit: "pt",
+          format: [fixedPageWidth, pageHeight],
         });
+      } else {
+        pdf.addPage([fixedPageWidth, pageHeight], pageHeight > fixedPageWidth ? "portrait" : "landscape");
+      }
 
-        pdf.setFillColor(...avgColor);
-        pdf.rect(0, 0, maxPageWidth, totalHeight, "F");
+      if (headingHeight > 0) {
+        const headingWidth = fixedPageWidth * 0.8;
+        const headingX = (fixedPageWidth - headingWidth) / 2;
 
-        const textColor = getContrastTextColor(avgColor);
-        let currentY = topMargin;
+        pdf.setFillColor("#01084c");
+        pdf.rect(headingX, 10, headingWidth, headingHeight - 20, "F");
 
-        pdf.setTextColor(...textColor);
+        pdf.setTextColor("#ffffff");
         pdf.setFont("helvetica", "bold");
 
-        // Heading 1
-        pdf.setFontSize(25);
-        if (heading1) {
-          const lines1 = pdf.splitTextToSize(heading1, usableTextWidth);
-          pdf.text(lines1, maxPageWidth / 2, currentY, { align: "center" });
-          currentY += lines1.length * 9 + 4; // 9mm line height approx.
+        if (h1TextRaw) {
+          pdf.setFontSize(13);
+          const h1Lines = pdf.splitTextToSize(h1TextRaw, headingWidth - 40);
+          pdf.text(h1Lines, fixedPageWidth / 2, 35, { align: "center" });
         }
 
-        // Heading 3
-        pdf.setFontSize(20);
-        if (heading3) {
-          const lines3 = pdf.splitTextToSize(heading3, usableTextWidth);
-          pdf.text(lines3, maxPageWidth / 2, currentY, { align: "center" });
-          currentY += lines3.length * 8 + 4; // 8mm line height approx.
+        if (h4TextRaw) {
+          pdf.setFont("helvetica", "normal");
+          pdf.setFontSize(10);
+          const h4Lines = pdf.splitTextToSize(h4TextRaw, headingWidth - 40);
+          pdf.text(h4Lines, fixedPageWidth / 2, 60, { align: "center" });
         }
-
-        pdf.setFontSize(numberFontSize);
-
-        for (let i = 0; i < imgs.length; i++) {
-          const { img, width, height } = imgs[i];
-          const xImg = (maxPageWidth - width) / 2;
-          pdf.addImage(img, "JPEG", xImg, currentY, width, height);
-
-          const label = `${i + 1}`;
-          const rightTextX = maxPageWidth - 12;
-          const numberY = currentY + 6;
-          pdf.text(label, rightTextX, numberY, { align: "right" });
-
-          currentY += height + marginBetween;
-        }
-
-        const pdfBlob = pdf.output("blob");
-        const url = URL.createObjectURL(pdfBlob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "converted_images.pdf";
-        a.click();
-
-        hideLoader();
-      });
-
-      function fileToDataURL(file) {
-        return new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onload = (e) => resolve(e.target.result);
-          reader.readAsDataURL(file);
-        });
       }
 
-      function loadImage(src) {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.onload = () => resolve(img);
-          img.src = src;
-        });
-      }
+      pdf.addImage(imgData, "JPEG", 0, headingHeight, fixedPageWidth, scaledHeight, undefined, "FAST");
+    }
 
-      function enhanceBrightnessAndContrast(
-        img,
-        brightnessFactor = 1.9,
-        contrastFactor = 1.1
-      ) {
-        return new Promise((resolve) => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-          canvas.width = img.width;
-          canvas.height = img.height;
+    pdf.save("HD_Images.pdf");
+    loading.style.display = "none";
+  }, estimatedSeconds * 1000);
+}
+</script>
 
-          ctx.drawImage(img, 0, 0);
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const data = imageData.data;
-
-          for (let i = 0; i < data.length; i += 4) {
-            let r = data[i] * brightnessFactor;
-            let g = data[i + 1] * brightnessFactor;
-            let b = data[i + 2] * brightnessFactor;
-
-            r = ((r / 300 - 0.5) * contrastFactor + 0.5) * 255;
-            g = ((g / 300 - 0.5) * contrastFactor + 0.5) * 255;
-            b = ((b / 300 - 0.5) * contrastFactor + 0.5) * 255;
-
-            data[i] = Math.min(255, Math.max(0, r));
-            data[i + 1] = Math.min(255, Math.max(0, g));
-            data[i + 2] = Math.min(255, Math.max(0, b));
-          }
-
-          ctx.putImageData(imageData, 0, 0);
-          resolve(canvas.toDataURL("image/jpeg", 0.85));
-        });
-      }
-
-      function getAverageColor(img) {
-        return new Promise((resolve) => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const data = imageData.data;
-          let r = 0,
-            g = 0,
-            b = 0,
-            count = 0;
-
-          for (let i = 0; i < data.length; i += 4) {
-            r += data[i];
-            g += data[i + 1];
-            b += data[i + 2];
-            count++;
-          }
-
-          resolve([
-            Math.round(r / count),
-            Math.round(g / count),
-            Math.round(b / count),
-          ]);
-        });
-      }
-
-      function getContrastTextColor([r, g, b]) {
-        const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
-        return luminance > 160 ? [30, 30, 30] : [255, 255, 255];
-      }
-    </script>
-  </body>
+</body>
 </html>
