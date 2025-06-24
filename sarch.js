@@ -37,6 +37,8 @@ const pages = [
     {name: "Aaj Ka Suvichar Hindi", url: "Suvichar.html"},
     {name: "Payroll Record", url: "Payroll.html"},
     {name: "Wedding & Dowry Records", url: "Sadi_Money.html"},
+    {name: "Hindi Notse", url: "notse_to_pdf.html"},
+    {name: "English Notse", url: "notse_English.html"},
 
 
 
