@@ -194,13 +194,30 @@
   </style>
 </head>
 <body>
-    <h2 style="background-color: #040135; color: #fff;width: 100%;padding: 15px; margin-bottom:5px; margin-top: 0; text-align: center; ;">Notebook Notes Maker - Maths</h2>
+    <h2 style="background-color: #040135; color: #fff;width: 100%;padding: 15px; margin-bottom:5px; margin-top: 0; text-align: center; ;">Notebook Notes Maker - Maths </h2>
 <span  style="cursor: pointer; color: #007bff; text-decoration: underline;"> Click here to write notes in
     <a style="color: red;" href="notse_English.html">English</a>
     <a style="color: red;" href="notse_to_pdf.html">Hindi</a>
 </span>
+<div style="position: relative; display: inline-block;">
+  <textarea id="inputText" placeholder="✍️ Type your notes..." style="padding-right: 35px;"></textarea>
+  <button id="clearBtn" onclick="handleXClick()" style="display: none; position: absolute; top: 8px; right: 8px; background: red; color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer;">×</button>
+</div>
 
-<textarea id="inputText" placeholder="✍️ Type your notes..."></textarea>
+<!-- 📝 Notes-style Popup -->
+<div id="popup" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+     background-color: rgba(0, 0, 0, 0.4); z-index: 999; display: flex; align-items: center; justify-content: center;">
+  <div style="background: #fffef0; border: 2px dashed #d8b32d; padding: 30px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); max-width: 320px; width: 90%; font-family: 'Segoe UI', sans-serif;">
+    <h3 style="color: #333; margin-bottom: 15px; font-weight: bold;">Clear Notes?</h3>
+    <p style="font-size: 15px; color: #444; margin-bottom: 25px;">Are you sure you want to clear all the text?</p>
+    <div style="text-align: right;">
+      <button onclick="confirmClear()" style="background-color: #ff4d4d; color: white; border: none; padding: 8px 16px; border-radius: 6px; margin-right: 10px; cursor: pointer;">Yes</button>
+      <button onclick="cancelClear()" style="background-color: #555; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="controls">
   <button id="generateBtn" onclick="generateNotes()">Generate Notes</button>
@@ -335,6 +352,56 @@ function generateNotes() {
 
     loader.style.display = "none";
     downloadBtn.disabled = false;
+  }
+
+
+
+      const textarea = document.getElementById("inputText");
+  const clearBtn = document.getElementById("clearBtn");
+  const popup = document.getElementById("popup");
+
+  // Load saved text on page load
+  window.onload = () => {
+    const saved = localStorage.getItem("maths") || "";
+    textarea.value = saved;
+    toggleClearBtn(saved);
+  };
+
+  // Save to localStorage on input
+  textarea.addEventListener("input", () => {
+    localStorage.setItem("maths", textarea.value);
+    toggleClearBtn(textarea.value);
+  });
+
+  // Toggle X button visibility
+  function toggleClearBtn(value) {
+    clearBtn.style.display = value.trim() ? "block" : "none";
+  }
+
+  // X button clicked
+  function handleXClick() {
+    // Popup should show only if not already shown this session
+    const popupShown = sessionStorage.getItem("popupShown");
+    if (!popupShown) {
+      popup.style.display = "flex";
+      sessionStorage.setItem("popupShown", "true");
+    } else {
+      confirmClear(); // Already seen, directly clear
+    }
+  }
+
+  // Confirm clear
+  function confirmClear() {
+    textarea.value = "";
+    localStorage.removeItem("maths");
+    toggleClearBtn("");
+    popup.style.display = "none";
+    sessionStorage.removeItem("popupShown"); // allow it again next click
+  }
+
+  // Cancel clear
+  function cancelClear() {
+    popup.style.display = "none";
   }
 </script>
 
