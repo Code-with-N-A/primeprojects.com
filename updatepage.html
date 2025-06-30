@@ -398,9 +398,9 @@
       const permanentEmail = "primeprojects.dev@gmail.com"; // ye aapka reply-to email rahega
       const users = [
         "codewithna73@gmail.com",
-        "niteshamule74@gmail.com",
+        "rahangdaleajay384@gmail.com",
         "aanchaluke421@gmail.com",
-        "websitemy76@gmail.com",
+        
       ];
       const colors = [
         "#ef5350",
@@ -498,53 +498,98 @@
           userList.appendChild(userRow);
         });
       }
+    
+async function sendMessage() {
+  const inputMsg = messageBox.value.trim();
+  if (!inputMsg) {
+    msgStatus.style.color = "red";
+    msgStatus.textContent = "Please enter your important topic message!";
+    return;
+  }
 
-      async function sendMessage() {
-        const inputMsg = messageBox.value.trim();
-        if (!inputMsg) {
-          msgStatus.style.color = "red";
-          msgStatus.textContent = "Please enter your important topic message!";
-          return;
-        }
+  const msgDate = new Date().toLocaleDateString("en-GB") + " " + new Date().toLocaleTimeString();
 
-        // Compose default permanent update message + input
-        const defaultUpdate = "📢 PrimeProjects Important Update\n\n";
-        const importantTopic = `✅ Important Topic:\n${inputMsg}\n\n- PrimeProjects Team`;
+  msgStatus.style.color = "#1976d2";
+  msgStatus.textContent = "Message sending... processing...";
 
-        const finalMessage = `${defaultUpdate}${importantTopic}`;
+  // 🔸 Better-formatted project list
+  const projectList = `PrimeProjects – All Projects
 
-        msgStatus.style.color = "#1976d2";
-        msgStatus.textContent = "Message sending... processing...";
+1. Images 5G PDF
+2. The Coding Blueprint
+3. Latest Tech Insights
+4. Password Strength
+5. PDFshift
+6. Accounts Management
+7. Payroll Record
+8. Bill Generator
+9. Product Listener
+10.Pocket Expense
+11.Unicode Character Finder
+12.Thought of the Day
+13.Task Manager
+14.QR Code Generator
+15.PaperLibrary
+16.Wedding  Records
+17.Notebook Notes Maker
+🔗 Website: https://primeprojects.netlify.app/ `;
 
-        try {
-          // Send message to EACH user email SEPARATELY using their own formSubmit endpoint
-          await Promise.all(
-            users.map((email) => {
-              const formSubmitAPI = `https://formsubmit.co/ajax/${email}`;
-              return fetch(formSubmitAPI, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                },
-                body: JSON.stringify({
-                  _subject: `PrimeProjects Update for ${email}`,
-                  _replyto: permanentEmail,
-                  message: `Dear ${email},\n\n${finalMessage}\n\n`,
-                }),
-              });
-            })
-          );
+  // 🔸 Clean, centered message content
+  const thankYouMessage = `Thank you for using PrimeProjects!
+We appreciate your support. Stay tuned for more updates and tools.`;
 
-          msgStatus.style.color = "green";
-          msgStatus.textContent = "Message sent successfully to all users!";
-          messageBox.value = "";
-        } catch (err) {
-          msgStatus.style.color = "red";
-          msgStatus.textContent = "Failed to send message. Try again.";
-          console.error(err);
-        }
-      }
+  try {
+    await Promise.all(
+      users.map((email) => {
+        const userName = email.split("@")[0];
+        const fullMessage = `Latest Update:- ${inputMsg}`;
+        const peomay = `PrimeProjects is an innovative digital platform that offers simple and effective solutions to real-life needs.
+It empowers users by combining knowledge, creativity, and technical excellence.
+This platform makes the process of learning and building more seamless and practical.
+`;
+
+        const data = {
+          _subject: `📬 PrimeProjects Update for ${email}`,
+          _replyto: permanentEmail,
+          _template: "table",
+
+          // 🔷 Header row
+          "Latest Update 🔔":"👤 "+ userName,
+
+          // 📢 Full-width message row
+          [fullMessage]: thankYouMessage,
+
+          //  Projects row - formatted right side with useful info
+          
+          [peomay]: projectList,
+
+          // User Info rows
+          "👤 Name": userName,
+          "📧 Email": email,
+          "📅 Date & Time": msgDate
+        };
+
+        return fetch(`https://formsubmit.co/ajax/${email}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+      })
+    );
+
+    msgStatus.style.color = "green";
+    msgStatus.textContent = "Message sent successfully to all users!";
+    messageBox.value = "";
+  } catch (err) {
+    msgStatus.style.color = "red";
+    msgStatus.textContent = "Failed to send message. Try again.";
+    console.error(err);
+  }
+}
+
 
       function toggleProfile() {
         const shown = profileDropdown.style.display === "block";
