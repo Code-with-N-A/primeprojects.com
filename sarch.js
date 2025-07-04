@@ -1,5 +1,4 @@
 const pages = [
-    { name: "Web Development", url: "https://studyvibe.netlify.app/" },
     { name: "JavaScript", url: "https://studyvibe.netlify.app/" },
     { name: "HTML & CSS", url: "https://studyvibe.netlify.app/" },
     { name: "React", url: "https://studyvibe.netlify.app/" },
@@ -10,7 +9,7 @@ const pages = [
     { name: "PHP", url: "https://studyvibe.netlify.app/" },
     { name: "Machine Learning", url: "https://studyvibe.netlify.app/" },
     { name: "certificates", url : "https://studyvibe.netlify.app/"},
-    { name: "studyvibe", url: "https://studyvibe.netlify.app/"},
+    { name: "studyvibe", url: "Exam_Papers.html"},
     { name: "coding", url: "https://studyvibe.netlify.app/"},
     { name: "full stack webdevlopment", url: "https://studyvibe.netlify.app/"},
     { name: "programing lengug", url: "https://studyvibe.netlify.app/"},
