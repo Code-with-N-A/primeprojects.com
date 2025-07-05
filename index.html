@@ -931,6 +931,70 @@
     page-break-inside: avoid;
   }
 }
+
+
+
+   /* Wrapper takes full width */
+  .responsive-form-wrapper {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Form stays in one line always */
+  form.d-flex[role="search"] {
+    display: flex;
+    flex-wrap: nowrap;           /* Force single line */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Make input field flexible */
+  form.d-flex[role="search"] input.form-control {
+    flex: 1 1 auto;              /* Allow shrinking */
+    min-width: 0;                /* Important for shrink */
+    max-width: 100%;
+  }
+
+  /* Suggestions box - shrinkable */
+  form.d-flex[role="search"] .suggestions {
+    flex-shrink: 1;
+    min-width: 60px;
+  }
+
+  /* Login item */
+  form.d-flex[role="search"] li {
+    list-style: none;
+    flex-shrink: 0;
+  }
+
+  form.d-flex[role="search"] .dropdown-item {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  form.d-flex[role="search"] .dropdown-item:hover {
+    background: #0056b3;
+  }
+
+  /* Optional: slightly adjust on very small screens */
+  @media (max-width: 400px) {
+    form.d-flex[role="search"] {
+      gap: 6px;
+    }
+
+    form.d-flex[role="search"] .dropdown-item {
+      font-size: 13px;
+      padding: 5px 10px;
+    }
+  }
   </style>
 
 
@@ -958,17 +1022,24 @@
    <script src="all_pro.js"></script>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <form class="d-flex" role="search" style="width: 60%;">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
-            oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
-          <div class="suggestions" id="suggestions"></div>
-        
-        </form>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      
+    <!-- Wrapper -->
+     
+<div class="responsive-form-wrapper">
+ <p class="fa-solid fa-code">CodeWith_N.A</p>
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
+      oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
+    <div class="suggestions" id="suggestions"></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="margin-left: 50px;">
+      </button> 
+  </form>
+</div>
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -990,16 +1061,17 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a></li>
+                            <li><a class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a></li>
+
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">PrimeProjects</a>
           </li>
         </ul>
-       
+          <button style= "padding: 4px;  background: #51b4ff;  border-radius: 5px; color: rgb(255, 255, 255); border: 1px solid rgb(232, 232, 232);"><a style="font-style: unset;" class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a>
+ 
       </div>
-      
     </div>
   </nav>
 
@@ -1360,6 +1432,13 @@
   </div>
 </div>
 
+<!-- Web Development Banner -->
+ <link rel="stylesheet" href="banar.css">
+ <div class="banner-wrapper">
+  <div class="banner-container">
+    <img src="img/Black and Yellow Web Developer LinkedIn Banner.png" alt="PrimeProjects Banner" />
+  </div>
+</div>
 
   <!-- Empower Section Start -->
   <section class="empower-section">
