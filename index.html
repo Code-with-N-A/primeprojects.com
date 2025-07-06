@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
@@ -89,14 +87,258 @@
     }
   }
 </script>
+<!--bootsrep css lincke-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!--youtub icon start-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!--youtub icon start end-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="srach.css">
+  <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="all_pro.css">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
-   .language-marquee {
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #ffffff;
+    }
+
+   
+
+   /* ✅ Hero Background */
+.hero {
+  background: url('img/data anala.png') center center / cover no-repeat;
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ Overlay + Centered Text */
+.hero-text {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ✅ Headings and Paragraph */
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 25px;
+}
+
+/* ✅ Button */
+.hero-text button {
+  padding: 14px 30px;
+  background-color: #38bdf8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-text button:hover {
+  background-color: #0ea5e9;
+}
+
+/* ✅ Large Devices (Desktops, 1200px+) */
+@media (max-width: 1200px) {
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+  .hero-text p {
+    font-size: 1.2rem;
+  }
+}
+
+/* ✅ Medium Devices (Laptops/Tablets landscape) */
+@media (max-width: 992px) {
+   .hero {
+    min-height: 50vh;
+  }
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+}
+
+/* ✅ Tablets & iPads */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+  }
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .hero-text button {
+    font-size: 1rem;
+    padding: 10px 22px;
+  }
+}
+
+/* ✅ Phones */
+@media (max-width: 576px) {
+  .hero {
+    min-height: 82vh;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1.4rem;
+  }
+  .hero-text button {
+    font-size: 0.95rem;
+    padding: 9px 20px;
+  }
+}
+
+/* ✅ Extra small (iPhone SE, 400px down) */
+@media (max-width: 400px) {
+  .hero {
+    min-height: 81vh;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1.4rem;
+  }
+  .hero-text button {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+}
+
+
+    .boxes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .box h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .box p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .box a {
+      text-decoration: none;
+      color: #00d8ff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #1f1f2e;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .highlight {
+      background: yellow;
+      color: black;
+      font-weight: bold;
+    }
+
+    @media(max-width: 991px) {
+      .boxes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 600px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .toggle-btn {
+        display: block;
+      }
+
+      .boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        margin-top: 10px;
+        justify-content: flex-start;
+      }
+
+      .search-box input {
+        width: 140px;
+      }
+    }
+
+   
+
+ /* ✅ Mobile Responsive  scharbar*/
+   @media screen and (max-width: 768px) {
+    #suggestionBox {
+      width: 90% !important;
+      left: 5% !important;
+      font-size: 15px;
+    }
+  }
+/* may page css start*/
+ .language-marquee {
   width: 100%;
   overflow: hidden;
   padding: 20px 0;
@@ -227,7 +469,6 @@
     transform: translateY(0);
   }
 }
-
 /* === Responsive Fix (not needed for marquee, but kept for your layout) === */
 @media (min-width: 481px) and (max-width: 768px) {
   .image-container {
@@ -480,137 +721,7 @@
         /* Smallest font size */
       }
     }
-
-    .sin {
-      width: 23%;
-      padding: 5px;
-      margin-left: 10px;
-      border-radius: 5px;
-      font-size: medium;
-      border: 1px solid rgb(83, 83, 83);
-      color: #646464;
-      text-decoration: none;
-  
-    }
-
-    .sin:hover {
-      background-color: #00ADD8;
-      color: whitesmoke;
-    }
-
-    .image-frame {
-      background-image: url('img/new ii hey.png');
-      background-size: cover;
-      background-position: center;
-      width: 100%;
-      min-height: 100vh;
-      position: relative;
-      overflow: hidden;
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* For smaller screens (phones) - Set height to 80vh */
-    @media (max-width: 768px) {
-      .image-frame {
-        min-height: 80vh;
-      }
-    }
-
-    .image-frame::before {
-      content: "";
-      position: absolute;
-      background-color: rgba(29, 1, 23, 0.25);
-      inset: -0;
-      z-index: 1;
-    }
-
-    .image-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: #fff;
-      padding: 2rem;
-      max-width: 90%;
-      transform: translateY(-10%);
-      /* Moves content slightly up */
-    }
-
-    .image-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .typewriter {
-      font-size: 1.5rem;
-      color: #ffcc00;
-      height: 40px;
-      margin-bottom: 1.5rem;
-      min-height: 40px;
-    }
-
-    .image-content p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .image-content button {
-      padding: 0.8rem 1.8rem;
-      font-size: 1rem;
-      background-color: #f0670c;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .image-content button:hover {
-      background-color: #e65c00;
-    }
-
-    /* For smaller screens (Mobile devices) */
-    @media (max-width: 768px) {
-      .image-content h1 {
-        font-size: 8vw;
-        /* Larger text on small screens */
-      }
-
-      .typewriter {
-        font-size: 5vw;
-        /* Bigger text for better visibility */
-      }
-
-      .image-content p {
-        font-size: 4vw;
-        /* Adjust for readability */
-      }
-    }
-
-    /* For very small screens (Extra small devices) */
-    @media (max-width: 480px) {
-      .image-content h1 {
-        font-size: 10vw;
-        /* Large text for mobile */
-      }
-
-      .typewriter {
-        font-size: 6vw;
-        /* Larger typewriter text */
-      }
-
-      .image-content p {
-        font-size: 5vw;
-        /* Adjust to maintain balance */
-      }
-
-    }
-
-
-
-    .courses-section {
+ .courses-section {
       padding: 40px 20px;
       background: #ffffff;
       text-align: center;
@@ -688,7 +799,7 @@
 
 
 
-    .empower-section {
+     .empower-section {
       padding: 60px 20px;
       background: #f9f9f9;
       text-align: center;
@@ -815,87 +926,66 @@
     page-break-inside: avoid;
   }
 }
-
-
-
-   /* Wrapper takes full width */
-  .responsive-form-wrapper {
-    width: 100%;
-    padding: 10px;
+/*aoutometic text wirayting css*/
+ .typewriter-box {
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: clamp(16px, 4vw, 28px);  /* responsive font size */
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.4;
+    min-height: 3.6em;  /* enough height for up to 2 wrapped lines */
     box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;  /* ✅ allow line wrapping */
+    position: relative;
+    color: #efdd11;
   }
 
-  /* Form stays in one line always */
-  form.d-flex[role="search"] {
-    display: flex;
-    flex-wrap: nowrap;           /* Force single line */
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: 100%;
+  /* Blinking Cursor */
+  .typewriter-box::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    color: #38bdf8;
+    margin-left: 4px;
   }
 
-  /* Make input field flexible */
-  form.d-flex[role="search"] input.form-control {
-    flex: 1 1 auto;              /* Allow shrinking */
-    min-width: 0;                /* Important for shrink */
-    max-width: 100%;
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
-  /* Suggestions box - shrinkable */
-  form.d-flex[role="search"] .suggestions {
-    flex-shrink: 1;
-    min-width: 60px;
-  }
-
-  /* Login item */
-  form.d-flex[role="search"] li {
-    list-style: none;
-    flex-shrink: 0;
-  }
-
-  form.d-flex[role="search"] .dropdown-item {
-    display: inline-block;
-    padding: 6px 12px;
-    background: #007bff;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  form.d-flex[role="search"] .dropdown-item:hover {
-    background: #0056b3;
-  }
-
-  /* Optional: slightly adjust on very small screens */
-  @media (max-width: 400px) {
-    form.d-flex[role="search"] {
-      gap: 6px;
-    }
-
-    form.d-flex[role="search"] .dropdown-item {
-      font-size: 13px;
-      padding: 5px 10px;
+  /* Responsive Tweaks */
+  @media (max-width: 768px) {
+    .typewriter-box {
+      font-size: clamp(14px, 5vw, 24px);
+      padding: 8px 12px;
     }
   }
+
+  @media (max-width: 480px) {
+    .typewriter-box {
+      font-size: clamp(13px, 5vw, 20px);
+      padding: 6px 10px;
+      line-height: 1.3;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .typewriter-box {
+      font-size: clamp(12px, 5vw, 18px);
+    }
+  }
+
   </style>
-
-
-  <!--youtub icon start-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!--youtub icon start end-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="srach.css">
-  <title>Document</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="all_pro.css">
 <body>
+ 
 
-  <!-- Loader Wrapper strat -->
+   <!-- Loader Wrapper strat -->
   <link rel="stylesheet" href="loder.css">
   <script src="loder.js"></script>
   <div id="load-screen">
@@ -903,61 +993,64 @@
     <div class="loading-text">primeprojects...</div>
   </div>
   <!-- Loader Wrapper and -->
-   <script src="all_pro.js"></script>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      
-    <!-- Wrapper -->
-     
-<div class="responsive-form-wrapper">
- <p class="fa-solid fa-code">CodeWith_N.A</p>
-  <form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
-      oninput="showSuggestions(this.value)" onkeydown="checkEnter(event)">
-    <div class="suggestions" id="suggestions"></div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> 
-  </form>
-</div>
-
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/about">Abouts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://primeprojects.netlify.app/contect">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Explore
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/course">Notes</a></li>
-              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/explor.html">Projects</a></li>
-              <li><a class="dropdown-item" href="https://primeprojects.netlify.app/roode_map">Begin</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-                            <li><a class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a></li>
-
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">PrimeProjects</a>
-          </li>
-        </ul>
-          <button style= "padding: 4px;  background: #51b4ff;  border-radius: 5px; color: rgb(255, 255, 255); border: 1px solid rgb(232, 232, 232);"><a style="font-style: unset;" class="dropdown-item" href="https://primeprojects.netlify.app/ragistretion.html">Login</a>
+    <script src="all_pro.js"></script>
  
-      </div>
+      
+  
+
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+<p class="fa-solid fa-code" id="rainbowText">CodeWith_N.A</p>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="contect.html">Contects</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Explore
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="course.html">Notes</a></li>
+            <li><a class="dropdown-item" href="explor.html">projects</a></li>
+            <li><a class="dropdown-item" href="Roode_Map.html">begin</a></li>
+            <li style="border: 1px solid rgb(138, 138, 138); margin-bottom: 2px;"><a href=""></a></li>        
+            <li style="border: 1px solid rgb(178, 178, 171); width: 80px; margin-left: 5px;  border-radius: 5px;"><a style="color: rgb(0, 0, 0);" class="dropdown-item" href="ragistretion.html">Login</a></li>
+          </ul>
+          
+        </li>
+      </ul>
     </div>
-  </nav>
+ <!-- Search Form -->
+  <script type="module" src="sarch.js"></script>
+<form class="d-flex" role="search" style="margin-top: 5px; width: 98%;" onsubmit="return false;">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+  <button class="btn btn-outline-success" onclick="window.location.href='ragistretion.html'" style="background: #0d168f; color: whitesmoke;">SignUp</button>
+</form>
+
+<!-- Suggestion Box -->
+<ul id="suggestionBox"
+  style="position: absolute; z-index: 999; background: #fff; width: 95%; max-width: 600px; list-style: none; padding: 0; margin-top: 5px; border: 1px solid #ccc; display: none; max-height: 250px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px;">
+</ul>
+
+<!-- Dark Overlay -->
+<div id="overlay"
+  style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.7); z-index: 998;">
+</div>
+</div>
+</nav>
+
 
 
   <!-- Course Scroll Section -->
@@ -1005,18 +1098,21 @@
   </div>
    
  
-  <div class="image-frame">
-    <div class="image-content">
-      <h1>Welcome to PrimeProjects</h1>
-      <div class="typewriter" id="typewriter-text"></div>
-      <p>Confused where to begin your coding journey?
+ <section class="hero" id="home">
+  <div class="hero-text">
+    <h1>Welcome to PrimeProjects</h1>
+    <p style="color: rgb(98, 206, 252);" id="typewriter" class="type-container"></p>
+<!--aoutometc text wiryting js file-->
+<script src="text-riting_outometick.js"></script>
+    <p>Confused where to begin your coding journey?
         PrimeProjects brings you real-life, hands-on coding projects.
         Learn the skills that took me years — in simple, short lessons.
         Start building today — it's practical, powerful, and free!</p>
-      <button onclick="window.location.href='explor.html'">Explore Now</button>
-    </div>
+    <button onclick="window.location.href='explor.html'">Explore More</button>
   </div>
+</section>
 
+ 
   <div class="text2">
     <h2>PrimeProjects</h2>
     <p><strong style="color: rgb(38, 2, 77);">CodeWith_N.A </strong>is your one-stop destination for mastering
@@ -1135,13 +1231,7 @@
     </div>
   </section>
 
-  <script>
-    feather.replace();
-  </script>
-  <!-- Courses Section End -->
-
-
-
+ 
  
 
  <!--may projects start -->
@@ -1343,19 +1433,7 @@
       <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="sarch.js"></script>
-  <script src="index_img_text.js"></script>
  
-  
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
-    integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
-    crossorigin="anonymous"></script>
-
-   
 </body>
-
 </html>
