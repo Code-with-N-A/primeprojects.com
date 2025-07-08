@@ -478,172 +478,228 @@
                
             </div>
           
-            <script>
-                const nameInput = document.getElementById("name");
-                const emailInput = document.getElementById("email");
-                const otpInput = document.getElementById("otpInput");
-                const generateBtn = document.getElementById("generateBtn");
-                const submitBtn = document.getElementById("submitBtn");
-                const message = document.getElementById("message");
-                const dropdown = document.getElementById("dropdown");
-                const userEmail = document.getElementById("userEmail");
-              
-                window.onload = () => {
-                  const user = JSON.parse(localStorage.getItem("userData"));
-                  if (user && user.verified) {
-                    userEmail.textContent = user.email;
-                  } else {
-                    localStorage.removeItem("otpFormState");
-                    nameInput.value = "";
-                    emailInput.value = "";
-                    otpInput.value = "";
-                    otpInput.style.display = "none";
-                    submitBtn.style.display = "none";
-                    message.textContent = "";
-                  }
-                };
-              
-                function toggleDropdown() {
-                  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-                }
-              
-                function logout() {
-                  // Sirf registration se related localStorage keys ko remove karo
-                  localStorage.removeItem("userData");
-                  localStorage.removeItem("otp");
-                  localStorage.removeItem("otpFormState");
-              
-                  // Cookie clear karo
-                  document.cookie = "verifiedUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-              
-                  // Redirect to registration page
-                  window.location.href = "ragistretion.html";
-                }
-              
-                function isValidGmail(email) {
-                  const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-                  return regex.test(email);
-                }
-              
-                generateBtn.onclick = () => {
-                  const name = nameInput.value.trim();
-                  const email = emailInput.value.trim();
-                  const registeredUser = JSON.parse(localStorage.getItem("userData"));
-              
-                  if (!name || !email) {
-                    message.textContent = "Please fill in both name and email.";
-                    message.className = "error";
-                    return;
-                  }
-              
-                  if (!isValidGmail(email)) {
-                    message.textContent = "Please enter a valid Gmail address (example@gmail.com)";
-                    message.className = "error";
-                    return;
-                  }
-              
-                  if (
-                    registeredUser &&
-                    registeredUser.email === email &&
-                    registeredUser.verified
-                  ) {
-                    message.textContent = "This email is already registered.";
-                    message.className = "error";
-                    return;
-                  }
-              
-                  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-                  localStorage.setItem("otp", otp);
-                  localStorage.setItem(
-                    "otpFormState",
-                    JSON.stringify({ name, email, otpGenerated: true })
-                  );
-                  otpInput.style.display = "block";
-                  submitBtn.style.display = "block";
-                  message.textContent = "Sending OTP...";
-                  message.className = "info";
-              
-                  const payload = { Name: name, Email: email, OTP: otp };
-              
-                  fetch(`https://formsubmit.co/ajax/${email}`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
-                  });
-              
-                  fetch(`https://formsubmit.co/ajax/primeprojects.dev@gmail.com`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
-                  })
-                    .then(() => {
-                      message.textContent = "OTP sent to your Gmail.";
-                      message.className = "success";
-                    })
-                    .catch(() => {
-                      message.textContent = "Error sending OTP.";
-                      message.className = "error";
-                    });
-                };
-              
-                submitBtn.onclick = () => {
-                  const enteredOtp = otpInput.value.trim();
-                  const actualOtp = localStorage.getItem("otp");
-                  const state = JSON.parse(localStorage.getItem("otpFormState"));
-              
-                  if (enteredOtp === actualOtp) {
-                    const userData = {
-                      name: state.name,
-                      email: state.email,
-                      verified: true,
-                    };
-              
-                    localStorage.setItem("userData", JSON.stringify(userData));
-                    document.cookie = `verifiedUser=${state.email}; path=/; max-age=31536000`;
-              
-                    fetch(`https://formsubmit.co/ajax/primeprojects.dev@gmail.com`, {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        Name: state.name,
-                        Email: state.email,
-                        Verified: true,
-                      }),
-                    });
-              
-                    nameInput.value = "";
-                    emailInput.value = "";
-                    otpInput.value = "";
-                    otpInput.style.display = "none";
-                    submitBtn.style.display = "none";
-                    message.textContent = "Verified! Redirecting...";
-                    message.className = "success";
-              
-                    localStorage.removeItem("otpFormState");
-                    localStorage.removeItem("otp");
-              
-                    // Get original page URL from cookie
-                    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
-                      const [key, value] = cookie.split("=");
-                      acc[key] = decodeURIComponent(value);
-                      return acc;
-                    }, {});
-              
-                    const redirectURL = cookies.redirectedFrom || "https://primeprojects.netlify.app/";
-              
-                    setTimeout(() => {
-                      // Clear redirectedFrom cookie
-                      document.cookie = "redirectedFrom=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                      window.location.href = redirectURL;
-                    }, 1500);
-                  } else {
-                    message.textContent = "Incorrect OTP.";
-                    message.className = "error";
-                  }
-                };
-              </script>
-              
-              
+ <script>
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const otpInput = document.getElementById("otpInput");
+const generateBtn = document.getElementById("generateBtn");
+const submitBtn = document.getElementById("submitBtn");
+const message = document.getElementById("message");
+const dropdown = document.getElementById("dropdown");
+const userEmail = document.getElementById("userEmail");
+
+// ✅ Page load hone par: agar user verified hai to email dikhaye
+window.onload = () => {
+  const user = JSON.parse(localStorage.getItem("userData"));
+  if (user && user.verified) {
+    userEmail.textContent = user.email;
+  } else {
+    localStorage.removeItem("otpFormState");
+    nameInput.value = "";
+    emailInput.value = "";
+    otpInput.value = "";
+    otpInput.style.display = "none";
+    submitBtn.style.display = "none";
+    message.textContent = "";
+  }
+};
+
+// ✅ Dropdown toggle
+function toggleDropdown() {
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+// ✅ Logout: clean up and redirect
+function logout() {
+  localStorage.removeItem("userData");
+  localStorage.removeItem("otp");
+  localStorage.removeItem("otpFormState");
+  document.cookie = "verifiedUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  window.location.href = "ragistretion.html";
+}
+
+// ✅ Gmail check
+function isValidGmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  return regex.test(email);
+}
+
+// ✅ OTP Generate and Send
+generateBtn.onclick = () => {
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const registeredUser = JSON.parse(localStorage.getItem("userData"));
+
+  if (!name || !email) {
+    message.textContent = "Please fill in both name and email.";
+    message.className = "error";
+    return;
+  }
+
+  if (!isValidGmail(email)) {
+    message.textContent = "Please enter a valid Gmail address (example@gmail.com)";
+    message.className = "error";
+    return;
+  }
+
+  if (registeredUser && registeredUser.email === email && registeredUser.verified) {
+    message.textContent = "This email is already registered.";
+    message.className = "error";
+    return;
+  }
+
+  // ✅ OTP generate
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  localStorage.setItem("otp", otp);
+  localStorage.setItem("otpFormState", JSON.stringify({ name, email, otpGenerated: true }));
+
+  otpInput.style.display = "block";
+  submitBtn.style.display = "block";
+  message.textContent = "Sending OTP...";
+  message.className = "info";
+
+  const now = new Date();
+  const date = now.toLocaleDateString();
+  const time = now.toLocaleTimeString();
+
+  // ✅ Send to USER
+  const userPayload = {
+    Name: name,
+    Email: email,
+    OTP: otp,
+    Date: date,
+    Time: time,
+    Message: "Your OTP to verify email at Prime Projects.",
+    _subject: "Your OTP from Prime Projects",
+    _template: "table"
+  };
+
+  // ✅ Send to ADMIN
+  const adminPayload = {
+    Name: name,
+    Email: email,
+    OTP: otp,
+    Date: date,
+    Time: time,
+    Message: "New OTP requested by user.",
+    _subject: "New OTP Request - Prime Projects",
+    _template: "table"
+  };
+
+  // ✅ Send to user's Gmail
+  fetch(`https://formsubmit.co/ajax/${email}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userPayload),
+  });
+
+  // ✅ Send to admin Gmail
+  fetch("https://formsubmit.co/ajax/primeprojects.dev@gmail.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(adminPayload),
+  })
+    .then(() => {
+      message.textContent = "OTP sent to your Gmail.";
+      message.className = "success";
+    })
+    .catch(() => {
+      message.textContent = "Failed to send OTP.";
+      message.className = "error";
+    });
+};
+
+// ✅ OTP Verify and Redirect
+submitBtn.onclick = () => {
+  const enteredOtp = otpInput.value.trim();
+  const actualOtp = localStorage.getItem("otp");
+  const state = JSON.parse(localStorage.getItem("otpFormState"));
+
+  if (enteredOtp === actualOtp) {
+    const userData = {
+      name: state.name,
+      email: state.email,
+      verified: true,
+    };
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+    document.cookie = `verifiedUser=${state.email}; path=/; max-age=31536000`;
+
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
+
+    // ✅ Mail payload for user confirmation
+    const verifyUserPayload = {
+      Name: state.name,
+      Email: state.email,
+      Verified: "Yes",
+      Date: date,
+      Time: time,
+      Message: "You have successfully verified your email Primeprojects 🙂🙂.",
+      _subject: "Email Verified - Prime Projects",
+      _template: "table"
+    };
+
+    // ✅ Mail payload for admin
+    const verifyAdminPayload = {
+      Name: state.name,
+      Email: state.email,
+      Verified: "Yes",
+      Date: date,
+      Time: time,
+      Message: "User has verified successfully.",
+      _subject: "User Verified - Prime Projects",
+      _template: "table"
+    };
+
+    // ✅ Send verify mail to user
+    fetch(`https://formsubmit.co/ajax/${state.email}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(verifyUserPayload),
+    });
+
+    // ✅ Send verify mail to admin
+    fetch("https://formsubmit.co/ajax/primeprojects.dev@gmail.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(verifyAdminPayload),
+    });
+
+    // ✅ Reset form
+    nameInput.value = "";
+    emailInput.value = "";
+    otpInput.value = "";
+    otpInput.style.display = "none";
+    submitBtn.style.display = "none";
+    message.textContent = "Verified! Redirecting...";
+    message.className = "success";
+
+    localStorage.removeItem("otpFormState");
+    localStorage.removeItem("otp");
+
+    // ✅ Redirect user back to previous page
+    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+      const [key, value] = cookie.split("=");
+      acc[key] = decodeURIComponent(value);
+      return acc;
+    }, {});
+
+    const redirectURL = cookies.redirectedFrom || "https://primeprojects.netlify.app/";
+
+    // ✅ Clear redirect cookie and redirect
+    document.cookie = "redirectedFrom=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    setTimeout(() => {
+      window.location.href = redirectURL;
+    }, 1500);
+  } else {
+    message.textContent = "Incorrect OTP.";
+    message.className = "error";
+  }
+};
+</script>
+
 </body>
 
 </html>
