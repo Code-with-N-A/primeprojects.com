@@ -1,0 +1,114 @@
+/* img slider Starat*/
+    .slider-container {
+      width: 100%;
+      max-width: 1400px;
+      height: 1in;
+      /* 1 inch height */
+      overflow: hidden;
+      position: relative;
+      border: 2px solid rgb(255, 255, 255);
+     color: #ffffff;
+
+
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      height: 100%;
+     
+    }
+
+    .slider-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      background: linear-gradient(rgb(11, 0, 56), rgb(1, 125, 152));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1em;
+      color: #ffffff;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: rgb(255, 255, 255);
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* Mobile: 1 item */
+    @media screen and (max-width: 767px) {
+      .slider-item {
+        width: 100%;
+      }
+
+      .slider-container {
+        height: 100px;
+      }
+
+      .text {
+        font-size: 0.9em;
+      }
+
+      .prev,
+      .next {
+        font-size: 16px;
+      }
+    }
+
+    /* Tablet: 2 items */
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .slider-item {
+        width: 50%;
+      }
+
+      .text {
+        font-size: 0.7em;
+      }
+    }
+
+    /* Desktop: 3 items */
+    @media screen and (min-width: 1024px) {
+      .slider-item {
+        width: 33.33%;
+      }
+
+      .text {
+        font-size: 0.8em;
+      }
+    }
+
+    /* img slider AND*/

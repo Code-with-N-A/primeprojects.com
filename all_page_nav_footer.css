@@ -1,0 +1,111 @@
+ footer {
+      background-color: #000000;
+      color: #fff;
+      padding: 50px 0;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      width: 25%;
+      padding: 20px;
+    }
+
+    .footer-section h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #ff9800;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #ffffff;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #ff9800;
+    }
+
+   
+    .footer-menu ul {
+      list-style: none;
+    }
+
+    .footer-menu ul li {
+      margin-bottom: 10px;
+      margin-right: 20px;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      border: none;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff9800;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #e67e00;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    @media(max-width: 768px) {
+      .footer-section {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+    
+.social-icons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+
+
+ 
+/* Color filters */
+.instagram { filter: invert(14%) sepia(69%) saturate(7447%) hue-rotate(316deg) brightness(92%) contrast(104%); }
+.youtube   { filter: invert(16%) sepia(97%) saturate(6247%) hue-rotate(0deg) brightness(94%) contrast(119%); }
+.linkedin  { filter: invert(27%) sepia(94%) saturate(1093%) hue-rotate(181deg) brightness(99%) contrast(93%); }
+.telegram  { filter: invert(59%) sepia(62%) saturate(722%) hue-rotate(173deg) brightness(99%) contrast(92%); }
+.github    { filter: invert(100%); }
+
+ 

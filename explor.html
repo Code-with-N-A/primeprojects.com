@@ -83,7 +83,13 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
+  <!--bootsrep css lincke-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="all_page_nav_footer.css">
+    <link rel="stylesheet" href="slider.css">
+   
   <style>
     * {
       margin: 0;
@@ -94,29 +100,8 @@
 
     body {
       background: #0e0e0e;
-      color: #fff;
+      
       overflow-x: hidden;
-    }
-
-    header {
-      text-align: center;
-      padding: 100px 20px 60px;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-      animation: fadeDown 1s ease;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      color: #fff;
-      animation: zoomIn 1s ease-out;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      color: #e2e8f0;
-      margin-top: 15px;
-      animation: fadeIn 2s ease-in;
     }
 
     .section {
@@ -127,12 +112,14 @@
       gap: 50px;
       padding: 80px 20px;
       flex-wrap: wrap;
-      background: #111827;
       transition: all 0.5s ease-in-out;
+    background: linear-gradient(rgb(11, 0, 56), rgb(1, 125, 152));
+
     }
 
     .section:nth-child(even) {
-      background: #1e293b;
+    background: linear-gradient(rgb(11, 0, 56), rgb(1, 125, 152));
+
       flex-direction: row-reverse;
     }
 
@@ -162,100 +149,16 @@
     .text-content h2 {
       font-size: 2.2rem;
       margin-bottom: 15px;
-      color: #38bdf8;
+      color: #ffffff;
     }
 
     .text-content p {
       font-size: 1rem;
       line-height: 1.7;
-      color: #e5e7eb;
+      color: #ffffff;
     }
 
-    footer {
-      background: #000000;
-      color: #cbd5e1;
-      padding: 60px 20px;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-    }
-
-    .footer-section h3 {
-      margin-bottom: 20px;
-      color: #22d3ee;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .footer-section ul li:hover {
-      color: #38bdf8;
-      transform: translateX(5px);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #334155;
-      font-size: 0.9rem;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .social-icons a {
-      width: 35px;
-      height: 35px;
-      display: grid;
-      place-items: center;
-      background: #1e293b;
-      border-radius: 50%;
-      color: #22d3ee;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .social-icons a:hover {
-      background: #38bdf8;
-      color: #0f172a;
-      transform: scale(1.1);
-    }
-
-    .newsletter input {
-      padding: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .newsletter button {
-      padding: 10px 20px;
-      background: #38bdf8;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .newsletter button:hover {
-      background: #0ea5e9;
-    }
+   
 
     @media (max-width: 768px) {
       .section {
@@ -301,51 +204,139 @@
     }
   
 
-    .search-container {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-container input {
-      padding: 12px 20px;
-      width: 80%;
-      max-width: 500px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      outline: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Section hide utility */
-    .hidden {
-      display: none !important;
-    }
+   
   </style>
 </head>
 <body>
-   <!-- Loader Wrapper strat -->
-   <link rel="stylesheet" href="loder.css">
-   <script src="loder.js"></script>
-   <div id="load-screen">
-      <div class="circle-animation"></div>
-      <div class="loading-text">primeprojects...</div>
-    </div>
-  <!-- Loader Wrapper and -->
+  
    <!--sin in-->
-   <script src="sin.js"></script>
+   <script src="sin.js"></script> 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+<p class="fa-solid fa-code"  id="rainbowText">CodeWith_N.A</p>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
       
-
-  <header>
-    <h1>Explore Prime Projects</h1>
-    <p>Innovative ideas brought to life </p>
-
-    <!-- 🔍 Search Bar -->
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search Projects..." onkeyup="searchProjects()">
+        <li class="nav-item">
+          <a class="nav-link" href="contect.html">Contects</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Explore
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="course.html">Notes</a></li>
+            <li><a class="dropdown-item" href="explor.html">projects</a></li>
+            <li><a class="dropdown-item" href="Roode_Map.html">begin</a></li>
+            <li style="border: 1px solid rgb(138, 138, 138); margin-bottom: 2px;"><a href=""></a></li>        
+            <li style="border: 1px solid rgb(178, 178, 171); width: 80px; margin-left: 5px;  border-radius: 5px;"><a style="color: rgb(0, 0, 0);" class="dropdown-item" href="ragistretion.html">Login</a></li>
+          </ul>
+          
+        </li>
+      </ul>
     </div>
-  </header>
+ <!-- Search Form -->
+  <script type="module" src="sarch.js"></script>
+<form class="d-flex" role="search" style="margin-top: 5px; width: 98%;" onsubmit="return false;">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+  <button class="btn btn-outline-success" onclick="window.location.href='ragistretion.html'" style="background: #0d168f; color: whitesmoke;">SignUp</button>
+</form>
+
+<!-- Suggestion Box -->
+<ul id="suggestionBox"
+  style="position: absolute; z-index: 999; background: #fff; width: 95%; max-width: 600px; list-style: none; padding: 0; margin-top: 5px; border: 1px solid #ccc; display: none; max-height: 250px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px;">
+</ul>
+
+<!-- Dark Overlay -->
+<div id="overlay"
+  style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.7); z-index: 998;">
+</div>
+</div>
+</nav>
+<!--img sliding code  Start-->
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slider-item">
+        <img
+          src="https://verpex.com/assets/uploads/images/blog/How-To-Become-A-Freelance-Data-Analyst.webp?v=1711104899"
+          alt="Image 1" class="image">
+        <div class="text">
+          <h3 >Data Analyst 2025</h3>
+        </div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20250130150211015475/Top-15-python-libraries-for-data-analytics-2025.webp"
+          alt="Image 2" class="image">
+        <div class="text">Used for data cleaning, analysis, visualization, and machine learning.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.i2tutorials.com/wp-content/media/2020/05/R-PROGRAMMING-LANGUAGE-i2tutorials.jpg"
+          class="image">
+        <div class="text"> A powerful language for statistical analysis and data visualization.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://optim.tildacdn.one/tild6238-3035-4335-a333-306335373139/-/resize/824x/-/format/webp/IMG_3349.jpg.webp"
+          alt="Image 4" class="image">
+        <div class="text">Used to extract data from databases and write queries.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://it.liu.edu/wp-content/uploads/2016/09/Excel.jpg" alt="Image 5" class="image">
+        <div class="text">Used for analysis and reporting on small to medium datasets.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://miro.medium.com/v2/resize:fit:640/1*Qs650GJ4uDa65D0iFn4YBw.jpeg" alt="Image 6" class="image">
+        <div class="text">Used for creating dashboards and visualizing data.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.futureqtech.com/assets/img/course/Tableau.jpg" alt="Image 7" class="image">
+        <div class="text">Used for creating interactive visualizations and dashboards.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2sxw6o77heca8zo1y64f.jpg"
+          alt="Image 8" class="image">
+        <div class="text">Basic knowledge required for displaying data in web-based reporting tools.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://www.tutorialrepublic.com/lib/images/javascript-illustration.png" alt="Image 9" class="image">
+        <div class="text"> Used for data visualization (like charts) in web dashboards.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D12AQFyLZBgxb109A/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1678105450255?e=2147483647&v=beta&t=KDKOU2qRj_LkfpFyRGxcnogA0_AVuH-_ao13bnpEK7I"
+          alt="Image 10" class="image">
+        <div class="text">Used for data processing or automation on Linux systems.</div>
+      </div>
+      <div class="slider-item">
+        <img src="https://img-c.udemycdn.com/course/480x270/3352204_9c9a_20.jpg" alt="Image 10" class="image">
+        <div class="text">Used for code version control and collaborative projects.</div>
+      </div>
+      <div class="slider-item">
+        <img
+          src="https://media.istockphoto.com/id/1401511554/photo/movie-clapper-the-end-text-on-cinema-scene-clapperboard-filmmaking-video-production-3d-render.jpg?b=1&s=612x612&w=0&k=20&c=pJPQC4yoFz-4d5-Z3HItFjnkusPHkBpMvmNo01T3vD8="
+          alt="Image 10" class="image">
+        <div class="text">Data analysis involves processing raw data to extract valuable
+          insights and patterns.</div>
+      </div>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+  <!--img sliding code AND-->
+ 
+
 
   <!-- 🔽 Project Sections -->
   <div class="section" onclick="window.location.href='img_to_pdf_5G.html'">
@@ -487,69 +478,106 @@
 
  
 
-  <!-- 🔚 Footer -->
+  
   <footer>
     <div class="footer-container">
+
+      <!-- About Section -->
       <div class="footer-section">
-        <h3>Prime Projects</h3>
-        <p>Empowering developers with project ideas and real-world implementations.</p>
-        <div class="social-icons">
-           <!-- Social Icons -->
-  <a href="https://instagram.com" target="_blank" class="social-icons"><i class="fab fa-instagram" onclick="window,location.href='https://www.instagram.com/codewith_n.a/'"></i></a>
-  <a href="https://youtube.com" target="_blank" class="social-icons"><i class="fab fa-youtube"></i></a onclick="window,location.href='https://youtube.com/@codewith_n.a?si=tHdYWf899rBarf6d'">
-  <a href="https://t.me" target="_blank" class="social-icons"><i class="fab fa-telegram"></i></a onclick="window,location.href='https://t.me/CodwithNA'">
-  <a href="https://linkedin.com" target="_blank" class="social-icons"><i class="fab fa-linkedin"></i></a onclick="window,location.href='https://www.linkedin.com/in/nitesh-amule-60223b34b/'">
-        </div>
+        <h3>About Us</h3>
+        <p>We provide quality programming blogs, tutorials, and code examples to help developers enhance their skills.
+        </p>
+         <div class="social-icons">
+        <a href="https://www.instagram.com/primeprojects74?igsh=MTRkZXdvd3o0a28xZw=="><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" class="icon instagram" alt="Instagram"></a>
+        <a href="https://youtube.com/@codewith_n.a?si=PGDjG4ykJjmU8n1Q"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" class="icon youtube" alt="YouTube"></a>
+        <a href="https://www.linkedin.com/in/nitesh-amule-60223b34b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" class="icon linkedin" alt="LinkedIn"></a>
+        <a href="https://www.linkedin.com/in/nitesh-amule-60223b34b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" class="icon telegram" alt="Telegram"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" class="icon github" alt="GitHub"></a>
       </div>
+      </div>
+
+      <!-- Contact Section -->
       <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:codewithna73@gmail.com">primeprojects.dev@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919303546247">9303546247</a></p>
+        <p>Address: mp balaghat katangi 481449</p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section footer-menu">
         <h3>Quick Links</h3>
         <ul>
-          <li>Home</li onclick="window,location.href='https://primeprojects.netlify.app/'">
-          <li>Projects</li>
-          <li>About</li onclick="window,location.href='https://primeprojects.netlify.app/about'">
-          <li>Contact</li onclick="window,location.href='https://primeprojects.netlify.app/contect'">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="explor.html">Blogs</a></li>
+          <li><a href="contect.html">Contact</a></li>
+          <li><a href="updatepage.html">updates</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
         </ul>
       </div>
-      <div class="footer-section">
-        <h3>Resources</h3>
-        <ul>
-          <li>Docs</li>
-          <li>Blog</li>
-          <li>Open Source</li>
-          <li>Community</li>
-        </ul>
-      </div>
+
+    
+
+     
+     
+       <!-- Newsletter Section -->
       <div class="footer-section newsletter">
-        <h3>Subscribe</h3>
-        <p>Get latest updates and free resources directly to your inbox.</p>
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter to get the latest updates directly to your inbox.</p>
         <form action="https://formsubmit.co/codewithna73@gmail.com" method="POST">
-        <input type="email" placeholder="Enter your email"/>
-        <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
-        <button>Subscribe</button>
+          <input type="email" placeholder="Enter your email">
+          <input type="hidden" name="_next" value="https://primeprojects.netlify.app/">
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
-    </div>
+
+     </div>
+
+    
+  
+</div>
     <div class="footer-bottom">
-      &copy; 2025 Prime Projects. All rights reserved. | Designed by <b>Code with N.A.</b>
+      <p>&copy; 2025 Code with N.A. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- 🔧 JavaScript for Search -->
-  <script>
-    function searchProjects() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const sections = document.querySelectorAll('.section');
+  
+ //sliding img strt
+<script>
+    let currentIndex = 0;
+    const slider = document.getElementById('slider');
+    const sliderItems = document.querySelectorAll('.slider-item');
 
-      sections.forEach(section => {
-        const title = section.querySelector('h2').textContent.toLowerCase();
-        const desc = section.querySelector('p').textContent.toLowerCase();
+    const getItemWidth = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 769) {
+        return sliderItems[0].offsetWidth * 3; // 3 items visible
+      } else {
+        return sliderItems[0].offsetWidth; // 1 item visible
+      }
+    };
 
-        if (title.includes(input) || desc.includes(input)) {
-          section.classList.remove('hidden');
-        } else {
-          section.classList.add('hidden');
-        }
-      });
+    function moveSlide(step) {
+      const totalItems = sliderItems.length;
+      const screenWidth = window.innerWidth;
+      const visibleItems = screenWidth >= 769 ? 3 : 1;
+      const maxIndex = Math.ceil(totalItems / visibleItems) - 1;
+
+      if ((step === 1 && currentIndex >= maxIndex) || (step === -1 && currentIndex <= 0)) {
+        return; // Don't go beyond first/last
+      }
+
+      currentIndex += step;
+
+      const itemWidth = getItemWidth();
+      slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
     }
+
+    window.addEventListener('resize', () => {
+      const itemWidth = getItemWidth();
+      slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    });
   </script>
 
 </body>
