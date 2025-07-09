@@ -21,7 +21,7 @@ const otherPages = [
     { title: "peparlibrary", url: "Exam_Papers.html"},
     { title: "pepar", url: "Exam_Papers.html" },
     { title: "all paper", url: "Exam_Papers.html"},
-    { title: "about", url: "https://primeprojects.netlify.app/servises"},
+    { title: "about", url: "about.html"},
     { title: "bill", url: "https://primeprojects.netlify.app/biling"},
     { title: "birthody", url: "https://primeprojects.netlify.app/birthdy"},
     { title: "contect", url: "https://primeprojects.netlify.app/contect"},
