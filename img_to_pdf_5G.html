@@ -327,6 +327,19 @@ function loadImage(src) {
   });
 }
 
+function getBrightnessFromCanvas(ctx, x, y, w, h) {
+  const imgData = ctx.getImageData(x, y, w, h);
+  let total = 0;
+  for (let i = 0; i < imgData.data.length; i += 4) {
+    const r = imgData.data[i];
+    const g = imgData.data[i + 1];
+    const b = imgData.data[i + 2];
+    const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+    total += brightness;
+  }
+  return total / (imgData.data.length / 4);
+}
+
 async function generatePDF() {
   const { jsPDF } = window.jspdf;
   let pdf;
@@ -342,16 +355,15 @@ async function generatePDF() {
     if (sec < 0) clearInterval(interval);
   }, 1000);
 
-  // Fixed width in points (A4 width approx 595pt with some margin)
-  const fixedPageWidth = 550; // adjust if needed for margins
+  const fixedPageWidth = 550;
   const maxHeadingHeight = 80;
+  const linkText = "https://primeprojects.netlify.app/";
 
   setTimeout(async () => {
     for (let i = 0; i < imageData.length; i++) {
       const { src, h1, h4 } = imageData[i];
       const img = await loadImage(src);
 
-      // Calculate scaled height to keep aspect ratio
       const scale = fixedPageWidth / img.width;
       const scaledHeight = img.height * scale;
 
@@ -362,13 +374,16 @@ async function generatePDF() {
 
       ctx.filter = "brightness(1.6) contrast(1.4)";
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.filter = "none";
+
+      // Brightness detection from bottom right
+      const brightness = getBrightnessFromCanvas(ctx, canvas.width - 200, canvas.height - 100, 180, 80);
+      const linkColor = brightness < 128 ? "#ffffff" : "#000000";
 
       const imgData = canvas.toDataURL("image/jpeg", 1.0);
 
-      // Prepare headings
       const h1TextRaw = (h1.value || "").trim().slice(0, 24);
       const h4TextRaw = (h4.value || "").trim().slice(0, 30);
-
       const headingHeight = (h1TextRaw || h4TextRaw) ? maxHeadingHeight : 0;
 
       const pageHeight = scaledHeight + headingHeight;
@@ -407,7 +422,22 @@ async function generatePDF() {
         }
       }
 
+      // Add image
       pdf.addImage(imgData, "JPEG", 0, headingHeight, fixedPageWidth, scaledHeight, undefined, "FAST");
+
+      // Draw visible clickable link on image (bottom right)
+      const linkFontSize = 10;
+      const linkY = headingHeight + scaledHeight - 10;
+      const linkX = fixedPageWidth - 10;
+
+      pdf.setTextColor(linkColor);
+      pdf.setFontSize(linkFontSize);
+      pdf.setFont("helvetica", "normal");
+
+      pdf.textWithLink(linkText, linkX, linkY, {
+        url: linkText,
+        align: "right"
+      });
     }
 
     pdf.save("HD_Images.pdf");
